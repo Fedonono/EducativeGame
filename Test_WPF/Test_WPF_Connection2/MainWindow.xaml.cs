@@ -42,5 +42,10 @@ namespace Test_WPF_Connection2
             }
             this.comboBoxBirth.SelectedItem = this.comboBoxBirth.Items.GetItemAt(0);
         }
+
+        private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

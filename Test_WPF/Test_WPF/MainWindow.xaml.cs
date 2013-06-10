@@ -33,5 +33,10 @@ namespace Test_WPF
         {
             this.Close();
         }
+
+        private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

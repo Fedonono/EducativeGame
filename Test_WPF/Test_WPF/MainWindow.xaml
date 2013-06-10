@@ -44,5 +44,6 @@
         <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="179,300,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
         <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="204,386,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,20,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF_Connection2;component/Images/1370884871_delete_32.png" MouseLeftButtonDown="image1_MouseLeftButtonDown" Cursor="Hand" />
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF_Connection2;component/Images/1370892381_minimize.png" Cursor="Hand" MouseLeftButtonDown="image2_MouseLeftButtonDown" />
     </Grid>
 </Window>

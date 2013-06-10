@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Test_WPF_Connection2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="750" Width="1000" WindowStartupLocation="CenterScreen" Topmost="True" Loaded="Window_Loaded">
+        Title="MainWindow" Height="750" Width="1000" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Style>
         <Style TargetType="{x:Type Window}">
             <Setter Property="AllowsTransparency" Value="True" />
@@ -82,6 +82,7 @@
             </StackPanel>
         </Expander>
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,20,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF_Connection2;component/Images/1370884871_delete_32.png" MouseLeftButtonDown="image1_MouseLeftButtonDown" Cursor="Hand" />
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF_Connection2;component/Images/1370892381_minimize.png" MouseLeftButtonDown="image2_MouseLeftButtonDown" Cursor="Hand"/>
     </Grid>
 </Window>
 
