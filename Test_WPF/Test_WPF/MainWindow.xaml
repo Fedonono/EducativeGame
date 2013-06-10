@@ -13,7 +13,7 @@
                         <Grid>
                             <Rectangle Fill="{TemplateBinding Background}" 
                                  Stroke="{TemplateBinding BorderBrush}" 
-                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="50" RadiusY="50" MouseDown="Rectangle_MouseDown_1"
+                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="20" RadiusY="20" MouseDown="Rectangle_MouseDown_1"
                                        Width="450" Height="485">
                                 <Rectangle.Effect>
                                     <DropShadowEffect BlurRadius="5" ShadowDepth="6" RenderingBias="Quality" />
@@ -42,5 +42,6 @@
         <Label Content="EducationAll" FontFamily="Palatino Linotype" FontSize="48" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Left" Margin="78,17,0,0" Name="label1" VerticalAlignment="Top" Width="Auto" />
         <Label Content="Logiciel éducatif ludique" Height="34" HorizontalAlignment="Left" Margin="26,210,0,0" Name="label2" VerticalAlignment="Top" FontSize="18" />
         <Label Content="De la maternelle à 77 ans" Height="28" HorizontalAlignment="Left" Margin="26,260,0,0" Name="label3" VerticalAlignment="Top" FontSize="15" />
+        <Image Height="28" HorizontalAlignment="Left" Margin="419,17,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF_Connection2;component/Images/1370884871_delete_32.png" Cursor="Hand" MouseLeftButtonDown="image1_MouseLeftButtonDown" />
     </Grid>
 </Window>

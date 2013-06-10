@@ -28,5 +28,10 @@ namespace Test_WPF
         {
             this.DragMove();
         }
+
+        private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
