@@ -37,15 +37,15 @@ namespace Test_WPF
             this.Close();
         }
 
+        private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.currentUIElement = new LoadControl();
             this.contentGrid.Children.Add(this.currentUIElement);
-        }
-
-        private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
         }
 
         private void contentGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -54,8 +54,24 @@ namespace Test_WPF
             {
                 this.contentGrid.Children.Remove(this.currentUIElement);
                 this.currentUIElement = new ConnexionControl();
+                ConnexionControl cc = this.currentUIElement as ConnexionControl;
+                
                 this.contentGrid.Children.Add(this.currentUIElement);
             }
+        }
+
+        private void defaultBackground()
+        {
+            LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush();
+            myLinearGradientBrush.StartPoint = new Point(0, 0);
+            myLinearGradientBrush.EndPoint = new Point(1, 1);
+            myLinearGradientBrush.GradientStops.Add(
+                new GradientStop(Color.FromRgb(254, 255, 211), 0.0));
+            myLinearGradientBrush.GradientStops.Add(
+                new GradientStop(Color.FromRgb(254, 243, 179), 0.4));
+            myLinearGradientBrush.GradientStops.Add(
+                new GradientStop(Color.FromRgb(255, 236, 167), 0.7));
+            this.Background = myLinearGradientBrush;
         }
     }
 }

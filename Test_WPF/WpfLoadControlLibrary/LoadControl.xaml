@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
-        <Rectangle Width="1000" Height="650" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#00FF8D0D" Margin="0,100,0,0" />
+        <Rectangle Width="1000" Height="590" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#00FF8D0D" Margin="0,100,0,0" />
         <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="179,300,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
         <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="204,386,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" />
         <Label Content="Cliquez pour démarrer" Height="Auto" HorizontalAlignment="Left" Margin="204,450

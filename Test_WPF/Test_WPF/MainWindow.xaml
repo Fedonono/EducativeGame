@@ -26,11 +26,11 @@
             </Setter>
         </Style>
     </Window.Style>
-    <Window.Background>
-        <!--<LinearGradientBrush>
-            <GradientStop Color="#FFF2F2F2" Offset="0.0" />
-            <GradientStop Color="#FF9D9D9D" Offset="0.9" />
-            <GradientStop Color="#FF797979" Offset="1.0" />
+    <Window.Background><!--
+        <LinearGradientBrush>
+            <GradientStop Color="#feffd3" Offset="0.0" />
+            <GradientStop Color="#fef3b3" Offset="0.4" />
+            <GradientStop Color="#ffeca7" Offset="0.7" />
         </LinearGradientBrush>
         -->
         <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Ubuntu_wp_b_3_1600.jpg"></ImageBrush>
@@ -47,6 +47,7 @@
                 <Label Content="Maxence Prevost" Height="auto" HorizontalAlignment="Left" Name="label10" VerticalAlignment="Top" />
                 <Label Content="Eric Allard" Height="auto" HorizontalAlignment="Left" Name="label11" VerticalAlignment="Top" />
                 <Label Content="ISEN Lille" Height="auto" HorizontalAlignment="Left" Name="label15" VerticalAlignment="Top" />
+                <Label Content="www.iconpharm.com" Height="auto" HorizontalAlignment="Left" Name="label16" VerticalAlignment="Top" />
             </StackPanel>
         </Expander>
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370915781_close.png" MouseLeftButtonDown="image1_MouseLeftButtonDown" Cursor="Hand" />
