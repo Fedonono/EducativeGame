@@ -108,13 +108,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\La_Joconde_yellow_by_alkore31.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Ubuntu_wp_b_3_1600.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\1370884871_delete_32.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1370892381_minimize.png" />
@@ -150,6 +144,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1370915781_close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
