@@ -7,11 +7,11 @@ using System.Windows;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Test_WPF")]
+[assembly: AssemblyTitle("WpfLoadControlLibrary")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("isen")]
-[assembly: AssemblyProduct("Test_WPF")]
+[assembly: AssemblyProduct("WpfLoadControlLibrary")]
 [assembly: AssemblyCopyright("Copyright © isen 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

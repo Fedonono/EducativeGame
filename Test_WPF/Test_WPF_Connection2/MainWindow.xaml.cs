@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfControlLibrary1;
+using WpfLoadControlLibrary;
 
 namespace Test_WPF_Connection2
 {
@@ -19,6 +21,7 @@ namespace Test_WPF_Connection2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private UIElement currentUIElement;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,16 +39,23 @@ namespace Test_WPF_Connection2
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 2012; i > 1930; i--)
-            {
-                this.comboBoxBirth.Items.Add(i);
-            }
-            this.comboBoxBirth.SelectedItem = this.comboBoxBirth.Items.GetItemAt(0);
+            this.currentUIElement = new LoadControl();
+            this.contentGrid.Children.Add(this.currentUIElement);
         }
 
         private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void contentGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (this.currentUIElement is LoadControl)
+            {
+                this.contentGrid.Children.Remove(this.currentUIElement);
+                this.currentUIElement = new ConnexionControl();
+                this.contentGrid.Children.Add(this.currentUIElement);
+            }
         }
     }
 }

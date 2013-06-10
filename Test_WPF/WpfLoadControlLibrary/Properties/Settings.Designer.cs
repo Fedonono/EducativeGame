@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_WPF.Properties
+namespace WpfLoadControlLibrary.Properties
 {
 
 
