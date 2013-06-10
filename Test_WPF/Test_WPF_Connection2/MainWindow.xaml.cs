@@ -29,14 +29,18 @@ namespace Test_WPF_Connection2
             this.DragMove();
         }
 
-        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-
-        }
-
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 2012; i > 1930; i--)
+            {
+                this.comboBoxBirth.Items.Add(i);
+            }
+            this.comboBoxBirth.SelectedItem = this.comboBoxBirth.Items.GetItemAt(0);
         }
     }
 }
