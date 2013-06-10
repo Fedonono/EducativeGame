@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace Test_WPF_Connection2
+namespace Test_WPF
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml

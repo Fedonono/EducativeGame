@@ -11,10 +11,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfControlLibrary1;
+using WpfConnexionControlLibrary;
 using WpfLoadControlLibrary;
 
-namespace Test_WPF_Connection2
+namespace Test_WPF
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml

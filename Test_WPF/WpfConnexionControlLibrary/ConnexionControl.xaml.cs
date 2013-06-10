@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfControlLibrary1
+namespace WpfConnexionControlLibrary
 {
     /// <summary>
     /// Logique d'interaction pour UserControl1.xaml

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_WPF", "Test_WPF_Connection2\Test_WPF.csproj", "{E7356AB3-D68B-4548-AEF4-95F1BDDA31FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_WPF", "Test_WPF\Test_WPF.csproj", "{E7356AB3-D68B-4548-AEF4-95F1BDDA31FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfConnexionControlLibrary", "WpfControlLibrary1\WpfConnexionControlLibrary.csproj", "{7A448E48-9429-4A30-A5FC-73F46EF640AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfConnexionControlLibrary", "WpfConnexionControlLibrary\WpfConnexionControlLibrary.csproj", "{7A448E48-9429-4A30-A5FC-73F46EF640AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLoadControlLibrary", "WpfLoadControlLibrary\WpfLoadControlLibrary.csproj", "{85653BFE-24B1-4487-B972-ABC81533C58C}"
 EndProject
