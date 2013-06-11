@@ -32,5 +32,15 @@ namespace Test_WPF
             }
             this.comboBoxBirth.SelectedItem = this.comboBoxBirth.Items.GetItemAt(0);
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            App.mainWindow.connexionControlClicked(sender,e ,true);
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            App.mainWindow.connexionControlClicked(sender, e, false);
+        }
     }
 }

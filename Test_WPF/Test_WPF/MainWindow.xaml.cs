@@ -44,19 +44,47 @@ namespace Test_WPF
         {
             this.currentUIElement = new LoadControl();
             this.contentGrid.Children.Add(this.currentUIElement);
-            //this.setToMainWindow();
         }
 
-        private void contentGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        /// <summary>
+        /// Affiche le menu de connexion après avoir cliqué sur l'image d'accueil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void loadControlClicked(object sender, MouseButtonEventArgs e)
         {
             if (this.currentUIElement is LoadControl)
             {
                 this.contentGrid.Children.Remove(this.currentUIElement);
-                this.currentUIElement = new ConnexionControl();
-                ConnexionControl cc = this.currentUIElement as ConnexionControl;
-                
-                this.contentGrid.Children.Add(this.currentUIElement);
             }
+            else
+            {
+                this.contentGrid.Children.Clear();
+            }
+            this.currentUIElement = new ConnexionControl();
+            this.contentGrid.Children.Add(this.currentUIElement);
+        }
+
+        /// <summary>
+        /// Affiche le menu principal après avoir été connecté
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void connexionControlClicked(object sender, RoutedEventArgs e, bool connexion)
+        {
+            if (this.currentUIElement is ConnexionControl)
+            {
+                this.contentGrid.Children.Remove(this.currentUIElement);
+            }
+            else
+            {
+                this.contentGrid.Children.Clear();
+            }
+            this.setToMainWindow();
+            this.currentUIElement = new MainMenu();
+            this.contentGrid.Children.Add(this.currentUIElement);
+            WelcomeDialog wd = new WelcomeDialog(connexion);
+            wd.Show();
         }
 
         /// <summary>

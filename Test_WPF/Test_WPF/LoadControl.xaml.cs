@@ -23,5 +23,17 @@ namespace Test_WPF
         {
             InitializeComponent();
         }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.lawsLabel.Content = "Ce programme est protégé par les lois \n" +
+                "françaises et internationales comme \n" +
+                "indiqué dans la fenêtre À propos.";
+        }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.mainWindow.loadControlClicked(sender,e);
+        }
     }
 }

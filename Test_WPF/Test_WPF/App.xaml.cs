@@ -12,5 +12,16 @@ namespace Test_WPF
     /// </summary>
     public partial class App : Application
     {
+        public static MainWindow mainWindow;
+
+        public void app_Startup(object sender, StartupEventArgs e)
+        {
+            // Create a window
+            mainWindow = new MainWindow();
+            this.MainWindow = mainWindow;
+
+            // Open a window
+            this.MainWindow.Show();
+        }
     }
 }
