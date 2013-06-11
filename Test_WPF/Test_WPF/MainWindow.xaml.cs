@@ -137,5 +137,10 @@ namespace Test_WPF
             this.currentUIElement = new Additions1_ce1();
             this.contentGrid.Children.Add(this.currentUIElement);
         }
+
+        private void image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //fenetre about
+        }
     }
 }

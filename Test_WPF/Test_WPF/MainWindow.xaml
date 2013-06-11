@@ -41,6 +41,7 @@
         
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370915781_close.png" MouseLeftButtonDown="image1_MouseLeftButtonDown" Cursor="Hand" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370892381_minimize.png" MouseLeftButtonDown="image2_MouseLeftButtonDown" Cursor="Hand"/>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,95,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/about-32.png" Cursor="Hand" MouseLeftButtonDown="image3_MouseLeftButtonDown" />
 
         <Grid Name="contentGrid" Height="750" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Grid>
