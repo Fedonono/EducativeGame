@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Test_WPF.Games;
 
 namespace Test_WPF
 {
@@ -32,7 +33,7 @@ namespace Test_WPF
 
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -84,7 +85,8 @@ namespace Test_WPF
             this.currentUIElement = new MainMenu();
             this.contentGrid.Children.Add(this.currentUIElement);
             WelcomeDialog wd = new WelcomeDialog(connexion);
-            wd.Show();
+            wd.Owner = this;
+            wd.ShowDialog();
         }
 
         /// <summary>
@@ -110,6 +112,30 @@ namespace Test_WPF
             myLinearGradientBrush.GradientStops.Add(
                 new GradientStop(Color.FromRgb(255, 236, 167), 0.7));
             this.Background = myLinearGradientBrush;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+
+        }
+
+        public void testJeuCalculCe1(object sender, RoutedEventArgs e)
+        {
+            if (this.currentUIElement is MainMenu)
+            {
+                this.contentGrid.Children.Remove(this.currentUIElement);
+            }
+            else
+            {
+                this.contentGrid.Children.Clear();
+            }
+            this.currentUIElement = new Additions1_ce1();
+            this.contentGrid.Children.Add(this.currentUIElement);
         }
     }
 }

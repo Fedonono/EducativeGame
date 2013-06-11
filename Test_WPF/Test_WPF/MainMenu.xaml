@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
-            
+        <Label Content="Menu principal" Height="Auto" HorizontalAlignment="Left" Margin="108,76,0,0" Name="label1" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Button Content="Test jeu calcul ce1" Height="Auto" HorizontalAlignment="Left" Margin="232,175,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
     </Grid>
 </UserControl>

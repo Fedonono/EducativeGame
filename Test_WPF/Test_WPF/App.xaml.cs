@@ -13,11 +13,14 @@ namespace Test_WPF
     public partial class App : Application
     {
         public static MainWindow mainWindow;
+        public static Games.TestGames testGames;
 
         public void app_Startup(object sender, StartupEventArgs e)
         {
             // Create a window
             mainWindow = new MainWindow();
+            testGames = new Games.TestGames();
+            //this.MainWindow = testGames;
             this.MainWindow = mainWindow;
 
             // Open a window

@@ -23,5 +23,10 @@ namespace Test_WPF
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            App.mainWindow.testJeuCalculCe1(sender, e);
+        }
     }
 }
