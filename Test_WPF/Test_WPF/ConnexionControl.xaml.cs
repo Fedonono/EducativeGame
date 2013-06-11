@@ -12,10 +12,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfConnexionControlLibrary
+namespace Test_WPF
 {
     /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
+    /// Logique d'interaction pour ConnexionControl.xaml
     /// </summary>
     public partial class ConnexionControl : UserControl
     {

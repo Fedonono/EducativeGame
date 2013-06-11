@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_WPF", "Test_WPF\Test_WPF.csproj", "{E7356AB3-D68B-4548-AEF4-95F1BDDA31FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfConnexionControlLibrary", "WpfConnexionControlLibrary\WpfConnexionControlLibrary.csproj", "{7A448E48-9429-4A30-A5FC-73F46EF640AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLoadControlLibrary", "WpfLoadControlLibrary\WpfLoadControlLibrary.csproj", "{85653BFE-24B1-4487-B972-ABC81533C58C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,26 +23,6 @@ Global
 		{E7356AB3-D68B-4548-AEF4-95F1BDDA31FD}.Release|Mixed Platforms.Build.0 = Release|x86
 		{E7356AB3-D68B-4548-AEF4-95F1BDDA31FD}.Release|x86.ActiveCfg = Release|x86
 		{E7356AB3-D68B-4548-AEF4-95F1BDDA31FD}.Release|x86.Build.0 = Release|x86
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7A448E48-9429-4A30-A5FC-73F46EF640AF}.Release|x86.ActiveCfg = Release|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{85653BFE-24B1-4487-B972-ABC81533C58C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

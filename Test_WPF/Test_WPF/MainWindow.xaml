@@ -37,7 +37,7 @@
         
     </Window.Background>
     <Grid Name="mainGrid" Height="750" Width="1000">
-        <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="label1" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
         
         <Expander Header="Copyright Sharpentier 2013" Height="Auto" HorizontalAlignment="Right" Margin="0,0,30,30" Name="expander1" VerticalAlignment="Bottom" ExpandDirection="Up" Width="181">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,0">

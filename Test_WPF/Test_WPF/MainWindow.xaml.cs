@@ -11,8 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfConnexionControlLibrary;
-using WpfLoadControlLibrary;
 
 namespace Test_WPF
 {
@@ -46,6 +44,7 @@ namespace Test_WPF
         {
             this.currentUIElement = new LoadControl();
             this.contentGrid.Children.Add(this.currentUIElement);
+            //this.setToMainWindow();
         }
 
         private void contentGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -58,6 +57,17 @@ namespace Test_WPF
                 
                 this.contentGrid.Children.Add(this.currentUIElement);
             }
+        }
+
+        /// <summary>
+        /// Transforme la fenetre pour obtenir le thème du menu principal
+        /// </summary>
+        private void setToMainWindow()
+        {
+            this.defaultBackground();
+            this.programName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            this.programName.FontSize = 30;
+            this.programName.Margin = new Thickness(20, 10, 0, 0);
         }
 
         private void defaultBackground()

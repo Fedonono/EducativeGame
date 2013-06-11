@@ -70,6 +70,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ConnexionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CourseInformations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +93,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConnexionControl.xaml.cs">
+      <DependentUpon>ConnexionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseInformations.xaml.cs">
+      <DependentUpon>CourseInformations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadControl.xaml.cs">
+      <DependentUpon>LoadControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -112,16 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1370892381_minimize.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WpfConnexionControlLibrary\WpfConnexionControlLibrary.csproj">
-      <Project>{7A448E48-9429-4A30-A5FC-73F46EF640AF}</Project>
-      <Name>WpfConnexionControlLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WpfLoadControlLibrary\WpfLoadControlLibrary.csproj">
-      <Project>{85653BFE-24B1-4487-B972-ABC81533C58C}</Project>
-      <Name>WpfLoadControlLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
