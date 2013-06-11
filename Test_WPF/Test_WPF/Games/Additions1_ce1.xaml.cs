@@ -104,7 +104,7 @@ namespace Test_WPF.Games
 
         void timer_Elapsed(object sender, EventArgs e)
         {
-            this.timerLabel2.Content = ++this.time;
+            this.timerLabel2.Content = ++this.time + "s";
         }
 
         private void nextCalcul()
@@ -192,7 +192,7 @@ namespace Test_WPF.Games
 
             this.score += bonus;
             this.scoreLabel2.Content = this.score;
-            this.vitesseLabel.Content = "Ta vitesse te fait rapporter " + bonus + " points supplémentaires.";
+            this.vitesseLabel.Content = "Ta vitesse te fais rapporter " + bonus + " points supplémentaires.";
         }
 
         private void response_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

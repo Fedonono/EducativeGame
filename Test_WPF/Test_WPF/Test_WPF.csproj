@@ -187,7 +187,75 @@
   <ItemGroup>
     <Resource Include="Images\1370915781_close.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\_New_friends__by_ilona.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Butterfly_by_ilona.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\catching_butterflies_by_lelpel-d2y1lbz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\don_quijote_by_firatsolhan-d57fzvo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dragon_Games_by_Lelpel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Education_by_mallardswoodspice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\education_by_petuie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Education_problems_by_SheepAlbinoBlack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\f2638c4126ad1dbe0c036685fa1199aa-d52ca98.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fun_Run_by_Lelpel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hm__elephants_by_ilona.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Lily_in_Oz_by_Lelpel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\no_education__by_tepasuka.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\paper_wings_by_nerdus-d5w0tah.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\penquins_request_by_ilona.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Rainy_days_and_Mondays_by_Lelpel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Snow_Day_by_Lelpel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Space_Monkey_by_intergalacticvoo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Television_Education_by_intergalacticvoo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\the_forest_of_houjie_by_geminisleviatan-d63q0f4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\who_sunk_the_boat_by_lelpel-d2y53hc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wind_by_ilona.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
