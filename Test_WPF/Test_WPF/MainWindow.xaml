@@ -13,7 +13,7 @@
                         <Grid>
                             <Rectangle Fill="{TemplateBinding Background}" 
                                  Stroke="{TemplateBinding BorderBrush}" 
-                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="20" RadiusY="20"
+                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="10" RadiusY="10"
                                        Width="990" Height="740" MouseDown="Rectangle_MouseDown">
                                 <Rectangle.Effect>
                                     <DropShadowEffect BlurRadius="5" ShadowDepth="6" RenderingBias="Quality" />
@@ -27,12 +27,15 @@
         </Style>
     </Window.Style>
     <Window.Background><!--
-        <LinearGradientBrush>
+        <LinearGradientBrush SpreadMethod="Reflect">
             <GradientStop Color="#FFD4E7FF" Offset="0.0" />
-            <GradientStop Color="#FFC7E4FF" Offset="0.4" />
-            <GradientStop Color="#FFEFFFFF" Offset="0.7" />
-        </LinearGradientBrush>
-        -->
+            <GradientStop Color="#FFC7E4FF" Offset="0.1" />
+            <GradientStop Color="#FFEFFFFF" Offset="0.2" />
+            <GradientStop Color="#FFC7E4FF" Offset="0.3" />
+            <GradientStop Color="#FFC7E4FF" Offset="0.7" />
+            <GradientStop Color="#FFEFFFFF" Offset="0.9" />
+        </LinearGradientBrush>-->
+        
         <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Education_problems_by_SheepAlbinoBlack.jpg"></ImageBrush>
         
     </Window.Background>

@@ -13,7 +13,7 @@
                         <Grid>
                             <Rectangle Fill="{TemplateBinding Background}" 
                                  Stroke="{TemplateBinding BorderBrush}" 
-                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="20" RadiusY="20"
+                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="10" RadiusY="10"
                                        Width="790" Height="590">
                                 <Rectangle.Effect>
                                     <DropShadowEffect BlurRadius="5" ShadowDepth="6" RenderingBias="Quality" />
