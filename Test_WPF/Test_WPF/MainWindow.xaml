@@ -28,9 +28,9 @@
     </Window.Style>
     <Window.Background><!--
         <LinearGradientBrush>
-            <GradientStop Color="#feffd3" Offset="0.0" />
-            <GradientStop Color="#fef3b3" Offset="0.4" />
-            <GradientStop Color="#ffeca7" Offset="0.7" />
+            <GradientStop Color="#FFD4E7FF" Offset="0.0" />
+            <GradientStop Color="#FFC7E4FF" Offset="0.4" />
+            <GradientStop Color="#FFEFFFFF" Offset="0.7" />
         </LinearGradientBrush>
         -->
         <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Education_problems_by_SheepAlbinoBlack.jpg"></ImageBrush>

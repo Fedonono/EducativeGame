@@ -7,10 +7,9 @@
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Loaded="Grid_Loaded">
         <Rectangle Width="1000" Height="590" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#00FF8D0D" Margin="0,100,0,0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
-        <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="179,300,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
-        <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="204,386,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" />
-        <Label Content="Cliquez pour démarrer" Height="Auto" HorizontalAlignment="Left" Margin="204,450
-               ,0,0" Name="label4" VerticalAlignment="Top" FontSize="22" />
+        <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="218,346,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
+        <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="258,414,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" />
+        <Label Content="Cliquez pour démarrer" Height="Auto" HorizontalAlignment="Left" Margin="250,477,0,0" Name="label4" VerticalAlignment="Top" FontSize="22" />
         <Label Content="" Height="auto" HorizontalAlignment="Right" Margin="0,0,230,30" Name="lawsLabel" VerticalAlignment="Bottom" />
         
         <Expander Header="Copyright Sharpentier 2013" Height="Auto" HorizontalAlignment="Right" Margin="0,0,30,30" Name="expander1" VerticalAlignment="Bottom" ExpandDirection="Up" Width="181">

@@ -92,11 +92,11 @@ namespace Test_WPF
             myLinearGradientBrush.StartPoint = new Point(0, 0);
             myLinearGradientBrush.EndPoint = new Point(1, 1);
             myLinearGradientBrush.GradientStops.Add(
-                new GradientStop(Color.FromRgb(254, 255, 211), 0.0));
+                new GradientStop(Color.FromRgb(231, 255, 255), 0.0));
             myLinearGradientBrush.GradientStops.Add(
-                new GradientStop(Color.FromRgb(254, 243, 179), 0.4));
+                new GradientStop(Color.FromRgb(228, 255, 255), 0.4));
             myLinearGradientBrush.GradientStops.Add(
-                new GradientStop(Color.FromRgb(255, 236, 167), 0.7));
+                new GradientStop(Color.FromRgb(239, 255, 255), 0.7));
             this.Background = myLinearGradientBrush;
         }
 
