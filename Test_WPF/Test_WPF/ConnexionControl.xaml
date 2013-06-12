@@ -47,7 +47,6 @@
                 <Label Content="Maxence Prevost" Height="auto" HorizontalAlignment="Left" Name="label10" VerticalAlignment="Top" />
                 <Label Content="Eric Allard" Height="auto" HorizontalAlignment="Left" Name="label11" VerticalAlignment="Top" />
                 <Label Content="ISEN Lille" Height="auto" HorizontalAlignment="Left" Name="label15" VerticalAlignment="Top" />
-                <Label Content="www.iconpharm.com" Height="auto" HorizontalAlignment="Left" Name="label19" VerticalAlignment="Top" />
             </StackPanel>
         </Expander>
     </Grid>

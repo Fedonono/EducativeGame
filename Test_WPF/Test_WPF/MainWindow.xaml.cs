@@ -54,14 +54,7 @@ namespace Test_WPF
         /// <param name="e"></param>
         public void loadControlClicked(object sender, MouseButtonEventArgs e)
         {
-            if (this.currentUIElement is LoadControl)
-            {
-                this.contentGrid.Children.Remove(this.currentUIElement);
-            }
-            else
-            {
-                this.contentGrid.Children.Clear();
-            }
+            this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new ConnexionControl();
             this.contentGrid.Children.Add(this.currentUIElement);
         }
@@ -73,14 +66,7 @@ namespace Test_WPF
         /// <param name="e"></param>
         public void connexionControlClicked(object sender, RoutedEventArgs e, bool connexion)
         {
-            if (this.currentUIElement is ConnexionControl)
-            {
-                this.contentGrid.Children.Remove(this.currentUIElement);
-            }
-            else
-            {
-                this.contentGrid.Children.Clear();
-            }
+            this.contentGrid.Children.Remove(this.currentUIElement);
             this.setToMainWindow();
             this.currentUIElement = new MainMenu();
             this.contentGrid.Children.Add(this.currentUIElement);
@@ -126,21 +112,16 @@ namespace Test_WPF
 
         public void testJeuCalculCe1(object sender, RoutedEventArgs e)
         {
-            if (this.currentUIElement is MainMenu)
-            {
-                this.contentGrid.Children.Remove(this.currentUIElement);
-            }
-            else
-            {
-                this.contentGrid.Children.Clear();
-            }
+            this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new Additions1_ce1();
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 
         private void image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //fenetre about
+            AboutDialog wd = new AboutDialog();
+            wd.Owner = this;
+            wd.ShowDialog();
         }
     }
 }

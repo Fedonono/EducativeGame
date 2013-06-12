@@ -33,7 +33,7 @@
             <GradientStop Color="#ffeca7" Offset="0.7" />
         </LinearGradientBrush>
         -->
-        <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Ubuntu_wp_b_3_1600.jpg"></ImageBrush>
+        <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Education_problems_by_SheepAlbinoBlack.jpg"></ImageBrush>
         
     </Window.Background>
     <Grid Name="mainGrid" Height="750" Width="1000">
