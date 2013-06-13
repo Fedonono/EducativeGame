@@ -42,5 +42,13 @@ namespace Test_WPF
         {
             App.mainWindow.connexionControlClicked(sender, e, false);
         }
+
+        private void registerUser()
+        {
+            string passhash = Bdd.SHA1(this.passwordBoxInscr.Password);
+            Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, idGrade = 1, idRank = 1 };
+            Bdd._db.AddToUsers(u);
+            Bdd._db.SaveChanges();
+        }
     }
 }
