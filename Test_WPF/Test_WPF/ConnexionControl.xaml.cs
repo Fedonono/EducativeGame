@@ -41,12 +41,14 @@ namespace Test_WPF
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             App.mainWindow.connexionControlClicked(sender, e, false);
+            this.registerUser();
         }
 
         private void registerUser()
         {
             string passhash = Bdd.SHA1(this.passwordBoxInscr.Password);
-            Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, idGrade = 1, idRank = 1 };
+            Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, idGrade = 2, idRank = 1 };
+            
             Bdd._db.AddToUsers(u);
             Bdd._db.SaveChanges();
         }
