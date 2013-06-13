@@ -76,20 +76,21 @@
     <Compile Include="AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bdd.cs" />
     <Compile Include="BoxUserInfo.xaml.cs">
       <DependentUpon>BoxUserInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Datas\EducationAll.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EducationAll.edmx</DependentUpon>
-    </Compile>
+<<<<<<< HEAD
     <Compile Include="DefiButton.xaml.cs">
       <DependentUpon>DefiButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="DefiControl.xaml.cs">
       <DependentUpon>DefiControl.xaml</DependentUpon>
+=======
+    <Compile Include="Datas\EducationAll.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationAll.edmx</DependentUpon>
+>>>>>>> 48821a167d99bd583756283bc041195e82533ed5
     </Compile>
     <Compile Include="Games\Additions1_ce1.xaml.cs">
       <DependentUpon>Additions1_ce1.xaml</DependentUpon>
@@ -117,12 +118,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DefiButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DefiControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Games\Additions1_ce1.xaml">
       <SubType>Designer</SubType>
@@ -187,11 +188,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.Config" />
     <EntityDeploy Include="Datas\EducationAll.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EducationAll.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -314,11 +315,11 @@
     <Resource Include="Images\path2985.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Datas\EducationAll.edmx.sql" />
+<<<<<<< HEAD
     <Resource Include="Images\path879.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+=======
+    <Content Include="Datas\EducationAll.edmx.sql" />
+>>>>>>> 48821a167d99bd583756283bc041195e82533ed5
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

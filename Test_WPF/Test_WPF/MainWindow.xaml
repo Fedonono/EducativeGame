@@ -26,7 +26,8 @@
             </Setter>
         </Style>
     </Window.Style>
-    <Window.Background><!--
+    <Window.Background>
+        <!--
         <LinearGradientBrush SpreadMethod="Reflect">
             <GradientStop Color="#FFD4E7FF" Offset="0.0" />
             <GradientStop Color="#FFC7E4FF" Offset="0.1" />
@@ -35,21 +36,20 @@
             <GradientStop Color="#FFC7E4FF" Offset="0.7" />
             <GradientStop Color="#FFEFFFFF" Offset="0.9" />
         </LinearGradientBrush>-->
-        
+
         <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Education_problems_by_SheepAlbinoBlack.jpg"></ImageBrush>
-        
+
     </Window.Background>
     <Grid Name="mainGrid" Height="750" Width="1000">
         <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
-        
+
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370915781_close.png" MouseLeftButtonDown="image1_MouseLeftButtonDown" Cursor="Hand" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370892381_minimize.png" MouseLeftButtonDown="image2_MouseLeftButtonDown" Cursor="Hand"/>
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,95,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/about-32.png" Cursor="Hand" MouseLeftButtonDown="image3_MouseLeftButtonDown" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,130,0" Name="image4" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/logout.png" Cursor="Hand" MouseLeftButtonDown="image4_MouseLeftButtonDown" Visibility="Hidden" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,165,0" Name="image5" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/user.png" Cursor="Hand" MouseLeftButtonDown="image5_MouseLeftButtonDown" Visibility="Hidden" />
         <Grid Name="contentGrid" Height="750" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <my:BoxUserInfo HorizontalAlignment="Left" Margin="722,68,0,0" x:Name="boxUserInfo1" VerticalAlignment="Top" Visibility="Hidden" />
-        
+
     </Grid>
 </Window>
 

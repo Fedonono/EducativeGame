@@ -86,7 +86,6 @@ namespace Test_WPF
             this.programName.Margin = new Thickness(20, 10, 0, 0);
             this.image4.Visibility = System.Windows.Visibility.Visible;
             this.image5.Visibility = System.Windows.Visibility.Visible;
-            this.boxUserInfo1.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void defaultBackground()
