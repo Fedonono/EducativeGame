@@ -153,5 +153,12 @@ namespace Test_WPF
             //wd.Owner = this;
             //wd.ShowDialog();
         }
+
+        public void launchGame(UIElement gamePanel)
+        {
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = gamePanel;
+            this.contentGrid.Children.Add(this.currentUIElement);
+        }
     }
 }
