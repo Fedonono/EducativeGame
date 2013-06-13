@@ -84,6 +84,9 @@ namespace Test_WPF
             this.programName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             this.programName.FontSize = 30;
             this.programName.Margin = new Thickness(20, 10, 0, 0);
+            this.image4.Visibility = System.Windows.Visibility.Visible;
+            this.image5.Visibility = System.Windows.Visibility.Visible;
+            this.boxUserInfo1.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void defaultBackground()
@@ -128,6 +131,20 @@ namespace Test_WPF
             AboutDialog wd = new AboutDialog();
             wd.Owner = this;
             wd.ShowDialog();
+        }
+
+        private void image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //AboutDialog wd = new AboutDialog();
+            //wd.Owner = this;
+            //wd.ShowDialog();
+        }
+
+        private void image5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //AboutDialog wd = new AboutDialog();
+            //wd.Owner = this;
+            //wd.ShowDialog();
         }
     }
 }
