@@ -38,6 +38,17 @@ namespace Test_WPF
 
         private void clickButton(object sender, EventArgs e)
         {
+            int id = (int)((Button)sender).Tag;
+            List<Datas.Game> gamesList = Bdd._db.Games.ToList();
+            this.gamesPanel.Children.Clear();
+            foreach (Datas.Game game in gamesList)
+            {
+                if (game.idCourse == id)
+                {
+                    Button bt = new Button() {Content = game.name , Tag = game.ID , Padding = new Thickness(25), Margin = new Thickness(10)};
+                    this.gamesPanel.Children.Add(bt);
+                }
+            }
             
         }
 

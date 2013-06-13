@@ -27,7 +27,7 @@
             <Rectangle Height="Auto" Name="rectangle2" Stroke="Black" Width="Auto" />
             <ScrollViewer></ScrollViewer>
         </Grid>
-        <WrapPanel Margin="46,454,289,57">
+        <WrapPanel Margin="46,454,289,57" Name="gamesPanel" >
             <Button Content="Test jeu calcul ce1" Height="Auto" Padding="25" HorizontalAlignment="Left" Margin="10" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
         </WrapPanel>
         <WrapPanel Margin="46,175,289,336" Name="coursesPanel">
