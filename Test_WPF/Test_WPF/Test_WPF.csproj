@@ -315,6 +315,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\path_category.png" />
+    <Resource Include="Images\path_game.png" />
     <Resource Include="Images\home.png" />
     <Resource Include="Images\path879.png" />
   </ItemGroup>
