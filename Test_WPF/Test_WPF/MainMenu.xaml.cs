@@ -19,7 +19,7 @@ namespace Test_WPF
     /// </summary>
     public partial class MainMenu : UserControl
     {
-        public MainMenu()
+         public MainMenu()
         {
             InitializeComponent();
         }
@@ -28,5 +28,29 @@ namespace Test_WPF
         {
             App.mainWindow.testJeuCalculCe1(sender, e);
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        private void clickButton(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<Datas.Course> coursesList = Bdd._db.Courses.ToList();
+            foreach (Datas.Course course in coursesList)
+            {
+                Button bt = new Button() {Content = course.name, Tag = course.ID, Padding = new Thickness(25), Margin = new Thickness(10)};
+                bt.Click += new RoutedEventHandler(clickButton);
+                this.coursesPanel.Children.Add(bt);
+            }
+        }
     }
 }
+
