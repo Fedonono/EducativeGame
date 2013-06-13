@@ -86,6 +86,7 @@ namespace Test_WPF
             this.programName.Margin = new Thickness(20, 10, 0, 0);
             this.image4.Visibility = System.Windows.Visibility.Visible;
             this.image5.Visibility = System.Windows.Visibility.Visible;
+            this.image6.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void defaultBackground()
@@ -130,6 +131,13 @@ namespace Test_WPF
             AboutDialog wd = new AboutDialog();
             wd.Owner = this;
             wd.ShowDialog();
+        }
+
+        private void image6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = new MainMenu();
+            this.contentGrid.Children.Add(this.currentUIElement);
         }
 
         private void image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
