@@ -67,7 +67,8 @@ namespace Test_WPF
             Datas.Game game = (Datas.Game)(((Button)sender).Tag);
             if (game.idQuestionary != null)
             {
-                App.mainWindow.launchGame(new QuestionaryControl(game.idQuestionary));
+                int id = (int)game.idQuestionary;
+                App.mainWindow.launchGame(new QuestionaryControl(id));
             }
         }
     }
