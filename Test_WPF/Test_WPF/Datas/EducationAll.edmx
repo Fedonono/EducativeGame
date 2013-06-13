@@ -5,300 +5,643 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="EducationAllModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="EducationAllModelStoreContainer">
-    <EntitySet Name="Asks" EntityType="EducationAllModel.Store.Asks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Choices" EntityType="EducationAllModel.Store.Choices" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Courses" EntityType="EducationAllModel.Store.Courses" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Duals" EntityType="EducationAllModel.Store.Duals" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Games" EntityType="EducationAllModel.Store.Games" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Grades" EntityType="EducationAllModel.Store.Grades" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Questionaries" EntityType="EducationAllModel.Store.Questionaries" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Ranks" EntityType="EducationAllModel.Store.Ranks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Scores" EntityType="EducationAllModel.Store.Scores" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Users" EntityType="EducationAllModel.Store.Users" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="Asks">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idQuestion" Type="int" Nullable="false" />
-    <Property Name="idQuestionary" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Choices">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idQuestion" Type="int" Nullable="false" />
-    <Property Name="choice1" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Courses">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Duals">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idChallenger" Type="int" Nullable="false" />
-    <Property Name="idChallenged" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Games">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="idCourse" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Grades">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Questionaries">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="idGame" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Ranks">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Scores">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idUser" Type="int" Nullable="false" />
-    <Property Name="idGame" Type="int" Nullable="false" />
-    <Property Name="value" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="32" />
-    <Property Name="mail" Type="nvarchar" Nullable="true" MaxLength="32" />
-    <Property Name="name" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="firstName" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="idGrade" Type="int" Nullable="false" />
-    <Property Name="birthdayYear" Type="int" Nullable="false" />
-    <Property Name="idRank" Type="int" Nullable="false" />
-  </EntityType>
-</Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="EducationAllModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="EducationAllEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Asks" EntityType="EducationAllModel.Ask" />
-          <EntitySet Name="Choices" EntityType="EducationAllModel.Choice" />
-          <EntitySet Name="Courses" EntityType="EducationAllModel.Course" />
-          <EntitySet Name="Duals" EntityType="EducationAllModel.Dual" />
-          <EntitySet Name="Games" EntityType="EducationAllModel.Game" />
-          <EntitySet Name="Grades" EntityType="EducationAllModel.Grade" />
-          <EntitySet Name="Questionaries" EntityType="EducationAllModel.Questionary" />
-          <EntitySet Name="Ranks" EntityType="EducationAllModel.Rank" />
-          <EntitySet Name="Scores" EntityType="EducationAllModel.Score" />
-          <EntitySet Name="Users" EntityType="EducationAllModel.User" />
+        <EntityContainer Name="EducationAllModelStoreContainer">
+          <EntitySet Name="Choice" EntityType="EducationAllModel.Store.Choice" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Course" EntityType="EducationAllModel.Store.Course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Dual" EntityType="EducationAllModel.Store.Dual" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Game" EntityType="EducationAllModel.Store.Game" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Grade" EntityType="EducationAllModel.Store.Grade" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="EducationAllModel.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Questionary" EntityType="EducationAllModel.Store.Questionary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rank" EntityType="EducationAllModel.Store.Rank" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Score" EntityType="EducationAllModel.Store.Score" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="EducationAllModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Choice_0" Association="EducationAllModel.Store.FK_Choice_0">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Choice" EntitySet="Choice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_0" Association="EducationAllModel.Store.FK_Dual_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Dual" EntitySet="Dual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_1" Association="EducationAllModel.Store.FK_Dual_1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Dual" EntitySet="Dual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_0" Association="EducationAllModel.Store.FK_Game_0">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_0" Association="EducationAllModel.Store.FK_Question_0">
+            <End Role="Questionary" EntitySet="Questionary" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Questionary_0" Association="EducationAllModel.Store.FK_Questionary_0">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Questionary" EntitySet="Questionary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_0" Association="EducationAllModel.Store.FK_Score_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_1" Association="EducationAllModel.Store.FK_Score_1">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_0" Association="EducationAllModel.Store.FK_User_0">
+            <End Role="Rank" EntitySet="Rank" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_1" Association="EducationAllModel.Store.FK_User_1">
+            <End Role="Grade" EntitySet="Grade" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Ask">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idQuestion" Type="Int32" Nullable="false" />
-          <Property Name="idQuestionary" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Choice">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idQuestion" Type="Int32" Nullable="false" />
-          <Property Name="choice1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idQuestion" Type="int" Nullable="false" />
+          <Property Name="choice" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Dual">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idChallenger" Type="Int32" Nullable="false" />
-          <Property Name="idChallenged" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idChallenger" Type="int" Nullable="false" />
+          <Property Name="idChallenged" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="idCourse" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="idCourse" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="answer" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="udQuestionary" Type="int" />
         </EntityType>
         <EntityType Name="Questionary">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="idGame" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="idGame" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Rank">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Score">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idUser" Type="Int32" Nullable="false" />
-          <Property Name="idGame" Type="Int32" Nullable="false" />
-          <Property Name="value" Type="Int32" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="idGame" Type="int" Nullable="false" />
+          <Property Name="value" Type="int" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="mail" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="firstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="idGrade" Type="Int32" Nullable="false" />
-          <Property Name="birthdayYear" Type="Int32" Nullable="false" />
-          <Property Name="idRank" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="mail" Type="nvarchar" MaxLength="32" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="idGrade" Type="int" Nullable="false" />
+          <Property Name="birthDate" Type="int" />
+          <Property Name="idRank" Type="int" Nullable="false" />
         </EntityType>
-      </Schema>
+        <Association Name="FK_Choice_0">
+          <End Role="Question" Type="EducationAllModel.Store.Question" Multiplicity="1" />
+          <End Role="Choice" Type="EducationAllModel.Store.Choice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Choice">
+              <PropertyRef Name="idQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_0">
+          <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="1" />
+          <End Role="Dual" Type="EducationAllModel.Store.Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idChallenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_1">
+          <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="1" />
+          <End Role="Dual" Type="EducationAllModel.Store.Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idChallenged" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Game_0">
+          <End Role="Course" Type="EducationAllModel.Store.Course" Multiplicity="1" />
+          <End Role="Game" Type="EducationAllModel.Store.Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="idCourse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_0">
+          <End Role="Questionary" Type="EducationAllModel.Store.Questionary" Multiplicity="0..1" />
+          <End Role="Question" Type="EducationAllModel.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questionary">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="udQuestionary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Questionary_0">
+          <End Role="Game" Type="EducationAllModel.Store.Game" Multiplicity="1" />
+          <End Role="Questionary" Type="EducationAllModel.Store.Questionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Questionary">
+              <PropertyRef Name="idGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_0">
+          <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="1" />
+          <End Role="Score" Type="EducationAllModel.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_1">
+          <End Role="Game" Type="EducationAllModel.Store.Game" Multiplicity="1" />
+          <End Role="Score" Type="EducationAllModel.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="idGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_0">
+          <End Role="Rank" Type="EducationAllModel.Store.Rank" Multiplicity="1" />
+          <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rank">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="idRank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_1">
+          <End Role="Grade" Type="EducationAllModel.Store.Grade" Multiplicity="1" />
+          <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="idGrade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EducationAllModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EducationAllEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Choices" EntityType="EducationAllModel.Choice" />
+          <EntitySet Name="Courses" EntityType="EducationAllModel.Course" />
+          <EntitySet Name="Duals" EntityType="EducationAllModel.Dual" />
+          <EntitySet Name="Games" EntityType="EducationAllModel.Game" />
+          <EntitySet Name="Grades" EntityType="EducationAllModel.Grade" />
+          <EntitySet Name="Questions" EntityType="EducationAllModel.Question" />
+          <EntitySet Name="Questionaries" EntityType="EducationAllModel.Questionary" />
+          <EntitySet Name="Ranks" EntityType="EducationAllModel.Rank" />
+          <EntitySet Name="Scores" EntityType="EducationAllModel.Score" />
+          <EntitySet Name="Users" EntityType="EducationAllModel.User" />
+          <AssociationSet Name="FK_Choice_0" Association="EducationAllModel.FK_Choice_0">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Choice" EntitySet="Choices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_0" Association="EducationAllModel.FK_Game_0">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Game" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_0" Association="EducationAllModel.FK_Dual_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Dual" EntitySet="Duals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_1" Association="EducationAllModel.FK_Dual_1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Dual" EntitySet="Duals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Questionary_0" Association="EducationAllModel.FK_Questionary_0">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="Questionary" EntitySet="Questionaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_1" Association="EducationAllModel.FK_Score_1">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="Score" EntitySet="Scores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_1" Association="EducationAllModel.FK_User_1">
+            <End Role="Grade" EntitySet="Grades" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_0" Association="EducationAllModel.FK_Question_0">
+            <End Role="Questionary" EntitySet="Questionaries" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_0" Association="EducationAllModel.FK_User_0">
+            <End Role="Rank" EntitySet="Ranks" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_0" Association="EducationAllModel.FK_Score_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Score" EntitySet="Scores" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Choice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idQuestion" Nullable="false" />
+          <Property Type="String" Name="choice1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Question" Relationship="EducationAllModel.FK_Choice_0" FromRole="Choice" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Games" Relationship="EducationAllModel.FK_Game_0" FromRole="Course" ToRole="Game" />
+        </EntityType>
+        <EntityType Name="Dual">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idChallenger" Nullable="false" />
+          <Property Type="Int32" Name="idChallenged" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="EducationAllModel.FK_Dual_0" FromRole="Dual" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="EducationAllModel.FK_Dual_1" FromRole="Dual" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idCourse" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="EducationAllModel.FK_Game_0" FromRole="Game" ToRole="Course" />
+          <NavigationProperty Name="Questionaries" Relationship="EducationAllModel.FK_Questionary_0" FromRole="Game" ToRole="Questionary" />
+          <NavigationProperty Name="Scores" Relationship="EducationAllModel.FK_Score_1" FromRole="Game" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="EducationAllModel.FK_User_1" FromRole="Grade" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="question1" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="answer" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="udQuestionary" />
+          <NavigationProperty Name="Choices" Relationship="EducationAllModel.FK_Choice_0" FromRole="Question" ToRole="Choice" />
+          <NavigationProperty Name="Questionary" Relationship="EducationAllModel.FK_Question_0" FromRole="Question" ToRole="Questionary" />
+        </EntityType>
+        <EntityType Name="Questionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idGame" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="EducationAllModel.FK_Questionary_0" FromRole="Questionary" ToRole="Game" />
+          <NavigationProperty Name="Questions" Relationship="EducationAllModel.FK_Question_0" FromRole="Questionary" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="EducationAllModel.FK_User_0" FromRole="Rank" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idUser" Nullable="false" />
+          <Property Type="Int32" Name="idGame" Nullable="false" />
+          <Property Type="Int32" Name="value" />
+          <NavigationProperty Name="Game" Relationship="EducationAllModel.FK_Score_1" FromRole="Score" ToRole="Game" />
+          <NavigationProperty Name="User" Relationship="EducationAllModel.FK_Score_0" FromRole="Score" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mail" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="firstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idGrade" Nullable="false" />
+          <Property Type="Int32" Name="birthDate" />
+          <Property Type="Int32" Name="idRank" Nullable="false" />
+          <NavigationProperty Name="Duals" Relationship="EducationAllModel.FK_Dual_0" FromRole="User" ToRole="Dual" />
+          <NavigationProperty Name="Duals1" Relationship="EducationAllModel.FK_Dual_1" FromRole="User" ToRole="Dual" />
+          <NavigationProperty Name="Grade" Relationship="EducationAllModel.FK_User_1" FromRole="User" ToRole="Grade" />
+          <NavigationProperty Name="Rank" Relationship="EducationAllModel.FK_User_0" FromRole="User" ToRole="Rank" />
+          <NavigationProperty Name="Scores" Relationship="EducationAllModel.FK_Score_0" FromRole="User" ToRole="Score" />
+        </EntityType>
+        <Association Name="FK_Choice_0">
+          <End Type="EducationAllModel.Question" Role="Question" Multiplicity="1" />
+          <End Type="EducationAllModel.Choice" Role="Choice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Choice">
+              <PropertyRef Name="idQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Game_0">
+          <End Type="EducationAllModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="EducationAllModel.Game" Role="Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="idCourse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_0">
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
+          <End Type="EducationAllModel.Dual" Role="Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idChallenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_1">
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
+          <End Type="EducationAllModel.Dual" Role="Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idChallenged" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Questionary_0">
+          <End Type="EducationAllModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="EducationAllModel.Questionary" Role="Questionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Questionary">
+              <PropertyRef Name="idGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_1">
+          <End Type="EducationAllModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="EducationAllModel.Score" Role="Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="idGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_1">
+          <End Type="EducationAllModel.Grade" Role="Grade" Multiplicity="1" />
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="idGrade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_0">
+          <End Type="EducationAllModel.Questionary" Role="Questionary" Multiplicity="0..1" />
+          <End Type="EducationAllModel.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questionary">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="udQuestionary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_0">
+          <End Type="EducationAllModel.Rank" Role="Rank" Multiplicity="1" />
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rank">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="idRank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_0">
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
+          <End Type="EducationAllModel.Score" Role="Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EducationAllModelStoreContainer" CdmEntityContainer="EducationAllEntities">
-    <EntitySetMapping Name="Asks">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Ask)">
-        <MappingFragment StoreEntitySet="Asks">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
-          <ScalarProperty Name="idQuestionary" ColumnName="idQuestionary" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Choices">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Choice)">
-        <MappingFragment StoreEntitySet="Choices">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
-          <ScalarProperty Name="choice1" ColumnName="choice1" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Course)">
-        <MappingFragment StoreEntitySet="Courses">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Duals">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Dual)">
-        <MappingFragment StoreEntitySet="Duals">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="idChallenger" ColumnName="idChallenger" />
-          <ScalarProperty Name="idChallenged" ColumnName="idChallenged" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Games">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Game)">
-        <MappingFragment StoreEntitySet="Games">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="idCourse" ColumnName="idCourse" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Grades">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Grade)">
-        <MappingFragment StoreEntitySet="Grades">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Questionaries">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Questionary)">
-        <MappingFragment StoreEntitySet="Questionaries">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="idGame" ColumnName="idGame" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Ranks">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Rank)">
-        <MappingFragment StoreEntitySet="Ranks">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Scores">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Score)">
-        <MappingFragment StoreEntitySet="Scores">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="idUser" ColumnName="idUser" />
-          <ScalarProperty Name="idGame" ColumnName="idGame" />
-          <ScalarProperty Name="value" ColumnName="value" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.User)">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="idGrade" ColumnName="idGrade" />
-          <ScalarProperty Name="birthdayYear" ColumnName="birthdayYear" />
-          <ScalarProperty Name="idRank" ColumnName="idRank" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
+          <EntitySetMapping Name="Choices">
+            <EntityTypeMapping TypeName="EducationAllModel.Choice">
+              <MappingFragment StoreEntitySet="Choice">
+                <ScalarProperty Name="choice1" ColumnName="choice" />
+                <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="EducationAllModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Duals">
+            <EntityTypeMapping TypeName="EducationAllModel.Dual">
+              <MappingFragment StoreEntitySet="Dual">
+                <ScalarProperty Name="idChallenged" ColumnName="idChallenged" />
+                <ScalarProperty Name="idChallenger" ColumnName="idChallenger" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="EducationAllModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="idCourse" ColumnName="idCourse" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="EducationAllModel.Grade">
+              <MappingFragment StoreEntitySet="Grade">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="EducationAllModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="udQuestionary" ColumnName="udQuestionary" />
+                <ScalarProperty Name="answer" ColumnName="answer" />
+                <ScalarProperty Name="question1" ColumnName="question" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questionaries">
+            <EntityTypeMapping TypeName="EducationAllModel.Questionary">
+              <MappingFragment StoreEntitySet="Questionary">
+                <ScalarProperty Name="idGame" ColumnName="idGame" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ranks">
+            <EntityTypeMapping TypeName="EducationAllModel.Rank">
+              <MappingFragment StoreEntitySet="Rank">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scores">
+            <EntityTypeMapping TypeName="EducationAllModel.Score">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="idGame" ColumnName="idGame" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EducationAllModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="idRank" ColumnName="idRank" />
+                <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+                <ScalarProperty Name="idGrade" ColumnName="idGrade" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
@@ -318,16 +661,64 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="EducationAll">
-        <EntityTypeShape EntityType="EducationAllModel.Ask" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Choice" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="0.75" PointY="3.75" Height="1.4033821614583322" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Dual" Width="1.5" PointX="2.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="4.75" PointY="3.75" Height="1.4033821614583322" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="2.75" PointY="6.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="6.75" PointY="3.75" Height="2.7494921875000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Choice" Width="1.5" PointX="9.75" PointY="8" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="0.75" PointY="8" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="EducationAllModel.Dual" Width="1.5" PointX="5.25" PointY="3.875" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="3" PointY="7.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="0.75" PointY="4" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="EducationAllModel.Question" Width="1.5" PointX="7.5" PointY="7.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="5.25" PointY="8" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="1" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="5.25" PointY="0.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="3" PointY="3" Height="3.7109993489583388" />
+        <AssociationConnector Association="EducationAllModel.FK_Choice_0" >
+          <ConnectorPoint PointX="9" PointY="8.8939925130208337" />
+          <ConnectorPoint PointX="9.75" PointY="8.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Game_0" >
+          <ConnectorPoint PointX="2.25" PointY="8.797841796874998" />
+          <ConnectorPoint PointX="3" PointY="8.797841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Dual_0" >
+          <ConnectorPoint PointX="4.5" PointY="4.8651432291666694" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="4.8651432291666685" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="4.8651432291666694" />
+          <ConnectorPoint PointX="5.25" PointY="4.8651432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Dual_1" >
+          <ConnectorPoint PointX="4.5" PointY="4.3075716145833347" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="4.3075716145833338" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="4.3075716145833347" />
+          <ConnectorPoint PointX="5.25" PointY="4.3075716145833347" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Questionary_0" >
+          <ConnectorPoint PointX="4.5" PointY="8.8939925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="8.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Score_1" >
+          <ConnectorPoint PointX="4.5" PointY="7.75" />
+          <ConnectorPoint PointX="4.875" PointY="7.375" />
+          <ConnectorPoint PointX="4.875" PointY="1.8362939453125051" />
+          <ConnectorPoint PointX="5.25" PointY="1.8362939453125051" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_User_1" >
+          <ConnectorPoint PointX="2.25" PointY="4.797841796874998" />
+          <ConnectorPoint PointX="3" PointY="4.797841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Question_0" >
+          <ConnectorPoint PointX="6.75" PointY="8.8939925130208337" />
+          <ConnectorPoint PointX="7.5" PointY="8.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_User_0" >
+          <ConnectorPoint PointX="2.25" PointY="1.797841796874998" />
+          <ConnectorPoint PointX="3.75" PointY="1.797841796874998" />
+          <ConnectorPoint PointX="3.75" PointY="3" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Score_0" >
+          <ConnectorPoint PointX="4.1562525" PointY="3" />
+          <ConnectorPoint PointX="4.1562525" PointY="1.273920898437499" />
+          <ConnectorPoint PointX="5.25" PointY="1.273920898437499" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>
