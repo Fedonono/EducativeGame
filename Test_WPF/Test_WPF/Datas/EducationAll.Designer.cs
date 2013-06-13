@@ -16,11 +16,6 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-#region Métadonnées de relation EDM
-
-[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_User_Difficulty", "Grade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Grade), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.User), true)]
-
-#endregion
 
 namespace Test_WPF.Datas
 {
@@ -73,6 +68,38 @@ namespace Test_WPF.Datas
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
+        public ObjectSet<Ask> Asks
+        {
+            get
+            {
+                if ((_Asks == null))
+                {
+                    _Asks = base.CreateObjectSet<Ask>("Asks");
+                }
+                return _Asks;
+            }
+        }
+        private ObjectSet<Ask> _Asks;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Choice> Choices
+        {
+            get
+            {
+                if ((_Choices == null))
+                {
+                    _Choices = base.CreateObjectSet<Choice>("Choices");
+                }
+                return _Choices;
+            }
+        }
+        private ObjectSet<Choice> _Choices;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
         public ObjectSet<Course> Courses
         {
             get
@@ -85,6 +112,22 @@ namespace Test_WPF.Datas
             }
         }
         private ObjectSet<Course> _Courses;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Dual> Duals
+        {
+            get
+            {
+                if ((_Duals == null))
+                {
+                    _Duals = base.CreateObjectSet<Dual>("Duals");
+                }
+                return _Duals;
+            }
+        }
+        private ObjectSet<Dual> _Duals;
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -117,6 +160,38 @@ namespace Test_WPF.Datas
             }
         }
         private ObjectSet<Grade> _Grades;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Questionary> Questionaries
+        {
+            get
+            {
+                if ((_Questionaries == null))
+                {
+                    _Questionaries = base.CreateObjectSet<Questionary>("Questionaries");
+                }
+                return _Questionaries;
+            }
+        }
+        private ObjectSet<Questionary> _Questionaries;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Rank> Ranks
+        {
+            get
+            {
+                if ((_Ranks == null))
+                {
+                    _Ranks = base.CreateObjectSet<Rank>("Ranks");
+                }
+                return _Ranks;
+            }
+        }
+        private ObjectSet<Rank> _Ranks;
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -154,11 +229,35 @@ namespace Test_WPF.Datas
         #region Méthodes AddTo
     
         /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Asks. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToAsks(Ask ask)
+        {
+            base.AddObject("Asks", ask);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Choices. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToChoices(Choice choice)
+        {
+            base.AddObject("Choices", choice);
+        }
+    
+        /// <summary>
         /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Courses. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
         /// </summary>
         public void AddToCourses(Course course)
         {
             base.AddObject("Courses", course);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Duals. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToDuals(Dual dual)
+        {
+            base.AddObject("Duals", dual);
         }
     
         /// <summary>
@@ -175,6 +274,22 @@ namespace Test_WPF.Datas
         public void AddToGrades(Grade grade)
         {
             base.AddObject("Grades", grade);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Questionaries. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToQuestionaries(Questionary questionary)
+        {
+            base.AddObject("Questionaries", questionary);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Ranks. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToRanks(Rank rank)
+        {
+            base.AddObject("Ranks", rank);
         }
     
         /// <summary>
@@ -200,6 +315,220 @@ namespace Test_WPF.Datas
     #endregion
     
     #region Entités
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Ask")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Ask : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Ask.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="idQuestion">Valeur initiale de la propriété idQuestion.</param>
+        /// <param name="idQuestionary">Valeur initiale de la propriété idQuestionary.</param>
+        public static Ask CreateAsk(global::System.Int32 id, global::System.Int32 idQuestion, global::System.Int32 idQuestionary)
+        {
+            Ask ask = new Ask();
+            ask.ID = id;
+            ask.idQuestion = idQuestion;
+            ask.idQuestionary = idQuestionary;
+            return ask;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idQuestion
+        {
+            get
+            {
+                return _idQuestion;
+            }
+            set
+            {
+                OnidQuestionChanging(value);
+                ReportPropertyChanging("idQuestion");
+                _idQuestion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idQuestion");
+                OnidQuestionChanged();
+            }
+        }
+        private global::System.Int32 _idQuestion;
+        partial void OnidQuestionChanging(global::System.Int32 value);
+        partial void OnidQuestionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idQuestionary
+        {
+            get
+            {
+                return _idQuestionary;
+            }
+            set
+            {
+                OnidQuestionaryChanging(value);
+                ReportPropertyChanging("idQuestionary");
+                _idQuestionary = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idQuestionary");
+                OnidQuestionaryChanged();
+            }
+        }
+        private global::System.Int32 _idQuestionary;
+        partial void OnidQuestionaryChanging(global::System.Int32 value);
+        partial void OnidQuestionaryChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Choice")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Choice : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Choice.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="idQuestion">Valeur initiale de la propriété idQuestion.</param>
+        /// <param name="choice1">Valeur initiale de la propriété choice1.</param>
+        public static Choice CreateChoice(global::System.Int32 id, global::System.Int32 idQuestion, global::System.String choice1)
+        {
+            Choice choice = new Choice();
+            choice.ID = id;
+            choice.idQuestion = idQuestion;
+            choice.choice1 = choice1;
+            return choice;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idQuestion
+        {
+            get
+            {
+                return _idQuestion;
+            }
+            set
+            {
+                OnidQuestionChanging(value);
+                ReportPropertyChanging("idQuestion");
+                _idQuestion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idQuestion");
+                OnidQuestionChanged();
+            }
+        }
+        private global::System.Int32 _idQuestion;
+        partial void OnidQuestionChanging(global::System.Int32 value);
+        partial void OnidQuestionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String choice1
+        {
+            get
+            {
+                return _choice1;
+            }
+            set
+            {
+                Onchoice1Changing(value);
+                ReportPropertyChanging("choice1");
+                _choice1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("choice1");
+                Onchoice1Changed();
+            }
+        }
+        private global::System.String _choice1;
+        partial void Onchoice1Changing(global::System.String value);
+        partial void Onchoice1Changed();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// Aucune documentation sur les métadonnées n'est disponible.
@@ -285,6 +614,113 @@ namespace Test_WPF.Datas
     /// <summary>
     /// Aucune documentation sur les métadonnées n'est disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Dual")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Dual : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Dual.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="idChallenger">Valeur initiale de la propriété idChallenger.</param>
+        /// <param name="idChallenged">Valeur initiale de la propriété idChallenged.</param>
+        public static Dual CreateDual(global::System.Int32 id, global::System.Int32 idChallenger, global::System.Int32 idChallenged)
+        {
+            Dual dual = new Dual();
+            dual.ID = id;
+            dual.idChallenger = idChallenger;
+            dual.idChallenged = idChallenged;
+            return dual;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idChallenger
+        {
+            get
+            {
+                return _idChallenger;
+            }
+            set
+            {
+                OnidChallengerChanging(value);
+                ReportPropertyChanging("idChallenger");
+                _idChallenger = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idChallenger");
+                OnidChallengerChanged();
+            }
+        }
+        private global::System.Int32 _idChallenger;
+        partial void OnidChallengerChanging(global::System.Int32 value);
+        partial void OnidChallengerChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idChallenged
+        {
+            get
+            {
+                return _idChallenged;
+            }
+            set
+            {
+                OnidChallengedChanging(value);
+                ReportPropertyChanging("idChallenged");
+                _idChallenged = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idChallenged");
+                OnidChallengedChanged();
+            }
+        }
+        private global::System.Int32 _idChallenged;
+        partial void OnidChallengedChanging(global::System.Int32 value);
+        partial void OnidChallengedChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Game")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -295,13 +731,13 @@ namespace Test_WPF.Datas
         /// <summary>
         /// Créez un nouvel objet Game.
         /// </summary>
-        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         /// <param name="idCourse">Valeur initiale de la propriété idCourse.</param>
         public static Game CreateGame(global::System.Int32 id, global::System.String name, global::System.Int32 idCourse)
         {
             Game game = new Game();
-            game.id = id;
+            game.ID = id;
             game.name = name;
             game.idCourse = idCourse;
             return game;
@@ -315,27 +751,27 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int32 ID
         {
             get
             {
-                return _id;
+                return _ID;
             }
             set
             {
-                if (_id != value)
+                if (_ID != value)
                 {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -402,14 +838,176 @@ namespace Test_WPF.Datas
         /// <summary>
         /// Créez un nouvel objet Grade.
         /// </summary>
-        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         public static Grade CreateGrade(global::System.Int32 id, global::System.String name)
         {
             Grade grade = new Grade();
-            grade.ID = id;
+            grade.id = id;
             grade.name = name;
             return grade;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Questionary")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Questionary : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Questionary.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="idGame">Valeur initiale de la propriété idGame.</param>
+        public static Questionary CreateQuestionary(global::System.Int32 id, global::System.Int32 idGame)
+        {
+            Questionary questionary = new Questionary();
+            questionary.ID = id;
+            questionary.idGame = idGame;
+            return questionary;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idGame
+        {
+            get
+            {
+                return _idGame;
+            }
+            set
+            {
+                OnidGameChanging(value);
+                ReportPropertyChanging("idGame");
+                _idGame = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idGame");
+                OnidGameChanged();
+            }
+        }
+        private global::System.Int32 _idGame;
+        partial void OnidGameChanging(global::System.Int32 value);
+        partial void OnidGameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Rank")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Rank : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Rank.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="name">Valeur initiale de la propriété name.</param>
+        public static Rank CreateRank(global::System.Int32 id, global::System.String name)
+        {
+            Rank rank = new Rank();
+            rank.ID = id;
+            rank.name = name;
+            return rank;
         }
 
         #endregion
@@ -468,31 +1066,6 @@ namespace Test_WPF.Datas
 
         #endregion
     
-        #region Propriétés de navigation
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_User_Difficulty", "User")]
-        public EntityCollection<User> Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("EducationAllModel.FK_User_Difficulty", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("EducationAllModel.FK_User_Difficulty", "User", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -510,14 +1083,12 @@ namespace Test_WPF.Datas
         /// </summary>
         /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="idUser">Valeur initiale de la propriété idUser.</param>
-        /// <param name="value">Valeur initiale de la propriété value.</param>
         /// <param name="idGame">Valeur initiale de la propriété idGame.</param>
-        public static Score CreateScore(global::System.Int32 id, global::System.Int32 idUser, global::System.Int32 value, global::System.Int32 idGame)
+        public static Score CreateScore(global::System.Int32 id, global::System.Int32 idUser, global::System.Int32 idGame)
         {
             Score score = new Score();
             score.ID = id;
             score.idUser = idUser;
-            score.value = value;
             score.idGame = idGame;
             return score;
         }
@@ -581,30 +1152,6 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 value
-        {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                OnvalueChanging(value);
-                ReportPropertyChanging("value");
-                _value = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("value");
-                OnvalueChanged();
-            }
-        }
-        private global::System.Int32 _value;
-        partial void OnvalueChanging(global::System.Int32 value);
-        partial void OnvalueChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 idGame
         {
             get
@@ -623,6 +1170,30 @@ namespace Test_WPF.Datas
         private global::System.Int32 _idGame;
         partial void OnidGameChanging(global::System.Int32 value);
         partial void OnidGameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                OnvalueChanging(value);
+                ReportPropertyChanging("value");
+                _value = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("value");
+                OnvalueChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _value;
+        partial void OnvalueChanging(Nullable<global::System.Int32> value);
+        partial void OnvalueChanged();
 
         #endregion
     
@@ -646,8 +1217,8 @@ namespace Test_WPF.Datas
         /// <param name="password">Valeur initiale de la propriété password.</param>
         /// <param name="idGrade">Valeur initiale de la propriété idGrade.</param>
         /// <param name="birthdayYear">Valeur initiale de la propriété birthdayYear.</param>
-        /// <param name="rank">Valeur initiale de la propriété rank.</param>
-        public static User CreateUser(global::System.Int32 id, global::System.String username, global::System.String password, global::System.Int32 idGrade, global::System.Int32 birthdayYear, global::System.Int32 rank)
+        /// <param name="idRank">Valeur initiale de la propriété idRank.</param>
+        public static User CreateUser(global::System.Int32 id, global::System.String username, global::System.String password, global::System.Int32 idGrade, global::System.Int32 birthdayYear, global::System.Int32 idRank)
         {
             User user = new User();
             user.ID = id;
@@ -655,7 +1226,7 @@ namespace Test_WPF.Datas
             user.password = password;
             user.idGrade = idGrade;
             user.birthdayYear = birthdayYear;
-            user.rank = rank;
+            user.idRank = idRank;
             return user;
         }
 
@@ -862,68 +1433,27 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 rank
+        public global::System.Int32 idRank
         {
             get
             {
-                return _rank;
+                return _idRank;
             }
             set
             {
-                OnrankChanging(value);
-                ReportPropertyChanging("rank");
-                _rank = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("rank");
-                OnrankChanged();
+                OnidRankChanging(value);
+                ReportPropertyChanging("idRank");
+                _idRank = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idRank");
+                OnidRankChanged();
             }
         }
-        private global::System.Int32 _rank;
-        partial void OnrankChanging(global::System.Int32 value);
-        partial void OnrankChanged();
+        private global::System.Int32 _idRank;
+        partial void OnidRankChanging(global::System.Int32 value);
+        partial void OnidRankChanged();
 
         #endregion
     
-        #region Propriétés de navigation
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_User_Difficulty", "Grade")]
-        public Grade Grade
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_User_Difficulty", "Grade").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_User_Difficulty", "Grade").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Grade> GradeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_User_Difficulty", "Grade");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Grade>("EducationAllModel.FK_User_Difficulty", "Grade", value);
-                }
-            }
-        }
-
-        #endregion
     }
 
     #endregion

@@ -6,16 +6,33 @@
     <edmx:StorageModels>
     <Schema Namespace="EducationAllModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="EducationAllModelStoreContainer">
+    <EntitySet Name="Asks" EntityType="EducationAllModel.Store.Asks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Choices" EntityType="EducationAllModel.Store.Choices" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Courses" EntityType="EducationAllModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Duals" EntityType="EducationAllModel.Store.Duals" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Games" EntityType="EducationAllModel.Store.Games" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Grades" EntityType="EducationAllModel.Store.Grades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Questionaries" EntityType="EducationAllModel.Store.Questionaries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ranks" EntityType="EducationAllModel.Store.Ranks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Scores" EntityType="EducationAllModel.Store.Scores" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="EducationAllModel.Store.Users" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_User_Difficulty" Association="EducationAllModel.Store.FK_User_Difficulty">
-      <End Role="Grade" EntitySet="Grades" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Asks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idQuestion" Type="int" Nullable="false" />
+    <Property Name="idQuestionary" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Choices">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idQuestion" Type="int" Nullable="false" />
+    <Property Name="choice1" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Courses">
     <Key>
       <PropertyRef Name="ID" />
@@ -23,15 +40,37 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Duals">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idChallenger" Type="int" Nullable="false" />
+    <Property Name="idChallenged" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="idCourse" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grades">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="idCourse" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Grades">
+  <EntityType Name="Questionaries">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="idGame" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ranks">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -44,8 +83,8 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idUser" Type="int" Nullable="false" />
-    <Property Name="value" Type="int" Nullable="false" />
     <Property Name="idGame" Type="int" Nullable="false" />
+    <Property Name="value" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -59,35 +98,40 @@
     <Property Name="firstName" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="idGrade" Type="int" Nullable="false" />
     <Property Name="birthdayYear" Type="int" Nullable="false" />
-    <Property Name="rank" Type="int" Nullable="false" />
+    <Property Name="idRank" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_User_Difficulty">
-    <End Role="Grade" Type="EducationAllModel.Store.Grades" Multiplicity="1" />
-    <End Role="User" Type="EducationAllModel.Store.Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Grade">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="idGrade" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EducationAllModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="EducationAllEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asks" EntityType="EducationAllModel.Ask" />
+          <EntitySet Name="Choices" EntityType="EducationAllModel.Choice" />
           <EntitySet Name="Courses" EntityType="EducationAllModel.Course" />
+          <EntitySet Name="Duals" EntityType="EducationAllModel.Dual" />
           <EntitySet Name="Games" EntityType="EducationAllModel.Game" />
           <EntitySet Name="Grades" EntityType="EducationAllModel.Grade" />
+          <EntitySet Name="Questionaries" EntityType="EducationAllModel.Questionary" />
+          <EntitySet Name="Ranks" EntityType="EducationAllModel.Rank" />
           <EntitySet Name="Scores" EntityType="EducationAllModel.Score" />
           <EntitySet Name="Users" EntityType="EducationAllModel.User" />
-          <AssociationSet Name="FK_User_Difficulty" Association="EducationAllModel.FK_User_Difficulty">
-            <End Role="Grade" EntitySet="Grades" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Ask">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idQuestion" Type="Int32" Nullable="false" />
+          <Property Name="idQuestionary" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Choice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idQuestion" Type="Int32" Nullable="false" />
+          <Property Name="choice1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="ID" />
@@ -95,21 +139,42 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Game">
+        <EntityType Name="Dual">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="idCourse" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idChallenger" Type="Int32" Nullable="false" />
+          <Property Name="idChallenged" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="Grade">
+        <EntityType Name="Game">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Users" Relationship="EducationAllModel.FK_User_Difficulty" FromRole="Grade" ToRole="User" />
+          <Property Name="idCourse" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Questionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="idGame" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Score">
           <Key>
@@ -117,8 +182,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idUser" Type="Int32" Nullable="false" />
-          <Property Name="value" Type="Int32" Nullable="false" />
           <Property Name="idGame" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Int32" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -132,27 +197,32 @@
           <Property Name="firstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="idGrade" Type="Int32" Nullable="false" />
           <Property Name="birthdayYear" Type="Int32" Nullable="false" />
-          <Property Name="rank" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Grade" Relationship="EducationAllModel.FK_User_Difficulty" FromRole="User" ToRole="Grade" />
+          <Property Name="idRank" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK_User_Difficulty">
-          <End Role="Grade" Type="EducationAllModel.Grade" Multiplicity="1" />
-          <End Role="User" Type="EducationAllModel.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Grade">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="idGrade" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EducationAllModelStoreContainer" CdmEntityContainer="EducationAllEntities">
+    <EntitySetMapping Name="Asks">
+      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Ask)">
+        <MappingFragment StoreEntitySet="Asks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="idQuestionary" ColumnName="idQuestionary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choices">
+      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Choice)">
+        <MappingFragment StoreEntitySet="Choices">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="choice1" ColumnName="choice1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Course)">
         <MappingFragment StoreEntitySet="Courses">
@@ -161,10 +231,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Duals">
+      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Dual)">
+        <MappingFragment StoreEntitySet="Duals">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="idChallenger" ColumnName="idChallenger" />
+          <ScalarProperty Name="idChallenged" ColumnName="idChallenged" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Games">
       <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Game)">
         <MappingFragment StoreEntitySet="Games">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="idCourse" ColumnName="idCourse" />
         </MappingFragment>
@@ -173,6 +252,22 @@
     <EntitySetMapping Name="Grades">
       <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Grade)">
         <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questionaries">
+      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Questionary)">
+        <MappingFragment StoreEntitySet="Questionaries">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="idGame" ColumnName="idGame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ranks">
+      <EntityTypeMapping TypeName="IsTypeOf(EducationAllModel.Rank)">
+        <MappingFragment StoreEntitySet="Ranks">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
@@ -183,8 +278,8 @@
         <MappingFragment StoreEntitySet="Scores">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="idUser" ColumnName="idUser" />
-          <ScalarProperty Name="value" ColumnName="value" />
           <ScalarProperty Name="idGame" ColumnName="idGame" />
+          <ScalarProperty Name="value" ColumnName="value" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -199,7 +294,7 @@
           <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="idGrade" ColumnName="idGrade" />
           <ScalarProperty Name="birthdayYear" ColumnName="birthdayYear" />
-          <ScalarProperty Name="rank" ColumnName="rank" />
+          <ScalarProperty Name="idRank" ColumnName="idRank" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -222,16 +317,17 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="EducationAll" ZoomLevel="60">
-        <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="0.75" PointY="4.75" Height="1.4033821614583335" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="2.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="0.75" PointY="1.625" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="4.75" PointY="4.75" Height="1.7879850260416657" IsExpanded="true" />
-        <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="3" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
-        <AssociationConnector Association="EducationAllModel.FK_User_Difficulty" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.422841796875" />
-          <ConnectorPoint PointX="3" PointY="2.422841796875" />
-        </AssociationConnector>
+      <Diagram Name="EducationAll">
+        <EntityTypeShape EntityType="EducationAllModel.Ask" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Choice" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="0.75" PointY="3.75" Height="1.4033821614583322" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Dual" Width="1.5" PointX="2.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="4.75" PointY="3.75" Height="1.4033821614583322" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="2.75" PointY="6.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="6.75" PointY="3.75" Height="2.7494921875000031" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>
