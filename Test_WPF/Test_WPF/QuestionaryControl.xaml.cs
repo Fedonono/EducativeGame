@@ -49,9 +49,10 @@ namespace Test_WPF
             }
             else
             {
-                this.AnswerPanel.Children.Add(new TextBox() { Name = "AnswerTextBox" });
-                Button bt = new Button() { Content = "valider", Padding = new Thickness(25), Margin = new Thickness(10) };
-                //bt.Click += new RoutedEventHandler(launchGame);
+                TextBox tb = new TextBox() {Name = "AnswerTextBox"};
+                this.AnswerPanel.Children.Add(tb);
+                Button bt = new Button() { Content = "valider", Padding = new Thickness(25), Tag = tb, Margin = new Thickness(10) };
+                bt.Click += new RoutedEventHandler(clickValider);
                 this.AnswerPanel.Children.Add(bt);
             }
         }
@@ -68,6 +69,36 @@ namespace Test_WPF
             {
                 bt.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             }
+
+
+            if (this.questionItr.MoveNext())
+                this.printQuestion(this.questionItr.Current);
+        }
+
+
+        private void clickValider(object sender, RoutedEventArgs e)
+        {
+            Button bt = (Button)sender;
+            TextBox tb = (TextBox) bt.Tag;
+            String answer = this.questionItr.Current.answer;
+            if (tb.Text == answer)
+            {
+                tb.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                tb.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
+
+
+            if (this.questionItr.MoveNext())
+                this.printQuestion(this.questionItr.Current);
+            else
+            {
+                App.mainWindow.gotoHome();
+
+            }
+
         }
     }
 }
