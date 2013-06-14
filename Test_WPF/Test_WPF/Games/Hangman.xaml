@@ -15,6 +15,6 @@
         <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang1" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/one-left.png" Visibility="Hidden"/>
         <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="dead" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/dead.png" Visibility="Hidden" />
         <Label Content="" Height="93" HorizontalAlignment="Right" Margin="0,628,12,0" Name="takenLetters" VerticalAlignment="Top" Width="230" />
-        <TextBox Height="0" HorizontalAlignment="Left" Margin="18,599,0,0" Name="textBox1" VerticalAlignment="Top" Width="0" KeyDown="textBox1_KeyDown" Opacity="0" />
+        <TextBox Height="0" HorizontalAlignment="Left" Margin="18,599,0,0" Name="textBox1" VerticalAlignment="Top" Width="0" KeyDown="onKeyPress" Opacity="0" />
     </Grid>
 </UserControl>
