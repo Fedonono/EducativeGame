@@ -14,6 +14,7 @@ namespace Test_WPF
     {
         public static MainWindow mainWindow;
         public static Games.TestGames testGames;
+        public static Datas.User User;
 
         public void app_Startup(object sender, StartupEventArgs e)
         {

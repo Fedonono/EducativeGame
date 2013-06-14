@@ -19,7 +19,7 @@ namespace Test_WPF
     /// </summary>
     public partial class MainMenu : UserControl
     {
-        public MainMenu()
+         public MainMenu()
         {
             InitializeComponent();
         }
@@ -28,5 +28,49 @@ namespace Test_WPF
         {
             App.mainWindow.testJeuCalculCe1(sender, e);
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<Datas.Course> coursesList = Bdd._db.Courses.ToList();
+            foreach (Datas.Course course in coursesList)
+            {
+                Button bt = new Button() {Content = course.name, Tag = course.ID, Padding = new Thickness(25), Margin = new Thickness(10)};
+                bt.Click += new RoutedEventHandler(clickButton);
+                this.coursesPanel.Children.Add(bt);
+            }
+        }
+
+        private void clickButton(object sender, EventArgs e)
+        {
+            int id = (int)((Button)sender).Tag;
+            IEnumerable<Datas.Game> gamesList = from i in Bdd._db.Games where i.idCourse == id select i;
+            this.gamesPanel.Children.Clear();
+            foreach (Datas.Game game in gamesList)
+            {
+                Button bt = new Button() { Content = game.name, Tag = game, Padding = new Thickness(25), Margin = new Thickness(10) };
+                bt.Click += new RoutedEventHandler(launchGame);
+                this.gamesPanel.Children.Add(bt);
+            }
+
+        }
+        private void launchGame(object sender, EventArgs e)
+        {
+            Datas.Game game = (Datas.Game)(((Button)sender).Tag);
+            if (game.idQuestionary != null)
+            {
+                int id = (int)game.idQuestionary;
+                App.mainWindow.launchGame(new QuestionaryControl(id));
+            }
+        }
     }
 }
+

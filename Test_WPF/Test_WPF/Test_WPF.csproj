@@ -100,6 +100,9 @@
     <Compile Include="Games\TestGames.xaml.cs">
       <DependentUpon>TestGames.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuestionaryControl.xaml.cs">
+      <DependentUpon>QuestionaryControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QuestionaryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WelcomeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

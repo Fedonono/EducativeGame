@@ -16,6 +16,25 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region Métadonnées de relation EDM
+
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Choice_0", "Question", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Question), "Choice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Choice), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Course_0", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Course), "Course1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Course), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Game_0", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Course), "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Game), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_2", "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Game), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Game_1", "Questionary", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Questionary), "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Game), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Questionary_0", "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Game), "Questionary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Questionary), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Score_1", "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Game), "Score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Score), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_User_1", "Grade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Grade), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.User), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Question_0", "Questionary", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Questionary), "Question", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Question), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_User_0", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Rank), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.User), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Relationship_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Relationship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Relationship), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Relationship_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Relationship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Relationship), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Score_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Score), true)]
+
+#endregion
 
 namespace Test_WPF.Datas
 {
@@ -64,22 +83,6 @@ namespace Test_WPF.Datas
         #endregion
     
         #region Propriétés ObjectSet
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        public ObjectSet<Ask> Asks
-        {
-            get
-            {
-                if ((_Asks == null))
-                {
-                    _Asks = base.CreateObjectSet<Ask>("Asks");
-                }
-                return _Asks;
-            }
-        }
-        private ObjectSet<Ask> _Asks;
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -164,6 +167,22 @@ namespace Test_WPF.Datas
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
+        public ObjectSet<Question> Questions
+        {
+            get
+            {
+                if ((_Questions == null))
+                {
+                    _Questions = base.CreateObjectSet<Question>("Questions");
+                }
+                return _Questions;
+            }
+        }
+        private ObjectSet<Question> _Questions;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
         public ObjectSet<Questionary> Questionaries
         {
             get
@@ -192,6 +211,22 @@ namespace Test_WPF.Datas
             }
         }
         private ObjectSet<Rank> _Ranks;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Relationship> Relationships
+        {
+            get
+            {
+                if ((_Relationships == null))
+                {
+                    _Relationships = base.CreateObjectSet<Relationship>("Relationships");
+                }
+                return _Relationships;
+            }
+        }
+        private ObjectSet<Relationship> _Relationships;
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -227,14 +262,6 @@ namespace Test_WPF.Datas
 
         #endregion
         #region Méthodes AddTo
-    
-        /// <summary>
-        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Asks. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
-        /// </summary>
-        public void AddToAsks(Ask ask)
-        {
-            base.AddObject("Asks", ask);
-        }
     
         /// <summary>
         /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Choices. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
@@ -277,6 +304,14 @@ namespace Test_WPF.Datas
         }
     
         /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Questions. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToQuestions(Question question)
+        {
+            base.AddObject("Questions", question);
+        }
+    
+        /// <summary>
         /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Questionaries. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
         /// </summary>
         public void AddToQuestionaries(Questionary questionary)
@@ -290,6 +325,14 @@ namespace Test_WPF.Datas
         public void AddToRanks(Rank rank)
         {
             base.AddObject("Ranks", rank);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Relationships. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToRelationships(Relationship relationship)
+        {
+            base.AddObject("Relationships", relationship);
         }
     
         /// <summary>
@@ -315,113 +358,6 @@ namespace Test_WPF.Datas
     #endregion
     
     #region Entités
-    
-    /// <summary>
-    /// Aucune documentation sur les métadonnées n'est disponible.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Ask")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Ask : EntityObject
-    {
-        #region Méthode de fabrique
-    
-        /// <summary>
-        /// Créez un nouvel objet Ask.
-        /// </summary>
-        /// <param name="id">Valeur initiale de la propriété ID.</param>
-        /// <param name="idQuestion">Valeur initiale de la propriété idQuestion.</param>
-        /// <param name="idQuestionary">Valeur initiale de la propriété idQuestionary.</param>
-        public static Ask CreateAsk(global::System.Int32 id, global::System.Int32 idQuestion, global::System.Int32 idQuestionary)
-        {
-            Ask ask = new Ask();
-            ask.ID = id;
-            ask.idQuestion = idQuestion;
-            ask.idQuestionary = idQuestionary;
-            return ask;
-        }
-
-        #endregion
-        #region Propriétés primitives
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 idQuestion
-        {
-            get
-            {
-                return _idQuestion;
-            }
-            set
-            {
-                OnidQuestionChanging(value);
-                ReportPropertyChanging("idQuestion");
-                _idQuestion = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idQuestion");
-                OnidQuestionChanged();
-            }
-        }
-        private global::System.Int32 _idQuestion;
-        partial void OnidQuestionChanging(global::System.Int32 value);
-        partial void OnidQuestionChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 idQuestionary
-        {
-            get
-            {
-                return _idQuestionary;
-            }
-            set
-            {
-                OnidQuestionaryChanging(value);
-                ReportPropertyChanging("idQuestionary");
-                _idQuestionary = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idQuestionary");
-                OnidQuestionaryChanged();
-            }
-        }
-        private global::System.Int32 _idQuestionary;
-        partial void OnidQuestionaryChanging(global::System.Int32 value);
-        partial void OnidQuestionaryChanged();
-
-        #endregion
-    
-    }
     
     /// <summary>
     /// Aucune documentation sur les métadonnées n'est disponible.
@@ -528,6 +464,47 @@ namespace Test_WPF.Datas
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Choice_0", "Question")]
+        public Question Question
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Question>("EducationAllModel.FK_Choice_0", "Question").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Question>("EducationAllModel.FK_Choice_0", "Question").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Question> QuestionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Question>("EducationAllModel.FK_Choice_0", "Question");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Question>("EducationAllModel.FK_Choice_0", "Question", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -606,9 +583,118 @@ namespace Test_WPF.Datas
         private global::System.String _name;
         partial void OnnameChanging(global::System.String value);
         partial void OnnameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> idCourse
+        {
+            get
+            {
+                return _idCourse;
+            }
+            set
+            {
+                OnidCourseChanging(value);
+                ReportPropertyChanging("idCourse");
+                _idCourse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idCourse");
+                OnidCourseChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _idCourse;
+        partial void OnidCourseChanging(Nullable<global::System.Int32> value);
+        partial void OnidCourseChanged();
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Course_0", "Course1")]
+        public EntityCollection<Course> Course1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Course>("EducationAllModel.FK_Course_0", "Course1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Course>("EducationAllModel.FK_Course_0", "Course1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Course_0", "Course")]
+        public Course Course2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Course> Course2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Game_0", "Game")]
+        public EntityCollection<Game> Games
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Game>("EducationAllModel.FK_Game_0", "Game");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Game>("EducationAllModel.FK_Game_0", "Game", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -627,12 +713,16 @@ namespace Test_WPF.Datas
         /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="idChallenger">Valeur initiale de la propriété idChallenger.</param>
         /// <param name="idChallenged">Valeur initiale de la propriété idChallenged.</param>
-        public static Dual CreateDual(global::System.Int32 id, global::System.Int32 idChallenger, global::System.Int32 idChallenged)
+        /// <param name="date">Valeur initiale de la propriété date.</param>
+        /// <param name="idGame">Valeur initiale de la propriété idGame.</param>
+        public static Dual CreateDual(global::System.Int32 id, global::System.Int32 idChallenger, global::System.Int32 idChallenged, global::System.DateTime date, global::System.Int32 idGame)
         {
             Dual dual = new Dual();
             dual.ID = id;
             dual.idChallenger = idChallenger;
             dual.idChallenged = idChallenged;
+            dual.date = date;
+            dual.idGame = idGame;
             return dual;
         }
 
@@ -713,9 +803,174 @@ namespace Test_WPF.Datas
         private global::System.Int32 _idChallenged;
         partial void OnidChallengedChanging(global::System.Int32 value);
         partial void OnidChallengedChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                OndateChanging(value);
+                ReportPropertyChanging("date");
+                _date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("date");
+                OndateChanged();
+            }
+        }
+        private global::System.DateTime _date;
+        partial void OndateChanging(global::System.DateTime value);
+        partial void OndateChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idGame
+        {
+            get
+            {
+                return _idGame;
+            }
+            set
+            {
+                OnidGameChanging(value);
+                ReportPropertyChanging("idGame");
+                _idGame = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idGame");
+                OnidGameChanged();
+            }
+        }
+        private global::System.Int32 _idGame;
+        partial void OnidGameChanging(global::System.Int32 value);
+        partial void OnidGameChanged();
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_0", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_0", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_0", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_0", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_Dual_0", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_1", "User")]
+        public User User1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_1", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_1", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> User1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_1", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_Dual_1", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_2", "Game")]
+        public Game Game
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Dual_2", "Game").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Dual_2", "Game").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Game> GameReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Dual_2", "Game");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Game>("EducationAllModel.FK_Dual_2", "Game", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -820,9 +1075,178 @@ namespace Test_WPF.Datas
         private global::System.Int32 _idCourse;
         partial void OnidCourseChanging(global::System.Int32 value);
         partial void OnidCourseChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> idQuestionary
+        {
+            get
+            {
+                return _idQuestionary;
+            }
+            set
+            {
+                OnidQuestionaryChanging(value);
+                ReportPropertyChanging("idQuestionary");
+                _idQuestionary = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idQuestionary");
+                OnidQuestionaryChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _idQuestionary;
+        partial void OnidQuestionaryChanging(Nullable<global::System.Int32> value);
+        partial void OnidQuestionaryChanged();
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Game_0", "Course")]
+        public Course Course
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Game_0", "Course").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Game_0", "Course").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Course> CourseReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Game_0", "Course");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Course>("EducationAllModel.FK_Game_0", "Course", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_2", "Dual")]
+        public EntityCollection<Dual> Duals
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dual>("EducationAllModel.FK_Dual_2", "Dual");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dual>("EducationAllModel.FK_Dual_2", "Dual", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Game_1", "Questionary")]
+        public Questionary Questionary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Questionary>("EducationAllModel.FK_Game_1", "Questionary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Questionary>("EducationAllModel.FK_Game_1", "Questionary").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Questionary> QuestionaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Questionary>("EducationAllModel.FK_Game_1", "Questionary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Questionary>("EducationAllModel.FK_Game_1", "Questionary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Questionary_0", "Questionary")]
+        public EntityCollection<Questionary> Questionaries
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Questionary>("EducationAllModel.FK_Questionary_0", "Questionary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Questionary>("EducationAllModel.FK_Questionary_0", "Questionary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Score_1", "Score")]
+        public EntityCollection<Score> Scores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Score>("EducationAllModel.FK_Score_1", "Score");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Score>("EducationAllModel.FK_Score_1", "Score", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -838,12 +1262,12 @@ namespace Test_WPF.Datas
         /// <summary>
         /// Créez un nouvel objet Grade.
         /// </summary>
-        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         public static Grade CreateGrade(global::System.Int32 id, global::System.String name)
         {
             Grade grade = new Grade();
-            grade.id = id;
+            grade.ID = id;
             grade.name = name;
             return grade;
         }
@@ -856,27 +1280,27 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int32 ID
         {
             get
             {
-                return _id;
+                return _ID;
             }
             set
             {
-                if (_id != value)
+                if (_ID != value)
                 {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -904,6 +1328,225 @@ namespace Test_WPF.Datas
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_User_1", "User")]
+        public EntityCollection<User> Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("EducationAllModel.FK_User_1", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("EducationAllModel.FK_User_1", "User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Question")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Question : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Question.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="question1">Valeur initiale de la propriété question1.</param>
+        /// <param name="answer">Valeur initiale de la propriété answer.</param>
+        public static Question CreateQuestion(global::System.Int32 id, global::System.String question1, global::System.String answer)
+        {
+            Question question = new Question();
+            question.ID = id;
+            question.question1 = question1;
+            question.answer = answer;
+            return question;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String question1
+        {
+            get
+            {
+                return _question1;
+            }
+            set
+            {
+                Onquestion1Changing(value);
+                ReportPropertyChanging("question1");
+                _question1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("question1");
+                Onquestion1Changed();
+            }
+        }
+        private global::System.String _question1;
+        partial void Onquestion1Changing(global::System.String value);
+        partial void Onquestion1Changed();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String answer
+        {
+            get
+            {
+                return _answer;
+            }
+            set
+            {
+                OnanswerChanging(value);
+                ReportPropertyChanging("answer");
+                _answer = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("answer");
+                OnanswerChanged();
+            }
+        }
+        private global::System.String _answer;
+        partial void OnanswerChanging(global::System.String value);
+        partial void OnanswerChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> idQuestionary
+        {
+            get
+            {
+                return _idQuestionary;
+            }
+            set
+            {
+                OnidQuestionaryChanging(value);
+                ReportPropertyChanging("idQuestionary");
+                _idQuestionary = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idQuestionary");
+                OnidQuestionaryChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _idQuestionary;
+        partial void OnidQuestionaryChanging(Nullable<global::System.Int32> value);
+        partial void OnidQuestionaryChanged();
+
+        #endregion
+    
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Choice_0", "Choice")]
+        public EntityCollection<Choice> Choices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Choice>("EducationAllModel.FK_Choice_0", "Choice");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Choice>("EducationAllModel.FK_Choice_0", "Choice", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Question_0", "Questionary")]
+        public Questionary Questionary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Questionary>("EducationAllModel.FK_Question_0", "Questionary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Questionary>("EducationAllModel.FK_Question_0", "Questionary").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Questionary> QuestionaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Questionary>("EducationAllModel.FK_Question_0", "Questionary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Questionary>("EducationAllModel.FK_Question_0", "Questionary", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -921,11 +1564,13 @@ namespace Test_WPF.Datas
         /// </summary>
         /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="idGame">Valeur initiale de la propriété idGame.</param>
-        public static Questionary CreateQuestionary(global::System.Int32 id, global::System.Int32 idGame)
+        /// <param name="answer">Valeur initiale de la propriété answer.</param>
+        public static Questionary CreateQuestionary(global::System.Int32 id, global::System.Int32 idGame, global::System.String answer)
         {
             Questionary questionary = new Questionary();
             questionary.ID = id;
             questionary.idGame = idGame;
+            questionary.answer = answer;
             return questionary;
         }
 
@@ -982,9 +1627,118 @@ namespace Test_WPF.Datas
         private global::System.Int32 _idGame;
         partial void OnidGameChanging(global::System.Int32 value);
         partial void OnidGameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String answer
+        {
+            get
+            {
+                return _answer;
+            }
+            set
+            {
+                OnanswerChanging(value);
+                ReportPropertyChanging("answer");
+                _answer = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("answer");
+                OnanswerChanged();
+            }
+        }
+        private global::System.String _answer;
+        partial void OnanswerChanging(global::System.String value);
+        partial void OnanswerChanged();
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Game_1", "Game")]
+        public EntityCollection<Game> Games
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Game>("EducationAllModel.FK_Game_1", "Game");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Game>("EducationAllModel.FK_Game_1", "Game", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Questionary_0", "Game")]
+        public Game Game
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Questionary_0", "Game").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Questionary_0", "Game").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Game> GameReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Questionary_0", "Game");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Game>("EducationAllModel.FK_Questionary_0", "Game", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Question_0", "Question")]
+        public EntityCollection<Question> Questions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Question>("EducationAllModel.FK_Question_0", "Question");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Question>("EducationAllModel.FK_Question_0", "Question", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1066,6 +1820,217 @@ namespace Test_WPF.Datas
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_User_0", "User")]
+        public EntityCollection<User> Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("EducationAllModel.FK_User_0", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("EducationAllModel.FK_User_0", "User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Relationship")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Relationship : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Relationship.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété ID.</param>
+        /// <param name="userId1">Valeur initiale de la propriété userId1.</param>
+        /// <param name="userId2">Valeur initiale de la propriété userId2.</param>
+        public static Relationship CreateRelationship(global::System.Int32 id, global::System.Int32 userId1, global::System.Int32 userId2)
+        {
+            Relationship relationship = new Relationship();
+            relationship.ID = id;
+            relationship.userId1 = userId1;
+            relationship.userId2 = userId2;
+            return relationship;
+        }
+
+        #endregion
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 userId1
+        {
+            get
+            {
+                return _userId1;
+            }
+            set
+            {
+                OnuserId1Changing(value);
+                ReportPropertyChanging("userId1");
+                _userId1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("userId1");
+                OnuserId1Changed();
+            }
+        }
+        private global::System.Int32 _userId1;
+        partial void OnuserId1Changing(global::System.Int32 value);
+        partial void OnuserId1Changed();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 userId2
+        {
+            get
+            {
+                return _userId2;
+            }
+            set
+            {
+                OnuserId2Changing(value);
+                ReportPropertyChanging("userId2");
+                _userId2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("userId2");
+                OnuserId2Changed();
+            }
+        }
+        private global::System.Int32 _userId2;
+        partial void OnuserId2Changing(global::System.Int32 value);
+        partial void OnuserId2Changed();
+
+        #endregion
+    
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Relationship_0", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Relationship_0", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Relationship_0", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Relationship_0", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_Relationship_0", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Relationship_1", "User")]
+        public User User1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Relationship_1", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Relationship_1", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> User1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Relationship_1", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_Relationship_1", "User", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1197,6 +2162,85 @@ namespace Test_WPF.Datas
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Score_1", "Game")]
+        public Game Game
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Score_1", "Game").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Score_1", "Game").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Game> GameReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Game>("EducationAllModel.FK_Score_1", "Game");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Game>("EducationAllModel.FK_Score_1", "Game", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Score_0", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Score_0", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Score_0", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Score_0", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_Score_0", "User", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1216,17 +2260,17 @@ namespace Test_WPF.Datas
         /// <param name="username">Valeur initiale de la propriété username.</param>
         /// <param name="password">Valeur initiale de la propriété password.</param>
         /// <param name="idGrade">Valeur initiale de la propriété idGrade.</param>
-        /// <param name="birthdayYear">Valeur initiale de la propriété birthdayYear.</param>
         /// <param name="idRank">Valeur initiale de la propriété idRank.</param>
-        public static User CreateUser(global::System.Int32 id, global::System.String username, global::System.String password, global::System.Int32 idGrade, global::System.Int32 birthdayYear, global::System.Int32 idRank)
+        /// <param name="birthDate">Valeur initiale de la propriété birthDate.</param>
+        public static User CreateUser(global::System.Int32 id, global::System.String username, global::System.String password, global::System.Int32 idGrade, global::System.Int32 idRank, global::System.DateTime birthDate)
         {
             User user = new User();
             user.ID = id;
             user.username = username;
             user.password = password;
             user.idGrade = idGrade;
-            user.birthdayYear = birthdayYear;
             user.idRank = idRank;
+            user.birthDate = birthDate;
             return user;
         }
 
@@ -1409,30 +2453,6 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 birthdayYear
-        {
-            get
-            {
-                return _birthdayYear;
-            }
-            set
-            {
-                OnbirthdayYearChanging(value);
-                ReportPropertyChanging("birthdayYear");
-                _birthdayYear = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("birthdayYear");
-                OnbirthdayYearChanged();
-            }
-        }
-        private global::System.Int32 _birthdayYear;
-        partial void OnbirthdayYearChanging(global::System.Int32 value);
-        partial void OnbirthdayYearChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 idRank
         {
             get
@@ -1451,9 +2471,222 @@ namespace Test_WPF.Datas
         private global::System.Int32 _idRank;
         partial void OnidRankChanging(global::System.Int32 value);
         partial void OnidRankChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime birthDate
+        {
+            get
+            {
+                return _birthDate;
+            }
+            set
+            {
+                OnbirthDateChanging(value);
+                ReportPropertyChanging("birthDate");
+                _birthDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("birthDate");
+                OnbirthDateChanged();
+            }
+        }
+        private global::System.DateTime _birthDate;
+        partial void OnbirthDateChanging(global::System.DateTime value);
+        partial void OnbirthDateChanged();
 
         #endregion
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_0", "Dual")]
+        public EntityCollection<Dual> Duals
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dual>("EducationAllModel.FK_Dual_0", "Dual");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dual>("EducationAllModel.FK_Dual_0", "Dual", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_1", "Dual")]
+        public EntityCollection<Dual> Duals1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dual>("EducationAllModel.FK_Dual_1", "Dual");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dual>("EducationAllModel.FK_Dual_1", "Dual", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_User_1", "Grade")]
+        public Grade Grade
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_User_1", "Grade").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_User_1", "Grade").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Grade> GradeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_User_1", "Grade");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Grade>("EducationAllModel.FK_User_1", "Grade", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_User_0", "Rank")]
+        public Rank Rank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("EducationAllModel.FK_User_0", "Rank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("EducationAllModel.FK_User_0", "Rank").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Rank> RankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("EducationAllModel.FK_User_0", "Rank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rank>("EducationAllModel.FK_User_0", "Rank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Relationship_0", "Relationship")]
+        public EntityCollection<Relationship> Relationships
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Relationship>("EducationAllModel.FK_Relationship_0", "Relationship");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Relationship>("EducationAllModel.FK_Relationship_0", "Relationship", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Relationship_1", "Relationship")]
+        public EntityCollection<Relationship> Relationships1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Relationship>("EducationAllModel.FK_Relationship_1", "Relationship");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Relationship>("EducationAllModel.FK_Relationship_1", "Relationship", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Score_0", "Score")]
+        public EntityCollection<Score> Scores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Score>("EducationAllModel.FK_Score_0", "Score");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Score>("EducationAllModel.FK_Score_0", "Score", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion
