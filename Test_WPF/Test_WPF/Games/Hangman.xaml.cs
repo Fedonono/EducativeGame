@@ -126,5 +126,20 @@ namespace Test_WPF.Games
             }
             this.checkEndGame();
         }
+
+        private void keymantest(object sender, MouseEventArgs e)
+        {
+            this.takenLetters.Content = "zerjoert";
+        }
+
+        private void keytest(object sender, KeyEventArgs e)
+        {
+            this.takenLetters.Content = "zerjoert";
+        }
+
+        private void oijodijgrdg(object sender, MouseButtonEventArgs e)
+        {
+            this.takenLetters.Content = "zerjoert";
+        }
     }
 }
