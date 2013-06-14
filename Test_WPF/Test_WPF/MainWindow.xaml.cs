@@ -135,9 +135,7 @@ namespace Test_WPF
 
         private void image6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.contentGrid.Children.Remove(this.currentUIElement);
-            this.currentUIElement = new MainMenu();
-            this.contentGrid.Children.Add(this.currentUIElement);
+            this.gotoHome();
         }
 
         private void image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -158,6 +156,13 @@ namespace Test_WPF
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = gamePanel;
+            this.contentGrid.Children.Add(this.currentUIElement);
+        }
+
+        public void gotoHome()
+        {
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = new MainMenu();
             this.contentGrid.Children.Add(this.currentUIElement);
         }
     }
