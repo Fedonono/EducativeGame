@@ -98,6 +98,7 @@ namespace Test_WPF.Games
                 this.descLabel1.Visibility = System.Windows.Visibility.Hidden;
                 this.descLabel2.Visibility = System.Windows.Visibility.Hidden;
                 this.descLabel3.Visibility = System.Windows.Visibility.Hidden;
+                this.response.Focus();
                 this.nextCalcul();
             }
         }

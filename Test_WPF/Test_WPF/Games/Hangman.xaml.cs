@@ -22,20 +22,6 @@ namespace Test_WPF.Games
         public Hangman()
         {
             InitializeComponent();
-            this.initDictionary();
-
-            Random r = new Random();
-            int randId = r.Next(this.dictionary.Count);
-            this.currentWord = this.dictionary[randId];
-            this.initLabels();
-            this.takenLettersList = new List<String>();
-            this.hangGrid.Focusable = true;
-            this.hangGrid.ForceCursor = true;
-            this.hangGrid.Focus();
-            if (this.hangGrid.IsFocused)
-            {
-
-            }
         }
 
         private List<String> dictionary;
@@ -43,6 +29,18 @@ namespace Test_WPF.Games
         private List<String> takenLettersList;
         private String currentGuess;
         private static char hidden = '*';
+
+        private void hangGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.initDictionary();
+
+            Random r = new Random();
+            int randId = r.Next(this.dictionary.Count);
+            this.currentWord = this.dictionary[randId];
+            this.initLabels();
+            this.takenLettersList = new List<String>();
+            this.textBox1.Focus();
+        }
 
         private void decreaseLife()
         {
@@ -64,7 +62,7 @@ namespace Test_WPF.Games
 
         private void endGame(bool win)
         {
-            this.hangGrid.KeyDown -= new KeyEventHandler(keyPressed);
+            this.textBox1.KeyDown -= new KeyEventHandler(textBox1_KeyDown);
             /*
              * Plus gros score si peu de hang man
              */ 
@@ -109,37 +107,25 @@ namespace Test_WPF.Games
             this.dictionary.Add("hamster");
         }
 
-        void keyPressed(object sender, KeyEventArgs e)
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             this.takenLetters.Content = "zerjoert";
             String s = e.Key.ToString();
-            if(!this.takenLettersList.Contains(s)) {
+            if (!this.takenLettersList.Contains(s))
+            {
                 this.takenLettersList.Add(s);
                 this.takenLetters.Content = this.takenLettersList;
                 if (this.currentWord.Contains(s))
                 {
                     this.reveal(s);
                 }
-            } else {
+            }
+            else
+            {
                 this.takenLettersList.Add(s);
                 this.decreaseLife();
             }
             this.checkEndGame();
-        }
-
-        private void keymantest(object sender, MouseEventArgs e)
-        {
-            this.takenLetters.Content = "zerjoert";
-        }
-
-        private void keytest(object sender, KeyEventArgs e)
-        {
-            this.takenLetters.Content = "zerjoert";
-        }
-
-        private void oijodijgrdg(object sender, MouseButtonEventArgs e)
-        {
-            this.takenLetters.Content = "zerjoert";
         }
     }
 }
