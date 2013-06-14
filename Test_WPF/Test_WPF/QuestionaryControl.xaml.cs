@@ -43,7 +43,7 @@ namespace Test_WPF
                 foreach (Datas.Choice choice in question.Choices)
                 {
                     Button bt = new Button() { Content = choice.choice1, Tag = choice, Padding = new Thickness(25), Margin = new Thickness(10) };
-                    //bt.Click += new RoutedEventHandler(launchGame);
+                    bt.Click += new RoutedEventHandler(clickChoice);
                     this.AnswerPanel.Children.Add(bt);
                 }
             }
@@ -53,6 +53,16 @@ namespace Test_WPF
                 Button bt = new Button() { Content = "valider", Padding = new Thickness(25), Margin = new Thickness(10) };
                 //bt.Click += new RoutedEventHandler(launchGame);
                 this.AnswerPanel.Children.Add(bt);
+            }
+        }
+
+        private void clickChoice(object sender, RoutedEventArgs e)
+        {
+            Button bt = (Button) sender;
+            Datas.Choice choice = (Datas.Choice) bt.Tag;
+            if (choice.Question.answer == choice.choice1)
+            {
+                bt.Background = new SolidColorBrush(Color.FromRgb(0,255,0));
             }
         }
     }
