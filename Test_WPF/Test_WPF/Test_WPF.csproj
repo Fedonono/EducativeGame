@@ -103,6 +103,9 @@
     <Compile Include="QuestionaryControl.xaml.cs">
       <DependentUpon>QuestionaryControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScoreControl.xaml.cs">
+      <DependentUpon>ScoreControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="QuestionaryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScoreControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
