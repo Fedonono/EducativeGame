@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Test_WPF.Games.Hangman"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid Name="hangGrid" KeyUp="keyPressed">
+        <Label Content="Label" Height="93" HorizontalAlignment="Center" Margin="18,628,248,0" Name="hangLetter" VerticalAlignment="Top" Width="734" />
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang6" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/six-left.png" Visibility="Hidden"/>
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang5" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/five-left.png" Visibility="Hidden"/>
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang4" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/four-left.png" Visibility="Hidden"/>
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang3" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/three-left.png" Visibility="Hidden"/>
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang2" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/two-left.png" Visibility="Hidden"/>
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang1" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/one-left.png" Visibility="Hidden"/>
+        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="dead" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/dead.png" Visibility="Hidden" />
+        <Label Content="" Height="93" HorizontalAlignment="Left" Margin="758,628,0,0" Name="takenLetters" VerticalAlignment="Top" Width="230" />
+    </Grid>
+</UserControl>

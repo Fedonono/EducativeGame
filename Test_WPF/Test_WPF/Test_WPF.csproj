@@ -94,6 +94,9 @@
     <Compile Include="Games\Additions1_ce1.xaml.cs">
       <DependentUpon>Additions1_ce1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\Hangman.xaml.cs">
+      <DependentUpon>Hangman.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\TestGames.xaml.cs">
       <DependentUpon>TestGames.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Games\Additions1_ce1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\Hangman.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -315,6 +322,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\Hangman\dead.png" />
+    <Resource Include="Images\Hangman\five-left.png" />
+    <Resource Include="Images\Hangman\four-left.png" />
+    <Resource Include="Images\Hangman\one-left.png" />
+    <Resource Include="Images\Hangman\six-left.png" />
+    <Resource Include="Images\Hangman\three-left.png" />
+    <Resource Include="Images\Hangman\two-left.png" />
     <Resource Include="Images\path_category.png" />
     <Resource Include="Images\path_game.png" />
     <Resource Include="Images\home.png" />
