@@ -8,7 +8,7 @@ namespace Test_WPF
 {
     public static class Bdd
     {
-        public static Datas.EducationAllEntities _db = new Datas.EducationAllEntities();      
+        private static Datas.EducationAllEntities _db = new Datas.EducationAllEntities();      
 
         public static String SHA1(string ipString)
         {
@@ -24,5 +24,11 @@ namespace Test_WPF
 
             return stringBuilder.ToString();
         }
+
+        public static Datas.EducationAllEntities DbAccess
+        {
+            get { return _db; }
+        }
+        
     }
 }
