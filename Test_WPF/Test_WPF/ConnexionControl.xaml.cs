@@ -26,7 +26,7 @@ namespace Test_WPF
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Datas.Grade> grades = Bdd._db.Grades.ToList();
+            List<Datas.Grade> grades = Bdd.DbAccess.Grades.ToList();
             foreach (Datas.Grade grade in grades)
             {
                 this.comboBoxInscrForm.Items.Add(grade);
@@ -53,7 +53,7 @@ namespace Test_WPF
         private void login(object sender, RoutedEventArgs e)
         {
             string shaPass = Bdd.SHA1(this.passwordBoxConn.Password);
-            Datas.User user = (from u in Bdd._db.Users where u.username == this.textBoxConn.Text && u.password == shaPass select u).FirstOrDefault();
+            Datas.User user = (from u in Bdd.DbAccess.Users where u.username == this.textBoxConn.Text && u.password == shaPass select u).FirstOrDefault();
             if (user != null)
             {
                 App.User = user;
@@ -75,12 +75,12 @@ namespace Test_WPF
 
             if (uName == "")
             {
-                this.lUsername.Content = "Veuillez saisir un nom d'utilisateur";
+                this.lUsername.Content = "Veuillez saisir\nun nom d'utilisateur";
                 check = false;
             }
             if (uPass == "")
             {
-                this.lPass.Content = "Veuillez saisir un mot de passe";
+                this.lPass.Content = "Veuillez saisir\nun mot de passe";
                 check = false;
             }
             if (!check)
@@ -92,13 +92,13 @@ namespace Test_WPF
             {
                 Datas.Grade grade = (Datas.Grade)this.comboBoxInscrForm.SelectedItem;
                 Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, birthDate = uDate, idRank = 10, idGrade = grade.ID };
-                Bdd._db.AddToUsers(u);
-                Bdd._db.SaveChanges();
+                Bdd.DbAccess.AddToUsers(u);
+                Bdd.DbAccess.SaveChanges();
                 return true;
             }
             catch (Exception e)
             {
-                this.lError.Content = "Erreur lors de l'ajout de l'inscription dans la BDD, veuillez réesayer ou contacter un administrateur.";
+                this.lError.Content = "Erreur lors de l'ajout de l'inscription dans la BDD,\n le nom d'utilisateur est peut-être déjà existant.\nVeuillez réesayer ou contacter un administrateur.";
                 return false;
             }
         }

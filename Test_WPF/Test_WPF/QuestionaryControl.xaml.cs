@@ -24,7 +24,7 @@ namespace Test_WPF
         public QuestionaryControl(int id)
         {
             InitializeComponent();
-            this.questionsList = from i in Bdd._db.Questions where i.idQuestionary == id select i;
+            this.questionsList = from i in Bdd.DbAccess.Questions where i.idQuestionary == id select i;
             this.questionItr = this.questionsList.GetEnumerator();
         }
 

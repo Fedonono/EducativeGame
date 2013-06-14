@@ -1370,6 +1370,13 @@ namespace Test_WPF.Datas
 
         #endregion
 
+        #region Methode Override
+        public override string ToString()
+        {
+            return this.name;
+        }
+        #endregion
+
     }
     
     /// <summary>
