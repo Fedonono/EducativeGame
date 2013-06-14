@@ -22,8 +22,8 @@
             <End Role="Choice" EntitySet="Choice" />
           </AssociationSet>
           <AssociationSet Name="FK_Course_0" Association="EducationAllModel.Store.FK_Course_0">
+            <End Role="Grade" EntitySet="Grade" />
             <End Role="Course" EntitySet="Course" />
-            <End Role="Course1" EntitySet="Course" />
           </AssociationSet>
           <AssociationSet Name="FK_Dual_0" Association="EducationAllModel.Store.FK_Dual_0">
             <End Role="User" EntitySet="User" />
@@ -92,7 +92,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="idCourse" Type="int" />
+          <Property Name="idGrade" Type="int" />
         </EntityType>
         <EntityType Name="Dual">
           <Key>
@@ -188,14 +188,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Course_0">
-          <End Role="Course" Type="EducationAllModel.Store.Course" Multiplicity="0..1" />
-          <End Role="Course1" Type="EducationAllModel.Store.Course" Multiplicity="*" />
+          <End Role="Grade" Type="EducationAllModel.Store.Grade" Multiplicity="0..1" />
+          <End Role="Course" Type="EducationAllModel.Store.Course" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Course">
+            <Principal Role="Grade">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Course1">
-              <PropertyRef Name="idCourse" />
+            <Dependent Role="Course">
+              <PropertyRef Name="idGrade" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -376,8 +376,8 @@
             <End Role="Choice" EntitySet="Choices" />
           </AssociationSet>
           <AssociationSet Name="FK_Course_0" Association="EducationAllModel.FK_Course_0">
+            <End Role="Grade" EntitySet="Grades" />
             <End Role="Course" EntitySet="Courses" />
-            <End Role="Course1" EntitySet="Courses" />
           </AssociationSet>
           <AssociationSet Name="FK_Game_0" Association="EducationAllModel.FK_Game_0">
             <End Role="Course" EntitySet="Courses" />
@@ -447,9 +447,8 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="idCourse" />
-          <NavigationProperty Name="Course1" Relationship="EducationAllModel.FK_Course_0" FromRole="Course" ToRole="Course1" />
-          <NavigationProperty Name="Course2" Relationship="EducationAllModel.FK_Course_0" FromRole="Course1" ToRole="Course" />
+          <Property Type="Int32" Name="idGrade" />
+          <NavigationProperty Name="Grade" Relationship="EducationAllModel.FK_Course_0" FromRole="Course" ToRole="Grade" />
           <NavigationProperty Name="Games" Relationship="EducationAllModel.FK_Game_0" FromRole="Course" ToRole="Game" />
         </EntityType>
         <EntityType Name="Dual">
@@ -485,6 +484,7 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Courses" Relationship="EducationAllModel.FK_Course_0" FromRole="Grade" ToRole="Course" />
           <NavigationProperty Name="Users" Relationship="EducationAllModel.FK_User_1" FromRole="Grade" ToRole="User" />
         </EntityType>
         <EntityType Name="Question">
@@ -572,14 +572,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Course_0">
-          <End Type="EducationAllModel.Course" Role="Course" Multiplicity="0..1" />
-          <End Type="EducationAllModel.Course" Role="Course1" Multiplicity="*" />
+          <End Type="EducationAllModel.Grade" Role="Grade" Multiplicity="0..1" />
+          <End Type="EducationAllModel.Course" Role="Course" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Course">
+            <Principal Role="Grade">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Course1">
-              <PropertyRef Name="idCourse" />
+            <Dependent Role="Course">
+              <PropertyRef Name="idGrade" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -757,7 +757,7 @@
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="EducationAllModel.Course">
               <MappingFragment StoreEntitySet="Course">
-                <ScalarProperty Name="idCourse" ColumnName="idCourse" />
+                <ScalarProperty Name="idGrade" ColumnName="idGrade" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -873,92 +873,84 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="EducationAll">
-        <EntityTypeShape EntityType="EducationAllModel.Choice" Width="1.5" PointX="5.25" PointY="14.875" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="0.75" PointY="9.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="EducationAllModel.Dual" Width="1.5" PointX="5.25" PointY="4" Height="2.5571907552083246" />
-        <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="3" PointY="11" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="0.75" PointY="4.5" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="EducationAllModel.Question" Width="1.5" PointX="3" PointY="14.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="0.75" PointY="12.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="1.5" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="EducationAllModel.Relationship" Width="1.5" PointX="5.25" PointY="7.625" Height="1.9802864583333246" />
-        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="8.25" PointY="4.25" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="3" PointY="3.25" Height="4.0956022135416674" />
+        <EntityTypeShape EntityType="EducationAllModel.Choice" Width="1.5" PointX="12" PointY="10.5" Height="1.7879850260416745" />
+        <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="3" PointY="7.125" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="EducationAllModel.Dual" Width="1.5" PointX="7.5" PointY="4.5" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="5.25" PointY="6.75" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="0.75" PointY="7.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="EducationAllModel.Question" Width="1.5" PointX="9.75" PointY="10.375" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="7.5" PointY="10.375" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="3.375" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="EducationAllModel.Relationship" Width="1.5" PointX="5.25" PointY="3.125" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="10.5" PointY="4.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="3" PointY="2.125" Height="4.0956022135416674" />
         <AssociationConnector Association="EducationAllModel.FK_Choice_0" >
-          <ConnectorPoint PointX="4.5" PointY="15.768992513020834" />
-          <ConnectorPoint PointX="5.25" PointY="15.768992513020834" />
+          <ConnectorPoint PointX="11.25" PointY="11.393992513020837" />
+          <ConnectorPoint PointX="12" PointY="11.393992513020837" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Course_0" >
-          <ConnectorPoint PointX="1.2819230769230767" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="1.2819230769230767" PointY="12.172587890624982" />
-          <ConnectorPoint PointX="1.7284615384615383" PointY="12.172587890624982" />
-          <ConnectorPoint PointX="1.7284615384615383" PointY="11.922587890624982" />
+          <ConnectorPoint PointX="2.25" PointY="8.1439925130208337" />
+          <ConnectorPoint PointX="3" PointY="8.1439925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Game_0" >
-          <ConnectorPoint PointX="2.25" PointY="11.461293945312491" />
-          <ConnectorPoint PointX="3" PointY="11.461293945312491" />
+          <ConnectorPoint PointX="4.5" PointY="8.11514322916667" />
+          <ConnectorPoint PointX="5.25" PointY="8.11514322916667" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_0" >
-          <ConnectorPoint PointX="4.5" PointY="5.2785953776041623" />
-          <ConnectorPoint PointX="5.25" PointY="5.2785953776041623" />
+          <ConnectorPoint PointX="4.5" PointY="5.6941943359375031" />
+          <ConnectorPoint PointX="7.5" PointY="5.6941943359375031" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_1" >
-          <ConnectorPoint PointX="4.5" PointY="4.5767976888020812" />
-          <ConnectorPoint PointX="5.25" PointY="4.5767976888020812" />
+          <ConnectorPoint PointX="4.5" PointY="5.368490397135421" />
+          <ConnectorPoint PointX="7.5" PointY="5.368490397135421" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_2" >
-          <ConnectorPoint PointX="4.5" PointY="11.001152846153847" />
-          <ConnectorPoint PointX="4.875" PointY="10.626152846153847" />
-          <ConnectorPoint PointX="4.875" PointY="5.9491450664062366" />
-          <ConnectorPoint PointX="5.25" PointY="5.9491450664062366" />
+          <ConnectorPoint PointX="6.75" PointY="6.9035953776041694" />
+          <ConnectorPoint PointX="7.5" PointY="6.9035953776041694" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Game_1" >
-          <ConnectorPoint PointX="2.25" PointY="13.249746093749991" />
-          <ConnectorPoint PointX="3" PointY="13.249746093749991" />
+          <ConnectorPoint PointX="7.5" PointY="11.461293945312502" />
+          <ConnectorPoint PointX="6" PointY="11.461293945312502" />
+          <ConnectorPoint PointX="6" PointY="9.499492187499996" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Questionary_0" >
-          <ConnectorPoint PointX="3" PointY="12.937373046874996" />
-          <ConnectorPoint PointX="2.25" PointY="12.937373046874996" />
+          <ConnectorPoint PointX="6.4062525" PointY="9.499492187499996" />
+          <ConnectorPoint PointX="6.4062525" PointY="10.88689447265625" />
+          <ConnectorPoint PointX="7.5" PointY="10.88689447265625" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Score_1" >
-          <ConnectorPoint PointX="4.5" PointY="12.406575016826908" />
-          <ConnectorPoint PointX="9" PointY="12.406575016826908" />
-          <ConnectorPoint PointX="9" PointY="6.4225878906249818" />
+          <ConnectorPoint PointX="6.75" PointY="8.3095914713541674" />
+          <ConnectorPoint PointX="11.25" PointY="8.3095914713541674" />
+          <ConnectorPoint PointX="11.25" PointY="6.9225878906250031" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_User_1" >
-          <ConnectorPoint PointX="2.25" PointY="5.2978417968749909" />
-          <ConnectorPoint PointX="3" PointY="5.2978417968749909" />
+          <ConnectorPoint PointX="2.25" PointY="7.25" />
+          <ConnectorPoint PointX="2.625" PointY="6.875" />
+          <ConnectorPoint PointX="2.625" PointY="4.1728011067708337" />
+          <ConnectorPoint PointX="3" PointY="4.1728011067708337" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Question_0" >
-          <ConnectorPoint PointX="1.5" PointY="14.922587890624982" />
-          <ConnectorPoint PointX="1.5" PointY="15.922588390624981" />
-          <ConnectorPoint PointX="3" PointY="15.922588390624981" />
+          <ConnectorPoint PointX="9" PointY="11.461293945312498" />
+          <ConnectorPoint PointX="9.75" PointY="11.461293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_User_0" >
-          <ConnectorPoint PointX="2.25" PointY="2.2978417968749909" />
-          <ConnectorPoint PointX="3.75" PointY="2.2978417968749909" />
-          <ConnectorPoint PointX="3.75" PointY="3.25" />
+          <ConnectorPoint PointX="2.25" PointY="4.6342423502604184" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="4.6342423502604175" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="4.6342423502604184" />
+          <ConnectorPoint PointX="3" PointY="4.6342423502604184" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Relationship_0" >
-          <ConnectorPoint PointX="3.75" PointY="7.3456022135416674" />
-          <ConnectorPoint PointX="3.75" PointY="8.6151432291666623" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="8.6151432291666623" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="8.6151432291666623" />
-          <ConnectorPoint PointX="5.25" PointY="8.6151432291666623" />
+          <ConnectorPoint PointX="4.5" PointY="4.1151432291666694" />
+          <ConnectorPoint PointX="5.25" PointY="4.1151432291666694" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Relationship_1" >
-          <ConnectorPoint PointX="4.1562525" PointY="7.3456022135416674" />
-          <ConnectorPoint PointX="4.1562525" PointY="8.0888191145833375" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="8.0888191145833375" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="8.0888191145833375" />
-          <ConnectorPoint PointX="5.25" PointY="8.0888191145833375" />
+          <ConnectorPoint PointX="4.5" PointY="3.5575716145833347" />
+          <ConnectorPoint PointX="5.25" PointY="3.5575716145833347" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Score_0" >
-          <ConnectorPoint PointX="4.5" PointY="6.982646484374996" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="6.9826464843749951" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="6.982646484374996" />
-          <ConnectorPoint PointX="8.5937475" PointY="6.982646484374996" />
-          <ConnectorPoint PointX="8.5937475" PointY="6.4225878906249818" />
+          <ConnectorPoint PointX="4.5" PointY="2.59375" />
+          <ConnectorPoint PointX="11.25" PointY="2.59375" />
+          <ConnectorPoint PointX="11.25" PointY="4.75" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -24,7 +24,7 @@ namespace Test_WPF
         public QuestionaryControl(int id)
         {
             InitializeComponent();
-            this.questionsList = from i in Bdd._db.Questions where i.idQuestionary == id select i;
+            this.questionsList = from i in Bdd.DbAccess.Questions where i.idQuestionary == id select i;
             this.questionItr = this.questionsList.GetEnumerator();
         }
 
@@ -62,7 +62,11 @@ namespace Test_WPF
             Datas.Choice choice = (Datas.Choice) bt.Tag;
             if (choice.Question.answer == choice.choice1)
             {
-                bt.Background = new SolidColorBrush(Color.FromRgb(0,255,0));
+                bt.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                bt.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             }
         }
     }

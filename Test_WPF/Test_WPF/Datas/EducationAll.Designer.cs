@@ -8,18 +8,19 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Métadonnées de relation EDM
 
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Choice_0", "Question", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Question), "Choice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Choice), true)]
-[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Course_0", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Course), "Course1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Course), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Course_0", "Grade", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Grade), "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Course), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Game_0", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Course), "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Game), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
@@ -261,6 +262,7 @@ namespace Test_WPF.Datas
         private ObjectSet<User> _Users;
 
         #endregion
+
         #region Méthodes AddTo
     
         /// <summary>
@@ -352,11 +354,11 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entités
     
     /// <summary>
@@ -385,6 +387,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -463,6 +466,7 @@ namespace Test_WPF.Datas
         partial void Onchoice1Changed();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -505,6 +509,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -531,6 +536,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -589,26 +595,27 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> idCourse
+        public Nullable<global::System.Int32> idGrade
         {
             get
             {
-                return _idCourse;
+                return _idGrade;
             }
             set
             {
-                OnidCourseChanging(value);
-                ReportPropertyChanging("idCourse");
-                _idCourse = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idCourse");
-                OnidCourseChanged();
+                OnidGradeChanging(value);
+                ReportPropertyChanging("idGrade");
+                _idGrade = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idGrade");
+                OnidGradeChanged();
             }
         }
-        private Nullable<global::System.Int32> _idCourse;
-        partial void OnidCourseChanging(Nullable<global::System.Int32> value);
-        partial void OnidCourseChanged();
+        private Nullable<global::System.Int32> _idGrade;
+        partial void OnidGradeChanging(Nullable<global::System.Int32> value);
+        partial void OnidGradeChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -618,38 +625,16 @@ namespace Test_WPF.Datas
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Course_0", "Course1")]
-        public EntityCollection<Course> Course1
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Course_0", "Grade")]
+        public Grade Grade
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Course>("EducationAllModel.FK_Course_0", "Course1");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_Course_0", "Grade").Value;
             }
             set
             {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Course>("EducationAllModel.FK_Course_0", "Course1", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Course_0", "Course")]
-        public Course Course2
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_Course_0", "Grade").Value = value;
             }
         }
         /// <summary>
@@ -657,17 +642,17 @@ namespace Test_WPF.Datas
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Course> Course2Reference
+        public EntityReference<Grade> GradeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grade>("EducationAllModel.FK_Course_0", "Grade");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Course>("EducationAllModel.FK_Course_0", "Course", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Grade>("EducationAllModel.FK_Course_0", "Grade", value);
                 }
             }
         }
@@ -695,6 +680,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -727,6 +713,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -853,6 +840,7 @@ namespace Test_WPF.Datas
         partial void OnidGameChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -971,6 +959,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -999,6 +988,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1101,6 +1091,7 @@ namespace Test_WPF.Datas
         partial void OnidQuestionaryChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1247,6 +1238,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1273,6 +1265,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1327,8 +1320,31 @@ namespace Test_WPF.Datas
         partial void OnnameChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Course_0", "Course")]
+        public EntityCollection<Course> Courses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Course>("EducationAllModel.FK_Course_0", "Course");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Course>("EducationAllModel.FK_Course_0", "Course", value);
+                }
+            }
+        }
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -1353,6 +1369,14 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
+        #region Methode Override
+        public override string ToString()
+        {
+            return this.name;
+        }
+        #endregion
+
     }
     
     /// <summary>
@@ -1381,6 +1405,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1483,6 +1508,7 @@ namespace Test_WPF.Datas
         partial void OnidQuestionaryChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1547,6 +1573,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1575,6 +1602,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1653,6 +1681,7 @@ namespace Test_WPF.Datas
         partial void OnanswerChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1739,6 +1768,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1765,6 +1795,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1819,6 +1850,7 @@ namespace Test_WPF.Datas
         partial void OnnameChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1845,6 +1877,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1873,6 +1906,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1951,6 +1985,7 @@ namespace Test_WPF.Datas
         partial void OnuserId2Changed();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2031,6 +2066,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2059,6 +2095,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2161,6 +2198,7 @@ namespace Test_WPF.Datas
         partial void OnvalueChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2241,6 +2279,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2275,6 +2314,7 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2497,6 +2537,7 @@ namespace Test_WPF.Datas
         partial void OnbirthDateChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2687,8 +2728,10 @@ namespace Test_WPF.Datas
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

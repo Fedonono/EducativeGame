@@ -40,7 +40,7 @@ namespace Test_WPF
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Datas.Course> coursesList = Bdd._db.Courses.ToList();
+            List<Datas.Course> coursesList = Bdd.DbAccess.Courses.ToList();
             foreach (Datas.Course course in coursesList)
             {
                 Button bt = new Button() {Content = course.name, Tag = course.ID, Padding = new Thickness(25), Margin = new Thickness(10)};
@@ -52,11 +52,11 @@ namespace Test_WPF
         private void clickButton(object sender, EventArgs e)
         {
             int id = (int)((Button)sender).Tag;
-            IEnumerable<Datas.Game> gamesList = from i in Bdd._db.Games where i.idCourse == id select i;
+            IEnumerable<Datas.Game> gamesList = from i in Bdd.DbAccess.Games where i.idCourse == id select i;
             this.gamesPanel.Children.Clear();
             foreach (Datas.Game game in gamesList)
             {
-                Button bt = new Button() { Content = game.name, Tag = game, Padding = new Thickness(25), Margin = new Thickness(10) };
+                Button bt = new Button() { Content = game.name, Tag = game.idQuestionary, Padding = new Thickness(25), Margin = new Thickness(10) };
                 bt.Click += new RoutedEventHandler(launchGame);
                 this.gamesPanel.Children.Add(bt);
             }
@@ -64,10 +64,10 @@ namespace Test_WPF
         }
         private void launchGame(object sender, EventArgs e)
         {
-            Datas.Game game = (Datas.Game)(((Button)sender).Tag);
-            if (game.idQuestionary != null)
+            Button bt = (Button)sender;
+            if (bt.Tag != null)
             {
-                int id = (int)game.idQuestionary;
+                int id = (int)bt.Tag;
                 App.mainWindow.launchGame(new QuestionaryControl(id));
             }
         }
