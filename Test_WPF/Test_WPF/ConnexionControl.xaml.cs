@@ -48,9 +48,6 @@ namespace Test_WPF
             {
                 App.mainWindow.connexionControlClicked(sender, e, false);
             }
-            else
-            {
-            }
         }
 
         private void login(object sender, RoutedEventArgs e)
@@ -90,7 +87,7 @@ namespace Test_WPF
             try
             {
                 Datas.Grade grade = (Datas.Grade)this.comboBoxInscrForm.SelectedItem;
-                Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, birthDate = uDate, idRank = 1, idGrade = grade.ID };
+                Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, birthDate = uDate, idRank = 10, idGrade = grade.ID };
                 Bdd._db.AddToUsers(u);
                 Bdd._db.SaveChanges();
                 return true;
