@@ -56,7 +56,7 @@ namespace Test_WPF
             this.gamesPanel.Children.Clear();
             foreach (Datas.Game game in gamesList)
             {
-                Button bt = new Button() { Content = game.name, Tag = game, Padding = new Thickness(25), Margin = new Thickness(10) };
+                Button bt = new Button() { Content = game.name, Tag = game.idQuestionary, Padding = new Thickness(25), Margin = new Thickness(10) };
                 bt.Click += new RoutedEventHandler(launchGame);
                 this.gamesPanel.Children.Add(bt);
             }
@@ -64,10 +64,10 @@ namespace Test_WPF
         }
         private void launchGame(object sender, EventArgs e)
         {
-            Datas.Game game = (Datas.Game)(((Button)sender).Tag);
-            if (game.idQuestionary != null)
+            Button bt = (Button)sender;
+            if (bt.Tag != null)
             {
-                int id = (int)game.idQuestionary;
+                int id = (int)bt.Tag;
                 App.mainWindow.launchGame(new QuestionaryControl(id));
             }
         }

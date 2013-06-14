@@ -62,7 +62,11 @@ namespace Test_WPF
             Datas.Choice choice = (Datas.Choice) bt.Tag;
             if (choice.Question.answer == choice.choice1)
             {
-                bt.Background = new SolidColorBrush(Color.FromRgb(0,255,0));
+                bt.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                bt.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             }
         }
     }
