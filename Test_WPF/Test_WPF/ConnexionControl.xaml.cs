@@ -57,7 +57,11 @@ namespace Test_WPF
             if (user != null)
             {
                 App.User = user;
-                App.mainWindow.connexionControlClicked(sender,e ,true);
+                App.mainWindow.connexionControlClicked(sender, e, true);
+            }
+            else
+            {
+                this.lCo.Content = "Utilisateur ou mot de passe incorrect !";
             }
         }
 
