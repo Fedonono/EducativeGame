@@ -6,15 +6,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Name="hangGrid" Loaded="hangGrid_Loaded">
-        <Label Content="Label" Height="93" HorizontalAlignment="Center" Margin="18,628,248,0" Name="hangLetter" VerticalAlignment="Top" Width="734" />
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang6" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/six-left.png" Visibility="Hidden"/>
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang5" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/five-left.png" Visibility="Hidden"/>
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang4" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/four-left.png" Visibility="Hidden"/>
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang3" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/three-left.png" Visibility="Hidden"/>
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang2" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/two-left.png" Visibility="Hidden"/>
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="hang1" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/one-left.png" Visibility="Hidden"/>
-        <Image Height="598" HorizontalAlignment="Left" Margin="18,12,0,0" Name="dead" Stretch="Fill" VerticalAlignment="Top" Width="734" Source="/Test_WPF;component/Images/Hangman/dead.png" Visibility="Hidden" />
-        <Label Content="" Height="93" HorizontalAlignment="Right" Margin="0,628,12,0" Name="takenLetters" VerticalAlignment="Top" Width="230" />
-        <TextBox Height="0" HorizontalAlignment="Left" Margin="18,599,0,0" Name="textBox1" VerticalAlignment="Top" Width="0" KeyDown="onKeyPress" Opacity="0" />
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang6" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/six-left.png" Visibility="Hidden"/>
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang5" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/five-left.png" Visibility="Hidden"/>
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang4" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/four-left.png" Visibility="Hidden"/>
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang3" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/three-left.png" Visibility="Hidden"/>
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang2" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/two-left.png" Visibility="Hidden"/>
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang1" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/one-left.png" Visibility="Hidden"/>
+        <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="dead" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/dead.png" Visibility="Hidden" />
+
+        <TextBox Height="0" HorizontalAlignment="Left" Margin="18,599,0,0" Name="textBox1" VerticalAlignment="Top" Width="0" Opacity="0" />
+        <Label Content="Word" Height="Auto" HorizontalAlignment="Center" Margin="77,313,537,0" Name="hangLetter" VerticalAlignment="Top" Width="386" FontSize="70" HorizontalContentAlignment="Center" BorderBrush="Black" />
+        <Label Content="..." Height="Auto" HorizontalAlignment="Left" Margin="339,599,0,0" Name="takenLetters" VerticalAlignment="Top" Width="583" FontSize="25" />
+        <Label Content="Pendu anglais" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Label Content="Tape une lettre sur ton clavier" Height="Auto" HorizontalAlignment="Left" Margin="104,264,0,0" Name="label1" VerticalAlignment="Top" FontSize="25" />
+        <Label Content="Il te reste 7 essais" Height="Auto" HorizontalAlignment="Left" Margin="169,445,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
+        <Label Content="Lettres déjà tapées :" Height="Auto" HorizontalAlignment="Left" Margin="104,599,0,0" Name="label3" VerticalAlignment="Top" FontSize="25" />
+        <Label Content="Félicitation !" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="137,419,569,0" Name="label4" VerticalAlignment="Top" Width="Auto" Visibility="Hidden" />
+        <Label Content="Tu as trouvé le mot !" FontFamily="Palatino Linotype" FontSize="35" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="53,494,474,0" Name="label5" VerticalAlignment="Top" Width="Auto" Visibility="Hidden" HorizontalContentAlignment="Center" />
+        <Label Content="Ton score : 0" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Left" Margin="104,634,0,0" Name="labelScore" VerticalAlignment="Top" Width="319" Visibility="Hidden" />
+        <Button Content="Recommencer" Height="Auto" HorizontalAlignment="Left" Margin="676,586,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Padding="18" Visibility="Hidden" Click="button1_Click" />
     </Grid>
 </UserControl>

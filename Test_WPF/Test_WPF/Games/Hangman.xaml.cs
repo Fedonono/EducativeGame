@@ -19,129 +19,213 @@ namespace Test_WPF.Games
     /// </summary>
     public partial class Hangman : UserControl
     {
+        private List<String> dictionary;
+        private String currentWord;
+        private List<char> takenLettersList;
+        private List<char> hangLettersList;
+        private static readonly char HIDDEN = '*';
+        private int essais;
+        private int score;
+
         public Hangman()
         {
             InitializeComponent();
         }
 
-        private List<String> dictionary;
-        private String currentWord;
-        private List<String> takenLettersList;
-        private String currentGuess;
-        private static char hidden = '*';
-        private List<Image> hangDisplay;
-
         private void hangGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            this.startGame();
+        }
+
+        private void startGame()
+        {
+            this.label5.Visibility = System.Windows.Visibility.Hidden;
+            this.label4.Visibility = System.Windows.Visibility.Hidden;
+            this.button1.Visibility = System.Windows.Visibility.Hidden;
+            this.label3.Visibility = System.Windows.Visibility.Visible;
+            this.label2.Visibility = System.Windows.Visibility.Visible;
+            this.label1.Visibility = System.Windows.Visibility.Visible;
+            this.takenLetters.Visibility = System.Windows.Visibility.Visible;
+
+            this.hideAllImages();
+            this.labelScore.Visibility = System.Windows.Visibility.Hidden;
+
+            this.takenLettersList = new List<char>();
+            this.hangLettersList = new List<char>();
+            this.essais = 6;
+            this.label2.Content = "Il te reste 7 essais";
+            this.score = 0;
             this.initDictionary();
 
             Random r = new Random();
             int randId = r.Next(this.dictionary.Count);
-            this.currentWord = this.dictionary[randId];
+            this.currentWord = this.dictionary[randId].ToUpper();
             this.initLabels();
-            this.takenLettersList = new List<String>();
+            this.textBox1.KeyDown += new KeyEventHandler(textBox1_KeyDown);
             this.textBox1.Focus();
-            this.initHangDisplay();
         }
 
-        private void onKeyPress(object sender, KeyEventArgs e)
+        private void hideAllImages()
         {
-            String s = e.Key.ToString().ToUpper();
-            if (!this.takenLettersList.Contains(s))
+            this.hang6.Visibility = System.Windows.Visibility.Hidden;
+            this.hang5.Visibility = System.Windows.Visibility.Hidden;
+            this.hang4.Visibility = System.Windows.Visibility.Hidden;
+            this.hang3.Visibility = System.Windows.Visibility.Hidden;
+            this.hang2.Visibility = System.Windows.Visibility.Hidden;
+            this.hang1.Visibility = System.Windows.Visibility.Hidden;
+            this.dead.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void decreaseLife()
+        {
+            switch (this.essais)
             {
-                this.takenLettersList.Add(s);
-                this.takenLetters.Content += this.takenLettersList[this.takenLettersList.Count - 1];
-                if (this.currentWord.Contains(s))
-                {
-                    this.reveal(s);
-                }
-                else
-                {
-                    this.decreaseLife();
-                }
+                case 6:
+                    this.hang6.Visibility = Visibility.Visible;
+                    break;
+                case 5:
+                    this.hang6.Visibility = Visibility.Hidden;
+                    this.hang5.Visibility = Visibility.Visible;
+                    break;
+                case 4:
+                    this.hang5.Visibility = Visibility.Hidden;
+                    this.hang4.Visibility = Visibility.Visible;
+                    break;
+                case 3:
+                    this.hang4.Visibility = Visibility.Hidden;
+                    this.hang3.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+                    this.hang3.Visibility = Visibility.Hidden;
+                    this.hang2.Visibility = Visibility.Visible;
+                    break;
+                case 1:
+                    this.hang2.Visibility = Visibility.Hidden;
+                    this.hang1.Visibility = Visibility.Visible;
+                    break;
+                case 0:
+                    this.hang1.Visibility = Visibility.Hidden;
+                    this.dead.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    break;
+            }
+            
+            this.label2.Content = "Il te reste " + this.essais + " essais";
+            this.essais--;
+        }
+
+        private void endGame(bool win)
+        {
+            this.textBox1.KeyDown -= new KeyEventHandler(textBox1_KeyDown);
+
+            if (!win)
+            {
+                this.label5.Content = "Tu n'as pas réussi à trouver\nle mot qui était :\n" + this.currentWord;
+                this.label4.Content = "Perdu !";
             }
             else
             {
-                this.takenLettersList.Add(s);
-                this.decreaseLife();
+                this.label5.Content = "Tu as trouvé le mot !";
+                this.label4.Content = "Félicitations !";
             }
-            
-            if(this.currentGuess.IndexOf(hidden) == -1)
+            this.label5.Visibility = System.Windows.Visibility.Visible;
+            this.label4.Visibility = System.Windows.Visibility.Visible;
+            this.label3.Visibility = System.Windows.Visibility.Hidden;
+            this.label2.Visibility = System.Windows.Visibility.Hidden;
+            this.label1.Visibility = System.Windows.Visibility.Hidden;
+            this.takenLetters.Visibility = System.Windows.Visibility.Hidden;
+            this.button1.Visibility = System.Windows.Visibility.Visible;
+
+            if (this.essais < 0) { this.essais = 0; }
+            this.score = this.currentWord.Length * this.essais;
+            this.labelScore.Content = "Ton score : " + this.score;
+            this.labelScore.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void checkEndGame()
+        {
+            string hang = this.hangLetter.Content.ToString();
+            if (this.dead.Visibility == Visibility.Visible)
+            {
+                this.endGame(false);
+            }
+            else if (!hang.Contains(HIDDEN))
             {
                 this.endGame(true);
             }
         }
 
-        private void decreaseLife()
-        {
-            if (this.hangDisplay.Count == 2)
-            {
-                this.endGame(false);
-            }
-            this.hangDisplay[0].Visibility = Visibility.Hidden;
-            this.hangDisplay.Remove(this.hangDisplay[0]);
-            this.hangDisplay[0].Visibility = Visibility.Visible;
-        }
-
-        private void reveal(String a)
-        {
-            int i = 0;
-            var temp = this.currentGuess.ToCharArray();
-            
-            while ((i = this.currentWord.IndexOf(a, i)) != -1)
-            {
-                temp[i] = a[0];
-                i++;
-            }
-            this.currentGuess = new String(temp);
-            this.hangLetter.Content = this.currentGuess;
-        }
-
-        private void endGame(bool win)
-        {
-            this.textBox1.KeyDown -= new KeyEventHandler(onKeyPress);
-            /*
-             * Plus gros score si peu de hang man
-             */ 
-        }
-
         private void initLabels()
         {
-            this.hangLetter.FontSize = 70;
-            this.hangLetter.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
-
-            this.takenLetters.FontSize = 15;
-
-            for(int i = 0; i < currentWord.Length; i++) {
-                this.currentGuess += hidden;
-            }
-
-            this.hangLetter.Content = this.currentGuess;
-            this.takenLetters.Content = "";
+            this.updateLetters();
         }
 
         private void initDictionary()
         {
             this.dictionary = new List<String>();
-            this.dictionary.Add("morning".ToUpper());
-            this.dictionary.Add("midnight".ToUpper());
-            this.dictionary.Add("kangaroo".ToUpper());
-            this.dictionary.Add("elephant".ToUpper());
-            this.dictionary.Add("sweater".ToUpper());
-            this.dictionary.Add("mountain".ToUpper());
-            this.dictionary.Add("hamster".ToUpper());
+            this.dictionary.Add("morning");
+            this.dictionary.Add("midnight");
+            this.dictionary.Add("kangaroo");
+            this.dictionary.Add("elephant");
+            this.dictionary.Add("sweater");
+            this.dictionary.Add("mountain");
+            this.dictionary.Add("hamster");
         }
 
-        private void initHangDisplay()
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            this.hangDisplay = new List<Image>();
-            this.hangDisplay.Add(this.hang6);
-            this.hangDisplay.Add(this.hang5);
-            this.hangDisplay.Add(this.hang4);
-            this.hangDisplay.Add(this.hang3);
-            this.hangDisplay.Add(this.hang2);
-            this.hangDisplay.Add(this.hang1);
-            this.hangDisplay.Add(this.dead);
+            if (e.Key == Key.Enter)
+            {
+                return;
+            }
+            string s = e.Key.ToString().ToUpper();
+            foreach (char c in s)
+            {
+                if (this.currentWord.Contains(c) && !this.hangLettersList.Contains(c))
+                {
+                    this.hangLettersList.Add(c);
+                }
+                if (!this.currentWord.Contains(c) && !this.takenLettersList.Contains(c))
+                {
+                    this.decreaseLife();
+                }
+                if (!this.takenLettersList.Contains(c))
+                {
+                    this.takenLettersList.Add(c);
+                }
+            }
+
+            this.updateLetters();
+            this.checkEndGame();
+        }
+
+        private void updateLetters()
+        {
+            string s2 = "";
+            foreach (char s in this.currentWord)
+            {
+                if (this.takenLettersList.Contains(s))
+                {
+                    s2 += s;
+                }
+                else
+                {
+                    s2 += HIDDEN;
+                }
+            }
+            this.hangLetter.Content = s2;
+
+            this.takenLetters.Content = "";
+            foreach (char item in this.takenLettersList)
+            {
+                this.takenLetters.Content += item + " ";
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.startGame();
         }
     }
 }
