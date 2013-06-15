@@ -338,6 +338,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\1371319307_emblem-nowrite.png" />
+    <Resource Include="Images\1371319301_package-installed-updated.png" />
     <Resource Include="Images\Hangman\dead.png" />
     <Resource Include="Images\Hangman\five-left.png" />
     <Resource Include="Images\Hangman\four-left.png" />

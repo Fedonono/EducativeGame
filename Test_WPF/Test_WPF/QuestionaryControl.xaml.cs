@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Test_WPF
 {
@@ -21,15 +22,21 @@ namespace Test_WPF
     {
         private IEnumerable<Datas.Question> questionsList;
         private IEnumerator<Datas.Question> questionItr;
+        private int idQuestionnary;
+        private DispatcherTimer timer;
+        private int time;
+
         public QuestionaryControl(int id)
         {
             InitializeComponent();
-            this.questionsList = from i in Bdd.DbAccess.Questions where i.idQuestionary == id select i;
-            this.questionItr = this.questionsList.GetEnumerator();
+            this.idQuestionnary = id;
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            int id = this.idQuestionnary;
+            this.questionsList = from i in Bdd.DbAccess.Questions where i.idQuestionary == id select i;
+            this.questionItr = this.questionsList.GetEnumerator();
             if (this.questionItr.MoveNext())
                 this.printQuestion(this.questionItr.Current);
         }
@@ -42,16 +49,16 @@ namespace Test_WPF
             {
                 foreach (Datas.Choice choice in question.Choices)
                 {
-                    Button bt = new Button() { Content = choice.choice1, Tag = choice, Padding = new Thickness(25), Margin = new Thickness(10) };
+                    Button bt = new Button() { Content = choice.choice1, Tag = choice, FontSize = 20, Padding = new Thickness(20), Margin = new Thickness(10) };
                     bt.Click += new RoutedEventHandler(clickChoice);
                     this.AnswerPanel.Children.Add(bt);
                 }
             }
             else
             {
-                TextBox tb = new TextBox() {Name = "AnswerTextBox"};
+                TextBox tb = new TextBox() { Name = "AnswerTextBox", Padding = new Thickness(20), FontSize = 20 };
                 this.AnswerPanel.Children.Add(tb);
-                Button bt = new Button() { Content = "valider", Padding = new Thickness(25), Tag = tb, Margin = new Thickness(10) };
+                Button bt = new Button() { Content = "Valider", FontSize = 20, Padding = new Thickness(20), Tag = tb, Margin = new Thickness(10) };
                 bt.Click += new RoutedEventHandler(clickValider);
                 this.AnswerPanel.Children.Add(bt);
             }
@@ -63,16 +70,44 @@ namespace Test_WPF
             Datas.Choice choice = (Datas.Choice) bt.Tag;
             if (choice.Question.answer == choice.choice1)
             {
-                bt.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                this.tick.Visibility = System.Windows.Visibility.Visible;
+                bt.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
             else
             {
-                bt.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                this.wrong.Visibility = System.Windows.Visibility.Visible;
+                bt.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
             }
 
+            foreach (Button item in this.AnswerPanel.Children)
+            {
+                item.Click -= new RoutedEventHandler(clickChoice);
+            }
 
-            if (this.questionItr.MoveNext())
-                this.printQuestion(this.questionItr.Current);
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = new TimeSpan(0, 0, 0, 1);
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Start();
+            this.time = 0;
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            this.time++;
+            if(this.time > 2)
+            {
+                this.timer.Stop();
+                this.tick.Visibility = System.Windows.Visibility.Hidden;
+                this.wrong.Visibility = System.Windows.Visibility.Hidden;
+                if (this.questionItr.MoveNext())
+                {
+                    this.printQuestion(this.questionItr.Current);
+                }
+                else
+                {
+                    App.mainWindow.gotoHome();
+                }
+            }
         }
 
 
@@ -83,22 +118,31 @@ namespace Test_WPF
             String answer = this.questionItr.Current.answer;
             if (tb.Text == answer)
             {
-                tb.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                this.tick.Visibility = System.Windows.Visibility.Visible;
+                tb.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
+                bt.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
             else
             {
-                tb.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                this.wrong.Visibility = System.Windows.Visibility.Visible;
+                tb.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+                bt.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
             }
 
-
-            if (this.questionItr.MoveNext())
-                this.printQuestion(this.questionItr.Current);
-            else
+            foreach (Control item in this.AnswerPanel.Children)
             {
-                App.mainWindow.gotoHome();
-
+                if (item is Button)
+                {
+                    Button b = item as Button;
+                    b.Click -= new RoutedEventHandler(clickChoice);
+                }
             }
 
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = new TimeSpan(0, 0, 0, 1);
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Start();
+            this.time = 0;
         }
     }
 }
