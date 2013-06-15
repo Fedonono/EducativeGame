@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000" Loaded="UserControl_Loaded">
     <Grid Name="contentGrid">
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
         <Label Content="Tables d'additions" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
         <Label Content="Tables de " Height="Auto" HorizontalAlignment="Left" Margin="100,190,0,0" Name="tableName" VerticalAlignment="Top" FontSize="45" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" Visibility="Hidden" />
         <Label Content="1" Height="Auto" HorizontalAlignment="Left" Margin="200,300,0,0" Name="firstNumber" VerticalAlignment="Top" FontSize="80" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" Visibility="Hidden" />

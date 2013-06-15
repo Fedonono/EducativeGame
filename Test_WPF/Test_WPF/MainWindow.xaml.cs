@@ -143,13 +143,6 @@ namespace Test_WPF
 
         }
 
-        public void testJeuCalculCe1(object sender, RoutedEventArgs e)
-        {
-            this.contentGrid.Children.Remove(this.currentUIElement);
-            this.currentUIElement = new Additions1_ce1();
-            this.contentGrid.Children.Add(this.currentUIElement);
-        }
-
         private void image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AboutDialog wd = new AboutDialog();

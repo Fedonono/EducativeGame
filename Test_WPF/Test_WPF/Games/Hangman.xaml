@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Name="hangGrid" Loaded="hangGrid_Loaded">
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
         <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang6" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/six-left.png" Visibility="Hidden"/>
         <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang5" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/five-left.png" Visibility="Hidden"/>
         <Image Height="313" HorizontalAlignment="Center" Margin="532,225,78,0" Name="hang4" Stretch="Fill" VerticalAlignment="Top" Width="389" Source="/Test_WPF;component/Images/Hangman/four-left.png" Visibility="Hidden"/>

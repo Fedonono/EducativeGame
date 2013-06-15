@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Test_WPF.Games;
 
 namespace Test_WPF
 {
@@ -26,12 +27,12 @@ namespace Test_WPF
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            App.mainWindow.testJeuCalculCe1(sender, e);
+            App.mainWindow.launchGame(new Additions1_ce1());
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            App.mainWindow.launchGame(new Hangman());
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -39,7 +40,7 @@ namespace Test_WPF
             List<Datas.Course> coursesList = Bdd.DbAccess.Courses.ToList();
             foreach (Datas.Course course in coursesList)
             {
-                Button bt = new Button() {Content = course.name, Tag = course.ID, Padding = new Thickness(25), Margin = new Thickness(10)};
+                Button bt = new Button() {Content = course.name, Tag = course.ID, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10)};
                 bt.Click += new RoutedEventHandler(clickButton);
                 this.coursesPanel.Children.Add(bt);
             }
@@ -52,7 +53,7 @@ namespace Test_WPF
             this.gamesPanel.Children.Clear();
             foreach (Datas.Game game in gamesList)
             {
-                Button bt = new Button() { Content = game.name, Tag = game.idQuestionary, Padding = new Thickness(25), Margin = new Thickness(10) };
+                Button bt = new Button() { Content = game.name, Tag = game.idQuestionary, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10) };
                 bt.Click += new RoutedEventHandler(launchGame);
                 this.gamesPanel.Children.Add(bt);
             }

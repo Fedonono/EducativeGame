@@ -94,10 +94,16 @@ namespace Test_WPF
         void timer_Tick(object sender, EventArgs e)
         {
             this.time++;
+            if (this.time == 1 && this.tick.Visibility == System.Windows.Visibility.Visible)
+            {
+                this.tick.Visibility = System.Windows.Visibility.Hidden;
+                this.label1.Visibility = System.Windows.Visibility.Visible;
+            }
             if(this.time > 2)
             {
                 this.timer.Stop();
                 this.tick.Visibility = System.Windows.Visibility.Hidden;
+                this.label1.Visibility = System.Windows.Visibility.Hidden;
                 this.wrong.Visibility = System.Windows.Visibility.Hidden;
                 if (this.questionItr.MoveNext())
                 {
@@ -120,13 +126,11 @@ namespace Test_WPF
             {
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 tb.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
-                bt.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
             else
             {
                 this.wrong.Visibility = System.Windows.Visibility.Visible;
                 tb.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
-                bt.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
             }
 
             foreach (Control item in this.AnswerPanel.Children)
