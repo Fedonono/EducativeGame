@@ -33,6 +33,7 @@ namespace Test_WPF
 
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Bdd.DbAccess.Connection.Close();
             Application.Current.Shutdown();
         }
 
@@ -82,7 +83,7 @@ namespace Test_WPF
         {
             this.defaultBackground();
             this.programName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            this.programName.FontSize = 30;
+            this.programName.FontSize = 35;
             this.programName.Margin = new Thickness(20, 10, 0, 0);
             this.image4.Visibility = System.Windows.Visibility.Visible;
             this.image5.Visibility = System.Windows.Visibility.Visible;
@@ -107,6 +108,29 @@ namespace Test_WPF
             myLinearGradientBrush.GradientStops.Add(
                 new GradientStop((Color)ColorConverter.ConvertFromString("#FFEFFFFF"), 0.9));
             this.Background = myLinearGradientBrush;
+
+            if (App.user != null)
+            {
+                int grade = App.user.Grade.ID;
+
+                ImageBrush ib = new ImageBrush();
+                Uri uri = new Uri(@"pack://application:,,,/Test_WPF;component/Images/Backgrounds/Ubuntu_wp_b_3_1600.jpg");
+                switch (grade)
+                {
+                    case 5:
+                        uri = new Uri(@"pack://application:,,,/Test_WPF;component/Images/Backgrounds/paper_wings_by_nerdus-d5w0tah.jpg");
+                        break;
+                    case 7:
+                        uri = new Uri(@"pack://application:,,,/Test_WPF;component/Images/Backgrounds/catching_butterflies_by_lelpel-d2y1lbz.jpg");
+                        break;
+                    default:
+                        
+                        break;
+                }
+                ib.ImageSource = new BitmapImage(uri);
+                ib.Stretch = Stretch.UniformToFill;
+                this.Background = ib;
+            }
         }
 
         private void Window_Activated(object sender, EventArgs e)
@@ -140,9 +164,8 @@ namespace Test_WPF
 
         private void image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //AboutDialog wd = new AboutDialog();
-            //wd.Owner = this;
-            //wd.ShowDialog();
+            App.user = null;
+            App.CurrentApp.app_Startup(null,null);
         }
 
         private void image5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

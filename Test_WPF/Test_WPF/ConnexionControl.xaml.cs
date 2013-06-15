@@ -56,7 +56,7 @@ namespace Test_WPF
             Datas.User user = (from u in Bdd.DbAccess.Users where u.username == this.textBoxConn.Text && u.password == shaPass select u).FirstOrDefault();
             if (user != null)
             {
-                App.User = user;
+                App.user = user;
                 App.mainWindow.connexionControlClicked(true);
             }
             else
@@ -94,6 +94,7 @@ namespace Test_WPF
                 Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, birthDate = uDate, idRank = 10, idGrade = grade.ID };
                 Bdd.DbAccess.AddToUsers(u);
                 Bdd.DbAccess.SaveChanges();
+                App.user = u;
                 return true;
             }
             catch (Exception e)

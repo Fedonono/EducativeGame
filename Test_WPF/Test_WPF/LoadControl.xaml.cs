@@ -37,7 +37,7 @@ namespace Test_WPF
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
             this.timer.Tick += new EventHandler(timer_Tick);
             this.timer.Start();
-            this.time = 4;
+            this.time = 1;
         }
 
         private void timer_Tick(object sender, EventArgs e)

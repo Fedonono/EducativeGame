@@ -34,13 +34,13 @@
             <GradientStop Color="#ffeca7" Offset="0.7" />
         </LinearGradientBrush>
         -->
-        <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg"></ImageBrush>
+        <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Backgrounds/adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg"></ImageBrush>
 
     </Window.Background>
     <Grid>
         <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
         <Label Content="Bienvenue !" Height="Auto" HorizontalAlignment="Left" Margin="137,182,0,0" Name="label1" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Foreground="#FFDE4F00" />
-        <Label Content="Voici quelques conseils pour bien utiliser EducationAll :" Height="28" HorizontalAlignment="Left" Margin="116,248,0,0" Name="label2" VerticalAlignment="Top" />
-        <Button Content="J'ai compris !" Height="Auto" HorizontalAlignment="Left" Margin="195,365,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
+        <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="116,248,0,0" Name="label2" VerticalAlignment="Top" />
+        <Button Content="J'ai compris !" Height="Auto" HorizontalAlignment="Left" Margin="220,408,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
     </Grid>
 </Window>

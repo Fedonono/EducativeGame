@@ -17,14 +17,14 @@
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="3" RenderingBias="Performance" />
             </Grid.Effect>
-            <Rectangle Height="Auto" Name="rectangle1" Stroke="Black" Width="Auto" />
+            <Rectangle Height="Auto" Name="rectangle1" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#9DE5E5E5" />
             <ScrollViewer></ScrollViewer>
         </Grid>
         <Grid Height="239" HorizontalAlignment="Left" Margin="46,454,0,0" VerticalAlignment="Top" Width="665">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="3" RenderingBias="Performance" />
             </Grid.Effect>
-            <Rectangle Height="Auto" Name="rectangle2" Stroke="Black" Width="Auto" />
+            <Rectangle Height="Auto" Name="rectangle2" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#9DE5E5E5" />
             <ScrollViewer></ScrollViewer>
         </Grid>
         <WrapPanel Margin="46,454,289,57" Name="gamesPanel" >

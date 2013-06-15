@@ -14,7 +14,9 @@ namespace Test_WPF
     {
         public static MainWindow mainWindow;
         public static Games.TestGames testGames;
-        public static Datas.User User;
+        public static Datas.User user = null;
+        public static App CurrentApp { get { return currentApp; }}
+        private static App currentApp = null;
 
         public void app_Startup(object sender, StartupEventArgs e)
         {
@@ -26,6 +28,7 @@ namespace Test_WPF
 
             // Open a window
             this.MainWindow.Show();
+            currentApp = this;
         }
     }
 }

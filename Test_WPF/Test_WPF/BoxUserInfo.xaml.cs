@@ -26,9 +26,12 @@ namespace Test_WPF
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            this.pseudoLabel.Content = App.User.username;
-            this.nameLabel.Content = App.User.firstName + " " + App.User.name;
-            this.gradeLabel.Content = App.User.Grade.name;
+            if (App.user != null)
+            {
+                this.pseudoLabel.Content = App.user.username;
+                this.nameLabel.Content = App.user.firstName + " " + App.user.name;
+                this.gradeLabel.Content = App.user.Grade.name;
+            }
         }
     }
 }

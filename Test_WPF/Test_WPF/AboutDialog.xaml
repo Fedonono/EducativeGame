@@ -34,7 +34,7 @@
             <GradientStop Color="#ffeca7" Offset="0.7" />
         </LinearGradientBrush>
         -->
-        <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg"></ImageBrush>
+        <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Backgrounds/adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg"></ImageBrush>
 
     </Window.Background>
     <Grid>

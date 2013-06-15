@@ -34,10 +34,6 @@ namespace Test_WPF
 
         }
 
-
-
-
-
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             List<Datas.Course> coursesList = Bdd.DbAccess.Courses.ToList();
