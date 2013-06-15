@@ -52,7 +52,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void loadControlClicked(object sender, MouseButtonEventArgs e)
+        public void loadControlClicked()
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new ConnexionControl();
@@ -64,7 +64,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void connexionControlClicked(object sender, RoutedEventArgs e, bool connexion)
+        public void connexionControlClicked(bool connexion)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.setToMainWindow();

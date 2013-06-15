@@ -46,7 +46,7 @@ namespace Test_WPF
         {
             if (this.RegisterUser())
             {
-                App.mainWindow.connexionControlClicked(sender, e, false);
+                App.mainWindow.connexionControlClicked(false);
             }
         }
 
@@ -57,7 +57,7 @@ namespace Test_WPF
             if (user != null)
             {
                 App.User = user;
-                App.mainWindow.connexionControlClicked(sender, e, true);
+                App.mainWindow.connexionControlClicked(true);
             }
             else
             {

@@ -213,6 +213,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EducationAll.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Properties\DataSources\Test_WPF.Datas.EducationAllEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

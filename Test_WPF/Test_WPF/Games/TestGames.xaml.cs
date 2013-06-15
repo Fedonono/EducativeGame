@@ -51,12 +51,12 @@ namespace Test_WPF.Games
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
             this.setToMainWindow();
-            this.contentGrid.Children.Add(new Additions1_ce1());
+            this.contentGrid.Children.Add(new Hangman());
         }
 
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

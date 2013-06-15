@@ -26,12 +26,9 @@ namespace Test_WPF
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-
+            this.pseudoLabel.Content = App.User.username;
+            this.nameLabel.Content = App.User.firstName + " " + App.User.name;
+            this.gradeLabel.Content = App.User.Grade.name;
         }
     }
 }
