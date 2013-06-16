@@ -7,16 +7,17 @@
     <Grid>
         <Grid Margin="46,175,289,336" Name="animationGrid">
             <Rectangle Height="239" HorizontalAlignment="Left" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" RadiusX="5" RadiusY="5" Width="665" Fill="#FFF6F6F6" />
-            <Label Content="Informations sur le jeu" Height="Auto" HorizontalAlignment="Left" Margin="30,17,0,0" Name="titleLabel" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
-            <Label Content="Nom" Height="Auto" HorizontalAlignment="Left" Margin="111,96,0,0" Name="gameNameLabel" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" />
-            <TextBlock Height="Auto" Padding="10" HorizontalAlignment="Left" Margin="65,145,0,0" Name="descriptionTextBlock" Text="Description du jeu" VerticalAlignment="Top" Width="519" FontSize="16" FontStyle="Italic" />
-            <Label Content="Meilleur score : " Height="Auto" HorizontalAlignment="Left" Margin="65,192,0,0" Name="label2" VerticalAlignment="Top" FontSize="15" />
-            <Label Content="Aucun" Height="Auto" HorizontalAlignment="Left" Margin="171,192,0,0" Name="scoreLabel" VerticalAlignment="Top" FontSize="15" />
-            <Label Content="CE1" FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="588,18,0,0" Name="gradeLabel" VerticalAlignment="Top" />
-            <Label Content="Nom" FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="133,60,0,0" Name="courseLabel" VerticalAlignment="Top" />
-            <Label Content="Jeu : " FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="44,96,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />
-            <Label Content="Cours : " FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="44,60,0,0" Name="label3" VerticalAlignment="Top" FontStyle="Italic" />
-            <Image Height="114" HorizontalAlignment="Left" Margin="522,96,0,0" Name="image1" Stretch="Uniform" VerticalAlignment="Top" Width="119" Source="/Test_WPF;component/Images/1371345098_trophy.png" />
+            <Label Content="Nom" Height="Auto" HorizontalAlignment="Left" Margin="112,11,0,0" Name="gameNameLabel" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+            <TextBlock Height="Auto" Padding="10" HorizontalAlignment="Right" Margin="0,97,243,0" Name="descriptionTextBlock" Text="Description du jeu" VerticalAlignment="Top" Width="378" FontSize="16" FontStyle="Italic" />
+            <Label Content="Meilleur score : " Height="Auto" HorizontalAlignment="Left" Margin="133,180,0,0" Name="label2" VerticalAlignment="Top" FontSize="15" />
+            <Label Content="Aucun" Height="30" HorizontalAlignment="Left" Margin="240,180,0,0" Name="scoreLabel" VerticalAlignment="Top" FontSize="15" />
+            <Label Content="CE1" FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Right" Margin="0,18,30,0" Name="gradeLabel" VerticalAlignment="Top" />
+            <Label Content="Nom" FontSize="20" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="112,60,0,0" Name="courseLabel" VerticalAlignment="Top" />
+            <Label Content="Jeu : " FontSize="30" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" Height="Auto" HorizontalAlignment="Left" Margin="44,11,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />
+            <Label Content="Cours : " FontSize="20" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="44,60,0,0" Name="label3" VerticalAlignment="Top" FontStyle="Italic" />
+            <Image Height="85" HorizontalAlignment="Left" Margin="44,144,0,0" Name="image1" Stretch="Uniform" VerticalAlignment="Top" Width="85" Source="/Test_WPF;component/Images/1371345098_trophy.png" />
+            <Label Content="Nombre de parties : " FontSize="15" Height="Auto" HorizontalAlignment="Left" Margin="380,180,0,0" Name="label4" VerticalAlignment="Top" />
+            <Label Content="Aucune" FontSize="15" Height="30" HorizontalAlignment="Left" Margin="518,180,0,0" Name="numberGameLabel" VerticalAlignment="Top" />
         </Grid>
     </Grid>
 </UserControl>

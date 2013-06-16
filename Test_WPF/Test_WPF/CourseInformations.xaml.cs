@@ -22,7 +22,7 @@ namespace Test_WPF
     {
         private Storyboard myStoryboard;
 
-        public CourseInformations(string gameName, string gradeName, string courseName, string gameDesc, int score)
+        public CourseInformations(string gameName, string gradeName, string courseName, string gameDesc, int score, int nbGame)
         {
             InitializeComponent();
             this.gameNameLabel.Content = gameName;
@@ -30,6 +30,7 @@ namespace Test_WPF
             this.courseLabel.Content = courseName;
             this.descriptionTextBlock.Text = gameDesc;
             this.scoreLabel.Content = score;
+            this.numberGameLabel.Content = nbGame;
             
             DoubleAnimation myDoubleAnimation = new DoubleAnimation();
             myDoubleAnimation.From = 0.0;

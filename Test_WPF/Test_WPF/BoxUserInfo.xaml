@@ -13,7 +13,7 @@
         </Grid.Effect>
 
         <Label Content="Pseudo" Height="Auto" HorizontalAlignment="Left" Margin="12,12,0,0" Name="pseudoLabel" VerticalAlignment="Top" FontSize="25" />
-        <Image Height="120" HorizontalAlignment="Right" Margin="0,12,15,0" Name="image1" Stretch="UniformToFill" VerticalAlignment="Top" Width="124" Source="/Test_WPF;component/Images/1371134105_Mario%20-%20Profile.png" />
+        <Image Height="120" HorizontalAlignment="Right" Margin="0,12,15,0" Name="image1" Stretch="UniformToFill" VerticalAlignment="Top" Width="124" Source="/Test_WPF;component/Images/ImageProfil/6.png" />
         <Label Content="Score global : 0" Height="Auto" HorizontalAlignment="Right" Margin="0,150,15,0" Name="scoreLabel" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Right" />
         <Label Content="CE1" Height="Auto" HorizontalAlignment="Left" Margin="12,54,0,0" Name="gradeLabel" VerticalAlignment="Top" FontSize="25" />
         <Label Content="0 ami" Height="Auto" HorizontalAlignment="Right" Margin="0,198,15,0" Name="friendsLabel" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Right" />

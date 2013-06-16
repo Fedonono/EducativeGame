@@ -86,15 +86,17 @@ namespace Test_WPF
                 Datas.Game tag = bt.Tag as Datas.Game;
                 string courseName = (from i in Bdd.DbAccess.Courses where i.ID == tag.idCourse select i).FirstOrDefault().name;
                 int score = 0;
+                int nbGame = 0;
                 try
                 {
                     score = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID && i.idUser == App.user.ID select i.value).Max();
+                    nbGame = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID && i.idUser == App.user.ID select i.value).Count();
                 }
                 catch (Exception)
                 {
                 }
                 
-                UIElement cci = new CourseInformations(tag.name, App.user.Grade.name, courseName, "description", score);
+                UIElement cci = new CourseInformations(tag.name, App.user.Grade.name, courseName, "description", score, nbGame);
                 this.currentCourseInfo = cci;
                 this.mainMenuContentGrid.Children.Add(this.currentCourseInfo);
             }

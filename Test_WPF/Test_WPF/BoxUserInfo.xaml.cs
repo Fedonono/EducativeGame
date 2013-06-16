@@ -51,7 +51,18 @@ namespace Test_WPF
                 {
                 }
                 this.friendsLabel.Content = nbFriends + " amis";
+
+                this.changeImage();
             }
+        }
+
+        private void changeImage()
+        {
+            int img = new Random().Next(1,7);
+
+            ImageSource imageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test_WPF;component/Images/ImageProfil/" + img + ".png"));
+
+            this.image1.Source = imageSource;
         }
     }
 }

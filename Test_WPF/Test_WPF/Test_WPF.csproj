@@ -352,6 +352,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\ImageProfil\6.png" />
+    <Resource Include="Images\ImageProfil\5.png" />
+    <Resource Include="Images\ImageProfil\4.png" />
+    <Resource Include="Images\ImageProfil\3.png" />
+    <Resource Include="Images\ImageProfil\2.png" />
+    <Resource Include="Images\ImageProfil\1.png" />
     <Resource Include="Images\1371406083_game.png" />
     <Resource Include="Images\confetti-girl.png" />
     <Resource Include="Images\chanson-swing-la-lune-la-mer-de-la-tranquilite-parent.jpg" />

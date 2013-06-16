@@ -10,8 +10,8 @@
 
         <my:BoxUserInfo Height="300" HorizontalAlignment="Right" Margin="0,63,30,0" x:Name="boxUserInfo1" VerticalAlignment="Top" Width="240" />
         <my:DefiControl Height="450" HorizontalAlignment="Left" Margin="730,265,0,0" x:Name="defiControl1" VerticalAlignment="Top" Width="240" />
-        <Label Content="Catégories de jeu" Height="Auto" HorizontalAlignment="Left" Margin="100,130,0,0" Name="label2" VerticalAlignment="Top" FontSize="20" />
-        <Label Content="Jeux" Height="Auto" HorizontalAlignment="Left" Margin="100,411,0,0" Name="label3" VerticalAlignment="Top" FontSize="20" />
+        <Label Content="Catégories de jeu" Height="Auto" HorizontalAlignment="Left" Margin="100,130,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" FontStyle="Italic" Foreground="#FF009C00" FontWeight="Bold" />
+        <Label Content="Jeux" Height="Auto" HorizontalAlignment="Left" Margin="100,411,0,0" Name="label3" VerticalAlignment="Top" FontSize="25" FontStyle="Italic" Foreground="#FF009C00" FontWeight="Bold" />
 
         <Grid Height="239" HorizontalAlignment="Left" Margin="46,175,0,0" VerticalAlignment="Top" Width="665">
             <Rectangle Height="Auto" Name="rectangle1" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
