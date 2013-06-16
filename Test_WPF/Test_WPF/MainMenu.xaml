@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000" xmlns:my="clr-namespace:Test_WPF">
-    <Grid Loaded="Grid_Loaded">
+    <Grid Name="mainMenuContentGrid" Loaded="Grid_Loaded">
         <Label Content="Menu principal" Height="Auto" HorizontalAlignment="Left" Margin="46,63,0,0" Name="label1" VerticalAlignment="Top" FontSize="35" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
 
         <my:BoxUserInfo Height="300" HorizontalAlignment="Right" Margin="0,63,30,0" x:Name="boxUserInfo1" VerticalAlignment="Top" Width="240" />
@@ -14,17 +14,11 @@
         <Label Content="Jeux" Height="Auto" HorizontalAlignment="Left" Margin="100,411,0,0" Name="label3" VerticalAlignment="Top" FontSize="20" />
 
         <Grid Height="239" HorizontalAlignment="Left" Margin="46,175,0,0" VerticalAlignment="Top" Width="665">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="3" RenderingBias="Performance" />
-            </Grid.Effect>
-            <Rectangle Height="Auto" Name="rectangle1" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#9DE5E5E5" />
+            <Rectangle Height="Auto" Name="rectangle1" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
             <ScrollViewer></ScrollViewer>
         </Grid>
         <Grid Height="239" HorizontalAlignment="Left" Margin="46,454,0,0" VerticalAlignment="Top" Width="665">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="3" RenderingBias="Performance" />
-            </Grid.Effect>
-            <Rectangle Height="Auto" Name="rectangle2" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#9DE5E5E5" />
+            <Rectangle Height="Auto" Name="rectangle2" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
             <ScrollViewer></ScrollViewer>
         </Grid>
         <WrapPanel Margin="46,454,289,57" Name="gamesPanel" >

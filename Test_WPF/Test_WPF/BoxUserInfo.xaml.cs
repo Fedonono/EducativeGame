@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 
 namespace Test_WPF
 {
@@ -31,6 +32,8 @@ namespace Test_WPF
                 this.pseudoLabel.Content = App.user.username;
                 this.nameLabel.Content = App.user.firstName + " " + App.user.name;
                 this.gradeLabel.Content = App.user.Grade.name;
+                int score = (int)(from i in Bdd.DbAccess.Scores where i.idUser == App.user.ID select i.value).Sum();
+                this.scoreLabel.Content = "Score global : " + score;
             }
         }
     }

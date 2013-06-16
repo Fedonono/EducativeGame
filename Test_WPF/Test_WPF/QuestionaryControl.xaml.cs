@@ -111,7 +111,7 @@ namespace Test_WPF
                 }
                 else
                 {
-                    App.mainWindow.gotoHome();
+                    App.mainWindow.launchGame(new ChallengeResults());
                 }
             }
         }

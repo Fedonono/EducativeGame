@@ -3,10 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="300">
+             mc:Ignorable="d" d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
-        <Border BorderBrush="Silver" BorderThickness="2" CornerRadius="10">
-        </Border>
-        <Label Content="Informations sur le cours" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="titleLabel" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Grid Margin="46,175,289,336" Name="animationGrid">
+            <Rectangle Height="239" HorizontalAlignment="Left" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" RadiusX="5" RadiusY="5" Width="665" Fill="#FFF6F6F6" />
+            <Label Content="Informations sur le jeu" Height="Auto" HorizontalAlignment="Left" Margin="30,17,0,0" Name="titleLabel" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+            <Label Content="Nom" Height="Auto" HorizontalAlignment="Left" Margin="111,96,0,0" Name="gameNameLabel" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" />
+            <TextBlock Height="Auto" Padding="10" HorizontalAlignment="Left" Margin="65,145,0,0" Name="descriptionTextBlock" Text="Description du jeu" VerticalAlignment="Top" Width="519" FontSize="16" FontStyle="Italic" />
+            <Label Content="Meilleur score : " Height="Auto" HorizontalAlignment="Left" Margin="65,192,0,0" Name="label2" VerticalAlignment="Top" FontSize="15" />
+            <Label Content="Aucun" Height="Auto" HorizontalAlignment="Left" Margin="171,192,0,0" Name="scoreLabel" VerticalAlignment="Top" FontSize="15" />
+            <Label Content="CE1" FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="588,18,0,0" Name="gradeLabel" VerticalAlignment="Top" />
+            <Label Content="Nom" FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="133,60,0,0" Name="courseLabel" VerticalAlignment="Top" />
+            <Label Content="Jeu : " FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="44,96,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />
+            <Label Content="Cours : " FontSize="25" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="44,60,0,0" Name="label3" VerticalAlignment="Top" FontStyle="Italic" />
+            <Image Height="114" HorizontalAlignment="Left" Margin="522,96,0,0" Name="image1" Stretch="Uniform" VerticalAlignment="Top" Width="119" Source="/Test_WPF;component/Images/1371345098_trophy.png" />
+        </Grid>
     </Grid>
 </UserControl>

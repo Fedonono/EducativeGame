@@ -77,9 +77,15 @@
     <Compile Include="AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AnimationChallengeResult.xaml.cs">
+      <DependentUpon>AnimationChallengeResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bdd.cs" />
     <Compile Include="BoxUserInfo.xaml.cs">
       <DependentUpon>BoxUserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChallengeResults.xaml.cs">
+      <DependentUpon>ChallengeResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="Datas\EducationAll.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -114,7 +120,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AnimationChallengeResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BoxUserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChallengeResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,6 +352,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\1371406083_game.png" />
+    <Resource Include="Images\confetti-girl.png" />
+    <Resource Include="Images\chanson-swing-la-lune-la-mer-de-la-tranquilite-parent.jpg" />
+    <Resource Include="Images\chanson-swing-la-lune-la-fusee-sur-la-lune-parent.jpg" />
+    <Resource Include="Images\chanson-dans-mon-ecole-a-moi-l-arbre-dans-l-ecole-parent.jpg" />
+    <Resource Include="Images\chanson-dans-mon-ecole-a-moi-la-fusee-parent.jpg" />
+    <Resource Include="Images\1371345098_trophy.png" />
+    <Resource Include="Images\1371324714_face-cool.png" />
+    <Resource Include="Images\1371324710_face-plain.png" />
+    <Resource Include="Images\1371324707_face-crying.png" />
+    <Resource Include="Images\07-2.png" />
     <Resource Include="Images\1371319307_emblem-nowrite.png" />
     <Resource Include="Images\1371319301_package-installed-updated.png" />
     <Resource Include="Images\Hangman\dead.png" />

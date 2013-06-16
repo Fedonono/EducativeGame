@@ -35,6 +35,7 @@ namespace Test_WPF
             {
                 this.comboBoxInscrForm.SelectedItem = this.comboBoxInscrForm.Items.GetItemAt(0);
             }
+            this.textBoxConn.Focus();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -101,6 +102,14 @@ namespace Test_WPF
             {
                 this.lError.Content = "Erreur lors de l'ajout de l'inscription dans la BDD,\n le nom d'utilisateur est peut-être déjà existant.\nVeuillez réesayer ou contacter un administrateur.";
                 return false;
+            }
+        }
+
+        private void Conn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.button1_Click(null, null);
             }
         }
     }

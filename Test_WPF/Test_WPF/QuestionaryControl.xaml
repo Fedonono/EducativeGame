@@ -7,15 +7,15 @@
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Loaded="Grid_Loaded">
         <Label Content="Questionnaire" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
-        <Rectangle Height="64" HorizontalAlignment="Center" Margin="52,196,160,0" Name="QuestionPanel" Stroke="Black" VerticalAlignment="Top" Width="788" RadiusX="5" RadiusY="5" Fill="#FFE5E5E5" />
-        <Rectangle Height="420" HorizontalAlignment="Center" Margin="0,288,0,0" Name="AnswerRectangle" Stroke="Black" VerticalAlignment="Top" Width="679" RadiusX="5" RadiusY="5" Fill="#FFE5E5E5" />
+        <Rectangle Height="64" HorizontalAlignment="Center" Margin="52,196,160,0" Name="QuestionPanel" Stroke="Black" VerticalAlignment="Top" Width="788" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Rectangle Height="420" HorizontalAlignment="Center" Margin="0,288,0,0" Name="AnswerRectangle" Stroke="Black" VerticalAlignment="Top" Width="679" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="181,308,180,57" CanContentScroll="True">
             <StackPanel Height="386" HorizontalAlignment="Left" Margin="0,0,0,0" Name="AnswerPanel" VerticalAlignment="Top" Width="640">
                 
             </StackPanel>
         </ScrollViewer>
         <Label Content="Une question ?" Height="Auto" HorizontalAlignment="Left" Margin="68,210,0,0" Name="QuestionLabel" VerticalAlignment="Top" Width="Auto" FontSize="20" />
-        <Rectangle Fill="#FFE5E5E5" Height="110" HorizontalAlignment="Left" Margin="858,170,0,0" Name="rectangle1" RadiusX="5" RadiusY="5" Stroke="Black" VerticalAlignment="Top" Width="110" />
+        <Rectangle Fill="#D3E5E5E5" Height="110" HorizontalAlignment="Left" Margin="858,170,0,0" Name="rectangle1" RadiusX="5" RadiusY="5" Stroke="Black" VerticalAlignment="Top" Width="110" />
         <Image Height="100" HorizontalAlignment="Left" Margin="863,176,0,0" Name="tick" Stretch="Fill" VerticalAlignment="Top" Width="100" Source="/Test_WPF;component/Images/1371319301_package-installed-updated.png" Visibility="Hidden" Panel.ZIndex="1" />
         <Image Height="100" HorizontalAlignment="Left" Margin="863,176,0,0" Name="wrong" Stretch="Fill" VerticalAlignment="Top" Width="100" Source="/Test_WPF;component/Images/1371319307_emblem-nowrite.png" Visibility="Hidden" Panel.ZIndex="1" />
         <Label Content="+10" Height="Auto" HorizontalAlignment="Left" Margin="860,184,0,0" Name="label1" VerticalAlignment="Top" FontSize="50" Foreground="#FF0FB600" FontWeight="Bold" Visibility="Hidden" />

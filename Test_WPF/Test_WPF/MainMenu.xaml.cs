@@ -20,9 +20,12 @@ namespace Test_WPF
     /// </summary>
     public partial class MainMenu : UserControl
     {
-         public MainMenu()
+        private UIElement currentCourseInfo;
+        
+        public MainMenu()
         {
             InitializeComponent();
+            this.currentCourseInfo = null;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -37,10 +40,10 @@ namespace Test_WPF
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Datas.Course> coursesList = Bdd.DbAccess.Courses.ToList();
+            IEnumerable<Datas.Course> coursesList = from i in Bdd.DbAccess.Courses where i.idGrade == App.user.idGrade select i;
             foreach (Datas.Course course in coursesList)
             {
-                Button bt = new Button() {Content = course.name, Tag = course.ID, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10)};
+                Button bt = new Button() {Content = course.name, Tag = course, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10)};
                 bt.Click += new RoutedEventHandler(clickButton);
                 this.coursesPanel.Children.Add(bt);
             }
@@ -48,23 +51,54 @@ namespace Test_WPF
 
         private void clickButton(object sender, EventArgs e)
         {
-            int id = (int)((Button)sender).Tag;
+            Datas.Course tag = ((Button)sender).Tag as Datas.Course;
+            int id = (int)tag.ID;
             IEnumerable<Datas.Game> gamesList = from i in Bdd.DbAccess.Games where i.idCourse == id select i;
             this.gamesPanel.Children.Clear();
             foreach (Datas.Game game in gamesList)
             {
-                Button bt = new Button() { Content = game.name, Tag = game.idQuestionary, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10) };
+                Button bt = new Button() { Content = game.name, Tag = game, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10) };
                 bt.Click += new RoutedEventHandler(launchGame);
+                bt.MouseEnter += new MouseEventHandler(bt_MouseEnter);
+                bt.MouseLeave += new MouseEventHandler(bt_MouseLeave);
                 this.gamesPanel.Children.Add(bt);
             }
 
         }
+
+        void bt_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (this.currentCourseInfo != null && this.mainMenuContentGrid.Children.Contains(this.currentCourseInfo))
+            {
+                this.mainMenuContentGrid.Children.Remove(this.currentCourseInfo);
+            }
+        }
+
+        void bt_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (this.currentCourseInfo != null && this.mainMenuContentGrid.Children.Contains(this.currentCourseInfo))
+            {
+                this.mainMenuContentGrid.Children.Remove(this.currentCourseInfo);
+            }
+            Button bt = (Button)sender;
+            if (bt.Tag != null && bt.Tag is Datas.Game)
+            {
+                Datas.Game tag = bt.Tag as Datas.Game;
+                string courseName = (from i in Bdd.DbAccess.Courses where i.ID == tag.idCourse select i).FirstOrDefault().name;
+                int score = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID select i.value).Max();
+                UIElement cci = new CourseInformations(tag.name, App.user.Grade.name, courseName, "description", score);
+                this.currentCourseInfo = cci;
+                this.mainMenuContentGrid.Children.Add(this.currentCourseInfo);
+            }
+        }
+
         private void launchGame(object sender, EventArgs e)
         {
             Button bt = (Button)sender;
             if (bt.Tag != null)
             {
-                int id = (int)bt.Tag;
+                Datas.Game tag = bt.Tag as Datas.Game;
+                int id = (int)tag.idQuestionary;
                 App.mainWindow.launchGame(new QuestionaryControl(id));
             }
         }

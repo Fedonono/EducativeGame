@@ -42,7 +42,7 @@ namespace Test_WPF
                 this.label2.Content = "Tout va bien depuis ta dernière visite ?\n" +
                     "Le " + App.user.Grade.name + " se passe bien ?";
 
-                this.button1.Margin = new Thickness(240, 321, 0, 0);
+                this.button1.Margin = new Thickness(240, 330, 0, 0);
                 this.button1.Content = "Oui !";
             }
             else

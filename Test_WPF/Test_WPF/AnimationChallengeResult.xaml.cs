@@ -16,25 +16,20 @@ using System.Windows.Media.Animation;
 namespace Test_WPF
 {
     /// <summary>
-    /// Logique d'interaction pour CourseInformations.xaml
+    /// Logique d'interaction pour AnimationChallengeResult.xaml
     /// </summary>
-    public partial class CourseInformations : UserControl
+    public partial class AnimationChallengeResult : UserControl
     {
         private Storyboard myStoryboard;
-
-        public CourseInformations(string gameName, string gradeName, string courseName, string gameDesc, int score)
+        public AnimationChallengeResult(string name1, string name2)
         {
             InitializeComponent();
-            this.gameNameLabel.Content = gameName;
-            this.gradeLabel.Content = gradeName;
-            this.courseLabel.Content = courseName;
-            this.descriptionTextBlock.Text = gameDesc;
-            this.scoreLabel.Content = score;
-            
+            this.label1.Content = name1;
+            this.label3.Content = name2;
             DoubleAnimation myDoubleAnimation = new DoubleAnimation();
-            myDoubleAnimation.From = 0.0;
-            myDoubleAnimation.To = 1.0;
-            myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.1));
+            myDoubleAnimation.From = 1.0;
+            myDoubleAnimation.To = 0.0;
+            myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(7));
             myDoubleAnimation.AutoReverse = false;
 
             myStoryboard = new Storyboard();
