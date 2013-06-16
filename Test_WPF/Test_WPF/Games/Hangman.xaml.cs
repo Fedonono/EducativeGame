@@ -17,7 +17,7 @@ namespace Test_WPF.Games
     /// <summary>
     /// Logique d'interaction pour Hangman.xaml
     /// </summary>
-    public partial class Hangman : UserControl
+    public partial class Hangman : UserControl, IGame
     {
         private List<String> dictionary;
         private String currentWord;
@@ -27,9 +27,14 @@ namespace Test_WPF.Games
         private int essais;
         private int score;
 
-        public Hangman()
+        private int idUser, idGame, idDefi;
+
+        public Hangman(int idUser, int idGame, int idDefi)
         {
             InitializeComponent();
+            this.idUser = idUser;
+            this.idGame = idGame;
+            this.idDefi = idDefi;
         }
 
         private void hangGrid_Loaded(object sender, RoutedEventArgs e)
@@ -42,6 +47,7 @@ namespace Test_WPF.Games
             this.label5.Visibility = System.Windows.Visibility.Hidden;
             this.label4.Visibility = System.Windows.Visibility.Hidden;
             this.button1.Visibility = System.Windows.Visibility.Hidden;
+            this.endButton.Visibility = System.Windows.Visibility.Hidden;
             this.label3.Visibility = System.Windows.Visibility.Visible;
             this.label2.Visibility = System.Windows.Visibility.Visible;
             this.label1.Visibility = System.Windows.Visibility.Visible;
@@ -136,6 +142,7 @@ namespace Test_WPF.Games
             this.label1.Visibility = System.Windows.Visibility.Hidden;
             this.takenLetters.Visibility = System.Windows.Visibility.Hidden;
             this.button1.Visibility = System.Windows.Visibility.Visible;
+            this.endButton.Visibility = System.Windows.Visibility.Visible;
 
             if (this.essais < 0) { this.essais = 0; }
             this.score = this.currentWord.Length * this.essais;
@@ -226,6 +233,19 @@ namespace Test_WPF.Games
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             this.startGame();
+        }
+
+        public event DelegateEndOfGame EndOfGameEvent;
+
+        public void EndOfGame()
+        {
+            if (EndOfGameEvent != null)
+                EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
+        }
+
+        private void endButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.EndOfGame();
         }
     }
 }

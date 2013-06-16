@@ -30,14 +30,19 @@ namespace Test_WPF
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            App.mainWindow.launchGame(new Additions1_ce1());
+            App.mainWindow.launchGame(new Additions1_ce1(0,0,-1));
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            App.mainWindow.launchGame(new Hangman());
+            App.mainWindow.launchGame(new Hangman(0, 0, -1));
         }
 
+        /// <summary>
+        /// Affiche les cours
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             IEnumerable<Datas.Course> coursesList = from i in Bdd.DbAccess.Courses where i.idGrade == App.user.idGrade select i;
@@ -49,6 +54,11 @@ namespace Test_WPF
             }
         }
 
+        /// <summary>
+        /// Mets à jour la liste de jeu en fonction du cours
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clickButton(object sender, EventArgs e)
         {
             Datas.Course tag = ((Button)sender).Tag as Datas.Course;
@@ -66,7 +76,12 @@ namespace Test_WPF
 
         }
 
-        void bt_MouseLeave(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Retire les info du jeu selectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bt_MouseLeave(object sender, MouseEventArgs e)
         {
             if (this.currentCourseInfo != null && this.mainMenuContentGrid.Children.Contains(this.currentCourseInfo))
             {
@@ -74,7 +89,12 @@ namespace Test_WPF
             }
         }
 
-        void bt_MouseEnter(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Affiche des informations sur le jeu selectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bt_MouseEnter(object sender, MouseEventArgs e)
         {
             if (this.currentCourseInfo != null && this.mainMenuContentGrid.Children.Contains(this.currentCourseInfo))
             {
@@ -109,7 +129,7 @@ namespace Test_WPF
             {
                 Datas.Game tag = bt.Tag as Datas.Game;
                 int id = (int)tag.idQuestionary;
-                App.mainWindow.launchGame(new QuestionaryControl(id));
+                App.mainWindow.launchGame(new QuestionaryControl(App.user.ID,tag.ID,-1,id));
             }
         }
     }

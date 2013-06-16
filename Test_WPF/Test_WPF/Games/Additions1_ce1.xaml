@@ -25,5 +25,7 @@
         <Label Content="Game Over !" Height="Auto" HorizontalAlignment="Left" Margin="200,257,0,0" Name="gameOverLabel1" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" Width="Auto" Foreground="#FFDB2706" FontFamily="Palatino Linotype" Visibility="Hidden" />
         <Label Content="Bravo, tu as terminé le jeu !" Height="Auto" HorizontalAlignment="Left" Margin="200,352,0,0" Name="gameOverLabel2" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FFFF6603" FontFamily="Palatino Linotype" Visibility="Hidden" />
         <Label Content="Ta vitesse te fais rapporter 0 points supplémentaires." Height="Auto" HorizontalAlignment="Left" Margin="200,435,0,0" Name="vitesseLabel" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Width="Auto" Foreground="#FFFF6603" FontFamily="Palatino Linotype" Visibility="Hidden" />
+        <Button Content="Continuer" Padding="20" Height="Auto" HorizontalAlignment="Left" Margin="748,596,0,0" Name="endButton" VerticalAlignment="Top" Width="Auto" Visibility="Hidden" Click="endButton_Click" FontSize="20" />
+        <Button Content="Recommencer" Height="Auto" HorizontalAlignment="Left" Margin="727,519,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Padding="20" Visibility="Hidden" Click="button1_Click" FontSize="20" />
     </Grid>
 </UserControl>

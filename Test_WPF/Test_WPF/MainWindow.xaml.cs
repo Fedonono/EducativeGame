@@ -26,17 +26,32 @@ namespace Test_WPF
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Drag fenetre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
 
+        /// <summary>
+        /// Ferme l'application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bdd.DbAccess.Connection.Close();
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Minimise
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -90,6 +105,9 @@ namespace Test_WPF
             this.image6.Visibility = System.Windows.Visibility.Visible;
         }
 
+        /// <summary>
+        /// Change le fond d'écran en fonction du grade de l'utilisateur
+        /// </summary>
         private void defaultBackground()
         {
             LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush();
@@ -118,7 +136,7 @@ namespace Test_WPF
                 switch (grade)
                 {
                     case 5:
-                        uri = new Uri(@"pack://application:,,,/Test_WPF;component/Images/Backgrounds/paper_wings_by_nerdus-d5w0tah.jpg");
+                        uri = new Uri(@"pack://application:,,,/Test_WPF;component/Images/Backgrounds/Butterfly_by_ilona.jpg");
                         break;
                     case 7:
                         uri = new Uri(@"pack://application:,,,/Test_WPF;component/Images/Backgrounds/catching_butterflies_by_lelpel-d2y1lbz.jpg");
@@ -143,6 +161,11 @@ namespace Test_WPF
 
         }
 
+        /// <summary>
+        /// Affiche la fenetre A propos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AboutDialog wd = new AboutDialog();
@@ -150,17 +173,32 @@ namespace Test_WPF
             wd.ShowDialog();
         }
 
+        /// <summary>
+        /// Go to home
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void image6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.gotoHome();
         }
 
+        /// <summary>
+        /// Déconnexion utilisateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             App.user = null;
             App.CurrentApp.app_Startup(null,null);
         }
 
+        /// <summary>
+        /// Affichage profil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void image5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //AboutDialog wd = new AboutDialog();
@@ -168,10 +206,18 @@ namespace Test_WPF
             //wd.ShowDialog();
         }
 
-        public void launchGame(UIElement gamePanel)
+        public void launchGame(IGame gamePanel)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
-            this.currentUIElement = gamePanel;
+            this.currentUIElement = gamePanel as UIElement;
+            gamePanel.EndOfGameEvent += new DelegateEndOfGame(gamePanel_EndOfGameEvent);
+            this.contentGrid.Children.Add(this.currentUIElement);
+        }
+
+        void gamePanel_EndOfGameEvent(int idUser, int idGame, int idDefi, int points)
+        {
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = new MainMenu();//à remplacer par la gestion des défis
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 

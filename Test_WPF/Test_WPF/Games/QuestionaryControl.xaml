@@ -18,6 +18,6 @@
         <Rectangle Fill="#D3E5E5E5" Height="110" HorizontalAlignment="Left" Margin="858,170,0,0" Name="rectangle1" RadiusX="5" RadiusY="5" Stroke="Black" VerticalAlignment="Top" Width="110" />
         <Image Height="100" HorizontalAlignment="Left" Margin="863,176,0,0" Name="tick" Stretch="Fill" VerticalAlignment="Top" Width="100" Source="/Test_WPF;component/Images/1371319301_package-installed-updated.png" Visibility="Hidden" Panel.ZIndex="1" />
         <Image Height="100" HorizontalAlignment="Left" Margin="863,176,0,0" Name="wrong" Stretch="Fill" VerticalAlignment="Top" Width="100" Source="/Test_WPF;component/Images/1371319307_emblem-nowrite.png" Visibility="Hidden" Panel.ZIndex="1" />
-        <Label Content="+10" Height="Auto" HorizontalAlignment="Left" Margin="860,184,0,0" Name="label1" VerticalAlignment="Top" FontSize="50" Foreground="#FF0FB600" FontWeight="Bold" Visibility="Hidden" />
+        <Label Content="+10" Height="Auto" HorizontalAlignment="Left" Margin="860,184,0,0" Name="scoreLabel" VerticalAlignment="Top" FontSize="50" Foreground="#FF0FB600" FontWeight="Bold" Visibility="Hidden" />
     </Grid>
 </UserControl>

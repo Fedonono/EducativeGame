@@ -51,7 +51,7 @@ namespace Test_WPF.Games
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
             this.setToMainWindow();
-            this.contentGrid.Children.Add(new Hangman());
+            this.contentGrid.Children.Add(new Hangman(0, 0, -1));
         }
 
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -18,7 +18,7 @@ namespace Test_WPF.Games
     /// <summary>
     /// Logique d'interaction pour Additions1_ce1.xaml
     /// </summary>
-    public partial class Additions1_ce1 : UserControl
+    public partial class Additions1_ce1 : UserControl, IGame
     {
         private List<Control> listeTables;
         private int tableDeX;
@@ -29,20 +29,46 @@ namespace Test_WPF.Games
         private int time;
         private readonly int END_SCORE = 10;
 
-        public Additions1_ce1()
+        private int idUser, idGame, idDefi;
+
+        public Additions1_ce1(int idUser, int idGame, int idDefi)
         {
             InitializeComponent();
+            this.idUser = idUser;
+            this.idGame = idGame;
+            this.idDefi = idDefi;
+        }
+
+        private void startGame()
+        {
+            this.tableName.Visibility = System.Windows.Visibility.Hidden;
+            this.firstNumber.Visibility = System.Windows.Visibility.Hidden;
+            this.plus.Visibility = System.Windows.Visibility.Hidden;
+            this.secondNumber.Visibility = System.Windows.Visibility.Hidden;
+            this.equal.Visibility = System.Windows.Visibility.Hidden;
+            this.response.Visibility = System.Windows.Visibility.Hidden;
+            this.scoreLabel1.Visibility = System.Windows.Visibility.Hidden;
+            this.scoreLabel2.Visibility = System.Windows.Visibility.Hidden;
+            this.timerLabel1.Visibility = System.Windows.Visibility.Hidden;
+            this.timerLabel2.Visibility = System.Windows.Visibility.Hidden;
+            this.descLabel1.Visibility = System.Windows.Visibility.Visible;
+            this.descLabel2.Visibility = System.Windows.Visibility.Visible;
+            this.descLabel3.Visibility = System.Windows.Visibility.Visible;
+            this.button1.Visibility = System.Windows.Visibility.Hidden;
+            this.endButton.Visibility = System.Windows.Visibility.Hidden;
+            this.vitesseLabel.Visibility = System.Windows.Visibility.Hidden;
+            this.gameOverLabel1.Visibility = System.Windows.Visibility.Hidden;
+            this.gameOverLabel2.Visibility = System.Windows.Visibility.Hidden;
+
+            this.response.Text = "";
             this.listeTables = new List<Control>();
             this.chosen = false;
             this.score = 0;
             this.timer = new DispatcherTimer();
-            this.timer.Interval = new TimeSpan(0,0,0,1);
+            this.timer.Interval = new TimeSpan(0, 0, 0, 1);
             this.timer.Tick += new EventHandler(timer_Elapsed);
             this.time = 0;
-        }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
             for (int i = 1; i < 11; i++)
             {
                 Button b = new Button();
@@ -54,20 +80,25 @@ namespace Test_WPF.Games
                 b.VerticalAlignment = System.Windows.VerticalAlignment.Top;
                 if (i <= 4)
                 {
-                    b.Margin = new Thickness(50+150*i, 380, 0, 0);
+                    b.Margin = new Thickness(50 + 150 * i, 380, 0, 0);
                 }
                 else if (i > 4 && i <= 8)
                 {
-                    b.Margin = new Thickness(50 + 150 * (i-4), 480, 0, 0);
+                    b.Margin = new Thickness(50 + 150 * (i - 4), 480, 0, 0);
                 }
                 else
                 {
-                    b.Margin = new Thickness(200 + 150 * (i-8), 580, 0, 0);
+                    b.Margin = new Thickness(200 + 150 * (i - 8), 580, 0, 0);
                 }
                 b.Click += new RoutedEventHandler(b_Click);
                 this.contentGrid.Children.Add(b);
                 this.listeTables.Add(b);
             }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.startGame();
         }
 
         private void b_Click(object sender, RoutedEventArgs e)
@@ -133,7 +164,7 @@ namespace Test_WPF.Games
                     this.scoreLabel2.Content = this.score;
                     if (this.score == this.END_SCORE)
                     {
-                        this.endOfGame();
+                        this.EndOfAdditionGame();
                         return;
                     }
                     this.nextCalcul();
@@ -151,7 +182,12 @@ namespace Test_WPF.Games
             }
         }
 
-        private void endOfGame()
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.startGame();
+        }
+
+        private void EndOfAdditionGame()
         {
             this.timer.Stop();
             this.firstNumber.Visibility = System.Windows.Visibility.Hidden;
@@ -194,11 +230,26 @@ namespace Test_WPF.Games
             this.score += bonus;
             this.scoreLabel2.Content = this.score;
             this.vitesseLabel.Content = "Ta vitesse te fais rapporter " + bonus + " points supplémentaires.";
+            this.endButton.Visibility = System.Windows.Visibility.Visible;
+            this.button1.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void response_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             this.timer.Start();
+        }
+
+        public event DelegateEndOfGame EndOfGameEvent;
+
+        public void EndOfGame()
+        {
+            if (EndOfGameEvent != null)
+                EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
+        }
+
+        private void endButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.EndOfGame();
         }
     }
 }

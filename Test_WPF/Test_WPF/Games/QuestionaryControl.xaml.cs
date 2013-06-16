@@ -12,24 +12,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Test_WPF.Games;
 
 namespace Test_WPF
 {
     /// <summary>
     /// Logique d'interaction pour QuestionaryControl.xaml
     /// </summary>
-    public partial class QuestionaryControl : UserControl
+    public partial class QuestionaryControl : UserControl, IGame
     {
         private IEnumerable<Datas.Question> questionsList;
         private IEnumerator<Datas.Question> questionItr;
         private int idQuestionnary;
         private DispatcherTimer timer;
         private int time;
+        private int score;
 
-        public QuestionaryControl(int id)
+        private int idUser, idGame, idDefi;
+
+        public QuestionaryControl(int idUser, int idGame, int idDefi, int idQuestionnary)
         {
             InitializeComponent();
-            this.idQuestionnary = id;
+            this.idQuestionnary = idQuestionnary;
+            this.idUser = idUser;
+            this.idGame = idGame;
+            this.idDefi = idDefi;
+            this.score = 0;
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -70,6 +78,8 @@ namespace Test_WPF
             Datas.Choice choice = (Datas.Choice) bt.Tag;
             if (choice.Question.answer == choice.choice1)
             {
+                this.scoreLabel.Content = "+10";
+                this.addPoint(10);
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 bt.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
@@ -97,13 +107,13 @@ namespace Test_WPF
             if (this.time == 1 && this.tick.Visibility == System.Windows.Visibility.Visible)
             {
                 this.tick.Visibility = System.Windows.Visibility.Hidden;
-                this.label1.Visibility = System.Windows.Visibility.Visible;
+                this.scoreLabel.Visibility = System.Windows.Visibility.Visible;
             }
-            if(this.time > 2)
+            if(this.time == 2)
             {
                 this.timer.Stop();
                 this.tick.Visibility = System.Windows.Visibility.Hidden;
-                this.label1.Visibility = System.Windows.Visibility.Hidden;
+                this.scoreLabel.Visibility = System.Windows.Visibility.Hidden;
                 this.wrong.Visibility = System.Windows.Visibility.Hidden;
                 if (this.questionItr.MoveNext())
                 {
@@ -111,11 +121,10 @@ namespace Test_WPF
                 }
                 else
                 {
-                    App.mainWindow.launchGame(new ChallengeResults());
+                    this.EndOfGame();
                 }
             }
         }
-
 
         private void clickValider(object sender, RoutedEventArgs e)
         {
@@ -124,6 +133,8 @@ namespace Test_WPF
             String answer = this.questionItr.Current.answer;
             if (tb.Text == answer)
             {
+                this.scoreLabel.Content = "+20";
+                this.addPoint(20);
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 tb.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
@@ -147,6 +158,19 @@ namespace Test_WPF
             this.timer.Tick += new EventHandler(timer_Tick);
             this.timer.Start();
             this.time = 0;
+        }
+
+        private void addPoint(int p)
+        {
+            this.score += p;
+        }
+
+        public event DelegateEndOfGame EndOfGameEvent;
+
+        public void EndOfGame()
+        {
+            if (EndOfGameEvent != null)
+                EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
         }
     }
 }
