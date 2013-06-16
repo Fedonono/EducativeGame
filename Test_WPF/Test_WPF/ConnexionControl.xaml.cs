@@ -98,7 +98,7 @@ namespace Test_WPF
                 App.user = u;
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 this.lError.Content = "Erreur lors de l'ajout de l'inscription dans la BDD,\n le nom d'utilisateur est peut-être déjà existant.\nVeuillez réesayer ou contacter un administrateur.";
                 return false;

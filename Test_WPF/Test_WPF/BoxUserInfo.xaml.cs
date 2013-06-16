@@ -32,8 +32,25 @@ namespace Test_WPF
                 this.pseudoLabel.Content = App.user.username;
                 this.nameLabel.Content = App.user.firstName + " " + App.user.name;
                 this.gradeLabel.Content = App.user.Grade.name;
-                int score = (int)(from i in Bdd.DbAccess.Scores where i.idUser == App.user.ID select i.value).Sum();
+                int score = 0;
+                try
+                {
+                    score = (int)(from i in Bdd.DbAccess.Scores where i.idUser == App.user.ID select i.value).Sum();
+                }
+                catch (Exception)
+                {
+                }
                 this.scoreLabel.Content = "Score global : " + score;
+
+                int nbFriends = 0;
+                try
+                {
+                    nbFriends = (int)(from i in Bdd.DbAccess.Relationships where i.userId1 == App.user.ID select i).Count();
+                }
+                catch (Exception)
+                {
+                }
+                this.friendsLabel.Content = nbFriends + " amis";
             }
         }
     }

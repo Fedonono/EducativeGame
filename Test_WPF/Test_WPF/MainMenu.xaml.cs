@@ -85,7 +85,15 @@ namespace Test_WPF
             {
                 Datas.Game tag = bt.Tag as Datas.Game;
                 string courseName = (from i in Bdd.DbAccess.Courses where i.ID == tag.idCourse select i).FirstOrDefault().name;
-                int score = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID select i.value).Max();
+                int score = 0;
+                try
+                {
+                    score = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID && i.idUser == App.user.ID select i.value).Max();
+                }
+                catch (Exception)
+                {
+                }
+                
                 UIElement cci = new CourseInformations(tag.name, App.user.Grade.name, courseName, "description", score);
                 this.currentCourseInfo = cci;
                 this.mainMenuContentGrid.Children.Add(this.currentCourseInfo);
