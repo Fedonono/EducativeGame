@@ -21,10 +21,7 @@
             <Rectangle Height="Auto" Name="rectangle2" Stroke="Black" Width="Auto" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
             <ScrollViewer></ScrollViewer>
         </Grid>
-        <WrapPanel Margin="46,454,289,57" Name="gamesPanel" >
-            <Button Content="Jeu calcul CE1" Height="Auto" Padding="25" HorizontalAlignment="Left" Margin="10" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" FontSize="20" />
-            <Button Content="Pendu anglais" Height="Auto" Padding="25" HorizontalAlignment="Left" Margin="10" Name="button2" VerticalAlignment="Top" Width="Auto" Click="button2_Click" FontSize="20" />
-        </WrapPanel>
+        <WrapPanel Margin="46,454,289,57" Name="gamesPanel" ></WrapPanel>
         <WrapPanel Margin="46,175,289,336" Name="coursesPanel">
             
         </WrapPanel>

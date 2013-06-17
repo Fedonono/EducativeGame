@@ -28,16 +28,6 @@ namespace Test_WPF
             this.currentCourseInfo = null;
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            App.mainWindow.launchGame(new Additions1_ce1(0,0,-1));
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            App.mainWindow.launchGame(new Hangman(0, 0, -1));
-        }
-
         /// <summary>
         /// Affiche les cours
         /// </summary>
@@ -116,7 +106,7 @@ namespace Test_WPF
                 {
                 }
                 
-                UIElement cci = new CourseInformations(tag.name, App.user.Grade.name, courseName, "description", score, nbGame);
+                UIElement cci = new CourseInformations(tag.name, App.user.Grade.name, courseName, tag.description, score, nbGame);
                 this.currentCourseInfo = cci;
                 this.mainMenuContentGrid.Children.Add(this.currentCourseInfo);
             }
@@ -128,8 +118,26 @@ namespace Test_WPF
             if (bt.Tag != null)
             {
                 Datas.Game tag = bt.Tag as Datas.Game;
-                int id = (int)tag.idQuestionary;
-                App.mainWindow.launchGame(new QuestionaryControl(App.user.ID,tag.ID,-1,id));
+                try
+                {
+                    if (tag.className == "QuestionaryControl")
+                    {
+                        int id = (int)tag.idQuestionary;
+                        App.mainWindow.launchGame(new QuestionaryControl(App.user.ID, tag.ID, -1, id));
+                    }
+                    else
+                    {
+                        Type game = Type.GetType("Test_WPF.Games." + tag.className);
+                        object o = Activator.CreateInstance(game, App.user.ID, tag.ID, -1);
+                        App.mainWindow.launchGame(o as IGame);
+                    }
+                }
+                catch (Exception)
+                {
+                    ErrorWindow wd = new ErrorWindow();
+                    wd.Owner = App.mainWindow;
+                    wd.ShowDialog();
+                }
             }
         }
     }

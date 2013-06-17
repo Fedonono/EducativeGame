@@ -8,19 +8,18 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Métadonnées de relation EDM
 
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Choice_0", "Question", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Question), "Choice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Choice), true)]
-[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Course_0", "Grade", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Grade), "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Course), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Course_0", "Grade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Grade), "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Course), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Game_0", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Course), "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Game), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
@@ -34,6 +33,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Relationship_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Relationship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Relationship), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Relationship_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Relationship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Relationship), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Score_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Score), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_3", "Score", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Score), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_4", "Score", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.Score), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Dual_5", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test_WPF.Datas.User), "Dual", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Dual), true)]
 
 #endregion
 
@@ -262,7 +264,6 @@ namespace Test_WPF.Datas
         private ObjectSet<User> _Users;
 
         #endregion
-
         #region Méthodes AddTo
     
         /// <summary>
@@ -354,11 +355,11 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entités
     
     /// <summary>
@@ -387,7 +388,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -466,7 +466,6 @@ namespace Test_WPF.Datas
         partial void Onchoice1Changed();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -509,7 +508,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -527,16 +525,17 @@ namespace Test_WPF.Datas
         /// </summary>
         /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
-        public static Course CreateCourse(global::System.Int32 id, global::System.String name)
+        /// <param name="idGrade">Valeur initiale de la propriété idGrade.</param>
+        public static Course CreateCourse(global::System.Int32 id, global::System.String name, global::System.Int32 idGrade)
         {
             Course course = new Course();
             course.ID = id;
             course.name = name;
+            course.idGrade = idGrade;
             return course;
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -593,9 +592,9 @@ namespace Test_WPF.Datas
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> idGrade
+        public global::System.Int32 idGrade
         {
             get
             {
@@ -610,12 +609,11 @@ namespace Test_WPF.Datas
                 OnidGradeChanged();
             }
         }
-        private Nullable<global::System.Int32> _idGrade;
-        partial void OnidGradeChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _idGrade;
+        partial void OnidGradeChanging(global::System.Int32 value);
         partial void OnidGradeChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -680,7 +678,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -701,7 +698,8 @@ namespace Test_WPF.Datas
         /// <param name="idChallenged">Valeur initiale de la propriété idChallenged.</param>
         /// <param name="date">Valeur initiale de la propriété date.</param>
         /// <param name="idGame">Valeur initiale de la propriété idGame.</param>
-        public static Dual CreateDual(global::System.Int32 id, global::System.Int32 idChallenger, global::System.Int32 idChallenged, global::System.DateTime date, global::System.Int32 idGame)
+        /// <param name="idScoreChallenger">Valeur initiale de la propriété idScoreChallenger.</param>
+        public static Dual CreateDual(global::System.Int32 id, global::System.Int32 idChallenger, global::System.Int32 idChallenged, global::System.DateTime date, global::System.Int32 idGame, global::System.Int32 idScoreChallenger)
         {
             Dual dual = new Dual();
             dual.ID = id;
@@ -709,11 +707,11 @@ namespace Test_WPF.Datas
             dual.idChallenged = idChallenged;
             dual.date = date;
             dual.idGame = idGame;
+            dual.idScoreChallenger = idScoreChallenger;
             return dual;
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -838,9 +836,80 @@ namespace Test_WPF.Datas
         private global::System.Int32 _idGame;
         partial void OnidGameChanging(global::System.Int32 value);
         partial void OnidGameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idScoreChallenger
+        {
+            get
+            {
+                return _idScoreChallenger;
+            }
+            set
+            {
+                OnidScoreChallengerChanging(value);
+                ReportPropertyChanging("idScoreChallenger");
+                _idScoreChallenger = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idScoreChallenger");
+                OnidScoreChallengerChanged();
+            }
+        }
+        private global::System.Int32 _idScoreChallenger;
+        partial void OnidScoreChallengerChanging(global::System.Int32 value);
+        partial void OnidScoreChallengerChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> idScoreChallenged
+        {
+            get
+            {
+                return _idScoreChallenged;
+            }
+            set
+            {
+                OnidScoreChallengedChanging(value);
+                ReportPropertyChanging("idScoreChallenged");
+                _idScoreChallenged = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idScoreChallenged");
+                OnidScoreChallengedChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _idScoreChallenged;
+        partial void OnidScoreChallengedChanging(Nullable<global::System.Int32> value);
+        partial void OnidScoreChallengedChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> winner
+        {
+            get
+            {
+                return _winner;
+            }
+            set
+            {
+                OnwinnerChanging(value);
+                ReportPropertyChanging("winner");
+                _winner = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("winner");
+                OnwinnerChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _winner;
+        partial void OnwinnerChanging(Nullable<global::System.Int32> value);
+        partial void OnwinnerChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -957,9 +1026,122 @@ namespace Test_WPF.Datas
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_3", "Score")]
+        public Score Score
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Score>("EducationAllModel.FK_Dual_3", "Score").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Score>("EducationAllModel.FK_Dual_3", "Score").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Score> ScoreReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Score>("EducationAllModel.FK_Dual_3", "Score");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Score>("EducationAllModel.FK_Dual_3", "Score", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_4", "Score")]
+        public Score Score1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Score>("EducationAllModel.FK_Dual_4", "Score").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Score>("EducationAllModel.FK_Dual_4", "Score").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Score> Score1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Score>("EducationAllModel.FK_Dual_4", "Score");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Score>("EducationAllModel.FK_Dual_4", "Score", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_5", "User")]
+        public User User2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_5", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_5", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> User2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_Dual_5", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_Dual_5", "User", value);
+                }
+            }
+        }
 
         #endregion
-
     }
     
     /// <summary>
@@ -978,17 +1160,18 @@ namespace Test_WPF.Datas
         /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         /// <param name="idCourse">Valeur initiale de la propriété idCourse.</param>
-        public static Game CreateGame(global::System.Int32 id, global::System.String name, global::System.Int32 idCourse)
+        /// <param name="className">Valeur initiale de la propriété className.</param>
+        public static Game CreateGame(global::System.Int32 id, global::System.String name, global::System.Int32 idCourse, global::System.String className)
         {
             Game game = new Game();
             game.ID = id;
             game.name = name;
             game.idCourse = idCourse;
+            game.className = className;
             return game;
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -1089,9 +1272,56 @@ namespace Test_WPF.Datas
         private Nullable<global::System.Int32> _idQuestionary;
         partial void OnidQuestionaryChanging(Nullable<global::System.Int32> value);
         partial void OnidQuestionaryChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                OndescriptionChanging(value);
+                ReportPropertyChanging("description");
+                _description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("description");
+                OndescriptionChanged();
+            }
+        }
+        private global::System.String _description;
+        partial void OndescriptionChanging(global::System.String value);
+        partial void OndescriptionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String className
+        {
+            get
+            {
+                return _className;
+            }
+            set
+            {
+                OnclassNameChanging(value);
+                ReportPropertyChanging("className");
+                _className = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("className");
+                OnclassNameChanged();
+            }
+        }
+        private global::System.String _className;
+        partial void OnclassNameChanging(global::System.String value);
+        partial void OnclassNameChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -1238,7 +1468,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1265,7 +1494,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -1320,7 +1548,6 @@ namespace Test_WPF.Datas
         partial void OnnameChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -1369,14 +1596,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
-        #region Methode Override
-        public override string ToString()
-        {
-            return this.name;
-        }
-        #endregion
-
     }
     
     /// <summary>
@@ -1405,7 +1624,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -1508,7 +1726,6 @@ namespace Test_WPF.Datas
         partial void OnidQuestionaryChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -1573,7 +1790,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1591,18 +1807,17 @@ namespace Test_WPF.Datas
         /// </summary>
         /// <param name="id">Valeur initiale de la propriété ID.</param>
         /// <param name="idGame">Valeur initiale de la propriété idGame.</param>
-        /// <param name="answer">Valeur initiale de la propriété answer.</param>
-        public static Questionary CreateQuestionary(global::System.Int32 id, global::System.Int32 idGame, global::System.String answer)
+        /// <param name="name">Valeur initiale de la propriété name.</param>
+        public static Questionary CreateQuestionary(global::System.Int32 id, global::System.Int32 idGame, global::System.String name)
         {
             Questionary questionary = new Questionary();
             questionary.ID = id;
             questionary.idGame = idGame;
-            questionary.answer = answer;
+            questionary.name = name;
             return questionary;
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -1661,27 +1876,26 @@ namespace Test_WPF.Datas
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String answer
+        public global::System.String name
         {
             get
             {
-                return _answer;
+                return _name;
             }
             set
             {
-                OnanswerChanging(value);
-                ReportPropertyChanging("answer");
-                _answer = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("answer");
-                OnanswerChanged();
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
             }
         }
-        private global::System.String _answer;
-        partial void OnanswerChanging(global::System.String value);
-        partial void OnanswerChanged();
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -1768,7 +1982,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1795,7 +2008,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -1850,7 +2062,6 @@ namespace Test_WPF.Datas
         partial void OnnameChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -1877,7 +2088,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1906,7 +2116,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -1985,7 +2194,6 @@ namespace Test_WPF.Datas
         partial void OnuserId2Changed();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -2066,7 +2274,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2095,7 +2302,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -2198,7 +2404,6 @@ namespace Test_WPF.Datas
         partial void OnvalueChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -2277,9 +2482,52 @@ namespace Test_WPF.Datas
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_3", "Dual")]
+        public EntityCollection<Dual> Duals
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dual>("EducationAllModel.FK_Dual_3", "Dual");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dual>("EducationAllModel.FK_Dual_3", "Dual", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_4", "Dual")]
+        public EntityCollection<Dual> Duals1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dual>("EducationAllModel.FK_Dual_4", "Dual");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dual>("EducationAllModel.FK_Dual_4", "Dual", value);
+                }
+            }
+        }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2314,7 +2562,6 @@ namespace Test_WPF.Datas
         }
 
         #endregion
-
         #region Propriétés primitives
     
         /// <summary>
@@ -2537,7 +2784,6 @@ namespace Test_WPF.Datas
         partial void OnbirthDateChanged();
 
         #endregion
-
     
         #region Propriétés de navigation
     
@@ -2726,12 +2972,32 @@ namespace Test_WPF.Datas
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_5", "Dual")]
+        public EntityCollection<Dual> Duals2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dual>("EducationAllModel.FK_Dual_5", "Dual");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dual>("EducationAllModel.FK_Dual_5", "Dual", value);
+                }
+            }
+        }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

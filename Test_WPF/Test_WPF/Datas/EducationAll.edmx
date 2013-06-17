@@ -37,6 +37,18 @@
             <End Role="Game" EntitySet="Game" />
             <End Role="Dual" EntitySet="Dual" />
           </AssociationSet>
+          <AssociationSet Name="FK_Dual_3" Association="EducationAllModel.Store.FK_Dual_3">
+            <End Role="Score" EntitySet="Score" />
+            <End Role="Dual" EntitySet="Dual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_4" Association="EducationAllModel.Store.FK_Dual_4">
+            <End Role="Score" EntitySet="Score" />
+            <End Role="Dual" EntitySet="Dual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_5" Association="EducationAllModel.Store.FK_Dual_5">
+            <End Role="User" EntitySet="User" />
+            <End Role="Dual" EntitySet="Dual" />
+          </AssociationSet>
           <AssociationSet Name="FK_Game_0" Association="EducationAllModel.Store.FK_Game_0">
             <End Role="Course" EntitySet="Course" />
             <End Role="Game" EntitySet="Game" />
@@ -92,7 +104,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="idGrade" Type="int" />
+          <Property Name="idGrade" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Dual">
           <Key>
@@ -103,6 +115,9 @@
           <Property Name="idChallenged" Type="int" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
           <Property Name="idGame" Type="int" Nullable="false" />
+          <Property Name="idScoreChallenger" Type="int" Nullable="false" />
+          <Property Name="idScoreChallenged" Type="int" />
+          <Property Name="winner" Type="int" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -112,6 +127,8 @@
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="idCourse" Type="int" Nullable="false" />
           <Property Name="idQuestionary" Type="int" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="className" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
@@ -135,7 +152,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idGame" Type="int" Nullable="false" />
-          <Property Name="answer" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Rank">
           <Key>
@@ -148,9 +165,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="userId1" Type="int" Nullable="false" />
           <Property Name="userId2" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Score">
           <Key>
@@ -188,7 +205,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Course_0">
-          <End Role="Grade" Type="EducationAllModel.Store.Grade" Multiplicity="0..1" />
+          <End Role="Grade" Type="EducationAllModel.Store.Grade" Multiplicity="1" />
           <End Role="Course" Type="EducationAllModel.Store.Course" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Grade">
@@ -232,6 +249,42 @@
             </Principal>
             <Dependent Role="Dual">
               <PropertyRef Name="idGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_3">
+          <End Role="Score" Type="EducationAllModel.Store.Score" Multiplicity="1" />
+          <End Role="Dual" Type="EducationAllModel.Store.Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Score">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idScoreChallenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_4">
+          <End Role="Score" Type="EducationAllModel.Store.Score" Multiplicity="0..1" />
+          <End Role="Dual" Type="EducationAllModel.Store.Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Score">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idScoreChallenged" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_5">
+          <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="0..1" />
+          <End Role="Dual" Type="EducationAllModel.Store.Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="winner" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -431,6 +484,18 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Score" EntitySet="Scores" />
           </AssociationSet>
+          <AssociationSet Name="FK_Dual_3" Association="EducationAllModel.FK_Dual_3">
+            <End Role="Score" EntitySet="Scores" />
+            <End Role="Dual" EntitySet="Duals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_4" Association="EducationAllModel.FK_Dual_4">
+            <End Role="Score" EntitySet="Scores" />
+            <End Role="Dual" EntitySet="Duals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dual_5" Association="EducationAllModel.FK_Dual_5">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Dual" EntitySet="Duals" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Choice">
           <Key>
@@ -447,7 +512,7 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="idGrade" />
+          <Property Type="Int32" Name="idGrade" Nullable="false" />
           <NavigationProperty Name="Grade" Relationship="EducationAllModel.FK_Course_0" FromRole="Course" ToRole="Grade" />
           <NavigationProperty Name="Games" Relationship="EducationAllModel.FK_Game_0" FromRole="Course" ToRole="Game" />
         </EntityType>
@@ -463,6 +528,12 @@
           <NavigationProperty Name="User" Relationship="EducationAllModel.FK_Dual_0" FromRole="Dual" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="EducationAllModel.FK_Dual_1" FromRole="Dual" ToRole="User" />
           <NavigationProperty Name="Game" Relationship="EducationAllModel.FK_Dual_2" FromRole="Dual" ToRole="Game" />
+          <Property Type="Int32" Name="idScoreChallenger" Nullable="false" />
+          <Property Type="Int32" Name="idScoreChallenged" />
+          <Property Type="Int32" Name="winner" />
+          <NavigationProperty Name="Score" Relationship="EducationAllModel.FK_Dual_3" FromRole="Dual" ToRole="Score" />
+          <NavigationProperty Name="Score1" Relationship="EducationAllModel.FK_Dual_4" FromRole="Dual" ToRole="Score" />
+          <NavigationProperty Name="User2" Relationship="EducationAllModel.FK_Dual_5" FromRole="Dual" ToRole="User" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -477,6 +548,8 @@
           <NavigationProperty Name="Questionary" Relationship="EducationAllModel.FK_Game_1" FromRole="Game" ToRole="Questionary" />
           <NavigationProperty Name="Questionaries" Relationship="EducationAllModel.FK_Questionary_0" FromRole="Game" ToRole="Questionary" />
           <NavigationProperty Name="Scores" Relationship="EducationAllModel.FK_Score_1" FromRole="Game" ToRole="Score" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="className" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
@@ -504,10 +577,10 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="idGame" Nullable="false" />
-          <Property Type="String" Name="answer" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Games" Relationship="EducationAllModel.FK_Game_1" FromRole="Questionary" ToRole="Game" />
           <NavigationProperty Name="Game" Relationship="EducationAllModel.FK_Questionary_0" FromRole="Questionary" ToRole="Game" />
           <NavigationProperty Name="Questions" Relationship="EducationAllModel.FK_Question_0" FromRole="Questionary" ToRole="Question" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Rank">
           <Key>
@@ -537,6 +610,8 @@
           <Property Type="Int32" Name="value" />
           <NavigationProperty Name="Game" Relationship="EducationAllModel.FK_Score_1" FromRole="Score" ToRole="Game" />
           <NavigationProperty Name="User" Relationship="EducationAllModel.FK_Score_0" FromRole="Score" ToRole="User" />
+          <NavigationProperty Name="Duals" Relationship="EducationAllModel.FK_Dual_3" FromRole="Score" ToRole="Dual" />
+          <NavigationProperty Name="Duals1" Relationship="EducationAllModel.FK_Dual_4" FromRole="Score" ToRole="Dual" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -558,6 +633,7 @@
           <NavigationProperty Name="Relationships" Relationship="EducationAllModel.FK_Relationship_0" FromRole="User" ToRole="Relationship" />
           <NavigationProperty Name="Relationships1" Relationship="EducationAllModel.FK_Relationship_1" FromRole="User" ToRole="Relationship" />
           <NavigationProperty Name="Scores" Relationship="EducationAllModel.FK_Score_0" FromRole="User" ToRole="Score" />
+          <NavigationProperty Name="Duals2" Relationship="EducationAllModel.FK_Dual_5" FromRole="User" ToRole="Dual" />
         </EntityType>
         <Association Name="FK_Choice_0">
           <End Type="EducationAllModel.Question" Role="Question" Multiplicity="1" />
@@ -572,7 +648,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Course_0">
-          <End Type="EducationAllModel.Grade" Role="Grade" Multiplicity="0..1" />
+          <End Type="EducationAllModel.Grade" Role="Grade" Multiplicity="1" />
           <End Type="EducationAllModel.Course" Role="Course" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Grade">
@@ -739,6 +815,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Dual_3">
+          <End Type="EducationAllModel.Score" Role="Score" Multiplicity="1" />
+          <End Type="EducationAllModel.Dual" Role="Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Score">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idScoreChallenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_4">
+          <End Type="EducationAllModel.Score" Role="Score" Multiplicity="0..1" />
+          <End Type="EducationAllModel.Dual" Role="Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Score">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="idScoreChallenged" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dual_5">
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="EducationAllModel.Dual" Role="Dual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dual">
+              <PropertyRef Name="winner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -766,6 +878,9 @@
           <EntitySetMapping Name="Duals">
             <EntityTypeMapping TypeName="EducationAllModel.Dual">
               <MappingFragment StoreEntitySet="Dual">
+                <ScalarProperty Name="winner" ColumnName="winner" />
+                <ScalarProperty Name="idScoreChallenged" ColumnName="idScoreChallenged" />
+                <ScalarProperty Name="idScoreChallenger" ColumnName="idScoreChallenger" />
                 <ScalarProperty Name="idGame" ColumnName="idGame" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="idChallenged" ColumnName="idChallenged" />
@@ -777,6 +892,8 @@
           <EntitySetMapping Name="Games">
             <EntityTypeMapping TypeName="EducationAllModel.Game">
               <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="className" ColumnName="className" />
+                <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="idQuestionary" ColumnName="idQuestionary" />
                 <ScalarProperty Name="idCourse" ColumnName="idCourse" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -805,7 +922,7 @@
           <EntitySetMapping Name="Questionaries">
             <EntityTypeMapping TypeName="EducationAllModel.Questionary">
               <MappingFragment StoreEntitySet="Questionary">
-                <ScalarProperty Name="answer" ColumnName="answer" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="idGame" ColumnName="idGame" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -879,7 +996,7 @@
         <EntityTypeShape EntityType="EducationAllModel.Game" Width="1.5" PointX="5.25" PointY="6.75" Height="2.749492187499996" />
         <EntityTypeShape EntityType="EducationAllModel.Grade" Width="1.5" PointX="0.75" PointY="7.25" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="EducationAllModel.Question" Width="1.5" PointX="9.75" PointY="10.375" Height="2.172587890624996" />
-        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="7.5" PointY="10.375" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="7.5" PointY="10.375" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="3.375" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="EducationAllModel.Relationship" Width="1.5" PointX="5.25" PointY="3.125" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="10.5" PointY="4.75" Height="2.1725878906250031" />
@@ -897,60 +1014,72 @@
           <ConnectorPoint PointX="5.25" PointY="8.11514322916667" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_0" >
-          <ConnectorPoint PointX="4.5" PointY="5.6941943359375031" />
-          <ConnectorPoint PointX="7.5" PointY="5.6941943359375031" />
+          <ConnectorPoint PointX="4.5" PointY="5.9531970214843764" />
+          <ConnectorPoint PointX="7.5" PointY="5.9531970214843764" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_1" >
-          <ConnectorPoint PointX="4.5" PointY="5.368490397135421" />
-          <ConnectorPoint PointX="7.5" PointY="5.368490397135421" />
+          <ConnectorPoint PointX="4.5" PointY="5.4979917399088576" />
+          <ConnectorPoint PointX="7.5" PointY="5.4979917399088576" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_2" >
-          <ConnectorPoint PointX="6.75" PointY="6.9035953776041694" />
-          <ConnectorPoint PointX="7.5" PointY="6.9035953776041694" />
+          <ConnectorPoint PointX="6.75" PointY="7.4804996744791667" />
+          <ConnectorPoint PointX="7.5" PointY="7.4804996744791667" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Game_1" >
-          <ConnectorPoint PointX="7.5" PointY="11.461293945312502" />
-          <ConnectorPoint PointX="6" PointY="11.461293945312502" />
-          <ConnectorPoint PointX="6" PointY="9.499492187499996" />
+          <ConnectorPoint PointX="7.5" PointY="11.856623400588472" />
+          <ConnectorPoint PointX="5.7539053125000006" PointY="11.856623400588472" />
+          <ConnectorPoint PointX="5.7539053125000006" PointY="9.8840950520833335" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Questionary_0" >
-          <ConnectorPoint PointX="6.4062525" PointY="9.499492187499996" />
-          <ConnectorPoint PointX="6.4062525" PointY="10.88689447265625" />
-          <ConnectorPoint PointX="7.5" PointY="10.88689447265625" />
+          <ConnectorPoint PointX="6.28320515625" PointY="9.8840950520833335" />
+          <ConnectorPoint PointX="6.28320515625" PointY="11.084559200294235" />
+          <ConnectorPoint PointX="7.5" PointY="11.084559200294235" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Score_1" >
-          <ConnectorPoint PointX="6.75" PointY="8.3095914713541674" />
-          <ConnectorPoint PointX="11.25" PointY="8.3095914713541674" />
-          <ConnectorPoint PointX="11.25" PointY="6.9225878906250031" />
+          <ConnectorPoint PointX="6.75" PointY="9.0787972005208317" />
+          <ConnectorPoint PointX="11.25" PointY="9.0787972005208317" />
+          <ConnectorPoint PointX="11.25" PointY="7.3071907552083326" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_User_1" >
           <ConnectorPoint PointX="2.25" PointY="7.25" />
           <ConnectorPoint PointX="2.625" PointY="6.875" />
-          <ConnectorPoint PointX="2.625" PointY="4.1728011067708337" />
-          <ConnectorPoint PointX="3" PointY="4.1728011067708337" />
+          <ConnectorPoint PointX="2.625" PointY="3.3796216751302093" />
+          <ConnectorPoint PointX="3" PointY="3.3796216751302093" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Question_0" >
           <ConnectorPoint PointX="9" PointY="11.461293945312498" />
           <ConnectorPoint PointX="9.75" PointY="11.461293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_User_0" >
-          <ConnectorPoint PointX="2.25" PointY="4.6342423502604184" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="4.6342423502604175" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="4.6342423502604184" />
-          <ConnectorPoint PointX="3" PointY="4.6342423502604184" />
+          <ConnectorPoint PointX="2.25" PointY="4.2376526344401064" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="4.2376526344401055" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="4.2376526344401064" />
+          <ConnectorPoint PointX="3" PointY="4.2376526344401064" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Relationship_0" >
-          <ConnectorPoint PointX="4.5" PointY="4.1151432291666694" />
-          <ConnectorPoint PointX="5.25" PointY="4.1151432291666694" />
+          <ConnectorPoint PointX="4.5" PointY="4.3939290364583368" />
+          <ConnectorPoint PointX="5.25" PointY="4.3939290364583368" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Relationship_1" >
-          <ConnectorPoint PointX="4.5" PointY="3.5575716145833347" />
-          <ConnectorPoint PointX="5.25" PointY="3.5575716145833347" />
+          <ConnectorPoint PointX="4.5" PointY="3.6969645182291684" />
+          <ConnectorPoint PointX="5.25" PointY="3.6969645182291684" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Score_0" >
           <ConnectorPoint PointX="4.5" PointY="2.59375" />
           <ConnectorPoint PointX="11.25" PointY="2.59375" />
           <ConnectorPoint PointX="11.25" PointY="4.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Dual_3" >
+          <ConnectorPoint PointX="10.5" PointY="6.0285953776041659" />
+          <ConnectorPoint PointX="9" PointY="6.0285953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Dual_4" >
+          <ConnectorPoint PointX="10.5" PointY="5.3267976888020829" />
+          <ConnectorPoint PointX="9" PointY="5.3267976888020829" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Dual_5" >
+          <ConnectorPoint PointX="4.5" PointY="6.245550333658854" />
+          <ConnectorPoint PointX="7.5" PointY="6.245550333658854" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
