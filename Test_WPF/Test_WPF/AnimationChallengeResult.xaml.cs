@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace Test_WPF
 {
@@ -20,16 +21,31 @@ namespace Test_WPF
     /// </summary>
     public partial class AnimationChallengeResult : UserControl
     {
+        private DispatcherTimer timer;
         private Storyboard myStoryboard;
-        public AnimationChallengeResult(string name1, string name2)
+        private int points1, points2, currentPoints1, currentPoints2;
+        private bool endAnim;
+        private int time;
+
+        public delegate void DelegateEndOfAnim();
+        public event DelegateEndOfAnim EndOfAnimEvent;
+
+        public AnimationChallengeResult(string name1, string name2, int points1, int points2)
         {
             InitializeComponent();
-            this.label1.Content = name1;
-            this.label3.Content = name2;
+            this.lname1.Content = name1;
+            this.lname2.Content = name2;
+            this.points1 = points1;
+            this.points2 = points2;
+            this.currentPoints1 = 0;
+            this.currentPoints2 = 0;
+            this.endAnim = false;
+            this.time = 0;
+
             DoubleAnimation myDoubleAnimation = new DoubleAnimation();
-            myDoubleAnimation.From = 1.0;
-            myDoubleAnimation.To = 0.0;
-            myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(7));
+            myDoubleAnimation.From = 0.0;
+            myDoubleAnimation.To = 1.0;
+            myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(2));
             myDoubleAnimation.AutoReverse = false;
 
             myStoryboard = new Storyboard();
@@ -37,9 +53,45 @@ namespace Test_WPF
             Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
 
             this.animationGrid.Loaded += new RoutedEventHandler(animationGrid_Loaded);
+
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Start();
         }
 
-        void animationGrid_Loaded(object sender, RoutedEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (this.currentPoints1 <= this.points1 && !this.endAnim)
+            {
+                this.lpoints1.Content = this.currentPoints1;
+                this.currentPoints1++;
+            }
+            if (this.currentPoints2 <= this.points2 && !this.endAnim)
+            {
+                this.lpoints2.Content = this.currentPoints2;
+                this.currentPoints2++;
+            }
+            if (this.currentPoints1 == this.points1+1 && this.currentPoints2 == this.points2+1 && !this.endAnim)
+            {
+                this.endAnim = true;
+                this.timer.Stop();
+                this.timer.Interval = new TimeSpan(0, 0, 0, 1);
+                this.timer.Start();
+                this.time++;
+            }
+            if (this.endAnim && this.time > 0 && this.time < 3)
+            {
+                this.time++;
+            }
+            if (this.endAnim && this.time == 3)
+            {
+                if (EndOfAnimEvent != null)
+                    EndOfAnimEvent();
+            }
+        }
+
+        private void animationGrid_Loaded(object sender, RoutedEventArgs e)
         {
             myStoryboard.Begin(this);
         }

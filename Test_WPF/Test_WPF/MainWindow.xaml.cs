@@ -216,9 +216,10 @@ namespace Test_WPF
 
         void gamePanel_EndOfGameEvent(int idUser, int idGame, int idDefi, int points)
         {
-            this.contentGrid.Children.Remove(this.currentUIElement);
-            this.currentUIElement = new ChallengeResults();
-            this.contentGrid.Children.Add(this.currentUIElement);
+            //this.contentGrid.Children.Remove(this.currentUIElement);
+            //this.currentUIElement = new ChallengeResults(idUser, idGame, idDefi, points);
+            //this.contentGrid.Children.Add(this.currentUIElement);
+            this.gotoHome();
         }
 
         public void gotoHome()
