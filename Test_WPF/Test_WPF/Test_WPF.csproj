@@ -102,6 +102,9 @@
     <Compile Include="ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FriendshipControl.xaml.cs">
+      <DependentUpon>FriendshipControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\Additions1_ce1.xaml.cs">
       <DependentUpon>Additions1_ce1.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,9 @@
     </Compile>
     <Compile Include="Games\ScoreControl.xaml.cs">
       <DependentUpon>ScoreControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilControl.xaml.cs">
+      <DependentUpon>ProfilControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
@@ -156,6 +162,10 @@
     <Page Include="ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FriendshipControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Games\Additions1_ce1.xaml">
       <SubType>Designer</SubType>
@@ -206,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Games\ScoreControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
