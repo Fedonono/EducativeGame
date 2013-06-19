@@ -26,18 +26,22 @@ namespace Test_WPF
         private bool endAnim;
         private AnimationChallengeResult acr;
         private Datas.Dual dual;
-        private int idUser, points;
+        private int idUser, points, idGame, idScore;
 
-        public ChallengeResults(int idUser, int idGame, int idDefi, int points)
+        public ChallengeResults(int idUser, int idGame, int idDefi, int idScore)
         {
             InitializeComponent();
+            this.idGame = idGame;
+            this.idUser = idUser;
+            this.idScore = idScore;
             if (idDefi == -1)//il n'y a pas de défi donc on redirige directement vers la liste d'amis pour prochain défi
             {
                 this.bcontinue_Click(null, null);
+                return;
             }
             try
             {
-                this.dual = ((from i in Bdd.DbAccess.Duals where i.ID == idDefi select i).FirstOrDefault()) as Datas.Dual;
+                this.dual = (from i in Bdd.DbAccess.Duals where i.ID == idDefi select i).FirstOrDefault();
             }
             catch (Exception)
             {
@@ -49,21 +53,20 @@ namespace Test_WPF
                 this.Error();
                 return;
             }
-            this.idUser = idUser;
-            this.points = points;
-            this.lgameName.Content = from i in Bdd.DbAccess.Games where i.ID == idGame select i.name;
-            string nameWinner = (from i in Bdd.DbAccess.Users where i.ID == this.dual.winner select i.username).ToString();
+            this.points = (int)(from i in Bdd.DbAccess.Scores where i.ID == idScore select i.value).FirstOrDefault(); ;
+            this.lgameName.Content = (from i in Bdd.DbAccess.Games where i.ID == idGame select i.name).FirstOrDefault();
+            string nameWinner = (from i in Bdd.DbAccess.Users where i.ID == this.dual.winner select i.username).FirstOrDefault();
             string nameLoser;
             if (this.dual.idChallenged == this.dual.winner)
             {
-                nameLoser = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenger select i.username).ToString();
+                nameLoser = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenger select i.username).FirstOrDefault();
             }
             else
             {
-                nameLoser = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenged select i.username).ToString();
+                nameLoser = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenged select i.username).FirstOrDefault();
             }
             int pointsChallenger;
-            int.TryParse((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).ToString(), out pointsChallenger);
+            int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).FirstOrDefault()).ToString(), out pointsChallenger);
             this.lresultWin.Content = nameWinner + " gagne !";
             if (this.dual.winner == idUser && pointsChallenger != points)
             {
@@ -75,7 +78,9 @@ namespace Test_WPF
             } else if(pointsChallenger == points)
             {
                 this.lresult.Content = "Bien joué !";
+                this.lresultWin.Content = "Egalité";
             }
+            this.Display();
         }
 
         private void Error()
@@ -93,15 +98,15 @@ namespace Test_WPF
                 this.lresultWin.Visibility = System.Windows.Visibility.Visible;
                 this.igirl.Visibility = System.Windows.Visibility.Visible;
                 this.itrophy.Visibility = System.Windows.Visibility.Visible;
-                this.iwin.Visibility = System.Windows.Visibility.Visible;
                 this.lresult.Visibility = System.Windows.Visibility.Visible;
+                this.lgameName.Visibility = System.Windows.Visibility.Visible;
                 int pointsChallenger;
-                int.TryParse((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).ToString(), out pointsChallenger);
+                int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).FirstOrDefault()).ToString(), out pointsChallenger);
                 if (this.dual.winner == this.idUser && pointsChallenger != this.points)
                 {
                     this.iwin.Visibility = System.Windows.Visibility.Visible;
                 }
-                else if (this.dual.winner != idUser && pointsChallenger != this.points)
+                else if (this.dual.winner != this.idUser && pointsChallenger != this.points)
                 {
                     this.ifail.Visibility = System.Windows.Visibility.Visible;
                 }
@@ -121,7 +126,7 @@ namespace Test_WPF
             }
         }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        private void Display()
         {
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
@@ -129,12 +134,12 @@ namespace Test_WPF
             this.time = 0;
             this.timer.Start();
             this.endAnim = false;
-            string name1 = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenged select i.username).ToString();
-            string name2 = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenger select i.username).ToString();
+            string name1 = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenged select i.username).FirstOrDefault();
+            string name2 = (from i in Bdd.DbAccess.Users where i.ID == this.dual.idChallenger select i.username).FirstOrDefault();
             int points1;
-            int.TryParse((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenged select i.value).ToString(),out points1);
+            int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenged select i.value).FirstOrDefault()).ToString(),out points1);
             int points2;
-            int.TryParse((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).ToString(), out points2);
+            int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).FirstOrDefault()).ToString(), out points2);
             this.acr = new AnimationChallengeResult(name1, name2, points1, points2);
             acr.EndOfAnimEvent += new AnimationChallengeResult.DelegateEndOfAnim(acr_EndOfAnimEvent);
             this.mainGrid.Children.Add(acr);
@@ -148,7 +153,8 @@ namespace Test_WPF
 
         private void bcontinue_Click(object sender, RoutedEventArgs e)
         {
-            //vers le défi d'un autre ami
+            this.mainGrid.Children.Clear();
+            this.mainGrid.Children.Add(new NewChallenge(this.idUser, this.idGame, this.idScore));
         }
     }
 }

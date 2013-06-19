@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Test_WPF.NewChallenge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid>
+        <Label Content="Nouveau défi" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="ltitle" VerticalAlignment="Top" Width="Auto" />
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Button Content="Ne pas défier" Height="Auto" HorizontalAlignment="Left" Margin="745,620,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Padding="20" FontSize="25" />
+        <Label Content="Choisis un ami dans ta liste pour le défier !" Height="Auto" HorizontalAlignment="Left" Margin="77,208,0,0" Name="label1" VerticalAlignment="Top" FontSize="25" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Margin="145,257,368,68" CanContentScroll="True" Width="487">
+            <StackPanel Height="422" HorizontalAlignment="Left" Margin="0,0,0,0" Name="stackPanelFriends" VerticalAlignment="Top" Width="484" />
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -80,11 +80,11 @@ namespace Test_WPF
                 this.timer.Start();
                 this.time++;
             }
-            if (this.endAnim && this.time > 0 && this.time < 3)
+            if (this.endAnim && this.time > 0 && this.time < 4)
             {
                 this.time++;
             }
-            if (this.endAnim && this.time == 3)
+            if (this.endAnim && this.time == 4)
             {
                 if (EndOfAnimEvent != null)
                     EndOfAnimEvent();

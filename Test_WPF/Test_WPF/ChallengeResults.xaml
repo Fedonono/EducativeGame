@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
-    <Grid Loaded="Grid_Loaded" Name="mainGrid">
+    <Grid Name="mainGrid">
         <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
         <Image Height="242" HorizontalAlignment="Left" Margin="628,320,0,0" Name="igirl" Stretch="Uniform" VerticalAlignment="Top" Width="322" Source="/Test_WPF;component/Images/confetti-girl.png" Visibility="Hidden" />
         <Label Content="Eric gagne !" FontSize="80" FontWeight="Bold" Foreground="#FF004CFF" Height="Auto" HorizontalAlignment="Left" Margin="220,297,0,0" Name="lresultWin" VerticalAlignment="Top" Visibility="Hidden" />
@@ -16,6 +16,6 @@
         <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="ifail" Source="/Test_WPF;component/Images/1371324707_face-crying.png" Stretch="Uniform" VerticalAlignment="Top" Width="150" Visibility="Hidden" />
         <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="iequality" Source="/Test_WPF;component/Images/1371324710_face-plain.png" Stretch="Uniform" VerticalAlignment="Top" Width="150" Visibility="Hidden" />
         <Button Content="Continuer" Height="Auto" Padding="30" HorizontalAlignment="Left" Margin="748,589,0,0" Name="bcontinue" VerticalAlignment="Top" Width="Auto" FontSize="25" Visibility="Hidden" Click="bcontinue_Click" />
-        <Label Content="Jeu" FontFamily="Palatino Linotype" FontSize="45" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="304,203,303,0" Name="lgameName" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Jeu" FontFamily="Palatino Linotype" FontSize="45" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="304,203,303,0" Name="lgameName" VerticalAlignment="Top" Width="Auto" Visibility="Hidden" />
     </Grid>
 </UserControl>

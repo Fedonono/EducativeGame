@@ -192,6 +192,7 @@ namespace Test_WPF
         {
             App.user = null;
             App.CurrentApp.app_Startup(null,null);
+            this.Close();
         }
 
         /// <summary>
@@ -221,21 +222,30 @@ namespace Test_WPF
             Bdd.DbAccess.SaveChanges();
             if (idDefi != -1)
             {
-                Datas.Score sc = (from i in Bdd.DbAccess.Scores where i.idUser == idUser select i).LastOrDefault();
-                if (sc != null)
+                if (s != null)
                 {
                     Datas.Dual d = (from i in Bdd.DbAccess.Duals where i.ID == idDefi select i).FirstOrDefault();
                     if (d != null)
                     {
-                        d.idScoreChallenged = sc.ID;
+                        d.idScoreChallenged = s.ID;
+                        Bdd.DbAccess.SaveChanges();
+                        int idChallenger = d.idChallenger;
+                        int scoreChallenger = (int)(from i in Bdd.DbAccess.Scores where d.idScoreChallenger == i.ID select i.value).FirstOrDefault();
+                        if (s.value >= scoreChallenger)
+                        {
+                            d.winner = App.user.ID;
+                        }
+                        else
+                        {
+                            d.winner = idChallenger;
+                        }
                         Bdd.DbAccess.SaveChanges();
                     }
                 }
             }
-            //this.contentGrid.Children.Remove(this.currentUIElement);
-            //this.currentUIElement = new ChallengeResults(idUser, idGame, idDefi, points);
-            //this.contentGrid.Children.Add(this.currentUIElement);
-            this.gotoHome();
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = new ChallengeResults(idUser, idGame, idDefi, s.ID);
+            this.contentGrid.Children.Add(this.currentUIElement);
         }
 
         public void gotoHome()
