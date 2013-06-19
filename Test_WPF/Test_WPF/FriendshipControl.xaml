@@ -4,16 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="750" d:DesignWidth="1000">
-    <Grid>
-        <Image Height="946" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="1000" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" />
-        <ListBox Height="422" HorizontalAlignment="Left" Margin="44,279,0,0" VerticalAlignment="Top" Width="439" Opacity="0.6" />
-        <Button Content="rechercher" Height="90" HorizontalAlignment="Left" Margin="787,100,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" />
-        <TextBox Height="90" HorizontalAlignment="Left" Margin="260,100,0,0" VerticalAlignment="Top" Width="498" Opacity="0.6" />
-        <Label Content="Pseudo : " Height="90" HorizontalAlignment="Left" Margin="44,100,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" />
-        <ListBox Height="422" HorizontalAlignment="Left" Margin="510,279,0,0" VerticalAlignment="Top" Width="442" Opacity="0.6" />
-        <Label Content="Liste d'amis:" Height="68" HorizontalAlignment="Left" Margin="44,279,0,0" VerticalAlignment="Top" Width="439" FontSize="30" Foreground="Black" />
-        <Label Content="résultats de la recherche:" Height="68" HorizontalAlignment="Left" Margin="510,279,0,0" VerticalAlignment="Top" Width="442" FontSize="30" />
+             d:DesignHeight="783" d:DesignWidth="1002">
+    <Grid Height="788" Width="1004" >
+        <Image Height="783" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="1002" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" />
+        <ListBox Height="430" HorizontalAlignment="Left" Margin="44,271,0,0" VerticalAlignment="Top" Width="439" Opacity="0.6" Name="lBFriendsList" />
+        <Button Content="rechercher" Height="90" HorizontalAlignment="Left" Margin="787,117,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSearch" />
+        <TextBox Height="90" HorizontalAlignment="Left" Margin="243,117,0,0" VerticalAlignment="Top" Width="515" Opacity="0.6" Name="tBPseudo" />
+        <Label Content="Pseudo : " Height="90" HorizontalAlignment="Left" Margin="44,117,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" Name="lPseudo" />
+        <ListBox Height="208" HorizontalAlignment="Left" Margin="510,271,0,0" VerticalAlignment="Top" Width="442" Opacity="0.6" Name="lBSearchResults" />
+        <Label Content="Liste d'amis:" Height="68" HorizontalAlignment="Left" Margin="44,271,0,0" VerticalAlignment="Top" Width="439" FontSize="30" Foreground="Black" Name="lFriendsList" />
+        <Label Content="résultats de la recherche:" Height="68" HorizontalAlignment="Left" Margin="510,271,0,0" VerticalAlignment="Top" Width="442" FontSize="30" Name="lSearchResults" />
         <Label Content="Chambre de l'amitié" Height="82" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="976" Foreground="#FFEFEFEF" FontSize="50" />
+        <ListBox Height="216" HorizontalAlignment="Left" Margin="510,485,0,0" Opacity="0.6" VerticalAlignment="Top" Width="442" Name="lBAddRequest" />
+        <Label Content="demande d'ajout:" FontSize="30" Height="68" HorizontalAlignment="Left" Margin="510,485,0,0" VerticalAlignment="Top" Width="442" Name="lAddRequest" />
     </Grid>
 </UserControl>
