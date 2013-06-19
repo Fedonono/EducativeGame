@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Test_WPF.FriendshipControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid>
+        <Image Height="946" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="1000" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" />
+        <ListBox Height="422" HorizontalAlignment="Left" Margin="44,279,0,0" VerticalAlignment="Top" Width="439" Opacity="0.6" />
+        <Button Content="rechercher" Height="90" HorizontalAlignment="Left" Margin="787,100,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.7" Background="#FF39CB39" Foreground="White" FontSize="34" />
+        <TextBox Height="90" HorizontalAlignment="Left" Margin="260,100,0,0" VerticalAlignment="Top" Width="498" Opacity="0.6" />
+        <Label Content="Pseudo" Height="90" HorizontalAlignment="Left" Margin="44,100,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="50" />
+        <ListBox Height="422" HorizontalAlignment="Left" Margin="510,279,0,0" VerticalAlignment="Top" Width="442" Opacity="0.6" />
+        <Label Content="Liste d'amis:" Height="68" HorizontalAlignment="Left" Margin="44,279,0,0" VerticalAlignment="Top" Width="439" FontSize="30" Foreground="Black" />
+        <Label Content="résultats de la recherche:" Height="68" HorizontalAlignment="Left" Margin="510,279,0,0" VerticalAlignment="Top" Width="442" FontSize="30" />
+    </Grid>
+</UserControl>

@@ -177,7 +177,12 @@ namespace Test_WPF.Games
             this.dictionary.Add("elephant");
             this.dictionary.Add("sweater");
             this.dictionary.Add("mountain");
-            this.dictionary.Add("hamster");
+            this.dictionary.Add("kitchen");
+            this.dictionary.Add("bathroom");
+            this.dictionary.Add("bedroom");
+            this.dictionary.Add("chocolate");
+            this.dictionary.Add("butter");
+            this.dictionary.Add("banana");
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
