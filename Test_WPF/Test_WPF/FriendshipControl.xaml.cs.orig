@@ -26,10 +26,14 @@ namespace Test_WPF
 
         public void printFriendsList()
         {
-            IEnumerable<Datas.Relationship> friends = (from r in Bdd.DbAccess.Relationships 
+<<<<<<< HEAD
+            List<Datas.Relationship> friends = (from r in Bdd.DbAccess.Relationships 
                                                 where r.userId1 == App.user.ID 
                                                 || r.userId1 == App.user.ID 
                                                 select r).ToList();
+=======
+            IEnumerable<Datas.Relationship> friends = from r in Bdd.DbAccess.Relationships where r.userId1 == 1 || r.userId1 == 1 select r;
+>>>>>>> 139fdf9b7406e151e1a9a58bcba3deddabd614c8
 
             foreach (Datas.Relationship friend in friends)
             {
@@ -39,9 +43,13 @@ namespace Test_WPF
 
         public void printAddRequests()
         {
-            IEnumerable<Datas.RelationshipRequest> relationshipRequests = (from ar in Bdd.DbAccess.RelationshipRequests
+<<<<<<< HEAD
+            List<Datas.RelationshipRequest> relationshipRequests = (from ar in Bdd.DbAccess.RelationshipRequests
                                                   where ar.idCalled == App.user.ID
                                                   select ar).ToList();
+=======
+            IEnumerable<Datas.AddRequest> addRequests = from ar in Bdd.DbAccess.AddRequests  where ar.idCalled == 1 select ar;
+>>>>>>> 139fdf9b7406e151e1a9a58bcba3deddabd614c8
 
             foreach (Datas.RelationshipRequest request in relationshipRequests)
             {
@@ -51,9 +59,13 @@ namespace Test_WPF
 
         public void sendFriendshipRequest()
         {
+<<<<<<< HEAD
             Datas.User user = (from u in Bdd.DbAccess.Users 
                                where u.username == this.tBPseudo.Text 
                                select u).First();
+=======
+            Datas.User users = (from u in Bdd.DbAccess.Users where u.username == this.tBPseudo.Text select u).FirstOrDefault();
+>>>>>>> 139fdf9b7406e151e1a9a58bcba3deddabd614c8
 
             Datas.Relationship relationship = (from r in Bdd.DbAccess.Relationships 
                                                where (r.userId1 == App.user.ID && r.userId2 == user.ID)
