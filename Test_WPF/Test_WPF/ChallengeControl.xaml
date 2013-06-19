@@ -16,19 +16,19 @@
         <Label Content="Défis" Height="Auto" HorizontalAlignment="Left" Margin="12,40,0,0" Name="label1" VerticalAlignment="Top" FontSize="25" />
         <Grid Margin="12,112,12,12">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" MinHeight="100"></RowDefinition>
-                <RowDefinition Height="*" MinHeight="100"></RowDefinition>
+                <RowDefinition Height="*" MinHeight="50"></RowDefinition>
+                <RowDefinition Height="*" MinHeight="50"></RowDefinition>
             </Grid.RowDefinitions>
 
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto" Grid.Row="0">
                 <StackPanel CanHorizontallyScroll="False" CanVerticallyScroll="False" Name="slistNewDuals" >
-                    <Label Content="À relever" Height="Auto" Name="label2" FontSize="20" />
+                    <Label Content="À relever" Height="Auto" Name="lnew" FontSize="20" />
                 </StackPanel>
              </ScrollViewer>
             <GridSplitter VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="5" Background="Black"/>
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto" Grid.Row="1">
-            <StackPanel CanHorizontallyScroll="True" CanVerticallyScroll="True" Name="listPastDuals">
-                <Label Content="Passés" Height="Auto" Name="label3" FontSize="20" />
+            <StackPanel CanHorizontallyScroll="True" CanVerticallyScroll="True" Name="slistPastDuals">
+                <Label Content="Passés" Height="Auto" Name="lpast" FontSize="20" />
             </StackPanel>
 </ScrollViewer>
         </Grid>

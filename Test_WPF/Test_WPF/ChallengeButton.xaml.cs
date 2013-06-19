@@ -19,21 +19,28 @@ namespace Test_WPF
     /// </summary>
     public partial class ChallengeButton : UserControl
     {
-        public ChallengeButton(string username, string gameName, bool over, bool win)
+        public ChallengeButton(string username, string gameName, DateTime date, int score1, int score2, bool over, bool win)
         {
             InitializeComponent();
             this.lusername.Content = username;
             this.lgameName.Content = gameName;
+            this.ldate.Content = date.ToShortDateString();
             if (over)
             {
-                if (win)
+                if (win && score1 != score2)
                 {
-                    this.grid1.Background = Brushes.LightGreen;
+                    this.grid1.Background = Brushes.YellowGreen;
                 }
-                else
+                else if (!win && score1 != score2)
                 {
                     this.grid1.Background = Brushes.OrangeRed;
                 }
+                this.lscore.Content = string.Format("Scores : {0}/{1}", score1, score2);
+            }
+            else
+            {
+                this.grid1.Background = Brushes.Yellow;
+                this.lscore.Content = string.Format("Scores : {0}/{1}", score1, "?");
             }
         }
     }

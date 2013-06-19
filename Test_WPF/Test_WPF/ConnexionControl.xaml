@@ -16,6 +16,7 @@
                     <PasswordBox Height="23" HorizontalAlignment="Left" Margin="163,130,0,0" Name="passwordBoxConn" VerticalAlignment="Top" Width="120" KeyDown="Conn_KeyDown" />
                     <Button Content="Connexion" Height="Auto" HorizontalAlignment="Center" Margin="0,173,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
                     <Label Height="47" HorizontalAlignment="Left" Margin="41,232,0,0" Name="lCo" VerticalAlignment="Top" Width="349" Foreground="Red" HorizontalContentAlignment="Center" />
+                    <Label Content="Attention, les temps de chargement peuvent être long !" Height="28" HorizontalAlignment="Center" Margin="0,301,0,0" Name="label1" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
             <TabItem Header="Inscription">

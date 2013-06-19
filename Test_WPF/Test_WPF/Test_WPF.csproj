@@ -121,7 +121,10 @@
     <Compile Include="Games\ScoreControl.xaml.cs">
       <DependentUpon>ScoreControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfilControl.xaml.cs">
+<Compile Include="NewChallenge.xaml.cs">
+      <DependentUpon>NewChallenge.xaml</DependentUpon>
+    </Compile>
+<Compile Include="ProfilControl.xaml.cs">
       <DependentUpon>ProfilControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
@@ -219,10 +222,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfilControl.xaml">
+     <Page Include="ProfilControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<Page Include="NewChallenge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
     <Page Include="WelcomeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

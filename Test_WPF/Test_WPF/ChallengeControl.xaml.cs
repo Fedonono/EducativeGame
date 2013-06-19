@@ -31,6 +31,9 @@ namespace Test_WPF
                                                      where (i.idChallenged == App.user.ID || i.idChallenger == App.user.ID)
                                                      && i.winner != null select i;
 
+            this.lnew.Content = string.Format("À relever ({0})", listNewDuals.Count());
+            this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count()); 
+
             foreach (Datas.Dual item in listNewDuals)
             {
                 string username = (from i in Bdd.DbAccess.Users
@@ -39,10 +42,11 @@ namespace Test_WPF
                 string gameName = (from i in Bdd.DbAccess.Games
                                    where i.ID == item.idGame
                                    select i.name).FirstOrDefault().ToString();
-                ChallengeButton cb = new ChallengeButton(username, gameName, false, false);
+                int score1 = (int)(from i in Bdd.DbAccess.Scores where i.ID == item.idScoreChallenger select i.value).FirstOrDefault();
+                ChallengeButton cb = new ChallengeButton(username, gameName, item.date, score1, 0, false, false);
                 cb.MouseLeftButtonDown += new MouseButtonEventHandler(cb_MouseLeftButtonDown);
                 cb.Tag = item;
-                this.listPastDuals.Children.Add(cb);
+                this.slistNewDuals.Children.Add(cb);
             }
 
             foreach (Datas.Dual item in listPastDuals)
@@ -54,8 +58,10 @@ namespace Test_WPF
                 string gameName = (from i in Bdd.DbAccess.Games 
                                   where i.ID == item.idGame
                                   select i.name).FirstOrDefault().ToString();
+                int score1 = (int)(from i in Bdd.DbAccess.Scores where i.ID == item.idScoreChallenger select i.value).FirstOrDefault();
+                int score2 = (int)(from i in Bdd.DbAccess.Scores where i.ID == item.idScoreChallenged select i.value).FirstOrDefault();
                 bool win = item.winner == App.user.ID;
-                this.listPastDuals.Children.Add(new ChallengeButton(username, gameName, true, win));
+                this.slistPastDuals.Children.Add(new ChallengeButton(username, gameName, item.date, score1, score2, true, win));
             }
         }
 
