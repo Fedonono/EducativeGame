@@ -21,13 +21,13 @@
             </Grid.RowDefinitions>
 
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto" Grid.Row="0">
-                <StackPanel CanHorizontallyScroll="False" CanVerticallyScroll="False">
-                <Label Content="À relever" Height="Auto" Name="label2" FontSize="20" />
+                <StackPanel CanHorizontallyScroll="False" CanVerticallyScroll="False" Name="slistNewDuals" >
+                    <Label Content="À relever" Height="Auto" Name="label2" FontSize="20" />
                 </StackPanel>
              </ScrollViewer>
             <GridSplitter VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="5" Background="Black"/>
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto" Grid.Row="1">
-            <StackPanel CanHorizontallyScroll="True" CanVerticallyScroll="True">
+            <StackPanel CanHorizontallyScroll="True" CanVerticallyScroll="True" Name="listPastDuals">
                 <Label Content="Passés" Height="Auto" Name="label3" FontSize="20" />
             </StackPanel>
 </ScrollViewer>

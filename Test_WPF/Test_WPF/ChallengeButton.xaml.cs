@@ -22,6 +22,19 @@ namespace Test_WPF
         public ChallengeButton(string username, string gameName, bool over, bool win)
         {
             InitializeComponent();
+            this.lusername.Content = username;
+            this.lgameName.Content = gameName;
+            if (over)
+            {
+                if (win)
+                {
+                    this.grid1.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    this.grid1.Background = Brushes.OrangeRed;
+                }
+            }
         }
     }
 }

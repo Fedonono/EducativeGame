@@ -87,6 +87,7 @@
     <Compile Include="ChallengeResults.xaml.cs">
       <DependentUpon>ChallengeResults.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Datas\Data.cs" />
     <Compile Include="Datas\EducationAll.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
