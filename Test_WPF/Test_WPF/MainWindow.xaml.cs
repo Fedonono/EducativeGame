@@ -199,11 +199,11 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void image5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void user_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //AboutDialog wd = new AboutDialog();
-            //wd.Owner = this;
-            //wd.ShowDialog();
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = new ProfilControl();
+            this.contentGrid.Children.Add(this.currentUIElement);
         }
 
         public void launchGame(IGame gamePanel)
