@@ -18,8 +18,6 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_AddRequest_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "AddRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.AddRequest), true)]
-[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_AddRequest_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "AddRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.AddRequest), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Choice_0", "Question", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Question), "Choice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Choice), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Course_0", "Grade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Grade), "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Course), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Game_0", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Course), "Game", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Game), true)]
@@ -37,6 +35,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_User_0", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.Rank), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.User), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Relationship_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Relationship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Relationship), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Relationship_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Relationship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Relationship), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_AddRequest_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "RelationshipRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.RelationshipRequest), true)]
+[assembly: EdmRelationshipAttribute("EducationAllModel", "FK_AddRequest_1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "RelationshipRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.RelationshipRequest), true)]
 [assembly: EdmRelationshipAttribute("EducationAllModel", "FK_Score_0", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test_WPF.Datas.User), "Score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test_WPF.Datas.Score), true)]
 
 #endregion
@@ -88,22 +88,6 @@ namespace Test_WPF.Datas
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<AddRequest> AddRequests
-        {
-            get
-            {
-                if ((_AddRequests == null))
-                {
-                    _AddRequests = base.CreateObjectSet<AddRequest>("AddRequests");
-                }
-                return _AddRequests;
-            }
-        }
-        private ObjectSet<AddRequest> _AddRequests;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -252,6 +236,22 @@ namespace Test_WPF.Datas
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<RelationshipRequest> RelationshipRequests
+        {
+            get
+            {
+                if ((_RelationshipRequests == null))
+                {
+                    _RelationshipRequests = base.CreateObjectSet<RelationshipRequest>("RelationshipRequests");
+                }
+                return _RelationshipRequests;
+            }
+        }
+        private ObjectSet<RelationshipRequest> _RelationshipRequests;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Score> Scores
         {
             get
@@ -283,14 +283,6 @@ namespace Test_WPF.Datas
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the AddRequests EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAddRequests(AddRequest addRequest)
-        {
-            base.AddObject("AddRequests", addRequest);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Choices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -365,6 +357,14 @@ namespace Test_WPF.Datas
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the RelationshipRequests EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRelationshipRequests(RelationshipRequest relationshipRequest)
+        {
+            base.AddObject("RelationshipRequests", relationshipRequest);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Scores EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToScores(Score score)
@@ -387,192 +387,6 @@ namespace Test_WPF.Datas
     #endregion
     
     #region Entities
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="AddRequest")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class AddRequest : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new AddRequest object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="idCaller">Initial value of the idCaller property.</param>
-        /// <param name="idCalled">Initial value of the idCalled property.</param>
-        public static AddRequest CreateAddRequest(global::System.Int32 id, global::System.Int32 idCaller, global::System.Int32 idCalled)
-        {
-            AddRequest addRequest = new AddRequest();
-            addRequest.ID = id;
-            addRequest.idCaller = idCaller;
-            addRequest.idCalled = idCalled;
-            return addRequest;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 idCaller
-        {
-            get
-            {
-                return _idCaller;
-            }
-            set
-            {
-                OnidCallerChanging(value);
-                ReportPropertyChanging("idCaller");
-                _idCaller = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idCaller");
-                OnidCallerChanged();
-            }
-        }
-        private global::System.Int32 _idCaller;
-        partial void OnidCallerChanging(global::System.Int32 value);
-        partial void OnidCallerChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 idCalled
-        {
-            get
-            {
-                return _idCalled;
-            }
-            set
-            {
-                OnidCalledChanging(value);
-                ReportPropertyChanging("idCalled");
-                _idCalled = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idCalled");
-                OnidCalledChanged();
-            }
-        }
-        private global::System.Int32 _idCalled;
-        partial void OnidCalledChanging(global::System.Int32 value);
-        partial void OnidCalledChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_0", "User")]
-        public User User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> UserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_1", "User")]
-        public User User1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> User1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User", value);
-                }
-            }
-        }
-
-        #endregion
-    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -2491,6 +2305,192 @@ namespace Test_WPF.Datas
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="RelationshipRequest")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RelationshipRequest : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RelationshipRequest object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="idCaller">Initial value of the idCaller property.</param>
+        /// <param name="idCalled">Initial value of the idCalled property.</param>
+        public static RelationshipRequest CreateRelationshipRequest(global::System.Int32 id, global::System.Int32 idCaller, global::System.Int32 idCalled)
+        {
+            RelationshipRequest relationshipRequest = new RelationshipRequest();
+            relationshipRequest.ID = id;
+            relationshipRequest.idCaller = idCaller;
+            relationshipRequest.idCalled = idCalled;
+            return relationshipRequest;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idCaller
+        {
+            get
+            {
+                return _idCaller;
+            }
+            set
+            {
+                OnidCallerChanging(value);
+                ReportPropertyChanging("idCaller");
+                _idCaller = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idCaller");
+                OnidCallerChanged();
+            }
+        }
+        private global::System.Int32 _idCaller;
+        partial void OnidCallerChanging(global::System.Int32 value);
+        partial void OnidCallerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idCalled
+        {
+            get
+            {
+                return _idCalled;
+            }
+            set
+            {
+                OnidCalledChanging(value);
+                ReportPropertyChanging("idCalled");
+                _idCalled = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idCalled");
+                OnidCalledChanged();
+            }
+        }
+        private global::System.Int32 _idCalled;
+        partial void OnidCalledChanging(global::System.Int32 value);
+        partial void OnidCalledChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_0", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_AddRequest_0", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_1", "User")]
+        public User User1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> User1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EducationAllModel.FK_AddRequest_1", "User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="EducationAllModel", Name="Score")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3005,50 +3005,6 @@ namespace Test_WPF.Datas
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_0", "AddRequest")]
-        public EntityCollection<AddRequest> AddRequests
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AddRequest>("EducationAllModel.FK_AddRequest_0", "AddRequest");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AddRequest>("EducationAllModel.FK_AddRequest_0", "AddRequest", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_1", "AddRequest")]
-        public EntityCollection<AddRequest> AddRequests1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AddRequest>("EducationAllModel.FK_AddRequest_1", "AddRequest");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AddRequest>("EducationAllModel.FK_AddRequest_1", "AddRequest", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_Dual_0", "Dual")]
         public EntityCollection<Dual> Duals
         {
@@ -3225,6 +3181,50 @@ namespace Test_WPF.Datas
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Relationship>("EducationAllModel.FK_Relationship_1", "Relationship", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_0", "RelationshipRequest")]
+        public EntityCollection<RelationshipRequest> RelationshipRequests
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RelationshipRequest>("EducationAllModel.FK_AddRequest_0", "RelationshipRequest");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RelationshipRequest>("EducationAllModel.FK_AddRequest_0", "RelationshipRequest", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EducationAllModel", "FK_AddRequest_1", "RelationshipRequest")]
+        public EntityCollection<RelationshipRequest> RelationshipRequests1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RelationshipRequest>("EducationAllModel.FK_AddRequest_1", "RelationshipRequest");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RelationshipRequest>("EducationAllModel.FK_AddRequest_1", "RelationshipRequest", value);
                 }
             }
         }
