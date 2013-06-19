@@ -8,11 +8,12 @@
     <Grid>
         <Image Height="946" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="1000" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" />
         <ListBox Height="422" HorizontalAlignment="Left" Margin="44,279,0,0" VerticalAlignment="Top" Width="439" Opacity="0.6" />
-        <Button Content="rechercher" Height="90" HorizontalAlignment="Left" Margin="787,100,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.7" Background="#FF39CB39" Foreground="White" FontSize="34" />
+        <Button Content="rechercher" Height="90" HorizontalAlignment="Left" Margin="787,100,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" />
         <TextBox Height="90" HorizontalAlignment="Left" Margin="260,100,0,0" VerticalAlignment="Top" Width="498" Opacity="0.6" />
-        <Label Content="Pseudo" Height="90" HorizontalAlignment="Left" Margin="44,100,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="50" />
+        <Label Content="Pseudo : " Height="90" HorizontalAlignment="Left" Margin="44,100,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" />
         <ListBox Height="422" HorizontalAlignment="Left" Margin="510,279,0,0" VerticalAlignment="Top" Width="442" Opacity="0.6" />
         <Label Content="Liste d'amis:" Height="68" HorizontalAlignment="Left" Margin="44,279,0,0" VerticalAlignment="Top" Width="439" FontSize="30" Foreground="Black" />
         <Label Content="résultats de la recherche:" Height="68" HorizontalAlignment="Left" Margin="510,279,0,0" VerticalAlignment="Top" Width="442" FontSize="30" />
+        <Label Content="Chambre de l'amitié" Height="82" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="976" Foreground="#FFEFEFEF" FontSize="50" />
     </Grid>
 </UserControl>
