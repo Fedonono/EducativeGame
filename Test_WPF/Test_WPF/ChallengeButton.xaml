@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="200">
-    <Grid Height="80" Name="grid1" Width="200" Background="#FFD4D4D4" Margin="0,0,0,5" Cursor="Hand">
+    <Grid Height="80" Name="grid1" Width="200" Background="#FFBCBCBC" Margin="0,0,0,5" Cursor="Hand">
         <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lusername" VerticalAlignment="Top" />
         <Label Content="" Height="Auto" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Margin="0,6,6,0" Name="lgameName" VerticalAlignment="Top" />
         <Label Content="" Height="Auto" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,42,6,0" Name="ldate" VerticalAlignment="Top" />

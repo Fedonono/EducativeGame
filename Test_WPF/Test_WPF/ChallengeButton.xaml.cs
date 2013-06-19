@@ -27,11 +27,11 @@ namespace Test_WPF
             this.ldate.Content = date.ToShortDateString();
             if (over)
             {
-                if (win)
+                if (win && score1 != score2)
                 {
-                    this.grid1.Background = Brushes.LightGreen;
+                    this.grid1.Background = Brushes.YellowGreen;
                 }
-                else
+                else if (!win && score1 != score2)
                 {
                     this.grid1.Background = Brushes.OrangeRed;
                 }
@@ -39,6 +39,7 @@ namespace Test_WPF
             }
             else
             {
+                this.grid1.Background = Brushes.Yellow;
                 this.lscore.Content = string.Format("Scores : {0}/{1}", score1, "?");
             }
         }

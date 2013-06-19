@@ -32,6 +32,9 @@ namespace Test_WPF
                                                      && i.winner != null select i;
             listPastDuals.Reverse();
 
+            this.lnew.Content = string.Format("À relever ({0})", listNewDuals.Count());
+            this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count()); 
+
             foreach (Datas.Dual item in listNewDuals)
             {
                 string username = (from i in Bdd.DbAccess.Users
