@@ -23,5 +23,32 @@ namespace Test_WPF
         {
             InitializeComponent();
         }
+
+        public void printFriendsList()
+        {
+            IEnumerable<Datas.Relationship> friends = from r in Bdd.DbAccess.Relationships where r.userId1 == 1 || r.userId1 == 1 select r;
+
+            foreach (Datas.Relationship friend in friends)
+            {
+                //affiche les
+            }
+        }
+
+        public void printAddRequests()
+        {
+            IEnumerable<Datas.AddRequest> addRequests = from ar in Bdd.DbAccess.AddRequests  where ar.idCalled == 1 select ar;
+
+            foreach (Datas.AddRequest request in addRequests)
+            {
+                //affiche les
+            }
+        }
+
+        public void addFriend()
+        {
+            Datas.User users = (from u in Bdd.DbAccess.Users where u.username == this.tBPseudo.Text select u).FirstOrDefault();
+
+            //TODO
+        }
     }
 }

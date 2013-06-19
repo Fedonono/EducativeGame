@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -76,27 +77,57 @@
     <Compile Include="AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AnimationChallengeResult.xaml.cs">
+      <DependentUpon>AnimationChallengeResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bdd.cs" />
     <Compile Include="BoxUserInfo.xaml.cs">
       <DependentUpon>BoxUserInfo.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="DefiButton.xaml.cs">
-      <DependentUpon>DefiButton.xaml</DependentUpon>
+    <Compile Include="ChallengeResults.xaml.cs">
+      <DependentUpon>ChallengeResults.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DefiControl.xaml.cs">
-      <DependentUpon>DefiControl.xaml</DependentUpon>
-=======
+    <Compile Include="Datas\Data.cs" />
     <Compile Include="Datas\EducationAll.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EducationAll.edmx</DependentUpon>
->>>>>>> 48821a167d99bd583756283bc041195e82533ed5
+    </Compile>
+    <Compile Include="ChallengeButton.xaml.cs">
+      <DependentUpon>ChallengeButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChallengeControl.xaml.cs">
+      <DependentUpon>ChallengeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FriendshipControl.xaml.cs">
+      <DependentUpon>FriendshipControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\Additions1_ce1.xaml.cs">
       <DependentUpon>Additions1_ce1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\IGame.cs" />
+    <Compile Include="Games\Hangman.xaml.cs">
+      <DependentUpon>Hangman.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\TestGames.xaml.cs">
       <DependentUpon>TestGames.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\QuestionaryControl.xaml.cs">
+      <DependentUpon>QuestionaryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\ScoreControl.xaml.cs">
+      <DependentUpon>ScoreControl.xaml</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
+    <Compile Include="NewChallenge.xaml.cs">
+      <DependentUpon>NewChallenge.xaml</DependentUpon>
+=======
+    <Compile Include="ProfilControl.xaml.cs">
+      <DependentUpon>ProfilControl.xaml</DependentUpon>
+>>>>>>> 5505b696b8ee710a839be3de664db54c7494f6c3
     </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
@@ -105,7 +136,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AnimationChallengeResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BoxUserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChallengeResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,15 +156,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DefiButton.xaml">
+    <Page Include="ChallengeButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChallengeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DefiControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="FriendshipControl.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Games\Additions1_ce1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\Hangman.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,6 +216,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Games\QuestionaryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\ScoreControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+<<<<<<< HEAD
+    <Page Include="NewChallenge.xaml">
+=======
+    <Page Include="ProfilControl.xaml">
+>>>>>>> 5505b696b8ee710a839be3de664db54c7494f6c3
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WelcomeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,11 +255,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <EntityDeploy Include="Datas\EducationAll.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EducationAll.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
+    <None Include="Properties\DataSources\Test_WPF.Datas.EducationAllEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -200,7 +268,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Ubuntu_wp_b_3_1600.jpg" />
+    <Resource Include="Images\Backgrounds\Ubuntu_wp_b_3_1600.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1370892381_minimize.png" />
@@ -231,73 +299,73 @@
     <Resource Include="Images\1370915781_close.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\_New_friends__by_ilona.jpg" />
+    <Resource Include="Images\Backgrounds\_New_friends__by_ilona.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg" />
+    <Resource Include="Images\Backgrounds\adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Butterfly_by_ilona.jpg" />
+    <Resource Include="Images\Backgrounds\Butterfly_by_ilona.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\catching_butterflies_by_lelpel-d2y1lbz.jpg" />
+    <Resource Include="Images\Backgrounds\catching_butterflies_by_lelpel-d2y1lbz.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\don_quijote_by_firatsolhan-d57fzvo.jpg" />
+    <Resource Include="Images\Backgrounds\don_quijote_by_firatsolhan-d57fzvo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Dragon_Games_by_Lelpel.jpg" />
+    <Resource Include="Images\Backgrounds\Dragon_Games_by_Lelpel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Education_by_mallardswoodspice.jpg" />
+    <Resource Include="Images\Backgrounds\Education_by_mallardswoodspice.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\education_by_petuie.jpg" />
+    <Resource Include="Images\Backgrounds\education_by_petuie.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Education_problems_by_SheepAlbinoBlack.jpg" />
+    <Resource Include="Images\Backgrounds\Education_problems_by_SheepAlbinoBlack.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\f2638c4126ad1dbe0c036685fa1199aa-d52ca98.jpg" />
+    <Resource Include="Images\Backgrounds\f2638c4126ad1dbe0c036685fa1199aa-d52ca98.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Fun_Run_by_Lelpel.jpg" />
+    <Resource Include="Images\Backgrounds\Fun_Run_by_Lelpel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\hm__elephants_by_ilona.jpg" />
+    <Resource Include="Images\Backgrounds\hm__elephants_by_ilona.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Lily_in_Oz_by_Lelpel.jpg" />
+    <Resource Include="Images\Backgrounds\Lily_in_Oz_by_Lelpel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\no_education__by_tepasuka.jpg" />
+    <Resource Include="Images\Backgrounds\no_education__by_tepasuka.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\paper_wings_by_nerdus-d5w0tah.jpg" />
+    <Resource Include="Images\Backgrounds\paper_wings_by_nerdus-d5w0tah.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\penquins_request_by_ilona.jpg" />
+    <Resource Include="Images\Backgrounds\penquins_request_by_ilona.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Rainy_days_and_Mondays_by_Lelpel.jpg" />
+    <Resource Include="Images\Backgrounds\Rainy_days_and_Mondays_by_Lelpel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Snow_Day_by_Lelpel.jpg" />
+    <Resource Include="Images\Backgrounds\Snow_Day_by_Lelpel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Space_Monkey_by_intergalacticvoo.jpg" />
+    <Resource Include="Images\Backgrounds\Space_Monkey_by_intergalacticvoo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Television_Education_by_intergalacticvoo.jpg" />
+    <Resource Include="Images\Backgrounds\Television_Education_by_intergalacticvoo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\the_forest_of_houjie_by_geminisleviatan-d63q0f4.jpg" />
+    <Resource Include="Images\Backgrounds\the_forest_of_houjie_by_geminisleviatan-d63q0f4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\who_sunk_the_boat_by_lelpel-d2y53hc.jpg" />
+    <Resource Include="Images\Backgrounds\who_sunk_the_boat_by_lelpel-d2y53hc.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\wind_by_ilona.jpg" />
+    <Resource Include="Images\Backgrounds\wind_by_ilona.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\about-32.png" />
@@ -315,11 +383,41 @@
     <Resource Include="Images\path2985.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Resource Include="Images\path879.png" />
-=======
     <Content Include="Datas\EducationAll.edmx.sql" />
->>>>>>> 48821a167d99bd583756283bc041195e82533ed5
+    <Resource Include="Images\Friendship\friendship.jpg" />
+    <Resource Include="Images\ImageProfil\6.png" />
+    <Resource Include="Images\ImageProfil\5.png" />
+    <Resource Include="Images\ImageProfil\4.png" />
+    <Resource Include="Images\ImageProfil\3.png" />
+    <Resource Include="Images\ImageProfil\2.png" />
+    <Resource Include="Images\ImageProfil\1.png" />
+    <Resource Include="Images\1371406083_game.png" />
+    <Resource Include="Images\confetti-girl.png" />
+    <Resource Include="Images\chanson-swing-la-lune-la-mer-de-la-tranquilite-parent.jpg" />
+    <Resource Include="Images\chanson-swing-la-lune-la-fusee-sur-la-lune-parent.jpg" />
+    <Resource Include="Images\chanson-dans-mon-ecole-a-moi-l-arbre-dans-l-ecole-parent.jpg" />
+    <Resource Include="Images\chanson-dans-mon-ecole-a-moi-la-fusee-parent.jpg" />
+    <Resource Include="Images\1371345098_trophy.png" />
+    <Resource Include="Images\1371324714_face-cool.png" />
+    <Resource Include="Images\1371324710_face-plain.png" />
+    <Resource Include="Images\1371324707_face-crying.png" />
+    <Resource Include="Images\07-2.png" />
+    <Resource Include="Images\1371319307_emblem-nowrite.png" />
+    <Resource Include="Images\1371319301_package-installed-updated.png" />
+    <Resource Include="Images\Hangman\dead.png" />
+    <Resource Include="Images\Hangman\five-left.png" />
+    <Resource Include="Images\Hangman\four-left.png" />
+    <Resource Include="Images\Hangman\one-left.png" />
+    <Resource Include="Images\Hangman\six-left.png" />
+    <Resource Include="Images\Hangman\three-left.png" />
+    <Resource Include="Images\Hangman\two-left.png" />
+    <Resource Include="Images\path_category.png" />
+    <Resource Include="Images\path_game.png" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\path879.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

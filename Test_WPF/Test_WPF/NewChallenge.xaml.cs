@@ -69,5 +69,10 @@ namespace Test_WPF
         {
             App.mainWindow.gotoHome();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.endOfNewChallenge();
+        }
     }
 }

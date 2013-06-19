@@ -87,6 +87,7 @@
     <Compile Include="ChallengeResults.xaml.cs">
       <DependentUpon>ChallengeResults.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Datas\Data.cs" />
     <Compile Include="Datas\EducationAll.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +101,9 @@
     </Compile>
     <Compile Include="ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FriendshipControl.xaml.cs">
+      <DependentUpon>FriendshipControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\Additions1_ce1.xaml.cs">
       <DependentUpon>Additions1_ce1.xaml</DependentUpon>
@@ -117,8 +121,11 @@
     <Compile Include="Games\ScoreControl.xaml.cs">
       <DependentUpon>ScoreControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewChallenge.xaml.cs">
+<Compile Include="NewChallenge.xaml.cs">
       <DependentUpon>NewChallenge.xaml</DependentUpon>
+    </Compile>
+<Compile Include="ProfilControl.xaml.cs">
+      <DependentUpon>ProfilControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
@@ -158,6 +165,10 @@
     <Page Include="ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FriendshipControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Games\Additions1_ce1.xaml">
       <SubType>Designer</SubType>
@@ -211,10 +222,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewChallenge.xaml">
+     <Page Include="ProfilControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<Page Include="NewChallenge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
     <Page Include="WelcomeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
