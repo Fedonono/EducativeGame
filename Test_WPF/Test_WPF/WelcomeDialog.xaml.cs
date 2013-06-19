@@ -37,19 +37,29 @@ namespace Test_WPF
             this.label1.Content = "Bienvenue " + App.user.username + " !";
             if (this.connexion)
             {
-                this.label2.Margin = new Thickness(140, 260, 0, 0);
-                this.label2.FontSize = 16;
-                this.label2.Content = "Tout va bien depuis ta dernière visite ?\n" +
+                this.lmessage.Margin = new Thickness(140, 260, 0, 0);
+                this.lmessage.FontSize = 16;
+                this.lmessage.Content = "Tout va bien depuis ta dernière visite ?\n" +
                     "Le " + App.user.Grade.name + " se passe bien ?";
 
-                this.button1.Margin = new Thickness(240, 330, 0, 0);
+                int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
+                this.button1.Margin = new Thickness(240, 340, 0, 0);
                 this.button1.Content = "Oui !";
+                if (newDuals > 0)
+                {
+                    this.ldefi.Content = "Attention ! Tu as " + newDuals + " nouveaux défis en attente !";
+                    this.ldefi.Margin = new Thickness(140, 320, 0, 0);
+                    this.button1.Margin = new Thickness(240, 380, 0, 0);
+                    this.button1.Content = "OK !";
+                }
+
+                
             }
             else
             {
-                this.label2.Margin = new Thickness(100, 248, 0, 0);
-                this.label2.FontSize = 14;
-                this.label2.Content = "Voici quelques conseils pour bien utiliser EducationAll :\n" +
+                this.lmessage.Margin = new Thickness(100, 248, 0, 0);
+                this.lmessage.FontSize = 14;
+                this.lmessage.Content = "Voici quelques conseils pour bien utiliser EducationAll :\n" +
                     "Ce programme est déstiné à toute personne désirant\napprendre en s'amusant.\n" +
                     "Des mini-jeux et questionnaires sont disponibles par catégories.\n" +
                     "Chaque jeu rapporte des points et peut être jouer contre un adversaire\n sous forme de défi.\n" +

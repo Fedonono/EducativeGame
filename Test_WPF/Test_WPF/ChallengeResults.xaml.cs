@@ -96,7 +96,6 @@ namespace Test_WPF
             if (this.time == 0 && this.endAnim)
             {
                 this.lresultWin.Visibility = System.Windows.Visibility.Visible;
-                this.igirl.Visibility = System.Windows.Visibility.Visible;
                 this.itrophy.Visibility = System.Windows.Visibility.Visible;
                 this.lresult.Visibility = System.Windows.Visibility.Visible;
                 this.lgameName.Visibility = System.Windows.Visibility.Visible;
@@ -105,6 +104,7 @@ namespace Test_WPF
                 if (this.dual.winner == this.idUser && pointsChallenger != this.points)
                 {
                     this.iwin.Visibility = System.Windows.Visibility.Visible;
+                    this.igirl.Visibility = System.Windows.Visibility.Visible;
                 }
                 else if (this.dual.winner != this.idUser && pointsChallenger != this.points)
                 {

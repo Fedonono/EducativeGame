@@ -44,10 +44,14 @@ namespace Test_WPF
         {
             foreach (Datas.Relationship item in this.listeFriends)
             {
-                string username = (from i in Bdd.DbAccess.Users where i.ID == item.userId2 select i.username).FirstOrDefault();
-                Button bt = new Button() { Content = username, Tag = item.userId2, FontSize = 20, Padding = new Thickness(20), Margin = new Thickness(10) };
-                bt.Click += new RoutedEventHandler(bt_Click);
-                this.stackPanelFriends.Children.Add(bt);
+                Datas.User user = (from i in Bdd.DbAccess.Users where i.ID == item.userId2 select i).FirstOrDefault();
+                if (user != null)
+                {
+                    string grade = (from i in Bdd.DbAccess.Grades where user.idGrade == i.ID select i.name).FirstOrDefault();
+                    Button bt = new Button() { Content = string.Format("{0} ({1})", user.username, grade), Tag = item.userId2, FontSize = 20, Padding = new Thickness(20), Margin = new Thickness(10) };
+                    bt.Click += new RoutedEventHandler(bt_Click);
+                    this.stackPanelFriends.Children.Add(bt);
+                }
             }
         }
 
