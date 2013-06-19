@@ -26,7 +26,7 @@ namespace Test_WPF
 
         public void printFriendsList()
         {
-            List<Datas.Relationship> friends = (from r in Bdd.DbAccess.Relationships where r.userId1 == 1 || r.userId1 == 1 select r).ToList();
+            List<Datas.Relationship> friends = (from r in Bdd.DbAccess.Relationships where r.userId1 == App.user.ID || r.userId1 == App.user.ID select r).ToList();
 
             foreach (Datas.Relationship friend in friends)
             {
@@ -36,7 +36,7 @@ namespace Test_WPF
 
         public void printAddRequests()
         {
-            List<Datas.AddRequest> addRequests = (from ar in Bdd.DbAccess.AddRequests  where ar.idCalled == 1).ToList();
+            List<Datas.AddRequest> addRequests = (from ar in Bdd.DbAccess.AddRequests  where ar.idCalled == App.user.ID).ToList();
 
             foreach (Datas.AddRequest request in addRequests)
             {
@@ -44,11 +44,48 @@ namespace Test_WPF
             }
         }
 
-        public void addFriend()
+        public void sendFriendshipRequest()
         {
-            Datas.User users = (from u in Bdd.DbAccess.Users where u.username == this.tBPseudo.Text select u).First();
+            Datas.User user = (from u in Bdd.DbAccess.Users where u.username == this.tBPseudo.Text select u).First();
+            Datas.Relationship relationship = (from r in Bdd.DbAccess.Relationships 
+                                               where (r.userId1 == App.user.ID && r.userId2 == user.ID)
+                                               || (r.userId1 == user.ID && r.userId2 == App.user.ID));
 
-            //TODO
+            if (user != null)
+            {
+                if(relationship == null){
+                    Datas.AddRequest addRequest = new Datas.AddRequest()
+                    {
+                        idCaller = App.user.ID,
+                        idCalled = user.ID
+                    };
+
+                    Bdd.DbAccess.AddToAddRequests(addRequest);
+                    Bdd.DbAccess.SaveChanges();
+
+                }else{
+                    //l'amitié existe déjà
+                }
+            }else{
+                //l'utilisateur n'existe pas
+            }
+        }
+
+        public void acceptFriendshipRequest(int idCaller)
+        {
+            Datas.AddRequest addRequest = (from ar in Bdd.DbAccess.AddRequests where ar.idCaller == idCaller select ar).First(
+
+            if(addRequest != null)
+            {
+                Datas.Relationship relationship = new Datas.Relationship(){
+                    userId1 = App.user.ID,
+                    userId2 = idCaller
+                };
+
+                Bdd.DbAccess.AddToRelationships(relationship);
+                // supprimer la addRequest
+                Bdd.DbAccess.SaveChanges();
+            }
         }
     }
 }
