@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Test_WPF
 {
     /// <summary>
-    /// Logique d'interaction pour DefiButton.xaml
+    /// Logique d'interaction pour ChallengeButton.xaml
     /// </summary>
-    public partial class DefiButton : UserControl
+    public partial class ChallengeButton : UserControl
     {
-        public DefiButton()
+        public ChallengeButton(string username, string gameName, bool over, bool win)
         {
             InitializeComponent();
         }

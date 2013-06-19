@@ -14,13 +14,18 @@ using System.Windows.Shapes;
 
 namespace Test_WPF
 {
-    /// <summary>    /// Logique d'interaction pour DefiControl.xaml
+    /// <summary>    /// Logique d'interaction pour ChallengeControl.xaml
     /// </summary>
-    public partial class DefiControl : UserControl
+    public partial class ChallengeControl : UserControl
     {
-        public DefiControl()
+        public ChallengeControl()
         {
             InitializeComponent();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

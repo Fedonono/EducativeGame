@@ -216,6 +216,22 @@ namespace Test_WPF
 
         void gamePanel_EndOfGameEvent(int idUser, int idGame, int idDefi, int points)
         {
+            Datas.Score s = new Datas.Score() { idGame = idGame, idUser = idUser, value = points };
+            Bdd.DbAccess.AddToScores(s);
+            Bdd.DbAccess.SaveChanges();
+            if (idDefi != -1)
+            {
+                Datas.Score sc = (from i in Bdd.DbAccess.Scores where i.idUser == idUser select i).LastOrDefault();
+                if (sc != null)
+                {
+                    Datas.Dual d = (from i in Bdd.DbAccess.Duals where i.ID == idDefi select i).FirstOrDefault();
+                    if (d != null)
+                    {
+                        d.idScoreChallenged = sc.ID;
+                        Bdd.DbAccess.SaveChanges();
+                    }
+                }
+            }
             //this.contentGrid.Children.Remove(this.currentUIElement);
             //this.currentUIElement = new ChallengeResults(idUser, idGame, idDefi, points);
             //this.contentGrid.Children.Add(this.currentUIElement);

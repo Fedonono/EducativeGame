@@ -31,13 +31,13 @@ namespace Test_WPF
         public ChallengeResults(int idUser, int idGame, int idDefi, int points)
         {
             InitializeComponent();
-            if (idDefi == -1)
+            if (idDefi == -1)//il n'y a pas de défi donc on redirige directement vers la liste d'amis pour prochain défi
             {
                 this.bcontinue_Click(null, null);
             }
             try
             {
-                this.dual = (from i in Bdd.DbAccess.Duals where i.ID == idDefi select i) as Datas.Dual;
+                this.dual = ((from i in Bdd.DbAccess.Duals where i.ID == idDefi select i).FirstOrDefault()) as Datas.Dual;
             }
             catch (Exception)
             {

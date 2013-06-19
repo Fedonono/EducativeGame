@@ -92,11 +92,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EducationAll.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DefiButton.xaml.cs">
-      <DependentUpon>DefiButton.xaml</DependentUpon>
+    <Compile Include="ChallengeButton.xaml.cs">
+      <DependentUpon>ChallengeButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DefiControl.xaml.cs">
-      <DependentUpon>DefiControl.xaml</DependentUpon>
+    <Compile Include="ChallengeControl.xaml.cs">
+      <DependentUpon>ChallengeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
@@ -144,11 +144,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DefiButton.xaml">
+    <Page Include="ChallengeButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DefiControl.xaml">
+    <Page Include="ChallengeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
