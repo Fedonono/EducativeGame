@@ -58,6 +58,11 @@ namespace Test_WPF
             foreach (Datas.Game game in gamesList)
             {
                 Button bt = new Button() { Content = game.name, Tag = game, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10) };
+                int nbPlayed = (from i in Bdd.DbAccess.Scores where i.idGame == game.ID && i.idUser == App.user.ID select i).Count();
+                if (nbPlayed > 0)
+                {
+                    bt.Background = Brushes.LightGreen;
+                }
                 bt.Click += new RoutedEventHandler(launchGame);
                 bt.MouseEnter += new MouseEventHandler(bt_MouseEnter);
                 bt.MouseLeave += new MouseEventHandler(bt_MouseLeave);
@@ -100,7 +105,7 @@ namespace Test_WPF
                 try
                 {
                     score = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID && i.idUser == App.user.ID select i.value).Max();
-                    nbGame = (int)(from i in Bdd.DbAccess.Scores where i.idGame == tag.ID && i.idUser == App.user.ID select i.value).Count();
+                    nbGame = (from i in Bdd.DbAccess.Scores where i.idGame == tag.ID && i.idUser == App.user.ID select i).Count();
                 }
                 catch (Exception)
                 {

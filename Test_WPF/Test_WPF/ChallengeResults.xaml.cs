@@ -154,7 +154,15 @@ namespace Test_WPF
         private void bcontinue_Click(object sender, RoutedEventArgs e)
         {
             this.mainGrid.Children.Clear();
-            this.mainGrid.Children.Add(new NewChallenge(this.idUser, this.idGame, this.idScore));
+            NewChallenge nc = new NewChallenge(this.idUser, this.idGame, this.idScore);
+            nc.EndOfNewChallengeEvent += new NewChallenge.DelegateEndOfNewChallenge(nc_EndOfNewChallengeEvent);
+            this.mainGrid.Children.Add(nc);
+        }
+
+        void nc_EndOfNewChallengeEvent()
+        {
+            this.mainGrid.Children.Clear();
+            App.mainWindow.gotoHome();
         }
     }
 }

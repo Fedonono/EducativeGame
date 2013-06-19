@@ -30,7 +30,6 @@ namespace Test_WPF
             IEnumerable<Datas.Dual> listPastDuals = from i in Bdd.DbAccess.Duals 
                                                      where (i.idChallenged == App.user.ID || i.idChallenger == App.user.ID)
                                                      && i.winner != null select i;
-            listPastDuals.Reverse();
 
             this.lnew.Content = string.Format("À relever ({0})", listNewDuals.Count());
             this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count()); 

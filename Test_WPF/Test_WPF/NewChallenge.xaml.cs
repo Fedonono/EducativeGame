@@ -21,6 +21,8 @@ namespace Test_WPF
     {
         private IEnumerable<Datas.Relationship> listeFriends;
         private int idUser, idGame, idScore;
+        public delegate void DelegateEndOfNewChallenge();
+        public event DelegateEndOfNewChallenge EndOfNewChallengeEvent;
 
         public NewChallenge(int idUser, int idGame, int idScore)
         {
@@ -31,6 +33,9 @@ namespace Test_WPF
             this.listeFriends = from i in Bdd.DbAccess.Relationships where i.userId1 == idUser select i;
             if (this.listeFriends.Count() == 0)
             {
+                this.lnoFriends.Visibility = System.Windows.Visibility.Visible;
+                this.bnoFriends.Visibility = System.Windows.Visibility.Visible;
+                this.stackPanelFriends.Visibility = System.Windows.Visibility.Hidden;
                 this.endOfNewChallenge();
             }
             else
@@ -71,12 +76,18 @@ namespace Test_WPF
 
         private void endOfNewChallenge()
         {
-            App.mainWindow.gotoHome();
+            if (EndOfNewChallengeEvent != null)
+                EndOfNewChallengeEvent();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             this.endOfNewChallenge();
+        }
+
+        private void bnoFriends_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
