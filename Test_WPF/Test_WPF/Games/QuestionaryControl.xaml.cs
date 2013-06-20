@@ -76,7 +76,7 @@ namespace Test_WPF
         {
             Button bt = (Button) sender;
             Datas.Choice choice = (Datas.Choice) bt.Tag;
-            if (choice.Question.answer == choice.choice1)
+            if (choice.Question.answer.Equals(choice.choice1))
             {
                 this.scoreLabel.Content = "+10";
                 this.addPoint(10);
@@ -131,7 +131,7 @@ namespace Test_WPF
             Button bt = (Button)sender;
             TextBox tb = (TextBox) bt.Tag;
             String answer = this.questionItr.Current.answer;
-            if (tb.Text == answer)
+            if (tb.Text.ToUpper().Equals(answer.ToUpper())
             {
                 this.scoreLabel.Content = "+20";
                 this.addPoint(20);

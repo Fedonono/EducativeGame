@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoEall.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -121,10 +124,10 @@
     <Compile Include="Games\ScoreControl.xaml.cs">
       <DependentUpon>ScoreControl.xaml</DependentUpon>
     </Compile>
-<Compile Include="NewChallenge.xaml.cs">
+    <Compile Include="NewChallenge.xaml.cs">
       <DependentUpon>NewChallenge.xaml</DependentUpon>
     </Compile>
-<Compile Include="ProfilControl.xaml.cs">
+    <Compile Include="ProfilControl.xaml.cs">
       <DependentUpon>ProfilControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WelcomeDialog.xaml.cs">
@@ -222,15 +225,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-     <Page Include="ProfilControl.xaml">
+    <Page Include="ProfilControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<Page Include="NewChallenge.xaml">
+    <Page Include="NewChallenge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="WelcomeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -383,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="logoEall.ico" />
     <Resource Include="Images\Friendship\friendship.jpg" />
     <Resource Include="Images\ImageProfil\6.png" />
     <Resource Include="Images\ImageProfil\5.png" />
