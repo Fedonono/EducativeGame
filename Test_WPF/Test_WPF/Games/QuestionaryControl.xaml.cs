@@ -131,7 +131,7 @@ namespace Test_WPF
             Button bt = (Button)sender;
             TextBox tb = (TextBox) bt.Tag;
             String answer = this.questionItr.Current.answer;
-            if (tb.Text.ToUpper().Equals(answer.ToUpper())
+            if (tb.Text.ToUpper().Equals(answer.ToUpper()))
             {
                 this.scoreLabel.Content = "+20";
                 this.addPoint(20);
