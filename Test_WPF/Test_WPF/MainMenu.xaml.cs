@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Test_WPF.Games;
+using System.Windows.Threading;
 
 namespace Test_WPF
 {
@@ -21,6 +22,9 @@ namespace Test_WPF
     public partial class MainMenu : UserControl
     {
         private UIElement currentCourseInfo;
+
+        private DispatcherTimer timer;
+        private int time;
         
         public MainMenu()
         {
@@ -42,6 +46,12 @@ namespace Test_WPF
                 bt.Click += new RoutedEventHandler(clickButton);
                 this.coursesPanel.Children.Add(bt);
             }
+
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = new TimeSpan(0, 0, 0, 1);
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.time = 0;
+            this.timer.Start();
         }
 
         /// <summary>
@@ -144,6 +154,36 @@ namespace Test_WPF
                     wd.ShowDialog();
                 }
             }
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (this.time < 5)
+            {
+                this.time++;
+            }
+            if (this.time == 5)
+            {
+                this.time++;
+                this.timer.Stop();
+                
+                int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
+                if (newDuals > 0)
+                {
+                    this.lnewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
+                    this.bnewChallenge.Content = string.Format("Je vais le{0} relever !", newDuals > 1 ? "s" : "");
+                    this.lnewChallenge.Visibility = System.Windows.Visibility.Visible;
+                    this.inewChallenge.Visibility = System.Windows.Visibility.Visible;
+                    this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
+                }
+            }
+        }
+
+        private void bnewChallenge_Click(object sender, RoutedEventArgs e)
+        {
+            this.lnewChallenge.Visibility = System.Windows.Visibility.Hidden;
+            this.inewChallenge.Visibility = System.Windows.Visibility.Hidden;
+            this.bnewChallenge.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

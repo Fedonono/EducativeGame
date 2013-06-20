@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Test_WPF.Games;
+using System.Windows.Threading;
 
 namespace Test_WPF
 {
@@ -19,20 +20,58 @@ namespace Test_WPF
     /// </summary>
     public partial class ChallengeControl : UserControl
     {
+        private DispatcherTimer timer;
+        private int time;
+
         public ChallengeControl()
         {
             InitializeComponent();
         }
 
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (this.time < 3)
+            {
+                this.time++;
+            }
+            if (this.time == 3)
+            {
+                this.time++;
+                this.timer.Stop();
+                this.lload1.Visibility = System.Windows.Visibility.Hidden;
+                this.lload2.Visibility = System.Windows.Visibility.Hidden;
+                this.display();
+            }
+        }
+
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            IEnumerable<Datas.Dual> listNewDuals = from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i;
-            IEnumerable<Datas.Dual> listPastDuals = from i in Bdd.DbAccess.Duals 
-                                                     where (i.idChallenged == App.user.ID || i.idChallenger == App.user.ID)
-                                                     && i.winner != null select i;
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = new TimeSpan(0, 0, 0, 1);
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.time = 0;
+            this.timer.Start();
+        }
+
+        private void display()
+        {
+            IEnumerable<Datas.Dual> listNewDuals;
+            IEnumerable<Datas.Dual> listPastDuals;
+            try
+            {
+                listNewDuals = from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i;
+                listPastDuals = from i in Bdd.DbAccess.Duals
+                                where (i.idChallenged == App.user.ID || i.idChallenger == App.user.ID)
+                                && i.winner != null
+                                select i;
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
             this.lnew.Content = string.Format("À relever ({0})", listNewDuals.Count());
-            this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count()); 
+            this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count());
 
             foreach (Datas.Dual item in listNewDuals)
             {
@@ -51,13 +90,13 @@ namespace Test_WPF
 
             foreach (Datas.Dual item in listPastDuals)
             {
-                string username = (from i in Bdd.DbAccess.Users 
-                                  where (i.ID == item.idChallenged && i.ID != App.user.ID) || 
-                                  (i.ID == item.idChallenger && i.ID != App.user.ID)
-                                  select i.username).FirstOrDefault().ToString();
-                string gameName = (from i in Bdd.DbAccess.Games 
-                                  where i.ID == item.idGame
-                                  select i.name).FirstOrDefault().ToString();
+                string username = (from i in Bdd.DbAccess.Users
+                                   where (i.ID == item.idChallenged && i.ID != App.user.ID) ||
+                                   (i.ID == item.idChallenger && i.ID != App.user.ID)
+                                   select i.username).FirstOrDefault().ToString();
+                string gameName = (from i in Bdd.DbAccess.Games
+                                   where i.ID == item.idGame
+                                   select i.name).FirstOrDefault().ToString();
                 int score1 = (int)(from i in Bdd.DbAccess.Scores where i.ID == item.idScoreChallenger select i.value).FirstOrDefault();
                 int score2 = (int)(from i in Bdd.DbAccess.Scores where i.ID == item.idScoreChallenged select i.value).FirstOrDefault();
                 bool win = item.winner == App.user.ID;

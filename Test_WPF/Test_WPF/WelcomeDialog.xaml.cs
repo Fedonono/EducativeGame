@@ -42,18 +42,9 @@ namespace Test_WPF
                 this.lmessage.Content = "Tout va bien depuis ta dernière visite ?\n" +
                     "Le " + App.user.Grade.name + " se passe bien ?";
 
-                int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
+                
                 this.button1.Margin = new Thickness(240, 340, 0, 0);
                 this.button1.Content = "Oui !";
-                if (newDuals > 0)
-                {
-                    this.ldefi.Content = "Attention ! Tu as " + newDuals + " nouveaux défis en attente !";
-                    this.ldefi.Margin = new Thickness(140, 320, 0, 0);
-                    this.button1.Margin = new Thickness(240, 380, 0, 0);
-                    this.button1.Content = "OK !";
-                }
-
-                
             }
             else
             {
