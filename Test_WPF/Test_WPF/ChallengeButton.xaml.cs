@@ -22,9 +22,9 @@ namespace Test_WPF
         public ChallengeButton(string username, string gameName, DateTime date, int score1, int score2, bool over, bool win)
         {
             InitializeComponent();
-            this.lusername.Content = username;
-            this.lgameName.Content = gameName;
-            this.ldate.Content = date.ToShortDateString();
+            this.lUsername.Content = username;
+            this.lGameName.Content = gameName;
+            this.lDate.Content = date.ToShortDateString();
             if (over)
             {
                 if (win && score1 != score2)
@@ -35,12 +35,12 @@ namespace Test_WPF
                 {
                     this.grid1.Background = Brushes.OrangeRed;
                 }
-                this.lscore.Content = string.Format("Scores : {0}/{1}", score1, score2);
+                this.lScore.Content = string.Format("Scores : {0}/{1}", score1, score2);
             }
             else
             {
                 this.grid1.Background = Brushes.Yellow;
-                this.lscore.Content = string.Format("Scores : {0}/{1}", score1, "?");
+                this.lScore.Content = string.Format("Scores : {0}/{1}", score1, "?");
             }
         }
     }

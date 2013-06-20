@@ -43,13 +43,13 @@ namespace Test_WPF
             foreach (Datas.Course course in coursesList)
             {
                 Button bt = new Button() {Content = course.name, Tag = course, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10)};
-                bt.Click += new RoutedEventHandler(clickButton);
+                bt.Click += new RoutedEventHandler(ClickButton);
                 this.coursesPanel.Children.Add(bt);
             }
 
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.time = 0;
             this.timer.Start();
         }
@@ -59,7 +59,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void clickButton(object sender, EventArgs e)
+        private void ClickButton(object sender, EventArgs e)
         {
             Datas.Course tag = ((Button)sender).Tag as Datas.Course;
             int id = (int)tag.ID;
@@ -73,9 +73,9 @@ namespace Test_WPF
                 {
                     bt.Background = Brushes.LightGreen;
                 }
-                bt.Click += new RoutedEventHandler(launchGame);
-                bt.MouseEnter += new MouseEventHandler(bt_MouseEnter);
-                bt.MouseLeave += new MouseEventHandler(bt_MouseLeave);
+                bt.Click += new RoutedEventHandler(LaunchGame);
+                bt.MouseEnter += new MouseEventHandler(Bt_MouseEnter);
+                bt.MouseLeave += new MouseEventHandler(Bt_MouseLeave);
                 this.gamesPanel.Children.Add(bt);
             }
 
@@ -86,7 +86,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bt_MouseLeave(object sender, MouseEventArgs e)
+        private void Bt_MouseLeave(object sender, MouseEventArgs e)
         {
             if (this.currentCourseInfo != null && this.mainMenuContentGrid.Children.Contains(this.currentCourseInfo))
             {
@@ -99,7 +99,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bt_MouseEnter(object sender, MouseEventArgs e)
+        private void Bt_MouseEnter(object sender, MouseEventArgs e)
         {
             if (this.currentCourseInfo != null && this.mainMenuContentGrid.Children.Contains(this.currentCourseInfo))
             {
@@ -127,7 +127,7 @@ namespace Test_WPF
             }
         }
 
-        private void launchGame(object sender, EventArgs e)
+        private void LaunchGame(object sender, EventArgs e)
         {
             Button bt = (Button)sender;
             if (bt.Tag != null)
@@ -138,13 +138,13 @@ namespace Test_WPF
                     if (tag.className == "QuestionaryControl")
                     {
                         int id = (int)tag.idQuestionary;
-                        App.mainWindow.launchGame(new QuestionaryControl(App.user.ID, tag.ID, -1, id));
+                        App.mainWindow.LaunchGame(new QuestionaryControl(App.user.ID, tag.ID, -1, id));
                     }
                     else
                     {
                         Type game = Type.GetType("Test_WPF.Games." + tag.className);
                         object o = Activator.CreateInstance(game, App.user.ID, tag.ID, -1);
-                        App.mainWindow.launchGame(o as IGame);
+                        App.mainWindow.LaunchGame(o as IGame);
                     }
                 }
                 catch (Exception)
@@ -156,7 +156,7 @@ namespace Test_WPF
             }
         }
 
-        void timer_Tick(object sender, EventArgs e)
+        void Timer_Tick(object sender, EventArgs e)
         {
             if (this.time < 5)
             {
@@ -170,18 +170,18 @@ namespace Test_WPF
                 int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
                 if (newDuals > 0)
                 {
-                    this.lnewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
+                    this.lNewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
                     this.bnewChallenge.Content = string.Format("Je vais le{0} relever !", newDuals > 1 ? "s" : "");
-                    this.lnewChallenge.Visibility = System.Windows.Visibility.Visible;
+                    this.lNewChallenge.Visibility = System.Windows.Visibility.Visible;
                     this.inewChallenge.Visibility = System.Windows.Visibility.Visible;
                     this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
                 }
             }
         }
 
-        private void bnewChallenge_Click(object sender, RoutedEventArgs e)
+        private void BnewChallenge_Click(object sender, RoutedEventArgs e)
         {
-            this.lnewChallenge.Visibility = System.Windows.Visibility.Hidden;
+            this.lNewChallenge.Visibility = System.Windows.Visibility.Hidden;
             this.inewChallenge.Visibility = System.Windows.Visibility.Hidden;
             this.bnewChallenge.Visibility = System.Windows.Visibility.Hidden;
         }

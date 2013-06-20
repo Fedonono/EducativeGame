@@ -42,10 +42,10 @@ namespace Test_WPF
             myStoryboard.Children.Add(myDoubleAnimation);
             Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
 
-            this.animationGrid.Loaded += new RoutedEventHandler(animationGrid_Loaded);
+            this.animationGrid.Loaded += new RoutedEventHandler(AnimationGrid_Loaded);
         }
 
-        void animationGrid_Loaded(object sender, RoutedEventArgs e)
+        void AnimationGrid_Loaded(object sender, RoutedEventArgs e)
         {
             myStoryboard.Begin(this);
         }

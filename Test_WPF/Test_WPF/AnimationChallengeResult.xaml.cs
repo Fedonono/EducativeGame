@@ -33,8 +33,8 @@ namespace Test_WPF
         public AnimationChallengeResult(string name1, string name2, int points1, int points2)
         {
             InitializeComponent();
-            this.lname1.Content = name1;
-            this.lname2.Content = name2;
+            this.lName1.Content = name1;
+            this.lName2.Content = name2;
             this.points1 = points1;
             this.points2 = points2;
             this.currentPoints1 = 0;
@@ -52,24 +52,24 @@ namespace Test_WPF
             myStoryboard.Children.Add(myDoubleAnimation);
             Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
 
-            this.animationGrid.Loaded += new RoutedEventHandler(animationGrid_Loaded);
+            this.animationGrid.Loaded += new RoutedEventHandler(AnimationGrid_Loaded);
 
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.timer.Start();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             if (this.currentPoints1 <= this.points1 && !this.endAnim)
             {
-                this.lpoints1.Content = this.currentPoints1;
+                this.lPoints1.Content = this.currentPoints1;
                 this.currentPoints1++;
             }
             if (this.currentPoints2 <= this.points2 && !this.endAnim)
             {
-                this.lpoints2.Content = this.currentPoints2;
+                this.lPoints2.Content = this.currentPoints2;
                 this.currentPoints2++;
             }
             if (this.currentPoints1 == this.points1+1 && this.currentPoints2 == this.points2+1 && !this.endAnim)
@@ -91,7 +91,7 @@ namespace Test_WPF
             }
         }
 
-        private void animationGrid_Loaded(object sender, RoutedEventArgs e)
+        private void AnimationGrid_Loaded(object sender, RoutedEventArgs e)
         {
             myStoryboard.Begin(this);
         }

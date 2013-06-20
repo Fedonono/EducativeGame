@@ -35,19 +35,19 @@ namespace Test_WPF
                 "indiqué dans la fenêtre À propos.";
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.timer.Start();
             this.time = 1;
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             this.time--;
             this.label4.Content = this.time;
             if (this.time <= 0)
             {
                 this.timer.Stop();
-                App.mainWindow.loadControlClicked();
+                App.mainWindow.LoadControlClicked();
             }
         }
     }

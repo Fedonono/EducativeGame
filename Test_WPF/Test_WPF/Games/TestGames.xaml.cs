@@ -28,12 +28,12 @@ namespace Test_WPF.Games
             this.contentGrid.Children.Add(new Hangman(0, 0, -1));
         }
 
-        private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }

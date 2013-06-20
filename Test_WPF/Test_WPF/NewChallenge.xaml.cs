@@ -33,19 +33,19 @@ namespace Test_WPF
             this.listeFriends = from i in Bdd.DbAccess.Relationships where i.userId1 == idUser select i;
             if (this.listeFriends.Count() == 0)
             {
-                this.lnoFriends.Visibility = System.Windows.Visibility.Visible;
+                this.lNoFriends.Visibility = System.Windows.Visibility.Visible;
                 this.bnoFriends.Visibility = System.Windows.Visibility.Visible;
                 this.stackPanelFriends.Visibility = System.Windows.Visibility.Hidden;
-                this.endOfNewChallenge();
+                this.EndOfNewChallenge();
             }
             else
             {
-                this.displayFriends();
+                this.DisplayFriends();
             }
 
         }
 
-        private void displayFriends()
+        private void DisplayFriends()
         {
             foreach (Datas.Relationship item in this.listeFriends)
             {
@@ -54,13 +54,13 @@ namespace Test_WPF
                 {
                     string grade = (from i in Bdd.DbAccess.Grades where user.idGrade == i.ID select i.name).FirstOrDefault();
                     Button bt = new Button() { Content = string.Format("{0} ({1})", user.username, grade), Tag = item.userId2, FontSize = 20, Padding = new Thickness(20), Margin = new Thickness(10) };
-                    bt.Click += new RoutedEventHandler(bt_Click);
+                    bt.Click += new RoutedEventHandler(Bt_Click);
                     this.stackPanelFriends.Children.Add(bt);
                 }
             }
         }
 
-        void bt_Click(object sender, RoutedEventArgs e)
+        void Bt_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
             Datas.Dual d = new Datas.Dual();
@@ -71,21 +71,21 @@ namespace Test_WPF
             d.date = DateTime.Now;
             Bdd.DbAccess.AddToDuals(d);
             Bdd.DbAccess.SaveChanges();
-            this.endOfNewChallenge();
+            this.EndOfNewChallenge();
         }
 
-        private void endOfNewChallenge()
+        private void EndOfNewChallenge()
         {
             if (EndOfNewChallengeEvent != null)
                 EndOfNewChallengeEvent();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            this.endOfNewChallenge();
+            this.EndOfNewChallenge();
         }
 
-        private void bnoFriends_Click(object sender, RoutedEventArgs e)
+        private void BnoFriends_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Test_WPF.Games.Colouring"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid>
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Label Content="Coloriage magique" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Button Content="Imprimer" Height="Auto" HorizontalAlignment="Center" Padding="20" Margin="294,596,562,0" Name="bPrint" VerticalAlignment="Top" Width="Auto" FontSize="25" Click="BPrint_Click" />
+        <Button Content="Coloriage suivant" Height="Auto" HorizontalAlignment="Right" Padding="20" Margin="0,344,118,0" Name="bNext" VerticalAlignment="Top" Width="Auto" FontSize="25" Click="BNext_Click" />
+        <Image Height="374" HorizontalAlignment="Left" Margin="173,203,0,0" Name="iColouring" Stretch="Uniform" VerticalAlignment="Top" Width="384" Source="/Test_WPF;component/Images/Colouring/1.PNG" />
+        <Button Content="Continuer" FontSize="25" Height="Auto" HorizontalAlignment="Right" Margin="0,609,75,0" Name="bContinue" Padding="20" VerticalAlignment="Top" Width="Auto" Click="BContinue_Click" />
+        <Label Content="Score : 0" Height="Auto" HorizontalAlignment="Left" Margin="647,477,0,0" Name="lScore" VerticalAlignment="Top" FontSize="40" FontWeight="Normal" Foreground="#FF057B00" />
+    </Grid>
+</UserControl>

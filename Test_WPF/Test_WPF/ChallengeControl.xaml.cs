@@ -28,7 +28,7 @@ namespace Test_WPF
             InitializeComponent();
         }
         
-        void timer_Tick(object sender, EventArgs e)
+        void Timer_Tick(object sender, EventArgs e)
         {
             if (this.time < 3)
             {
@@ -38,9 +38,9 @@ namespace Test_WPF
             {
                 this.time++;
                 this.timer.Stop();
-                this.lload1.Visibility = System.Windows.Visibility.Hidden;
-                this.lload2.Visibility = System.Windows.Visibility.Hidden;
-                this.display();
+                this.lLoad1.Visibility = System.Windows.Visibility.Hidden;
+                this.lLoad2.Visibility = System.Windows.Visibility.Hidden;
+                this.Display();
             }
         }
 
@@ -48,12 +48,12 @@ namespace Test_WPF
         {
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.time = 0;
             this.timer.Start();
         }
 
-        private void display()
+        private void Display()
         {
             App.mainWindow.Cursor = new Cursor(new System.IO.MemoryStream(Test_WPF.Properties.Resources.WaitCursor));
             IEnumerable<Datas.Dual> listNewDuals;
@@ -71,8 +71,8 @@ namespace Test_WPF
                 return;
             }
 
-            this.lnew.Content = string.Format("À relever ({0})", listNewDuals.Count());
-            this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count());
+            this.lNew.Content = string.Format("À relever ({0})", listNewDuals.Count());
+            this.lPast.Content = string.Format("Passés ({0})", listPastDuals.Count());
 
             foreach (Datas.Dual item in listNewDuals)
             {
@@ -84,7 +84,7 @@ namespace Test_WPF
                                    select i.name).FirstOrDefault().ToString();
                 int score1 = (int)(from i in Bdd.DbAccess.Scores where i.ID == item.idScoreChallenger select i.value).FirstOrDefault();
                 ChallengeButton cb = new ChallengeButton(username, gameName, item.date, score1, 0, false, false);
-                cb.MouseLeftButtonDown += new MouseButtonEventHandler(cb_MouseLeftButtonDown);
+                cb.MouseLeftButtonDown += new MouseButtonEventHandler(Cb_MouseLeftButtonDown);
                 cb.Tag = item;
                 this.slistNewDuals.Children.Add(cb);
             }
@@ -107,7 +107,7 @@ namespace Test_WPF
             App.mainWindow.Cursor = Cursors.Arrow;
         }
 
-        void cb_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        void Cb_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ChallengeButton s = sender as ChallengeButton;
             if (s.Tag != null)
@@ -119,13 +119,13 @@ namespace Test_WPF
                     if (game.className == "QuestionaryControl")
                     {
                         int id = (int)game.idQuestionary;
-                        App.mainWindow.launchGame(new QuestionaryControl(App.user.ID, game.ID, d.ID, id));
+                        App.mainWindow.LaunchGame(new QuestionaryControl(App.user.ID, game.ID, d.ID, id));
                     }
                     else
                     {
                         Type game1 = Type.GetType("Test_WPF.Games." + game.className);
                         object o = Activator.CreateInstance(game1, App.user.ID, game.ID, d.ID);
-                        App.mainWindow.launchGame(o as IGame);
+                        App.mainWindow.LaunchGame(o as IGame);
                     }
                 }
                 catch (Exception)

@@ -52,11 +52,11 @@ namespace Test_WPF
                 }
                 this.friendsLabel.Content = nbFriends + " amis";
 
-                this.changeImage();
+                this.ChangeImage();
             }
         }
 
-        private void changeImage()
+        private void ChangeImage()
         {
             int img = new Random().Next(1,7);
 
