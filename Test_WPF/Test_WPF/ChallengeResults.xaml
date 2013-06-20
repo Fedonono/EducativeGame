@@ -15,7 +15,7 @@
         <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="iwin" Stretch="Uniform" VerticalAlignment="Top" Width="150" Source="/Test_WPF;component/Images/1371324714_face-cool.png" Visibility="Hidden" />
         <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="ifail" Source="/Test_WPF;component/Images/1371324707_face-crying.png" Stretch="Uniform" VerticalAlignment="Top" Width="150" Visibility="Hidden" />
         <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="iequality" Source="/Test_WPF;component/Images/1371324710_face-plain.png" Stretch="Uniform" VerticalAlignment="Top" Width="150" Visibility="Hidden" />
-        <Button Content="Continuer" Height="Auto" Padding="30" HorizontalAlignment="Left" Margin="748,589,0,0" Name="bcontinue" VerticalAlignment="Top" Width="Auto" FontSize="25" Visibility="Hidden" Click="bcontinue_Click" />
+        <Button Content="Continuer" Height="Auto" Padding="30" HorizontalAlignment="Left" Margin="748,589,0,0" Name="bcontinue" VerticalAlignment="Top" Width="Auto" FontSize="25" Visibility="Hidden" Click="Bcontinue_Click" />
         <Label Content="Jeu" FontFamily="Palatino Linotype" FontSize="45" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="73,203,79,0" Name="lgameName" VerticalAlignment="Top" Width="848" Visibility="Hidden" />
     </Grid>
 </UserControl>

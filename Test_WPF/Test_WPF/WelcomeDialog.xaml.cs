@@ -27,7 +27,7 @@ namespace Test_WPF
             this.connexion = connexion;
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

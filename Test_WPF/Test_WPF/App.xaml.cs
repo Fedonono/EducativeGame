@@ -18,7 +18,7 @@ namespace Test_WPF
         public static App CurrentApp { get { return currentApp; }}
         private static App currentApp = null;
 
-        public void app_Startup(object sender, StartupEventArgs e)
+        public void App_Startup(object sender, StartupEventArgs e)
         {
             // Create a window
             mainWindow = new MainWindow();

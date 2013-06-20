@@ -42,6 +42,6 @@
         <Label Content="Bienvenue !" Height="Auto" HorizontalAlignment="Left" Margin="137,182,0,0" Name="label1" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Foreground="#FFDE4F00" />
         <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="116,248,0,0" Name="lmessage" VerticalAlignment="Top" />
         <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="116,353,0,0" Name="ldefi" VerticalAlignment="Top" FontSize="16" />
-        <Button Content="J'ai compris !" Height="Auto" HorizontalAlignment="Left" Margin="220,408,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
+        <Button Content="J'ai compris !" Height="Auto" HorizontalAlignment="Left" Margin="220,408,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="Button1_Click" />
     </Grid>
 </Window>

@@ -39,7 +39,7 @@ namespace Test_WPF.Games
             this.idDefi = idDefi;
         }
 
-        private void startGame()
+        private void StartGame()
         {
             this.tableName.Visibility = System.Windows.Visibility.Hidden;
             this.firstNumber.Visibility = System.Windows.Visibility.Hidden;
@@ -66,7 +66,7 @@ namespace Test_WPF.Games
             this.score = 0;
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Elapsed);
+            this.timer.Tick += new EventHandler(Timer_Elapsed);
             this.time = 0;
 
             for (int i = 1; i < 11; i++)
@@ -90,7 +90,7 @@ namespace Test_WPF.Games
                 {
                     b.Margin = new Thickness(200 + 150 * (i - 8), 580, 0, 0);
                 }
-                b.Click += new RoutedEventHandler(b_Click);
+                b.Click += new RoutedEventHandler(B_Click);
                 this.contentGrid.Children.Add(b);
                 this.listeTables.Add(b);
             }
@@ -98,10 +98,10 @@ namespace Test_WPF.Games
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            this.startGame();
+            this.StartGame();
         }
 
-        private void b_Click(object sender, RoutedEventArgs e)
+        private void B_Click(object sender, RoutedEventArgs e)
         {
             if (!this.chosen)
             {
@@ -130,16 +130,16 @@ namespace Test_WPF.Games
                 this.descLabel2.Visibility = System.Windows.Visibility.Hidden;
                 this.descLabel3.Visibility = System.Windows.Visibility.Hidden;
                 this.response.Focus();
-                this.nextCalcul();
+                this.NextCalcul();
             }
         }
 
-        void timer_Elapsed(object sender, EventArgs e)
+        void Timer_Elapsed(object sender, EventArgs e)
         {
             this.timerLabel2.Content = ++this.time + "s";
         }
 
-        private void nextCalcul()
+        private void NextCalcul()
         {
             Random r = new Random();
             int newNum;
@@ -153,7 +153,7 @@ namespace Test_WPF.Games
             this.secondNumber.Content = this.secondNum;
         }
 
-        private void response_KeyDown(object sender, KeyEventArgs e)
+        private void Response_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && this.response.Text.Length > 0)
             {
@@ -167,7 +167,7 @@ namespace Test_WPF.Games
                         this.EndOfAdditionGame();
                         return;
                     }
-                    this.nextCalcul();
+                    this.NextCalcul();
                 }
                 else
                 {
@@ -182,9 +182,9 @@ namespace Test_WPF.Games
             }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            this.startGame();
+            this.StartGame();
         }
 
         private void EndOfAdditionGame()
@@ -234,7 +234,7 @@ namespace Test_WPF.Games
             this.button1.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void response_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void Response_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             this.timer.Start();
         }
@@ -247,7 +247,7 @@ namespace Test_WPF.Games
                 EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
         }
 
-        private void endButton_Click(object sender, RoutedEventArgs e)
+        private void EndButton_Click(object sender, RoutedEventArgs e)
         {
             this.EndOfGame();
         }

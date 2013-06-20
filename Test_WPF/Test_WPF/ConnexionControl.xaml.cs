@@ -48,27 +48,27 @@ namespace Test_WPF
             this.textBoxConn.Focus();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            this.login(sender, e);
+            this.Login(sender, e);
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void Button2_Click(object sender, RoutedEventArgs e)
         {
             if (this.RegisterUser())
             {
-                App.mainWindow.connexionControlClicked(false);
+                App.mainWindow.ConnexionControlClicked(false);
             }
         }
 
-        private void login(object sender, RoutedEventArgs e)
+        private void Login(object sender, RoutedEventArgs e)
         {
             string shaPass = Bdd.SHA1(this.passwordBoxConn.Password);
             Datas.User user = (from u in Bdd.DbAccess.Users where u.username == this.textBoxConn.Text && u.password == shaPass select u).FirstOrDefault();
             if (user != null)
             {
                 App.user = user;
-                App.mainWindow.connexionControlClicked(true);
+                App.mainWindow.ConnexionControlClicked(true);
             }
             else
             {
@@ -124,7 +124,7 @@ namespace Test_WPF
         {
             if (e.Key == Key.Enter)
             {
-                this.button1_Click(null, null);
+                this.Button1_Click(null, null);
             }
         }
     }

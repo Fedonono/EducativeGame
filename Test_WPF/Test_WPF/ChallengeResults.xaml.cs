@@ -36,7 +36,7 @@ namespace Test_WPF
             this.idScore = idScore;
             if (idDefi == -1)//il n'y a pas de défi donc on redirige directement vers la liste d'amis pour prochain défi
             {
-                this.bcontinue_Click(null, null);
+                this.Bcontinue_Click(null, null);
                 return;
             }
             try
@@ -88,10 +88,10 @@ namespace Test_WPF
             ErrorWindow wd = new ErrorWindow(false);
             wd.Owner = App.mainWindow;
             wd.ShowDialog();
-            this.bcontinue_Click(null, null);
+            this.Bcontinue_Click(null, null);
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             if (this.time == 0 && this.endAnim)
             {
@@ -130,7 +130,7 @@ namespace Test_WPF
         {
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.time = 0;
             this.timer.Start();
             this.endAnim = false;
@@ -141,28 +141,28 @@ namespace Test_WPF
             int points2;
             int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).FirstOrDefault()).ToString(), out points2);
             this.acr = new AnimationChallengeResult(name1, name2, points1, points2);
-            acr.EndOfAnimEvent += new AnimationChallengeResult.DelegateEndOfAnim(acr_EndOfAnimEvent);
+            acr.EndOfAnimEvent += new AnimationChallengeResult.DelegateEndOfAnim(Acr_EndOfAnimEvent);
             this.mainGrid.Children.Add(acr);
         }
 
-        private void acr_EndOfAnimEvent()
+        private void Acr_EndOfAnimEvent()
         {
             this.endAnim = true;
             this.mainGrid.Children.Remove(this.acr);
         }
 
-        private void bcontinue_Click(object sender, RoutedEventArgs e)
+        private void Bcontinue_Click(object sender, RoutedEventArgs e)
         {
             this.mainGrid.Children.Clear();
             NewChallenge nc = new NewChallenge(this.idUser, this.idGame, this.idScore);
-            nc.EndOfNewChallengeEvent += new NewChallenge.DelegateEndOfNewChallenge(nc_EndOfNewChallengeEvent);
+            nc.EndOfNewChallengeEvent += new NewChallenge.DelegateEndOfNewChallenge(Nc_EndOfNewChallengeEvent);
             this.mainGrid.Children.Add(nc);
         }
 
-        void nc_EndOfNewChallengeEvent()
+        void Nc_EndOfNewChallengeEvent()
         {
             this.mainGrid.Children.Clear();
-            App.mainWindow.gotoHome();
+            App.mainWindow.GotoHome();
         }
     }
 }

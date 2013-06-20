@@ -41,7 +41,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bdd.DbAccess.Connection.Close();
             Application.Current.Shutdown();
@@ -52,7 +52,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
@@ -68,7 +68,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void loadControlClicked()
+        public void LoadControlClicked()
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new ConnexionControl();
@@ -80,10 +80,10 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void connexionControlClicked(bool connexion)
+        public void ConnexionControlClicked(bool connexion)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
-            this.setToMainWindow();
+            this.SetToMainWindow();
             this.currentUIElement = new MainMenu();
             this.contentGrid.Children.Add(this.currentUIElement);
             WelcomeDialog wd = new WelcomeDialog(connexion);
@@ -94,9 +94,9 @@ namespace Test_WPF
         /// <summary>
         /// Transforme la fenetre pour obtenir le thème du menu principal
         /// </summary>
-        private void setToMainWindow()
+        private void SetToMainWindow()
         {
-            this.defaultBackground();
+            this.DefaultBackground();
             this.programName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             this.programName.FontSize = 40;
             this.programName.Margin = new Thickness(20, 10, 0, 0);
@@ -108,7 +108,7 @@ namespace Test_WPF
         /// <summary>
         /// Change le fond d'écran en fonction du grade de l'utilisateur
         /// </summary>
-        private void defaultBackground()
+        private void DefaultBackground()
         {
             LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush();
             myLinearGradientBrush.StartPoint = new Point(0, 0);
@@ -166,7 +166,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AboutDialog wd = new AboutDialog();
             wd.Owner = this;
@@ -178,12 +178,12 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void image6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.gotoHome();
+            this.GotoHome();
         }
 
-        private void image7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new FriendshipControl();
@@ -195,10 +195,10 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             App.user = null;
-            App.CurrentApp.app_Startup(null,null);
+            App.CurrentApp.App_Startup(null,null);
             this.Close();
         }
 
@@ -207,22 +207,22 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void user_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void User_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new ProfilControl();
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 
-        public void launchGame(IGame gamePanel)
+        public void LaunchGame(IGame gamePanel)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = gamePanel as UIElement;
-            gamePanel.EndOfGameEvent += new DelegateEndOfGame(gamePanel_EndOfGameEvent);
+            gamePanel.EndOfGameEvent += new DelegateEndOfGame(GamePanel_EndOfGameEvent);
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 
-        void gamePanel_EndOfGameEvent(int idUser, int idGame, int idDefi, int points)
+        void GamePanel_EndOfGameEvent(int idUser, int idGame, int idDefi, int points)
         {
             Datas.Score s = new Datas.Score() { idGame = idGame, idUser = idUser, value = points };
             Bdd.DbAccess.AddToScores(s);
@@ -255,7 +255,7 @@ namespace Test_WPF
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 
-        public void gotoHome()
+        public void GotoHome()
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
             this.currentUIElement = new MainMenu();

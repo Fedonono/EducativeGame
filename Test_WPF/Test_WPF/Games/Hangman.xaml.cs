@@ -37,12 +37,12 @@ namespace Test_WPF.Games
             this.idDefi = idDefi;
         }
 
-        private void hangGrid_Loaded(object sender, RoutedEventArgs e)
+        private void HangGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            this.startGame();
+            this.StartGame();
         }
 
-        private void startGame()
+        private void StartGame()
         {
             this.label5.Visibility = System.Windows.Visibility.Hidden;
             this.label4.Visibility = System.Windows.Visibility.Hidden;
@@ -61,13 +61,13 @@ namespace Test_WPF.Games
             this.essais = 6;
             this.label2.Content = "Il te reste 7 essais";
             this.score = 0;
-            this.initDictionary();
+            this.InitDictionary();
 
             Random r = new Random();
             int randId = r.Next(this.dictionary.Count);
             this.currentWord = this.dictionary[randId].ToUpper();
-            this.initLabels();
-            this.textBox1.KeyDown += new KeyEventHandler(textBox1_KeyDown);
+            this.InitLabels();
+            this.textBox1.KeyDown += new KeyEventHandler(TextBox1_KeyDown);
             this.textBox1.Focus();
         }
 
@@ -82,7 +82,7 @@ namespace Test_WPF.Games
             this.dead.Visibility = System.Windows.Visibility.Hidden;
         }
 
-        private void decreaseLife()
+        private void DecreaseLife()
         {
             switch (this.essais)
             {
@@ -121,9 +121,9 @@ namespace Test_WPF.Games
             this.essais--;
         }
 
-        private void endGame(bool win)
+        private void EndGame(bool win)
         {
-            this.textBox1.KeyDown -= new KeyEventHandler(textBox1_KeyDown);
+            this.textBox1.KeyDown -= new KeyEventHandler(TextBox1_KeyDown);
 
             if (!win)
             {
@@ -150,25 +150,25 @@ namespace Test_WPF.Games
             this.labelScore.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void checkEndGame()
+        private void CheckEndGame()
         {
             string hang = this.hangLetter.Content.ToString();
             if (this.dead.Visibility == Visibility.Visible)
             {
-                this.endGame(false);
+                this.EndGame(false);
             }
             else if (!hang.Contains(HIDDEN))
             {
-                this.endGame(true);
+                this.EndGame(true);
             }
         }
 
-        private void initLabels()
+        private void InitLabels()
         {
-            this.updateLetters();
+            this.UpdateLetters();
         }
 
-        private void initDictionary()
+        private void InitDictionary()
         {
             this.dictionary = new List<String>();
             this.dictionary.Add("morning");
@@ -185,7 +185,7 @@ namespace Test_WPF.Games
             this.dictionary.Add("banana");
         }
 
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -200,7 +200,7 @@ namespace Test_WPF.Games
                 }
                 if (!this.currentWord.Contains(c) && !this.takenLettersList.Contains(c))
                 {
-                    this.decreaseLife();
+                    this.DecreaseLife();
                 }
                 if (!this.takenLettersList.Contains(c))
                 {
@@ -208,11 +208,11 @@ namespace Test_WPF.Games
                 }
             }
 
-            this.updateLetters();
-            this.checkEndGame();
+            this.UpdateLetters();
+            this.CheckEndGame();
         }
 
-        private void updateLetters()
+        private void UpdateLetters()
         {
             string s2 = "";
             foreach (char s in this.currentWord)
@@ -235,9 +235,9 @@ namespace Test_WPF.Games
             }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            this.startGame();
+            this.StartGame();
         }
 
         public event DelegateEndOfGame EndOfGameEvent;
@@ -248,7 +248,7 @@ namespace Test_WPF.Games
                 EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
         }
 
-        private void endButton_Click(object sender, RoutedEventArgs e)
+        private void EndButton_Click(object sender, RoutedEventArgs e)
         {
             this.EndOfGame();
         }

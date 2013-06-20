@@ -37,7 +37,7 @@ namespace Test_WPF
             }
         }
 
-        private void bValidateLevel_Click(object sender, RoutedEventArgs e)
+        private void BValidateLevel_Click(object sender, RoutedEventArgs e)
         {
             Datas.Grade grade = (Datas.Grade)this.cbLevel.SelectedItem;
             App.user.idGrade = grade.ID;
@@ -45,14 +45,14 @@ namespace Test_WPF
             this.lLevel.Content = "Changement validé !";
         }
 
-        private void cbLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.lLevel.Content = String.Empty;
         }
 
-        private void bValidatePass_Click(object sender, RoutedEventArgs e)
+        private void BValidatePass_Click(object sender, RoutedEventArgs e)
         {
-            if (checkChangePass())
+            if (CheckChangePass())
             {
                 App.user.password = Bdd.SHA1(this.tNewPass.Password);
                 Bdd.DbAccess.SaveChanges();
@@ -60,7 +60,7 @@ namespace Test_WPF
             }
         }
 
-        private bool checkChangePass()
+        private bool CheckChangePass()
         {
             string newPass = Bdd.SHA1(this.tNewPass.Password);
             bool check = true;
@@ -86,9 +86,9 @@ namespace Test_WPF
             return check;
         }
 
-        private void bMainMenu_Click(object sender, RoutedEventArgs e)
+        private void BMainMenu_Click(object sender, RoutedEventArgs e)
         {
-            App.mainWindow.gotoHome();
+            App.mainWindow.GotoHome();
         }
     }
 }
