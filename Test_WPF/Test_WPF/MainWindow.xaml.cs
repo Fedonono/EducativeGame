@@ -41,7 +41,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Close_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bdd.DbAccess.Connection.Close();
             Application.Current.Shutdown();
@@ -52,7 +52,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Image2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Minimize_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
@@ -100,10 +100,10 @@ namespace Test_WPF
             this.programName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             this.programName.FontSize = 40;
             this.programName.Margin = new Thickness(20, 10, 0, 0);
-            this.image4.Visibility = System.Windows.Visibility.Visible;
-            this.image5.Visibility = System.Windows.Visibility.Visible;
-            this.image6.Visibility = System.Windows.Visibility.Visible;
-            this.image7.Visibility = System.Windows.Visibility.Visible;
+            this.imgLogoutIcon.Visibility = System.Windows.Visibility.Visible;
+            this.imgHomeIcon.Visibility = System.Windows.Visibility.Visible;
+            this.imgFriendIcon.Visibility = System.Windows.Visibility.Visible;
+            this.imgUserIcon.Visibility = System.Windows.Visibility.Visible;
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Image3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void About_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AboutDialog wd = new AboutDialog();
             wd.Owner = this;
@@ -179,12 +179,12 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Image6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Home_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.GotoHome();
         }
 
-        private void Image7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Friend_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.contentGrid.Children.Clear();
             this.currentUIElement = new FriendshipControl();
@@ -196,7 +196,7 @@ namespace Test_WPF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Image4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Logout_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             App.user = null;
             App.CurrentApp.App_Startup(null,null);
