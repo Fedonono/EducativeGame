@@ -25,6 +25,7 @@ namespace Test_WPF
         private IEnumerator<Datas.Question> questionItr;
         private int idQuestionnary;
         private DispatcherTimer timer;
+        private List<bool> answers = new List<bool>();
         private int time;
         private int score;
 
@@ -85,12 +86,14 @@ namespace Test_WPF
             {
                 this.scoreLabel.Content = "+10";
                 this.AddPoint(10);
+                this.answers.Add(true);
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 bt.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
             else
             {
                 this.wrong.Visibility = System.Windows.Visibility.Visible;
+                this.answers.Add(false);
                 bt.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
             }
 
@@ -126,7 +129,7 @@ namespace Test_WPF
                 }
                 else
                 {
-                    this.EndOfGame();
+                    this.showResults();
                 }
             }
         }
@@ -140,12 +143,14 @@ namespace Test_WPF
             {
                 this.scoreLabel.Content = "+20";
                 this.AddPoint(20);
+                this.answers.Add(true);
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 tb.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
             else
             {
                 this.wrong.Visibility = System.Windows.Visibility.Visible;
+                this.answers.Add(false);
                 tb.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
             }
 
@@ -186,6 +191,33 @@ namespace Test_WPF
             this.bWelcome.Visibility = System.Windows.Visibility.Hidden;
             this.rWelcomeBack.Visibility = System.Windows.Visibility.Hidden;
             this.Start();
+        }
+
+        private void showResults()
+        {
+            this.questionaryGrid.Children.Clear();
+            StackPanel questionPanel =new StackPanel(){Height = 369 , Margin = new Thickness(18,200,0,0), Name = "Question", Width = 498};
+            StackPanel answerPanel =new StackPanel(){Height = 369 , Margin = new Thickness(540,200,0,0), Name = "Answer", Width = 306};
+            StackPanel answerUserPanel =new StackPanel(){Height = 369 , Margin = new Thickness(871,200,0,0), Name = "AnswerUser", Width = 103};
+            Button continueButton = new Button(){Content="Continuer", Height=50, Margin=new Thickness(540,649,0,0), Name="closeButton", Width=306, FontSize=24, Padding=new Thickness(0)};
+            continueButton.Click += new RoutedEventHandler(continueButton_Click);
+            IEnumerator<Datas.Question> questionsEnumerator = this.questionsList.GetEnumerator();
+            IEnumerator<bool> answersEnumerator = this.answers.GetEnumerator();
+            while (questionsEnumerator.MoveNext() && answersEnumerator.MoveNext())
+            {
+                questionPanel.Children.Add(new Label() { Content = questionsEnumerator.Current.question1 });
+                answerPanel.Children.Add(new Label() { Content = questionsEnumerator.Current.answer });
+                answerUserPanel.Children.Add(new Label() { Content = answersEnumerator.Current.ToString() });
+            }
+            this.questionaryGrid.Children.Add(questionPanel);
+            this.questionaryGrid.Children.Add(answerPanel);
+            this.questionaryGrid.Children.Add(answerUserPanel);
+            this.questionaryGrid.Children.Add(continueButton);
+        }
+
+        private void continueButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.EndOfGame();
         }
     }
 }
