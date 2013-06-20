@@ -59,5 +59,12 @@ namespace Test_WPF.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static byte[] WaitCursor {
+            get {
+                object obj = ResourceManager.GetObject("WaitCursor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

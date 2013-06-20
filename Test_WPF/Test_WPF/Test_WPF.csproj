@@ -385,8 +385,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
-<Resource Include="Images\path_new_challenge.png" />
-<Resource Include="logoEall.ico" />
+    <Resource Include="WaitCursor.cur" />
+    <Resource Include="Images\guillom.png" />
+    <Resource Include="Images\fleche.png" />
+    <Resource Include="Images\path_new_challenge.png" />
+    <Resource Include="logoEall.ico" />
     <Resource Include="Images\Friendship\friendship.jpg" />
     <Resource Include="Images\ImageProfil\6.png" />
     <Resource Include="Images\ImageProfil\5.png" />

@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000" xmlns:my="clr-namespace:Test_WPF">
     <Grid Name="mainMenuContentGrid" Loaded="Grid_Loaded">
+        <Image Height="51" HorizontalAlignment="Left" Margin="158,413,0,0" Name="image1" Stretch="None" VerticalAlignment="Top" Width="445" Source="/Test_WPF;component/Images/fleche.png" />
         <Label Content="Menu principal" Height="Auto" HorizontalAlignment="Left" Margin="46,63,0,0" Name="label1" VerticalAlignment="Top" FontSize="35" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
 
         <my:BoxUserInfo Height="300" HorizontalAlignment="Right" Margin="0,63,30,0" x:Name="boxUserInfo1" VerticalAlignment="Top" Width="240" />
@@ -28,5 +29,6 @@
         <Image Height="120" Name="inewChallenge" Stretch="Uniform" Source="/Test_WPF;component/Images/path_new_challenge.png" Margin="455,385,236,245" Visibility="Hidden" />
         <Label Content="Tu as des nouveaux défis en attente !" Height="Auto" HorizontalAlignment="Left" Margin="464,411,0,0" Name="lnewChallenge" VerticalAlignment="Top" FontSize="15" Visibility="Hidden" />
         <Button Content="Je vais les relever !" Height="Auto" HorizontalAlignment="Left" Margin="515,445,0,0" Name="bnewChallenge" VerticalAlignment="Top" Width="Auto" FontSize="15" Visibility="Hidden" Click="bnewChallenge_Click" />
+        
     </Grid>
 </UserControl>

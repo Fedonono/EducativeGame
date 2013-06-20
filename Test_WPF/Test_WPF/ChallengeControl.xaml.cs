@@ -27,14 +27,14 @@ namespace Test_WPF
         {
             InitializeComponent();
         }
-
+        
         void timer_Tick(object sender, EventArgs e)
         {
             if (this.time < 3)
             {
                 this.time++;
             }
-            if (this.time == 3)
+            if (this.time == 3 && App.user != null)
             {
                 this.time++;
                 this.timer.Stop();
@@ -55,6 +55,7 @@ namespace Test_WPF
 
         private void display()
         {
+            App.mainWindow.Cursor = new Cursor(new System.IO.MemoryStream(Test_WPF.Properties.Resources.WaitCursor));
             IEnumerable<Datas.Dual> listNewDuals;
             IEnumerable<Datas.Dual> listPastDuals;
             try
@@ -102,6 +103,8 @@ namespace Test_WPF
                 bool win = item.winner == App.user.ID;
                 this.slistPastDuals.Children.Add(new ChallengeButton(username, gameName, item.date, score1, score2, true, win));
             }
+
+            App.mainWindow.Cursor = Cursors.Arrow;
         }
 
         void cb_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

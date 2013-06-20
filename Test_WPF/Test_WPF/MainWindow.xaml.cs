@@ -98,7 +98,7 @@ namespace Test_WPF
         {
             this.defaultBackground();
             this.programName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            this.programName.FontSize = 35;
+            this.programName.FontSize = 40;
             this.programName.Margin = new Thickness(20, 10, 0, 0);
             this.image4.Visibility = System.Windows.Visibility.Visible;
             this.image5.Visibility = System.Windows.Visibility.Visible;

@@ -7,7 +7,7 @@
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Name="mainGrid">
         <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
-        <Image Height="242" HorizontalAlignment="Left" Margin="628,320,0,0" Name="igirl" Stretch="Uniform" VerticalAlignment="Top" Width="322" Source="/Test_WPF;component/Images/confetti-girl.png" Visibility="Hidden" />
+        <Image Height="297" HorizontalAlignment="Left" Margin="715,413,0,0" Name="igirl" Stretch="Uniform" VerticalAlignment="Top" Width="235" Source="/Test_WPF;component/Images/guillom.png" Visibility="Hidden" />
         <Label Content="Eric gagne !" FontSize="80" FontWeight="Bold" Foreground="#FF004CFF" Height="Auto" HorizontalAlignment="Left" Margin="220,297,0,0" Name="lresultWin" VerticalAlignment="Top" Visibility="Hidden" />
         <Label Content="Résultats du défi" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="ltitle" VerticalAlignment="Top" Width="Auto" />
         <Image Height="194" HorizontalAlignment="Left" Margin="73,248,0,0" Name="itrophy" Stretch="Uniform" VerticalAlignment="Top" Width="202" Source="/Test_WPF;component/Images/1371345098_trophy.png" Visibility="Hidden" />
