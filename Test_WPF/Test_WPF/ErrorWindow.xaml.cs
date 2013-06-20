@@ -18,9 +18,12 @@ namespace Test_WPF
     /// </summary>
     public partial class ErrorWindow : Window
     {
+        private bool connexionError;
+
         public ErrorWindow(bool connexionError)
         {
             InitializeComponent();
+            this.connexionError = connexionError;
             if (connexionError)
             {
                 this.label1.Content = "Accès à la base de données impossible !";
@@ -30,7 +33,14 @@ namespace Test_WPF
 
         private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            if (this.connexionError)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }
