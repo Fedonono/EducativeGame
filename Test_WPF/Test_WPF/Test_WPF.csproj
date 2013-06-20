@@ -130,9 +130,6 @@
     <Compile Include="Games\QuestionaryControl.xaml.cs">
       <DependentUpon>QuestionaryControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Games\ScoreControl.xaml.cs">
-      <DependentUpon>ScoreControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="NewChallenge.xaml.cs">
       <DependentUpon>NewChallenge.xaml</DependentUpon>
     </Compile>
@@ -242,10 +239,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Games\ScoreControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ProfilControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -293,9 +286,6 @@
     <Resource Include="Images\Backgrounds\Ubuntu_wp_b_3_1600.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\1370892381_minimize.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 et x64%29</ProductName>
@@ -316,9 +306,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\1370915781_close.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\_New_friends__by_ilona.jpg" />
@@ -390,27 +377,31 @@
     <Resource Include="Images\Backgrounds\wind_by_ilona.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\about-32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\1371134105_Mario - Profile.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\logout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\path2985.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\Icons\home.png" />
+    <Resource Include="Images\Icons\friendship.png" />
+    <Resource Include="Images\Icons\user.png" />
+    <Resource Include="Images\Icons\logout.png" />
+    <Resource Include="Images\Icons\1370892381_minimize.png" />
+    <Resource Include="Images\Icons\1370915781_close.png" />
+    <Resource Include="Images\Icons\about-32.png" />
+    <Resource Include="Images\Icons\home-hover.png" />
+    <Resource Include="Images\Icons\friendship-hover.png" />
+    <Resource Include="Images\Icons\user-hover.png" />
+    <Resource Include="Images\Icons\logout-hover.png" />
+    <Resource Include="Images\Icons\1370892381_minimize-hover.png" />
+    <Resource Include="Images\Icons\1370915781_close-hover.png" />
+    <Resource Include="Images\Icons\about-32-hover.png" />
     <Resource Include="Images\Colouring\4.PNG" />
     <Resource Include="Images\Colouring\3.PNG" />
     <Resource Include="Images\Colouring\2.PNG" />
     <Resource Include="Images\Colouring\1.PNG" />
-    <Resource Include="Images\friendship.png" />
     <Resource Include="Images\eric.jpg" />
     <Resource Include="WaitCursor.cur" />
     <Resource Include="Images\guillom.png" />
@@ -446,7 +437,6 @@
     <Resource Include="Images\Hangman\two-left.png" />
     <Resource Include="Images\path_category.png" />
     <Resource Include="Images\path_game.png" />
-    <Resource Include="Images\home.png" />
     <Resource Include="Images\path879.png" />
   </ItemGroup>
   <ItemGroup>
