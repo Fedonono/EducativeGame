@@ -107,7 +107,7 @@ namespace Test_WPF
             try
             {
                 Datas.Grade grade = (Datas.Grade)this.comboBoxInscrForm.SelectedItem;
-                Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, birthDate = uDate, idRank = 10, idGrade = grade.ID };
+                Datas.User u = new Datas.User() { username = this.textBoxInscrPseudo.Text, password = passhash, mail = this.textBoxInscrMail.Text, firstName = this.textBoxInscrPrenom.Text, name = this.textBoxInscrNom.Text, birthDate = uDate, idRank = App.RankStudent, idGrade = grade.ID };
                 Bdd.DbAccess.AddToUsers(u);
                 Bdd.DbAccess.SaveChanges();
                 App.user = u;

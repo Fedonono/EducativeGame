@@ -104,6 +104,10 @@ namespace Test_WPF
             this.imgHomeIcon.Visibility = System.Windows.Visibility.Visible;
             this.imgFriendIcon.Visibility = System.Windows.Visibility.Visible;
             this.imgUserIcon.Visibility = System.Windows.Visibility.Visible;
+            if (App.user.isAdmin())
+            {
+                this.imgAdminIcon.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         /// <summary>
@@ -172,6 +176,15 @@ namespace Test_WPF
             AboutDialog wd = new AboutDialog();
             wd.Owner = this;
             wd.ShowDialog();
+        }
+
+        /// <summary>
+        /// Go to Admin Panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Admin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
         }
 
         /// <summary>

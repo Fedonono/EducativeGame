@@ -15,6 +15,9 @@ namespace Test_WPF
         public static MainWindow mainWindow;
         public static Games.TestGames testGames;
         public static Datas.User user = null;
+        public static int RankStudent = getConfigValue("idRankStudent");
+        public static int RankTeacher = getConfigValue("idRankTeacher");
+        public static int RankAdmin = getConfigValue("idRankAdmin");
         public static App CurrentApp { get { return currentApp; }}
         private static App currentApp = null;
 
@@ -29,6 +32,18 @@ namespace Test_WPF
             // Open a window
             this.MainWindow.Show();
             currentApp = this;
+        }
+
+        // source http://stackoverflow.com/questions/2536410/app-config-best-practices
+        public static int getConfigValue(string key)
+        {
+            int result = 60; //Some default value
+            string str = ConfigurationManager.AppSettings[key];
+            if (!String.IsNullOrEmpty(str))
+            {
+                Int32.TryParse(str, out result);
+            }
+            return result;
         }
     }
 }

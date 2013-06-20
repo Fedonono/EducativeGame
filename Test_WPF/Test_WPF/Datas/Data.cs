@@ -12,4 +12,12 @@ namespace Test_WPF.Datas
             return this.name;
         }
     }
+
+    public partial class User
+    {
+        public bool isAdmin()
+        {
+            return (this.idRank == App.RankAdmin);
+        }
+    }
 }

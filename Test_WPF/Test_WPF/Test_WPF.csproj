@@ -55,6 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
@@ -398,6 +399,8 @@
     <Resource Include="Images\Icons\1370892381_minimize-hover.png" />
     <Resource Include="Images\Icons\1370915781_close-hover.png" />
     <Resource Include="Images\Icons\about-32-hover.png" />
+    <Resource Include="Images\Icons\admin-hover.png" />
+    <Resource Include="Images\Icons\admin.png" />
     <Resource Include="Images\Colouring\4.PNG" />
     <Resource Include="Images\Colouring\3.PNG" />
     <Resource Include="Images\Colouring\2.PNG" />

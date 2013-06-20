@@ -44,37 +44,37 @@
     </Window.Background>
     <Grid Name="mainGrid" Height="750" Width="1000">
         <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
-        <Image Stretch="Fill" Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="imgMinimizeIcon" VerticalAlignment="Top" Width="28" MouseLeftButtonDown="Minimize_MouseLeftButtonDown" Cursor="Hand">
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,270,0" Name="imgAdminIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Admin_MouseLeftButtonDown" Visibility="Hidden">
             <Image.Style>
                 <Style>
-                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370892381_minimize.png" />
+                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/admin.png" />
                     <Style.Triggers>
                         <Trigger  Property="Image.IsMouseOver" Value="True">
-                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370892381_minimize-hover.png" />
+                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/admin-hover.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </Image.Style>
         </Image>
-        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,235,0" Name="imgFriendIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Friend_MouseLeftButtonDown" Visibility="Hidden">
-            <Image.Style>
-                <Style>
-                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/friendship.png" />
-                    <Style.Triggers>
-                        <Trigger  Property="Image.IsMouseOver" Value="True">
-                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/friendship-hover.png" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Image.Style>
-        </Image>
-        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,200,0" Name="imgHomeIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Home_MouseLeftButtonDown" Visibility="Hidden">
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,235,0" Name="imgHomeIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Home_MouseLeftButtonDown" Visibility="Hidden">
             <Image.Style>
                 <Style>
                     <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/home.png" />
                     <Style.Triggers>
                         <Trigger  Property="Image.IsMouseOver" Value="True">
                             <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/home-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,200,0" Name="imgFriendIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Friend_MouseLeftButtonDown" Visibility="Hidden">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/friendship.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/friendship-hover.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -111,6 +111,18 @@
                     <Style.Triggers>
                         <Trigger  Property="Image.IsMouseOver" Value="True">
                             <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/about-32-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Stretch="Fill" Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="imgMinimizeIcon" VerticalAlignment="Top" Width="28" MouseLeftButtonDown="Minimize_MouseLeftButtonDown" Cursor="Hand">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370892381_minimize.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370892381_minimize-hover.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
