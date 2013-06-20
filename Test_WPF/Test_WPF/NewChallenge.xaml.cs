@@ -87,7 +87,7 @@ namespace Test_WPF
 
         private void BnoFriends_Click(object sender, RoutedEventArgs e)
         {
-
+            App.mainWindow.GoToFriendship();
         }
     }
 }
