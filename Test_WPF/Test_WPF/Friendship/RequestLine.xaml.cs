@@ -39,7 +39,7 @@ namespace Test_WPF.Friendship
         {
             Datas.User caller = (from u in Bdd.DbAccess.Users
                                  where u.username == this.lUsername.Content
-                                 select u).First()
+                                 select u).First();
 
             int idCaller = caller.ID;
 
@@ -59,6 +59,12 @@ namespace Test_WPF.Friendship
                 Bdd.DbAccess.DeleteObject(addRequest);
                 Bdd.DbAccess.SaveChanges();
             }
+        }
+
+        private void bAccept_Click(object sender, RoutedEventArgs e)
+        {
+            this.acceptFriendshipRequest();
+            App.mainWindow.GoToFriendship();
         }
     }
 }

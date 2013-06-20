@@ -186,6 +186,11 @@ namespace Test_WPF
 
         private void Friend_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            this.GoToFriendship();
+        }
+
+        public void GoToFriendship()
+        {
             this.contentGrid.Children.Clear();
             this.currentUIElement = new FriendshipControl();
             this.contentGrid.Children.Add(this.currentUIElement);

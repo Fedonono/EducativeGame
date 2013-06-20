@@ -8,6 +8,6 @@
     <Grid>
         <Label Content="Label" Height="43" HorizontalAlignment="Left" Name="lUsername" VerticalAlignment="Top" Width="164" Foreground="DarkMagenta" FontSize="24" />
         <Label Content="Label" Height="43" HorizontalAlignment="Left" Margin="159,0,0,0" Name="lGrade" VerticalAlignment="Top" Width="113" Foreground="DarkMagenta" FontSize="24" />
-        <Button Content="+" Height="43" HorizontalAlignment="Left" Margin="269,0,0,0" Name="bAccept" VerticalAlignment="Top" Width="42" FontSize="18" Foreground="ForestGreen" />
+        <Button Content="+" Height="43" HorizontalAlignment="Left" Margin="269,0,0,0" Name="bAccept" VerticalAlignment="Top" Width="42" FontSize="18" Foreground="ForestGreen" Click="bAccept_Click"/>
     </Grid>
 </UserControl>
