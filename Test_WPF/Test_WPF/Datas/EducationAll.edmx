@@ -6,7 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="EducationAllModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="EducationAllModelStoreContainer">
-          <EntitySet Name="AddRequest" EntityType="EducationAllModel.Store.AddRequest" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Choice" EntityType="EducationAllModel.Store.Choice" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Course" EntityType="EducationAllModel.Store.Course" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dual" EntityType="EducationAllModel.Store.Dual" store:Type="Tables" Schema="dbo" />
@@ -16,15 +15,16 @@
           <EntitySet Name="Questionary" EntityType="EducationAllModel.Store.Questionary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Rank" EntityType="EducationAllModel.Store.Rank" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Relationship" EntityType="EducationAllModel.Store.Relationship" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RelationshipRequest" EntityType="EducationAllModel.Store.RelationshipRequest" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Score" EntityType="EducationAllModel.Store.Score" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="EducationAllModel.Store.User" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AddRequest_0" Association="EducationAllModel.Store.FK_AddRequest_0">
             <End Role="User" EntitySet="User" />
-            <End Role="AddRequest" EntitySet="AddRequest" />
+            <End Role="RelationshipRequest" EntitySet="RelationshipRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_AddRequest_1" Association="EducationAllModel.Store.FK_AddRequest_1">
             <End Role="User" EntitySet="User" />
-            <End Role="AddRequest" EntitySet="AddRequest" />
+            <End Role="RelationshipRequest" EntitySet="RelationshipRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_Choice_0" Association="EducationAllModel.Store.FK_Choice_0">
             <End Role="Question" EntitySet="Question" />
@@ -99,14 +99,6 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="AddRequest">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="idCaller" Type="int" Nullable="false" />
-          <Property Name="idCalled" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Choice">
           <Key>
             <PropertyRef Name="ID" />
@@ -186,6 +178,14 @@
           <Property Name="userId2" Type="int" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="RelationshipRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCaller" Type="int" Nullable="false" />
+          <Property Name="idCalled" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Score">
           <Key>
             <PropertyRef Name="ID" />
@@ -211,24 +211,24 @@
         </EntityType>
         <Association Name="FK_AddRequest_0">
           <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="1" />
-          <End Role="AddRequest" Type="EducationAllModel.Store.AddRequest" Multiplicity="*" />
+          <End Role="RelationshipRequest" Type="EducationAllModel.Store.RelationshipRequest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="AddRequest">
+            <Dependent Role="RelationshipRequest">
               <PropertyRef Name="idCaller" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AddRequest_1">
           <End Role="User" Type="EducationAllModel.Store.User" Multiplicity="1" />
-          <End Role="AddRequest" Type="EducationAllModel.Store.AddRequest" Multiplicity="*" />
+          <End Role="RelationshipRequest" Type="EducationAllModel.Store.RelationshipRequest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="AddRequest">
+            <Dependent Role="RelationshipRequest">
               <PropertyRef Name="idCalled" />
             </Dependent>
           </ReferentialConstraint>
@@ -454,7 +454,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="EducationAllModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="EducationAllEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AddRequests" EntityType="EducationAllModel.AddRequest" />
           <EntitySet Name="Choices" EntityType="EducationAllModel.Choice" />
           <EntitySet Name="Courses" EntityType="EducationAllModel.Course" />
           <EntitySet Name="Duals" EntityType="EducationAllModel.Dual" />
@@ -464,16 +463,9 @@
           <EntitySet Name="Questionaries" EntityType="EducationAllModel.Questionary" />
           <EntitySet Name="Ranks" EntityType="EducationAllModel.Rank" />
           <EntitySet Name="Relationships" EntityType="EducationAllModel.Relationship" />
+          <EntitySet Name="RelationshipRequests" EntityType="EducationAllModel.RelationshipRequest" />
           <EntitySet Name="Scores" EntityType="EducationAllModel.Score" />
           <EntitySet Name="Users" EntityType="EducationAllModel.User" />
-          <AssociationSet Name="FK_AddRequest_0" Association="EducationAllModel.FK_AddRequest_0">
-            <End Role="User" EntitySet="Users" />
-            <End Role="AddRequest" EntitySet="AddRequests" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AddRequest_1" Association="EducationAllModel.FK_AddRequest_1">
-            <End Role="User" EntitySet="Users" />
-            <End Role="AddRequest" EntitySet="AddRequests" />
-          </AssociationSet>
           <AssociationSet Name="FK_Choice_0" Association="EducationAllModel.FK_Choice_0">
             <End Role="Question" EntitySet="Questions" />
             <End Role="Choice" EntitySet="Choices" />
@@ -542,21 +534,19 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Relationship" EntitySet="Relationships" />
           </AssociationSet>
+          <AssociationSet Name="FK_AddRequest_0" Association="EducationAllModel.FK_AddRequest_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="RelationshipRequest" EntitySet="RelationshipRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddRequest_1" Association="EducationAllModel.FK_AddRequest_1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="RelationshipRequest" EntitySet="RelationshipRequests" />
+          </AssociationSet>
           <AssociationSet Name="FK_Score_0" Association="EducationAllModel.FK_Score_0">
             <End Role="User" EntitySet="Users" />
             <End Role="Score" EntitySet="Scores" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="AddRequest">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="idCaller" Nullable="false" />
-          <Property Type="Int32" Name="idCalled" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="EducationAllModel.FK_AddRequest_0" FromRole="AddRequest" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="EducationAllModel.FK_AddRequest_1" FromRole="AddRequest" ToRole="User" />
-        </EntityType>
         <EntityType Name="Choice">
           <Key>
             <PropertyRef Name="ID" />
@@ -660,6 +650,16 @@
           <NavigationProperty Name="User" Relationship="EducationAllModel.FK_Relationship_0" FromRole="Relationship" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="EducationAllModel.FK_Relationship_1" FromRole="Relationship" ToRole="User" />
         </EntityType>
+        <EntityType Name="RelationshipRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idCaller" Nullable="false" />
+          <Property Type="Int32" Name="idCalled" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="EducationAllModel.FK_AddRequest_0" FromRole="RelationshipRequest" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="EducationAllModel.FK_AddRequest_1" FromRole="RelationshipRequest" ToRole="User" />
+        </EntityType>
         <EntityType Name="Score">
           <Key>
             <PropertyRef Name="ID" />
@@ -686,8 +686,6 @@
           <Property Type="Int32" Name="idGrade" Nullable="false" />
           <Property Type="Int32" Name="idRank" Nullable="false" />
           <Property Type="DateTime" Name="birthDate" Nullable="false" />
-          <NavigationProperty Name="AddRequests" Relationship="EducationAllModel.FK_AddRequest_0" FromRole="User" ToRole="AddRequest" />
-          <NavigationProperty Name="AddRequests1" Relationship="EducationAllModel.FK_AddRequest_1" FromRole="User" ToRole="AddRequest" />
           <NavigationProperty Name="Duals" Relationship="EducationAllModel.FK_Dual_0" FromRole="User" ToRole="Dual" />
           <NavigationProperty Name="Duals1" Relationship="EducationAllModel.FK_Dual_1" FromRole="User" ToRole="Dual" />
           <NavigationProperty Name="Duals2" Relationship="EducationAllModel.FK_Dual_5" FromRole="User" ToRole="Dual" />
@@ -695,32 +693,10 @@
           <NavigationProperty Name="Rank" Relationship="EducationAllModel.FK_User_0" FromRole="User" ToRole="Rank" />
           <NavigationProperty Name="Relationships" Relationship="EducationAllModel.FK_Relationship_0" FromRole="User" ToRole="Relationship" />
           <NavigationProperty Name="Relationships1" Relationship="EducationAllModel.FK_Relationship_1" FromRole="User" ToRole="Relationship" />
+          <NavigationProperty Name="RelationshipRequests" Relationship="EducationAllModel.FK_AddRequest_0" FromRole="User" ToRole="RelationshipRequest" />
+          <NavigationProperty Name="RelationshipRequests1" Relationship="EducationAllModel.FK_AddRequest_1" FromRole="User" ToRole="RelationshipRequest" />
           <NavigationProperty Name="Scores" Relationship="EducationAllModel.FK_Score_0" FromRole="User" ToRole="Score" />
         </EntityType>
-        <Association Name="FK_AddRequest_0">
-          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
-          <End Type="EducationAllModel.AddRequest" Role="AddRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="AddRequest">
-              <PropertyRef Name="idCaller" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AddRequest_1">
-          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
-          <End Type="EducationAllModel.AddRequest" Role="AddRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="AddRequest">
-              <PropertyRef Name="idCalled" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Choice_0">
           <End Type="EducationAllModel.Question" Role="Question" Multiplicity="1" />
           <End Type="EducationAllModel.Choice" Role="Choice" Multiplicity="*" />
@@ -925,6 +901,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AddRequest_0">
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
+          <End Type="EducationAllModel.RelationshipRequest" Role="RelationshipRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RelationshipRequest">
+              <PropertyRef Name="idCaller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddRequest_1">
+          <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
+          <End Type="EducationAllModel.RelationshipRequest" Role="RelationshipRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RelationshipRequest">
+              <PropertyRef Name="idCalled" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Score_0">
           <End Type="EducationAllModel.User" Role="User" Multiplicity="1" />
           <End Type="EducationAllModel.Score" Role="Score" Multiplicity="*" />
@@ -943,15 +943,6 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EducationAllModelStoreContainer" CdmEntityContainer="EducationAllEntities">
-          <EntitySetMapping Name="AddRequests">
-            <EntityTypeMapping TypeName="EducationAllModel.AddRequest">
-              <MappingFragment StoreEntitySet="AddRequest">
-                <ScalarProperty Name="idCalled" ColumnName="idCalled" />
-                <ScalarProperty Name="idCaller" ColumnName="idCaller" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Choices">
             <EntityTypeMapping TypeName="EducationAllModel.Choice">
               <MappingFragment StoreEntitySet="Choice">
@@ -1040,6 +1031,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RelationshipRequests">
+            <EntityTypeMapping TypeName="EducationAllModel.RelationshipRequest">
+              <MappingFragment StoreEntitySet="RelationshipRequest">
+                <ScalarProperty Name="idCalled" ColumnName="idCalled" />
+                <ScalarProperty Name="idCaller" ColumnName="idCaller" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Scores">
             <EntityTypeMapping TypeName="EducationAllModel.Score">
               <MappingFragment StoreEntitySet="Score">
@@ -1085,7 +1085,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="EducationAll">
-        <EntityTypeShape EntityType="EducationAllModel.AddRequest" Width="1.5" PointX="5.25" PointY="2" Height="1.9802864583333317" />
         <EntityTypeShape EntityType="EducationAllModel.Choice" Width="1.5" PointX="12" PointY="12.875" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="EducationAllModel.Course" Width="1.5" PointX="3" PointY="8.25" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="EducationAllModel.Dual" Width="1.5" PointX="7.5" PointY="4.5" Height="3.7109993489583388" />
@@ -1094,17 +1093,10 @@
         <EntityTypeShape EntityType="EducationAllModel.Question" Width="1.5" PointX="9.75" PointY="12.625" Height="2.172587890624996" />
         <EntityTypeShape EntityType="EducationAllModel.Questionary" Width="1.5" PointX="7.5" PointY="12.625" Height="2.1725878906250031" />
         <EntityTypeShape EntityType="EducationAllModel.Rank" Width="1.5" PointX="0.75" PointY="3.5" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="EducationAllModel.Relationship" Width="1.5" PointX="5.25" PointY="4.625" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="10.5" PointY="5.125" Height="2.5571907552083282" />
+        <EntityTypeShape EntityType="EducationAllModel.Relationship" Width="1.5" PointX="5.25" PointY="2" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="EducationAllModel.RelationshipRequest" Width="1.5" PointX="5.25" PointY="4.625" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="EducationAllModel.Score" Width="1.5" PointX="10.5" PointY="5.125" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="EducationAllModel.User" Width="1.5" PointX="3" PointY="2" Height="4.6725065104166674" />
-        <AssociationConnector Association="EducationAllModel.FK_AddRequest_0" >
-          <ConnectorPoint PointX="4.5" PointY="2.9901432291666659" />
-          <ConnectorPoint PointX="5.25" PointY="2.9901432291666659" />
-        </AssociationConnector>
-        <AssociationConnector Association="EducationAllModel.FK_AddRequest_1" >
-          <ConnectorPoint PointX="4.5" PointY="2.4325716145833329" />
-          <ConnectorPoint PointX="5.25" PointY="2.4325716145833329" />
-        </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Choice_0" >
           <ConnectorPoint PointX="11.25" PointY="13.768992513020834" />
           <ConnectorPoint PointX="12" PointY="13.768992513020834" />
@@ -1133,12 +1125,12 @@
           <ConnectorPoint PointX="7.5" PointY="7.9804996744791694" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_3" >
-          <ConnectorPoint PointX="10.5" PointY="6.4035953776041641" />
-          <ConnectorPoint PointX="9" PointY="6.4035953776041641" />
+          <ConnectorPoint PointX="10.5" PointY="6.4035953776041623" />
+          <ConnectorPoint PointX="9" PointY="6.4035953776041623" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_4" >
-          <ConnectorPoint PointX="10.5" PointY="5.701797688802082" />
-          <ConnectorPoint PointX="9" PointY="5.701797688802082" />
+          <ConnectorPoint PointX="10.5" PointY="5.7017976888020812" />
+          <ConnectorPoint PointX="9" PointY="5.7017976888020812" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Dual_5" >
           <ConnectorPoint PointX="4.1562525" PointY="6.6725065104166674" />
@@ -1158,7 +1150,7 @@
         <AssociationConnector Association="EducationAllModel.FK_Score_1" >
           <ConnectorPoint PointX="6.75" PointY="9.5787972005208388" />
           <ConnectorPoint PointX="11.25" PointY="9.5787972005208388" />
-          <ConnectorPoint PointX="11.25" PointY="7.6821907552083282" />
+          <ConnectorPoint PointX="11.25" PointY="7.6821907552083246" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_User_1" >
           <ConnectorPoint PointX="2.25" PointY="8.3761528461538468" />
@@ -1175,16 +1167,24 @@
           <ConnectorPoint PointX="3" PointY="3.8556266276041669" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Relationship_0" >
+          <ConnectorPoint PointX="4.5" PointY="2.9901432291666694" />
+          <ConnectorPoint PointX="5.25" PointY="2.9901432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_Relationship_1" >
+          <ConnectorPoint PointX="4.5" PointY="2.4325716145833347" />
+          <ConnectorPoint PointX="5.25" PointY="2.4325716145833347" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationAllModel.FK_AddRequest_0" >
           <ConnectorPoint PointX="4.5" PointY="5.6151432291666694" />
           <ConnectorPoint PointX="5.25" PointY="5.6151432291666694" />
         </AssociationConnector>
-        <AssociationConnector Association="EducationAllModel.FK_Relationship_1" >
+        <AssociationConnector Association="EducationAllModel.FK_AddRequest_1" >
           <ConnectorPoint PointX="4.5" PointY="5.0575716145833347" />
           <ConnectorPoint PointX="5.25" PointY="5.0575716145833347" />
         </AssociationConnector>
         <AssociationConnector Association="EducationAllModel.FK_Score_0" >
-          <ConnectorPoint PointX="4.5" PointY="4.2401432291666659" />
-          <ConnectorPoint PointX="11.25" PointY="4.2401432291666659" />
+          <ConnectorPoint PointX="4.5" PointY="4.2401432291666694" />
+          <ConnectorPoint PointX="11.25" PointY="4.2401432291666694" />
           <ConnectorPoint PointX="11.25" PointY="5.125" />
         </AssociationConnector>
       </Diagram>
