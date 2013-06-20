@@ -22,17 +22,17 @@
 
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto" Grid.Row="0">
                 <StackPanel CanHorizontallyScroll="False" CanVerticallyScroll="False" Name="slistNewDuals" >
-                    <Label Content="À relever" Height="Auto" Name="lnew" FontSize="20" />
+                    <Label Content="À relever" Height="Auto" Name="lNew" FontSize="20" />
                 </StackPanel>
              </ScrollViewer>
             <GridSplitter VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="5" Background="Black"/>
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto" Grid.Row="1">
             <StackPanel CanHorizontallyScroll="True" CanVerticallyScroll="True" Name="slistPastDuals">
-                <Label Content="Passés" Height="Auto" Name="lpast" FontSize="20" />
+                <Label Content="Passés" Height="Auto" Name="lPast" FontSize="20" />
             </StackPanel>
 </ScrollViewer>
         </Grid>
-        <Label Content="Chargement..." Height="28" HorizontalAlignment="Center" Margin="0,180,0,0" Name="lload1" VerticalAlignment="Top" />
-        <Label Content="Chargement..." Height="28" HorizontalAlignment="Center" Margin="0,350,0,0" Name="lload2" VerticalAlignment="Top" />
+        <Label Content="Chargement..." Height="28" HorizontalAlignment="Center" Margin="0,180,0,0" Name="lLoad1" VerticalAlignment="Top" />
+        <Label Content="Chargement..." Height="28" HorizontalAlignment="Center" Margin="0,350,0,0" Name="lLoad2" VerticalAlignment="Top" />
     </Grid>
 </UserControl>

@@ -38,8 +38,8 @@ namespace Test_WPF
             {
                 this.time++;
                 this.timer.Stop();
-                this.lload1.Visibility = System.Windows.Visibility.Hidden;
-                this.lload2.Visibility = System.Windows.Visibility.Hidden;
+                this.lLoad1.Visibility = System.Windows.Visibility.Hidden;
+                this.lLoad2.Visibility = System.Windows.Visibility.Hidden;
                 this.Display();
             }
         }
@@ -71,8 +71,8 @@ namespace Test_WPF
                 return;
             }
 
-            this.lnew.Content = string.Format("À relever ({0})", listNewDuals.Count());
-            this.lpast.Content = string.Format("Passés ({0})", listPastDuals.Count());
+            this.lNew.Content = string.Format("À relever ({0})", listNewDuals.Count());
+            this.lPast.Content = string.Format("Passés ({0})", listPastDuals.Count());
 
             foreach (Datas.Dual item in listNewDuals)
             {

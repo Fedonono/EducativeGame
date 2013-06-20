@@ -33,7 +33,7 @@ namespace Test_WPF
             this.listeFriends = from i in Bdd.DbAccess.Relationships where i.userId1 == idUser select i;
             if (this.listeFriends.Count() == 0)
             {
-                this.lnoFriends.Visibility = System.Windows.Visibility.Visible;
+                this.lNoFriends.Visibility = System.Windows.Visibility.Visible;
                 this.bnoFriends.Visibility = System.Windows.Visibility.Visible;
                 this.stackPanelFriends.Visibility = System.Windows.Visibility.Hidden;
                 this.EndOfNewChallenge();

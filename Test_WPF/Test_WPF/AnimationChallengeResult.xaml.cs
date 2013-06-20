@@ -33,8 +33,8 @@ namespace Test_WPF
         public AnimationChallengeResult(string name1, string name2, int points1, int points2)
         {
             InitializeComponent();
-            this.lname1.Content = name1;
-            this.lname2.Content = name2;
+            this.lName1.Content = name1;
+            this.lName2.Content = name2;
             this.points1 = points1;
             this.points2 = points2;
             this.currentPoints1 = 0;
@@ -64,12 +64,12 @@ namespace Test_WPF
         {
             if (this.currentPoints1 <= this.points1 && !this.endAnim)
             {
-                this.lpoints1.Content = this.currentPoints1;
+                this.lPoints1.Content = this.currentPoints1;
                 this.currentPoints1++;
             }
             if (this.currentPoints2 <= this.points2 && !this.endAnim)
             {
-                this.lpoints2.Content = this.currentPoints2;
+                this.lPoints2.Content = this.currentPoints2;
                 this.currentPoints2++;
             }
             if (this.currentPoints1 == this.points1+1 && this.currentPoints2 == this.points2+1 && !this.endAnim)

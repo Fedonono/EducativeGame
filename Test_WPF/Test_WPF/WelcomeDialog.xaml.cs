@@ -37,9 +37,9 @@ namespace Test_WPF
             this.label1.Content = "Bienvenue " + App.user.username + " !";
             if (this.connexion)
             {
-                this.lmessage.Margin = new Thickness(140, 260, 0, 0);
-                this.lmessage.FontSize = 16;
-                this.lmessage.Content = "Tout va bien depuis ta dernière visite ?\n" +
+                this.lMessage.Margin = new Thickness(140, 260, 0, 0);
+                this.lMessage.FontSize = 16;
+                this.lMessage.Content = "Tout va bien depuis ta dernière visite ?\n" +
                     "Le " + App.user.Grade.name + " se passe bien ?";
 
                 
@@ -48,9 +48,9 @@ namespace Test_WPF
             }
             else
             {
-                this.lmessage.Margin = new Thickness(100, 248, 0, 0);
-                this.lmessage.FontSize = 14;
-                this.lmessage.Content = "Voici quelques conseils pour bien utiliser EducationAll :\n" +
+                this.lMessage.Margin = new Thickness(100, 248, 0, 0);
+                this.lMessage.FontSize = 14;
+                this.lMessage.Content = "Voici quelques conseils pour bien utiliser EducationAll :\n" +
                     "Ce programme est déstiné à toute personne désirant\napprendre en s'amusant.\n" +
                     "Des mini-jeux et questionnaires sont disponibles par catégories.\n" +
                     "Chaque jeu rapporte des points et peut être jouer contre un adversaire\n sous forme de défi.\n" +

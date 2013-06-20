@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
-        <Label Content="Nouveau défi" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="ltitle" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Nouveau défi" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="lTitle" VerticalAlignment="Top" Width="Auto" />
         <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
         <Button Content="Ne pas défier" Height="Auto" HorizontalAlignment="Left" Margin="745,620,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Padding="20" FontSize="25" Click="Button1_Click" />
         <Label Content="Choisis un ami dans ta liste pour le défier sur ce jeu avec le score que tu viens de faire !" Height="Auto" HorizontalAlignment="Left" Margin="77,208,0,0" Name="label1" VerticalAlignment="Top" FontSize="22" FontStyle="Normal" FontWeight="Normal" />
@@ -15,7 +15,7 @@
                 
             </StackPanel>
         </ScrollViewer>
-        <Label Content="Tu n'as pas encore d'amis." Height="Auto" HorizontalAlignment="Left" Margin="200,350,0,0" Name="lnoFriends" VerticalAlignment="Top" FontSize="25" Visibility="Hidden"/>
+        <Label Content="Tu n'as pas encore d'amis." Height="Auto" HorizontalAlignment="Left" Margin="200,350,0,0" Name="lNoFriends" VerticalAlignment="Top" FontSize="25" Visibility="Hidden"/>
         <Button Content="En ajouter" Height="Auto" Padding="20" HorizontalAlignment="Left" Margin="280,410,0,0" Name="bnoFriends" VerticalAlignment="Top" Width="Auto" FontSize="25" Visibility="Hidden" Click="BnoFriends_Click" />
     </Grid>
 </UserControl>

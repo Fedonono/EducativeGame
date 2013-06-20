@@ -170,9 +170,9 @@ namespace Test_WPF
                 int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
                 if (newDuals > 0)
                 {
-                    this.lnewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
+                    this.lNewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
                     this.bnewChallenge.Content = string.Format("Je vais le{0} relever !", newDuals > 1 ? "s" : "");
-                    this.lnewChallenge.Visibility = System.Windows.Visibility.Visible;
+                    this.lNewChallenge.Visibility = System.Windows.Visibility.Visible;
                     this.inewChallenge.Visibility = System.Windows.Visibility.Visible;
                     this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
                 }
@@ -181,7 +181,7 @@ namespace Test_WPF
 
         private void BnewChallenge_Click(object sender, RoutedEventArgs e)
         {
-            this.lnewChallenge.Visibility = System.Windows.Visibility.Hidden;
+            this.lNewChallenge.Visibility = System.Windows.Visibility.Hidden;
             this.inewChallenge.Visibility = System.Windows.Visibility.Hidden;
             this.bnewChallenge.Visibility = System.Windows.Visibility.Hidden;
         }

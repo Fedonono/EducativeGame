@@ -54,7 +54,7 @@ namespace Test_WPF
                 return;
             }
             this.points = (int)(from i in Bdd.DbAccess.Scores where i.ID == idScore select i.value).FirstOrDefault(); ;
-            this.lgameName.Content = (from i in Bdd.DbAccess.Games where i.ID == idGame select i.name).FirstOrDefault();
+            this.lGameName.Content = (from i in Bdd.DbAccess.Games where i.ID == idGame select i.name).FirstOrDefault();
             string nameWinner = (from i in Bdd.DbAccess.Users where i.ID == this.dual.winner select i.username).FirstOrDefault();
             string nameLoser;
             if (this.dual.idChallenged == this.dual.winner)
@@ -67,18 +67,18 @@ namespace Test_WPF
             }
             int pointsChallenger;
             int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).FirstOrDefault()).ToString(), out pointsChallenger);
-            this.lresultWin.Content = nameWinner + " gagne !";
+            this.lResultWin.Content = nameWinner + " gagne !";
             if (this.dual.winner == idUser && pointsChallenger != points)
             {
-                this.lresult.Content = "Félicitations !";
+                this.lResult.Content = "Félicitations !";
             }
             else if(this.dual.winner != idUser && pointsChallenger != points)
             {
-                this.lresult.Content = "Dommage !";
+                this.lResult.Content = "Dommage !";
             } else if(pointsChallenger == points)
             {
-                this.lresult.Content = "Bien joué !";
-                this.lresultWin.Content = "Egalité";
+                this.lResult.Content = "Bien joué !";
+                this.lResultWin.Content = "Egalité";
             }
             this.Display();
         }
@@ -95,10 +95,10 @@ namespace Test_WPF
         {
             if (this.time == 0 && this.endAnim)
             {
-                this.lresultWin.Visibility = System.Windows.Visibility.Visible;
+                this.lResultWin.Visibility = System.Windows.Visibility.Visible;
                 this.itrophy.Visibility = System.Windows.Visibility.Visible;
-                this.lresult.Visibility = System.Windows.Visibility.Visible;
-                this.lgameName.Visibility = System.Windows.Visibility.Visible;
+                this.lResult.Visibility = System.Windows.Visibility.Visible;
+                this.lGameName.Visibility = System.Windows.Visibility.Visible;
                 int pointsChallenger;
                 int.TryParse(((from i in Bdd.DbAccess.Scores where i.ID == this.dual.idScoreChallenger select i.value).FirstOrDefault()).ToString(), out pointsChallenger);
                 if (this.dual.winner == this.idUser && pointsChallenger != this.points)
