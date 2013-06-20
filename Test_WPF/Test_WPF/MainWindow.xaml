@@ -51,7 +51,7 @@
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,130,0" Name="image4" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/logout.png" Cursor="Hand" MouseLeftButtonDown="image4_MouseLeftButtonDown" Visibility="Hidden" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,165,0" Name="image5" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/user.png" Cursor="Hand" MouseLeftButtonDown="user_MouseLeftButtonDown" Visibility="Hidden" />
         <Image Height="28" HorizontalAlignment="Right" Margin="0,17,200,0" Name="image6" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/home.png" Cursor="Hand" MouseLeftButtonDown="image6_MouseLeftButtonDown" Visibility="Hidden" />
-        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,235,0" Name="image7" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/friendship.png" Cursor="Hand" MouseLeftButtonDown="image6_MouseLeftButtonDown" Visibility="Hidden" />
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,235,0" Name="image7" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/friendship.png" Cursor="Hand" MouseLeftButtonDown="image7_MouseLeftButtonDown" Visibility="Hidden" />
         <Grid Name="contentGrid" Height="750" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
     </Grid>
