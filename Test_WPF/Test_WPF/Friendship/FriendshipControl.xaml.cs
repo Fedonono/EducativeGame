@@ -29,10 +29,10 @@ namespace Test_WPF
 
         public void printFriendsList()
         {
-            IEnumerable<Datas.Relationship> relationships = (from r in Bdd.DbAccess.Relationships
+            IEnumerable<Datas.Relationship> relationships = from r in Bdd.DbAccess.Relationships
                                                              where r.userId1 == App.user.ID
-                                                             || r.userId1 == App.user.ID
-                                                             select r).ToList();
+                                                             || r.userId2 == App.user.ID
+                                                             select r;
 
             this.sPRelationship.Children.Clear();
             foreach (Datas.Relationship relationship in relationships)
@@ -42,7 +42,7 @@ namespace Test_WPF
                 {
                     friend = (from u in Bdd.DbAccess.Users
                               where u.ID == relationship.userId2
-                              select u).First();
+                              select u).FirstOrDefault();
                 }
                 else
                 {
@@ -53,7 +53,7 @@ namespace Test_WPF
 
                 Datas.Grade grade = (from g in Bdd.DbAccess.Grades
                            where g.ID == friend.idGrade
-                           select g).First();
+                           select g).FirstOrDefault();
 
 
                 FriendLine line = new FriendLine();
@@ -66,9 +66,9 @@ namespace Test_WPF
 
         public void printRelationshipRequests()
         {
-            IEnumerable<Datas.RelationshipRequest> relationshipRequests = (from ar in Bdd.DbAccess.RelationshipRequests
+            IEnumerable<Datas.RelationshipRequest> relationshipRequests = from ar in Bdd.DbAccess.RelationshipRequests
                                                                            where ar.idCalled == App.user.ID
-                                                                           select ar).ToList();
+                                                                           select ar;
 
 
             this.sPRelationshipRequest.Children.Clear();
@@ -76,16 +76,15 @@ namespace Test_WPF
             {
                 Datas.User caller = (from u in Bdd.DbAccess.Users
                                      where u.ID == request.idCaller
-                                     select u).First();
+                                     select u).FirstOrDefault();
 
-                Label callerName = new Label();
-                callerName.Foreground = Brushes.DarkOrange;
-                callerName.Content = caller.username;
-
+                Datas.Grade grade = (from g in Bdd.DbAccess.Grades
+                                     where g.ID == caller.idGrade
+                                     select g).FirstOrDefault();
 
                 RequestLine line = new RequestLine();
                 line.setName(caller.username);
-                line.setGrade(caller.name);
+                line.setGrade(grade.name);
                 this.sPRelationshipRequest.Children.Add(line);
             }
         }
@@ -107,7 +106,7 @@ namespace Test_WPF
                         where u.username == pseudo
                         select u).First();
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 user = null;
             }
@@ -122,7 +121,7 @@ namespace Test_WPF
                                 || (r.userId1 == user.ID && r.userId2 == App.user.ID)
                                 select r).First();
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 relationship = null;
             }
@@ -135,7 +134,7 @@ namespace Test_WPF
                                        where rr.idCaller == App.user.ID && rr.idCalled == user.ID
                                        select rr).First();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 relationshipRequest = null;
             }

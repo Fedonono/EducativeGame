@@ -37,15 +37,16 @@ namespace Test_WPF.Friendship
 
         public void acceptFriendshipRequest()
         {
+            string search = this.lUsername.Content.ToString();
             Datas.User caller = (from u in Bdd.DbAccess.Users
-                                 where u.username == this.lUsername.Content.ToString()
-                                 select u).First();
+                                 where u.username == search
+                                 select u).FirstOrDefault();
 
             int idCaller = caller.ID;
 
             Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests
                                                     where ar.idCaller == idCaller
-                                                    select ar).First();
+                                                    select ar).FirstOrDefault();
 
             if (addRequest != null)
             {
