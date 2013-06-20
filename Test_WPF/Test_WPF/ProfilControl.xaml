@@ -5,28 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <TabControl Background="#B5F5F5F5" HorizontalAlignment="Center" Width="440" Height="600" VerticalContentAlignment="Center">
             <TabItem Header="Section">
                 <Grid>
-                    <Label Content="Niveau" FontFamily="Palatino Linotype" FontSize="30" FontWeight="Bold" Foreground="#FFB45F00" Height="Auto" HorizontalAlignment="Left" Margin="37,31,0,0" Name="label2" VerticalAlignment="Top" Width="Auto" />
-                    <Label Content="Niveau" Height="28" HorizontalAlignment="Left" Margin="79,99,0,0" Name="label4" VerticalAlignment="Top" />
-                    <Label Foreground="Red" Height="47" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="37,254,0,0" Name="lCo" VerticalAlignment="Top" Width="349" />
-                    <Button Content="Changer de section" Height="Auto" HorizontalAlignment="Center" Margin="144,170,159,0" Name="button1" VerticalAlignment="Top" Width="Auto" />
-                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="230,104,0,0" Name="comboBoxInscrForm" VerticalAlignment="Top" Width="120" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="330*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Niveau" FontFamily="Palatino Linotype" FontSize="30" FontWeight="Bold" Foreground="#FFB45F00" Height="Auto" HorizontalAlignment="Left" Margin="37,31,0,0" Name="label2" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" />
+                    <Label Content="Niveau" Height="28" HorizontalAlignment="Left" Margin="79,99,0,0" Name="label4" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <Label Foreground="Green" Height="47" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="37,254,0,0" Name="lLevel" VerticalAlignment="Top" Width="349" Grid.ColumnSpan="2" />
+                    <Button Content="Valider" Height="Auto" HorizontalAlignment="Center" Margin="44,170,159,0" Name="bValidateLevel" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Click="bValidateLevel_Click" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="130,104,0,0" Name="cbLevel" VerticalAlignment="Top" Width="120" Grid.Column="1" SelectionChanged="cbLevel_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem Header="Mot de Passe">
                 <Grid>
                     <Label Content="Mot de Passe" FontFamily="Palatino Linotype" FontSize="30" FontWeight="Bold" Foreground="#FFB45F00" Height="Auto" HorizontalAlignment="Left" Margin="37,31,0,0" Name="label3" VerticalAlignment="Top" Width="Auto" />
                     <Label Content="Ancien mot de passe" Height="28" HorizontalAlignment="Left" Margin="54,96,0,0" Name="label6" VerticalAlignment="Top" />
-                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="224,101,0,0" Name="passwordBoxInscr" VerticalAlignment="Top" Width="120" />
-                    <Button Content="Changer son mot de passe" Height="Auto" HorizontalAlignment="Center" Margin="131,262,133,0" Name="button2" VerticalAlignment="Top" Width="Auto" />
-                    <Label Foreground="Red" Height="57" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="29,328,0,0" Name="lError" VerticalAlignment="Top" Width="385" />
+                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="224,101,0,0" Name="tOldPass" VerticalAlignment="Top" Width="120" />
+                    <Button Content="Changer son mot de passe" Height="Auto" HorizontalAlignment="Center" Margin="131,262,133,0" Name="bValidatePass" VerticalAlignment="Top" Width="Auto" Click="bValidatePass_Click" />
+                    <Label Foreground="Green" Height="57" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="29,328,0,0" Name="lPass" VerticalAlignment="Top" Width="385" />
                     <Label Content="Nouveau mot de passe" Height="28" HorizontalAlignment="Left" Margin="42,150,0,0" Name="label1" VerticalAlignment="Top" />
                     <Label Content="Réentrez le nouveau mdp" Height="28" HorizontalAlignment="Left" Margin="29,206,0,0" Name="label5" VerticalAlignment="Top" />
-                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="224,155,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="120" />
-                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="224,211,0,0" Name="passwordBox2" VerticalAlignment="Top" Width="120" />
+                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="224,155,0,0" Name="tNewPass" VerticalAlignment="Top" Width="120" />
+                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="224,211,0,0" Name="tNewPassBis" VerticalAlignment="Top" Width="120" />
+                    <Label Height="28" HorizontalAlignment="Left" Margin="42,124,0,0" Name="lOldPass" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="302" Foreground="Red" />
+                    <Label Height="28" HorizontalAlignment="Left" Margin="42,177,0,0" Name="lNewPass" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="302" Foreground="Red" />
+                    <Label Height="28" HorizontalAlignment="Left" Margin="42,235,0,0" Name="lNotCorrespond" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="302" Foreground="Red" DataContext="{Binding}" />
                 </Grid>
             </TabItem>
         </TabControl>

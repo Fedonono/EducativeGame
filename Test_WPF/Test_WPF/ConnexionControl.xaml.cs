@@ -74,14 +74,19 @@ namespace Test_WPF
             string uPass = this.passwordBoxInscr.Password;
             bool check = true;
 
-            if (uName == "")
+            if (uName.Equals(String.Empty))
             {
                 this.lUsername.Content = "Veuillez saisir\nun nom d'utilisateur";
                 check = false;
             }
-            if (uPass == "")
+            if (uPass.Equals(String.Empty))
             {
                 this.lPass.Content = "Veuillez saisir\nun mot de passe";
+                check = false;
+            }
+            if (!uPass.Equals(this.tPassBis.Password))
+            {
+                this.lNotCorrespond.Content = "Les mots de passe\n ne correspondent pas";
                 check = false;
             }
             if (!check)
