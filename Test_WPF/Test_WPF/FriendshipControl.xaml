@@ -4,15 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="792" d:DesignWidth="1006">
+             d:DesignHeight="792" d:DesignWidth="1006" Foreground="#FF33126C">
+    
     <Grid Height="788" Width="1004" >
         <Image Height="790" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="1004" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" />
+
         
-        <Button Content="Ajouter +" Height="90" HorizontalAlignment="Left" Margin="787,117,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSearch" />
-        <TextBox Height="90" HorizontalAlignment="Left" Margin="243,117,0,0" VerticalAlignment="Top" Width="515" Opacity="0.6" Name="tBPseudo" />
+        
+        <!-- Title : Chambre de l'amitié -->
+        
+        <Label Content="Chambre de l'amitié" Height="82" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="485" Foreground="#FFEFEFEF" FontSize="50" />
+
+        
+        
+        <!-- send relationship request -->
+        
         <Label Content="Pseudo : " Height="90" HorizontalAlignment="Left" Margin="44,117,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" Name="lPseudo" />
+        <TextBox Height="90" HorizontalAlignment="Left" Margin="243,117,0,0" VerticalAlignment="Top" Width="515" Opacity="0.6" Name="tBPseudo" FontSize="32" />
+        <Button Content="Ajouter +" Height="90" HorizontalAlignment="Left" Margin="787,117,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSearch" />
         
-        <Label Content="Chambre de l'amitié" Height="82" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="976" Foreground="#FFEFEFEF" FontSize="50" />
+        <Label Content="l'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="343,78,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="Tu es déjà amis avec cette personne" Height="44" HorizontalAlignment="Left" Margin="343,78,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="Une invitation à déjà été envoyé à cette personne" Height="44" HorizontalAlignment="Left" Margin="343,78,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="L'invitation a bien été envoyée" Height="44" HorizontalAlignment="Left" Margin="343,78,0,0" Name="lInvitationSent" VerticalAlignment="Top" Width="415" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
+
+
+        
+        <!-- Relationships -->
         
         <Grid Height="461" HorizontalAlignment="Left" Margin="44,286,0,0" Name="grid1" VerticalAlignment="Top" Width="440">
             <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
@@ -22,6 +40,10 @@
                 </StackPanel >
             </ScrollViewer>
         </Grid>
+
+        
+        
+        <!-- accept relationship requests -->
         
         <Grid Height="461" HorizontalAlignment="Left" Margin="512,286,0,0" Name="grid2" VerticalAlignment="Top" Width="440">
             <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
@@ -31,5 +53,7 @@
                 </StackPanel >
             </ScrollViewer>
         </Grid>
+        
     </Grid>
+    
 </UserControl>

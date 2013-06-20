@@ -183,6 +183,13 @@ namespace Test_WPF
             this.gotoHome();
         }
 
+        private void image7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.currentUIElement = new FriendshipControl();
+            this.contentGrid.Children.Add(this.currentUIElement);
+        }
+
         /// <summary>
         /// Déconnexion utilisateur
         /// </summary>

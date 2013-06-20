@@ -48,6 +48,7 @@ namespace Test_WPF
                               select u).First();
                 }
                 Label friendName = new Label();
+                friendName.Foreground = Brushes.DarkMagenta;
                 friendName.Content = friend.username + ", ";
                 this.sPRelationship.Children.Add(friendName);
             }
@@ -68,9 +69,11 @@ namespace Test_WPF
                                      select u).First();
 
                 Label callerName = new Label();
+                callerName.Foreground = Brushes.DarkOrange;
                 callerName.Content = caller.username;
                 
                 Button accept = new Button();
+                accept.Foreground = Brushes.ForestGreen;
                 accept.Name = caller.username;
                 accept.Content = "+";
 
@@ -81,6 +84,11 @@ namespace Test_WPF
 
         public void sendFriendshipRequest()
         {
+            this.lInvitationSent.Visibility = System.Windows.Visibility.Hidden;
+            this.lUnexistingUser.Visibility = System.Windows.Visibility.Hidden;
+            this.lAlreadyExistingRelationshipRequest.Visibility = System.Windows.Visibility.Hidden;
+            this.lAlreadyExistingRelationship.Visibility = System.Windows.Visibility.Hidden;
+
             string pseudo = this.tBPseudo.Text;
 
             Datas.User user = (from u in Bdd.DbAccess.Users
@@ -112,20 +120,21 @@ namespace Test_WPF
                         Bdd.DbAccess.AddToRelationshipRequests(addRequest);
                         Bdd.DbAccess.SaveChanges();
 
+                        this.lInvitationSent.Visibility = System.Windows.Visibility.Visible;
                     }
                     else
                     {
-                        //une demande à déjà été envoyé
+                        this.lAlreadyExistingRelationshipRequest.Visibility = System.Windows.Visibility.Visible;
                     }
                 }
                 else
                 {
-                    //l'amitié existe déjà
+                    this.lAlreadyExistingRelationship.Visibility = System.Windows.Visibility.Visible;
                 }
             }
             else
             {
-                //l'utilisateur recherché n'existe pas
+                this.lUnexistingUser.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
