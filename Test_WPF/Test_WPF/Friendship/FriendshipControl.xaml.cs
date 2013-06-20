@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Test_WPF.Friendship;
 
 namespace Test_WPF
 {
@@ -49,10 +50,17 @@ namespace Test_WPF
                               where u.ID == relationship.userId1
                               select u).First();
                 }
-                Label friendName = new Label();
-                friendName.Foreground = Brushes.DarkMagenta;
-                friendName.Content = friend.username + ", ";
-                this.sPRelationship.Children.Add(friendName);
+
+                Datas.Grade grade = (from g in Bdd.DbAccess.Grades
+                           where g.ID == friend.idGrade
+                           select g).First();
+
+
+                FriendLine line = new FriendLine();
+                line.setName(friend.username);
+                line.setGrade(grade.name);
+
+                this.sPRelationship.Children.Add(line);
             }
         }
 
@@ -73,14 +81,12 @@ namespace Test_WPF
                 Label callerName = new Label();
                 callerName.Foreground = Brushes.DarkOrange;
                 callerName.Content = caller.username;
-                
-                Button accept = new Button();
-                accept.Foreground = Brushes.ForestGreen;
-                accept.Name = caller.username;
-                accept.Content = "+";
 
-                this.sPRelationshipRequest.Children.Add(callerName);
-                this.sPRelationshipRequest.Children.Add(accept);
+
+                RequestLine line = new RequestLine();
+                line.setName(caller.username);
+                line.setGrade(caller.name);
+                this.sPRelationshipRequest.Children.Add(line);
             }
         }
 
@@ -94,18 +100,45 @@ namespace Test_WPF
 
             string pseudo = this.tBPseudo.Text;
 
-            Datas.User user = (from u in Bdd.DbAccess.Users
-                               where u.username == pseudo
-                               select u).First();
+            Datas.User user;
+            try
+            {
+                user = (from u in Bdd.DbAccess.Users
+                        where u.username == pseudo
+                        select u).First();
+            }
+            catch(Exception e)
+            {
+                user = null;
+            }
 
-            Datas.Relationship relationship = (from r in Bdd.DbAccess.Relationships
-                                               where (r.userId1 == App.user.ID && r.userId2 == user.ID)
-                                               || (r.userId1 == user.ID && r.userId2 == App.user.ID)
-                                               select r).First();
+            
+            
+            Datas.Relationship relationship;
+            try
+            {
+                relationship = (from r in Bdd.DbAccess.Relationships
+                                where (r.userId1 == App.user.ID && r.userId2 == user.ID)
+                                || (r.userId1 == user.ID && r.userId2 == App.user.ID)
+                                select r).First();
+            }
+            catch(Exception e)
+            {
+                relationship = null;
+            }
 
-            Datas.RelationshipRequest relationshipRequest = (from rr in Bdd.DbAccess.RelationshipRequests
-                                                             where rr.idCaller == App.user.ID && rr.idCalled == user.ID
-                                                             select rr).First();
+
+            Datas.RelationshipRequest relationshipRequest;
+            try
+            {
+                relationshipRequest = (from rr in Bdd.DbAccess.RelationshipRequests
+                                       where rr.idCaller == App.user.ID && rr.idCalled == user.ID
+                                       select rr).First();
+            }
+            catch (Exception e)
+            {
+                relationshipRequest = null;
+            }
 
             if (user != null)
             {
@@ -141,25 +174,6 @@ namespace Test_WPF
             }
         }
 
-        public void acceptFriendshipRequest(int idCaller)
-        {
-            Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests
-                                                    where ar.idCaller == idCaller
-                                                    select ar).First();
-
-            if (addRequest != null)
-            {
-                Datas.Relationship relationship = new Datas.Relationship()
-                {
-                    userId1 = App.user.ID,
-                    userId2 = idCaller
-                };
-
-                Bdd.DbAccess.AddToRelationships(relationship);
-                Bdd.DbAccess.DeleteObject(addRequest);
-                Bdd.DbAccess.SaveChanges();
-            }
-        }
 
 
 

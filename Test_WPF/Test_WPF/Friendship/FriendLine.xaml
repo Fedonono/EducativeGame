@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Test_WPF.Friendship.FriendLine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="43" d:DesignWidth="288">
+    <Grid>
+        <Label Content="Label" Height="42" HorizontalAlignment="Left" Name="lUsername" VerticalAlignment="Top" Width="160" Foreground="DarkMagenta" FontSize="24" />
+        <Label Content="Label" Height="42" HorizontalAlignment="Right" Name="lGrade" VerticalAlignment="Top" Width="122" FontSize="24" Foreground="DarkMagenta" />
+    </Grid>
+</UserControl>

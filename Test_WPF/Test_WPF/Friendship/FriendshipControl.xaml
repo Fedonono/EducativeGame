@@ -31,7 +31,7 @@
         
         <Label Content="l'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
         <Label Content="Tu es déjà amis avec cette personne" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
-        <Label Content="Une invitation à déjà été envoyé à cette personne" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="Une invitation à déjà été envoyée" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
         <Label Content="L'invitation a bien été envoyée" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lInvitationSent" VerticalAlignment="Top" Width="415" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
 
 
@@ -41,8 +41,7 @@
         <Grid Height="410" HorizontalAlignment="Left" Margin="12,248,0,0" Name="grid1" VerticalAlignment="Top" Width="380">
             <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
             <Label Content="Liste d'amis:" Width="440" FontSize="30" Foreground="Black" Name="lFriendsList" Margin="0,0,0,0" />
-            <StackPanel Name="sPRelationship">
-            </StackPanel >
+            <StackPanel Name="sPRelationship" Margin="0,68,0,0"></StackPanel >
             <ScrollViewer></ScrollViewer>
         </Grid>
 

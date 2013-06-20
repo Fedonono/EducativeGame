@@ -105,8 +105,14 @@
     <Compile Include="ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FriendshipControl.xaml.cs">
+    <Compile Include="Friendship\FriendLine.xaml.cs">
+      <DependentUpon>FriendLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Friendship\FriendshipControl.xaml.cs">
       <DependentUpon>FriendshipControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Friendship\RequestLine.xaml.cs">
+      <DependentUpon>RequestLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\Additions1_ce1.xaml.cs">
       <DependentUpon>Additions1_ce1.xaml</DependentUpon>
@@ -172,9 +178,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FriendshipControl.xaml">
+    <Page Include="Friendship\FriendLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Friendship\FriendshipControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Friendship\RequestLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Games\Additions1_ce1.xaml">
       <SubType>Designer</SubType>
@@ -392,11 +406,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
-<Resource Include="Images\Colouring\4.PNG" />
+    <Resource Include="Images\Colouring\4.PNG" />
     <Resource Include="Images\Colouring\3.PNG" />
     <Resource Include="Images\Colouring\2.PNG" />
     <Resource Include="Images\Colouring\1.PNG" />
-<Resource Include="Images\friendship.png" />
+    <Resource Include="Images\friendship.png" />
     <Resource Include="Images\eric.jpg" />
     <Resource Include="WaitCursor.cur" />
     <Resource Include="Images\guillom.png" />
