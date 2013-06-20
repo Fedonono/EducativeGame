@@ -26,69 +26,119 @@ namespace Test_WPF
 
         public void printFriendsList()
         {
-            IEnumerable<Datas.Relationship> friends = (from r in Bdd.DbAccess.Relationships 
-                                                where r.userId1 == App.user.ID 
-                                                || r.userId1 == App.user.ID 
-                                                select r).ToList();
+            IEnumerable<Datas.Relationship> relationships = (from r in Bdd.DbAccess.Relationships
+                                                             where r.userId1 == App.user.ID
+                                                             || r.userId1 == App.user.ID
+                                                             select r).ToList();
 
-            foreach (Datas.Relationship friend in friends)
+            this.sPRelationship.Children.Clear();
+            foreach (Datas.Relationship relationship in relationships)
             {
-                //affiche les
+                Datas.User friend;
+                if (relationship.userId1 == App.user.ID)
+                {
+                    friend = (from u in Bdd.DbAccess.Users
+                              where u.ID == relationship.userId2
+                              select u).First();
+                }
+                else
+                {
+                    friend = (from u in Bdd.DbAccess.Users
+                              where u.ID == relationship.userId1
+                              select u).First();
+                }
+                Label friendName = new Label();
+                friendName.Content = friend.username + ", ";
+                this.sPRelationship.Children.Add(friendName);
             }
         }
 
         public void printAddRequests()
         {
             IEnumerable<Datas.RelationshipRequest> relationshipRequests = (from ar in Bdd.DbAccess.RelationshipRequests
-                                                  where ar.idCalled == App.user.ID
-                                                  select ar).ToList();
+                                                                           where ar.idCalled == App.user.ID
+                                                                           select ar).ToList();
 
+
+            this.sPRelationshipRequest.Children.Clear();
             foreach (Datas.RelationshipRequest request in relationshipRequests)
             {
-                //affiche les
+                Datas.User caller = (from u in Bdd.DbAccess.Users
+                                     where u.ID == request.idCaller
+                                     select u).First();
+
+                Label callerName = new Label();
+                callerName.Content = caller.username;
+                
+                Button accept = new Button();
+                accept.Name = caller.username;
+                accept.Content = "+";
+
+                this.sPRelationshipRequest.Children.Add(callerName);
+                this.sPRelationshipRequest.Children.Add(accept);
             }
         }
 
         public void sendFriendshipRequest()
         {
-            Datas.User user = (from u in Bdd.DbAccess.Users 
-                               where u.username == this.tBPseudo.Text 
+            string pseudo = this.tBPseudo.Text;
+
+            Datas.User user = (from u in Bdd.DbAccess.Users
+                               where u.username == pseudo
                                select u).First();
 
-            Datas.Relationship relationship = (from r in Bdd.DbAccess.Relationships 
+            Datas.Relationship relationship = (from r in Bdd.DbAccess.Relationships
                                                where (r.userId1 == App.user.ID && r.userId2 == user.ID)
                                                || (r.userId1 == user.ID && r.userId2 == App.user.ID)
                                                select r).First();
 
+            Datas.RelationshipRequest relationshipRequest = (from rr in Bdd.DbAccess.RelationshipRequests
+                                                             where rr.idCaller == App.user.ID && rr.idCalled == user.ID
+                                                             select rr).First();
+
             if (user != null)
             {
-                if(relationship == null){
-                    Datas.RelationshipRequest addRequest = new Datas.RelationshipRequest()
+                if (relationship == null)
+                {
+                    if (relationshipRequest == null)
                     {
-                        idCaller = App.user.ID,
-                        idCalled = user.ID
-                    };
 
-                    Bdd.DbAccess.AddToRelationshipRequests(addRequest);
-                    Bdd.DbAccess.SaveChanges();
+                        Datas.RelationshipRequest addRequest = new Datas.RelationshipRequest()
+                        {
+                            idCaller = App.user.ID,
+                            idCalled = user.ID
+                        };
 
-                }else{
+                        Bdd.DbAccess.AddToRelationshipRequests(addRequest);
+                        Bdd.DbAccess.SaveChanges();
+
+                    }
+                    else
+                    {
+                        //une demande à déjà été envoyé
+                    }
+                }
+                else
+                {
                     //l'amitié existe déjà
                 }
-            }else{
+            }
+            else
+            {
                 //l'utilisateur recherché n'existe pas
             }
         }
 
         public void acceptFriendshipRequest(int idCaller)
         {
-            Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests 
-                                           where ar.idCaller == idCaller 
-                                           select ar).First();
+            Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests
+                                                    where ar.idCaller == idCaller
+                                                    select ar).First();
 
-            if(addRequest != null)
+            if (addRequest != null)
             {
-                Datas.Relationship relationship = new Datas.Relationship(){
+                Datas.Relationship relationship = new Datas.Relationship()
+                {
                     userId1 = App.user.ID,
                     userId2 = idCaller
                 };
@@ -97,6 +147,13 @@ namespace Test_WPF
                 Bdd.DbAccess.DeleteObject(addRequest);
                 Bdd.DbAccess.SaveChanges();
             }
+        }
+
+
+
+        private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+
         }
     }
 }

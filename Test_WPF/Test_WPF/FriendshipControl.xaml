@@ -7,13 +7,29 @@
              d:DesignHeight="792" d:DesignWidth="1006">
     <Grid Height="788" Width="1004" >
         <Image Height="790" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="1004" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" />
-        <ListBox Height="460" HorizontalAlignment="Left" Margin="44,271,0,0" VerticalAlignment="Top" Width="439" Opacity="0.6" Name="lBFriendsList" />
-        <Button Content="rechercher" Height="90" HorizontalAlignment="Left" Margin="787,117,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSearch" />
+        
+        <Button Content="Ajouter +" Height="90" HorizontalAlignment="Left" Margin="787,117,0,0" VerticalAlignment="Top" Width="184" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSearch" />
         <TextBox Height="90" HorizontalAlignment="Left" Margin="243,117,0,0" VerticalAlignment="Top" Width="515" Opacity="0.6" Name="tBPseudo" />
         <Label Content="Pseudo : " Height="90" HorizontalAlignment="Left" Margin="44,117,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" Name="lPseudo" />
-        <Label Content="Liste d'amis:" Height="68" HorizontalAlignment="Left" Margin="44,271,0,0" VerticalAlignment="Top" Width="439" FontSize="30" Foreground="Black" Name="lFriendsList" />
+        
         <Label Content="Chambre de l'amitié" Height="82" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="976" Foreground="#FFEFEFEF" FontSize="50" />
-        <ListBox Height="461" HorizontalAlignment="Left" Margin="510,271,0,0" Opacity="0.6" VerticalAlignment="Top" Width="442" Name="lBAddRequest" />
-        <Label Content="demandes d'ajout:" FontSize="30" Height="68" HorizontalAlignment="Left" Margin="510,271,0,0" VerticalAlignment="Top" Width="442" Name="lAddRequest" />
+        
+        <Grid Height="461" HorizontalAlignment="Left" Margin="44,286,0,0" Name="grid1" VerticalAlignment="Top" Width="440">
+            <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
+            <Label Content="Liste d'amis:" Height="68" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="439" FontSize="30" Foreground="Black" Name="lFriendsList" />
+            <ScrollViewer Margin="0,1,0,0" ScrollChanged="ScrollViewer_ScrollChanged">
+                <StackPanel Margin="0,68,0,0" Name="sPRelationship">
+                </StackPanel >
+            </ScrollViewer>
+        </Grid>
+        
+        <Grid Height="461" HorizontalAlignment="Left" Margin="512,286,0,0" Name="grid2" VerticalAlignment="Top" Width="440">
+            <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
+            <Label Content="demandes d'ajout:" FontSize="30" Height="68" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="442" Name="lAddRequest" />
+            <ScrollViewer>
+                <StackPanel Margin="0,68,0,0" Name="sPRelationshipRequest">
+                </StackPanel >
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>
