@@ -27,7 +27,7 @@
         
         <Label Content="Pseudo : " Height="62" HorizontalAlignment="Left" Margin="12,136,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" Name="lPseudo" />
         <TextBox Height="62" HorizontalAlignment="Right" Margin="0,136,102,0" VerticalAlignment="Top" Width="345" Opacity="0.6" Name="tBPseudo" FontSize="32" />
-        <Button Content="Ajouter +" Height="62" HorizontalAlignment="Left" Margin="592,136,0,0" VerticalAlignment="Top" Width="172" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSendRequest" MouseLeftButtonDown="bSendRequest_MouseLeftButtonDown" Grid.ColumnSpan="2" />
+        <Button Content="Ajouter +" Height="62" HorizontalAlignment="Left" Margin="592,136,0,0" VerticalAlignment="Top" Width="172" BorderBrush="#FF1D3CDE" Opacity="0.9" Background="#FF39CB39" Foreground="White" FontSize="34" Name="bSendRequest" Click="bSendRequest_Click" Grid.ColumnSpan="2" />
         
         <Label Content="l'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
         <Label Content="Tu es déjà amis avec cette personne" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />

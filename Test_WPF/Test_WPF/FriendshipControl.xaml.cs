@@ -168,14 +168,15 @@ namespace Test_WPF
 
         }
 
-        private void bSendRequest_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.sendFriendshipRequest();
-        }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void bSendRequest_Click(object sender, EventArgs e)
+        {
+            this.sendFriendshipRequest();
         }
     }
 }
