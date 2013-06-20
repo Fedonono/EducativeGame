@@ -385,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\friendship.png" />
     <Resource Include="Images\eric.jpg" />
     <Resource Include="WaitCursor.cur" />
     <Resource Include="Images\guillom.png" />
