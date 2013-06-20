@@ -85,7 +85,7 @@ namespace Test_WPF
 
         private void Error()
         {
-            ErrorWindow wd = new ErrorWindow();
+            ErrorWindow wd = new ErrorWindow(false);
             wd.Owner = App.mainWindow;
             wd.ShowDialog();
             this.bcontinue_Click(null, null);

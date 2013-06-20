@@ -149,7 +149,7 @@ namespace Test_WPF
                 }
                 catch (Exception)
                 {
-                    ErrorWindow wd = new ErrorWindow();
+                    ErrorWindow wd = new ErrorWindow(false);
                     wd.Owner = App.mainWindow;
                     wd.ShowDialog();
                 }

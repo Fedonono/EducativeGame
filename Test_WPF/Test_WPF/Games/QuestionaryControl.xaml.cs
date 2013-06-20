@@ -42,14 +42,19 @@ namespace Test_WPF
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            this.tWelcome.Text = "Bonjour, je suis l'inspecteur d'Eric.\nJ'aurais quelques questions\nà vous poser.\nCela ne vous dérange pas,\nj'espère ?";
+        }
+
+        private void Start()
+        {
             int id = this.idQuestionnary;
             this.questionsList = from i in Bdd.DbAccess.Questions where i.idQuestionary == id select i;
             this.questionItr = this.questionsList.GetEnumerator();
             if (this.questionItr.MoveNext())
-                this.printQuestion(this.questionItr.Current);
+                this.PrintQuestion(this.questionItr.Current);
         }
 
-        private void printQuestion(Datas.Question question)
+        private void PrintQuestion(Datas.Question question)
         {
             this.QuestionLabel.Content = question.question1;
             this.AnswerPanel.Children.Clear();
@@ -58,7 +63,7 @@ namespace Test_WPF
                 foreach (Datas.Choice choice in question.Choices)
                 {
                     Button bt = new Button() { Content = choice.choice1, Tag = choice, FontSize = 20, Padding = new Thickness(20), Margin = new Thickness(10) };
-                    bt.Click += new RoutedEventHandler(clickChoice);
+                    bt.Click += new RoutedEventHandler(ClickChoice);
                     this.AnswerPanel.Children.Add(bt);
                 }
             }
@@ -67,19 +72,19 @@ namespace Test_WPF
                 TextBox tb = new TextBox() { Name = "AnswerTextBox", Padding = new Thickness(20), FontSize = 20 };
                 this.AnswerPanel.Children.Add(tb);
                 Button bt = new Button() { Content = "Valider", FontSize = 20, Padding = new Thickness(20), Tag = tb, Margin = new Thickness(10) };
-                bt.Click += new RoutedEventHandler(clickValider);
+                bt.Click += new RoutedEventHandler(ClickValider);
                 this.AnswerPanel.Children.Add(bt);
             }
         }
 
-        private void clickChoice(object sender, RoutedEventArgs e)
+        private void ClickChoice(object sender, RoutedEventArgs e)
         {
             Button bt = (Button) sender;
             Datas.Choice choice = (Datas.Choice) bt.Tag;
             if (choice.Question.answer.Equals(choice.choice1))
             {
                 this.scoreLabel.Content = "+10";
-                this.addPoint(10);
+                this.AddPoint(10);
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 bt.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
@@ -91,17 +96,17 @@ namespace Test_WPF
 
             foreach (Button item in this.AnswerPanel.Children)
             {
-                item.Click -= new RoutedEventHandler(clickChoice);
+                item.Click -= new RoutedEventHandler(ClickChoice);
             }
 
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.timer.Start();
             this.time = 0;
         }
 
-        void timer_Tick(object sender, EventArgs e)
+        void Timer_Tick(object sender, EventArgs e)
         {
             this.time++;
             if (this.time == 1 && this.tick.Visibility == System.Windows.Visibility.Visible)
@@ -117,7 +122,7 @@ namespace Test_WPF
                 this.wrong.Visibility = System.Windows.Visibility.Hidden;
                 if (this.questionItr.MoveNext())
                 {
-                    this.printQuestion(this.questionItr.Current);
+                    this.PrintQuestion(this.questionItr.Current);
                 }
                 else
                 {
@@ -126,7 +131,7 @@ namespace Test_WPF
             }
         }
 
-        private void clickValider(object sender, RoutedEventArgs e)
+        private void ClickValider(object sender, RoutedEventArgs e)
         {
             Button bt = (Button)sender;
             TextBox tb = (TextBox) bt.Tag;
@@ -134,7 +139,7 @@ namespace Test_WPF
             if (tb.Text.ToUpper().Equals(answer.ToUpper()))
             {
                 this.scoreLabel.Content = "+20";
-                this.addPoint(20);
+                this.AddPoint(20);
                 this.tick.Visibility = System.Windows.Visibility.Visible;
                 tb.Background = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0));
             }
@@ -149,18 +154,18 @@ namespace Test_WPF
                 if (item is Button)
                 {
                     Button b = item as Button;
-                    b.Click -= new RoutedEventHandler(clickChoice);
+                    b.Click -= new RoutedEventHandler(ClickChoice);
                 }
             }
 
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 1);
-            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Tick += new EventHandler(Timer_Tick);
             this.timer.Start();
             this.time = 0;
         }
 
-        private void addPoint(int p)
+        private void AddPoint(int p)
         {
             this.score += p;
         }
@@ -171,6 +176,16 @@ namespace Test_WPF
         {
             if (EndOfGameEvent != null)
                 EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
+        }
+
+        private void BWelcome_Click(object sender, RoutedEventArgs e)
+        {
+            this.tWelcome.Visibility = System.Windows.Visibility.Hidden;
+            this.iWelcome.Visibility = System.Windows.Visibility.Hidden;
+            this.rWelcome.Visibility = System.Windows.Visibility.Hidden;
+            this.bWelcome.Visibility = System.Windows.Visibility.Hidden;
+            this.rWelcomeBack.Visibility = System.Windows.Visibility.Hidden;
+            this.Start();
         }
     }
 }

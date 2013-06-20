@@ -26,7 +26,17 @@ namespace Test_WPF
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Datas.Grade> grades = Bdd.DbAccess.Grades.ToList();
+            List<Datas.Grade> grades = new List<Datas.Grade>();
+            try
+            {
+                grades = Bdd.DbAccess.Grades.ToList();
+            }
+            catch (Exception)
+            {
+                App.mainWindow.Close();
+                ErrorWindow wd = new ErrorWindow(true);
+                wd.ShowDialog();
+            }
             foreach (Datas.Grade grade in grades)
             {
                 this.comboBoxInscrForm.Items.Add(grade);
