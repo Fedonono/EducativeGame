@@ -38,7 +38,7 @@ namespace Test_WPF.Friendship
         public void acceptFriendshipRequest()
         {
             Datas.User caller = (from u in Bdd.DbAccess.Users
-                                 where u.username == this.lUsername.Content
+                                 where u.username == this.lUsername.Content.ToString()
                                  select u).First();
 
             int idCaller = caller.ID;
