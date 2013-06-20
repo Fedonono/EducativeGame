@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="43" d:DesignWidth="288">
     <Grid>
-        <Label Content="Label" Height="Auto" HorizontalAlignment="Left" Name="lUsername" VerticalAlignment="Top" Width="Auto" Foreground="DarkMagenta" FontSize="24" />
-        <Label Content="Label" Height="Auto" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Name="lGrade" VerticalAlignment="Top" Width="Auto" FontSize="24" Foreground="DarkMagenta" />
+        <Label Content="Label" Height="Auto" HorizontalAlignment="Left" Margin="10,0,0,0" Name="lUsername" VerticalAlignment="Top" Width="Auto" Foreground="DarkMagenta" FontSize="24" />
+        <Label Content="Label" Height="Auto" HorizontalAlignment="Right" Margin="0,0,10,0" HorizontalContentAlignment="Right" Name="lGrade" VerticalAlignment="Top" Width="Auto" FontSize="24" Foreground="DarkMagenta" />
     </Grid>
 </UserControl>

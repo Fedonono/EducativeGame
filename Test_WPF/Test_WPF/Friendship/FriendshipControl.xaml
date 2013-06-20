@@ -4,37 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="670" d:DesignWidth="800" Foreground="#FF33126C" Loaded="UserControl_Loaded" Margin="100,65,100,15">
+             d:DesignHeight="750" d:DesignWidth="1000" Loaded="UserControl_Loaded">
     
-    <Grid Height="670" Width="803" Margin="0,0,0,0">
+    <Grid>
         
         
-        <Image Height="670" HorizontalAlignment="Left" Stretch="Uniform" VerticalAlignment="Top" Width="899" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="-53,0,0,0" />
+        
 
         
         
         <!-- Title : Chambre de l'amitié -->
-        
-        <Label Content="Chambre de l'amitié" Height="82" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="485" Foreground="#FFEFEFEF" FontSize="50" />
 
-        
-        
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Label Content="Chambre de l'amitié" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Image Height="322" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="380" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="100,368,0,0" />
+        <Image Height="322" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="380" Source="/Test_WPF;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="525,368,0,0" />
+
         <!-- send relationship request -->
         
-        <Label Content="Pseudo : " Height="62" HorizontalAlignment="Left" Margin="12,136,0,0" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="45" Name="lPseudo" />
-        <TextBox Height="62" HorizontalAlignment="Right" Margin="0,142,251,0" VerticalAlignment="Top" Width="345" Name="tBPseudo" FontSize="32" Opacity="0.9" />
-        <Button Content="Ajouter +" Height="Auto" HorizontalAlignment="Left" Margin="592,135,0,0" VerticalAlignment="Top" Width="Auto" BorderBrush="#FF1D3CDE" Background="#FF39CB39" Foreground="White" FontSize="30" Name="bSendRequest" Click="bSendRequest_Click" Padding="15" />
+        <Label Content="Pseudo : " Height="Auto" HorizontalAlignment="Left" Margin="170,208,0,0" VerticalAlignment="Top" Width="Auto" FontSize="30" Name="lPseudo" />
+        <TextBox Height="62" HorizontalAlignment="Right" Margin="0,205,349,0" VerticalAlignment="Top" Width="345" Name="tBPseudo" FontSize="30" />
+        <Button Content="Ajouter +" Height="Auto" HorizontalAlignment="Left" Margin="666,200,0,0" VerticalAlignment="Top" Width="Auto" FontSize="26" Name="bSendRequest" Click="bSendRequest_Click" Padding="15" />
         
-        <Label Content="l'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
-        <Label Content="Tu es déjà amis avec cette personne" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
-        <Label Content="Une invitation à déjà été envoyée" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
-        <Label Content="L'invitation a bien été envoyée" Height="44" HorizontalAlignment="Left" Margin="217,78,0,0" Name="lInvitationSent" VerticalAlignment="Top" Width="415" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
+        <Label Content="L'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="Tu es déjà ami avec cette personne" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="Une invitation a déjà été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="415" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="L'invitation a bien été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lInvitationSent" VerticalAlignment="Top" Width="415" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
 
 
         
         <!-- Relationships -->
         
-        <Grid Height="410" HorizontalAlignment="Left" Margin="12,248,0,0" Name="grid1" VerticalAlignment="Top" Width="380">
+        <Grid Height="390" HorizontalAlignment="Left" Margin="100,300,0,0" Name="grid1" VerticalAlignment="Top" Width="380">
             <Rectangle Fill="#FFF5F2F2" Opacity="0.9" />
             <Label Content="Liste d'amis :" FontSize="30" Height="Auto" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="Auto" Name="lFriendsList" />
             <ScrollViewer>
@@ -46,7 +47,7 @@
         
         <!-- accept relationship requests -->
         
-        <Grid Height="410" HorizontalAlignment="Left" Margin="400,248,0,0" Name="grid2" VerticalAlignment="Top" Width="380">
+        <Grid Height="390" HorizontalAlignment="Left" Margin="525,300,0,0" Name="grid2" VerticalAlignment="Top" Width="380">
             <Rectangle Fill="#FFF5F2F2" Opacity="0.9" />
             <Label Content="Demandes d'ajout :" FontSize="30" Height="Auto" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="Auto" Name="lAddRequest" />
             <ScrollViewer>
