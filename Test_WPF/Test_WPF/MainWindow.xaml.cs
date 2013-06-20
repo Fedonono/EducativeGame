@@ -103,6 +103,7 @@ namespace Test_WPF
             this.image4.Visibility = System.Windows.Visibility.Visible;
             this.image5.Visibility = System.Windows.Visibility.Visible;
             this.image6.Visibility = System.Windows.Visibility.Visible;
+            this.image7.Visibility = System.Windows.Visibility.Visible;
         }
 
         /// <summary>
@@ -185,7 +186,7 @@ namespace Test_WPF
 
         private void image7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.contentGrid.Children.Remove(this.currentUIElement);
+            this.contentGrid.Children.Clear();
             this.currentUIElement = new FriendshipControl();
             this.contentGrid.Children.Add(this.currentUIElement);
         }

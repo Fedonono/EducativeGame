@@ -22,6 +22,8 @@ namespace Test_WPF
         public FriendshipControl()
         {
             InitializeComponent();
+            this.printFriendsList();
+            this.printRelationshipRequests();
         }
 
         public void printFriendsList()
@@ -54,7 +56,7 @@ namespace Test_WPF
             }
         }
 
-        public void printAddRequests()
+        public void printRelationshipRequests()
         {
             IEnumerable<Datas.RelationshipRequest> relationshipRequests = (from ar in Bdd.DbAccess.RelationshipRequests
                                                                            where ar.idCalled == App.user.ID
@@ -84,6 +86,7 @@ namespace Test_WPF
 
         public void sendFriendshipRequest()
         {
+
             this.lInvitationSent.Visibility = System.Windows.Visibility.Hidden;
             this.lUnexistingUser.Visibility = System.Windows.Visibility.Hidden;
             this.lAlreadyExistingRelationshipRequest.Visibility = System.Windows.Visibility.Hidden;
@@ -161,6 +164,16 @@ namespace Test_WPF
 
 
         private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+
+        }
+
+        private void bSendRequest_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.sendFriendshipRequest();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
