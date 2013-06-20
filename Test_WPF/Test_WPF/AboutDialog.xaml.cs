@@ -53,7 +53,7 @@ namespace Test_WPF
                     "http://www.iconpharm.com";
         }
 
-        private void Image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void imgClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }

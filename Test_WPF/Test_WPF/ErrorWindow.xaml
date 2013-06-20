@@ -30,7 +30,18 @@
         <ImageBrush Stretch="UniformToFill" ImageSource="/Test_WPF;component/Images/Backgrounds/adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg"></ImageBrush>
     </Window.Background>
     <Grid>
-        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370915781_close.png" Cursor="Hand" MouseLeftButtonDown="Image1_MouseLeftButtonDown" />
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="imgClose_MouseLeftButtonDown">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370915781_close.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370915781_close-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
         <Label Content="Oups ! Il semblerait qu'il y ait eu une erreur !" Height="Auto" HorizontalAlignment="Center" Margin="0,138,0,0" Name="label1" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="#FFBE0000" />
         <Label Content="Mais ne t'inquiète pas, le logiciel fonctionne toujours !" Height="Auto" HorizontalAlignment="Center" Margin="1,200,69,0" Name="label2" VerticalAlignment="Top" FontSize="15" FontStyle="Italic" />

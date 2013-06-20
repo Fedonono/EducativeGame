@@ -38,7 +38,18 @@
 
     </Window.Background>
     <Grid>
-        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Test_WPF;component/Images/1370915781_close.png" Cursor="Hand" MouseLeftButtonDown="Image1_MouseLeftButtonDown" />
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="imgClose" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="imgClose_MouseLeftButtonDown">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370915781_close.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/Test_WPF;component/Images/Icons/1370915781_close-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
         <Label Content="À propos d'EducationAll" Height="Auto" HorizontalAlignment="Left" Margin="81,95,0,0" Name="label1" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Foreground="#FFDE4F00" />
         <TabControl Margin="172,160,166,40" Background="#B5F5F5F5" HorizontalAlignment="Center" Width="440">

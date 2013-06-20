@@ -31,7 +31,7 @@ namespace Test_WPF
             }
         }
 
-        private void Image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void imgClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (this.connexionError)
             {
