@@ -13,6 +13,14 @@ namespace EducationAll.Datas
         }
     }
 
+    public partial class Rank
+    {
+        public override string ToString()
+        {
+            return this.name;
+        }
+    }
+
     public partial class User
     {
         public bool isAdmin()

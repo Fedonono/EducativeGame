@@ -185,6 +185,14 @@ namespace EducationAll
         /// <param name="e"></param>
         private void Admin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            this.GoToAdmin();
+        }
+
+        public void GoToAdmin()
+        {
+            this.contentGrid.Children.Clear();
+            this.currentUIElement = new AdminControl();
+            this.contentGrid.Children.Add(this.currentUIElement);
         }
 
         /// <summary>

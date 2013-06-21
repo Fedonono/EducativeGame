@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="EducationAll.AdminControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid Loaded="Grid_Loaded">
+        <TabControl Height="600" HorizontalAlignment="Center" Name="tabControl1" VerticalAlignment="Center" Width="650">
+            <TabItem Header="Rang des utilisateurs" Name="tIUser">
+                <Grid>
+                    <Label Content="Pseudo : " FontSize="30" Height="Auto" HorizontalAlignment="Left" Margin="100,28,0,0" Name="lPseudo" VerticalAlignment="Top" Width="Auto" />
+                    <TextBox FontSize="30" Height="62" HorizontalAlignment="Right" Margin="0,20,46,0" Name="tBPseudo" VerticalAlignment="Top" Width="345" />
+                    <Button Content="Modifier Rang" FontSize="26" Height="Auto" HorizontalAlignment="Left" Margin="196,222,0,0" Name="bModifRank" Padding="15" VerticalAlignment="Top" Width="Auto" Click="bModifRank_Click" />
+                    <ComboBox Height="61" HorizontalAlignment="Left" Margin="249,126,0,0" Name="cBRank" VerticalAlignment="Top" Width="345" FontSize="30" />
+                    <Label Content="Nouveau Rang :" FontSize="30" Height="Auto" HorizontalAlignment="Left" Margin="10,126,0,0" Name="label1" VerticalAlignment="Top" Width="Auto" />
+                    <Label Content="L'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="249,81,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+                    <Label Content="Changement de rang réalisé avec succès !" Height="44" HorizontalAlignment="Left" Margin="61,310,0,0" Name="lModRankSuccess" VerticalAlignment="Top" Width="Auto" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Questionnaires" Name="tIQuestion" Visibility="Hidden">
+                <Grid>
+                    <Label Content="Ce service sera disponible dans laversion 2.0 du logiciel." FontSize="25" Height="50" HorizontalAlignment="Center" Name="labelTODO" VerticalAlignment="Center" Width="634" Foreground="#FFFF6B00" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

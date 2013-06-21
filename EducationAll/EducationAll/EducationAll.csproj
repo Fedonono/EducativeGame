@@ -81,6 +81,9 @@
     <Compile Include="AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminControl.xaml.cs">
+      <DependentUpon>AdminControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AnimationChallengeResult.xaml.cs">
       <DependentUpon>AnimationChallengeResult.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
