@@ -24,14 +24,46 @@ namespace Test_WPF.Friendship
             InitializeComponent();
         }
 
-        public void setName(string name)
+        public void setName(string name, int id)
         {
             this.lUsername.Content = name;
+            this.lUsername.Tag = id;
         }
 
         public void setGrade(string grade)
         {
             this.lGrade.Content = grade;
+        }
+
+        private void bDel_Click(object sender, RoutedEventArgs e)
+        {
+            this.delFriend();
+            App.mainWindow.GoToFriendship();
+        }
+
+        private void delFriend()
+        {
+            int search = (int)this.lUsername.Tag;
+            Datas.User caller = (from u in Bdd.DbAccess.Users
+                                 where u.ID == search
+                                 select u).FirstOrDefault();
+
+            if (caller != null)
+            {
+                Datas.Relationship relationship1 = (from ar in Bdd.DbAccess.Relationships
+                                                        where ar.userId1 == caller.ID && ar.userId2 == App.user.ID
+                                                        select ar).FirstOrDefault();
+                Datas.Relationship relationship2 = (from ar in Bdd.DbAccess.Relationships
+                                                    where ar.userId2 == caller.ID && ar.userId1 == App.user.ID
+                                                    select ar).FirstOrDefault();
+
+                if (relationship1 != null && relationship2 != null)
+                {
+                    Bdd.DbAccess.DeleteObject(relationship1);
+                    Bdd.DbAccess.DeleteObject(relationship2);
+                    Bdd.DbAccess.SaveChanges();
+                }
+            }
         }
     }
 }

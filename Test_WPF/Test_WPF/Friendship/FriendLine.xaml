@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="43" d:DesignWidth="288">
+             d:DesignHeight="58" d:DesignWidth="288">
     <Grid>
-        <Label Content="Label" Height="Auto" HorizontalAlignment="Left" Margin="10,0,0,0" Name="lUsername" VerticalAlignment="Top" Width="Auto" Foreground="DarkMagenta" FontSize="24" />
-        <Label Content="Label" Height="Auto" HorizontalAlignment="Right" Margin="0,0,10,0" HorizontalContentAlignment="Right" Name="lGrade" VerticalAlignment="Top" Width="Auto" FontSize="24" Foreground="DarkMagenta" />
+        <Rectangle Height="53" HorizontalAlignment="Stretch" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="Auto" RadiusX="5" RadiusY="5" />
+        <Label Content="Label" Height="Auto" HorizontalAlignment="Left" Margin="10,5,0,0" Name="lUsername" VerticalAlignment="Top" Width="Auto" Foreground="DarkMagenta" FontSize="24" />
+        <Label Content="Label" Height="Auto" HorizontalAlignment="Right" Margin="0,5,70,0" HorizontalContentAlignment="Right" Name="lGrade" VerticalAlignment="Top" Width="Auto" FontSize="24" Foreground="DarkMagenta" />
+        <Button Content="Supp" Height="Auto" HorizontalAlignment="Right" Margin="0,5,10,0" Name="bDel" VerticalAlignment="Top" Width="Auto" FontSize="14" Foreground="Red" Click="bDel_Click" />
     </Grid>
 </UserControl>

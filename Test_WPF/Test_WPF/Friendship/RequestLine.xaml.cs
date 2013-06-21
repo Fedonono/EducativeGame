@@ -24,9 +24,10 @@ namespace Test_WPF.Friendship
             InitializeComponent();
         }
 
-        public void setName(string name)
+        public void setName(string name, int id)
         {
             this.lUsername.Content= name;
+            this.lUsername.Tag = id;
         }
 
         public void setGrade(string grade)
@@ -37,28 +38,50 @@ namespace Test_WPF.Friendship
 
         public void acceptFriendshipRequest()
         {
-            string search = this.lUsername.Content.ToString();
+            int search = (int)this.lUsername.Tag;
             Datas.User caller = (from u in Bdd.DbAccess.Users
-                                 where u.username == search
+                                 where u.ID == search
                                  select u).FirstOrDefault();
 
-            int idCaller = caller.ID;
-
-            Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests
-                                                    where ar.idCaller == idCaller
-                                                    select ar).FirstOrDefault();
-
-            if (addRequest != null)
+            if (caller != null)
             {
-                Datas.Relationship relationship = new Datas.Relationship()
-                {
-                    userId1 = App.user.ID,
-                    userId2 = idCaller
-                };
+                Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests
+                                                        where ar.idCaller == caller.ID
+                                                        select ar).FirstOrDefault();
 
-                Bdd.DbAccess.AddToRelationships(relationship);
-                Bdd.DbAccess.DeleteObject(addRequest);
-                Bdd.DbAccess.SaveChanges();
+                if (addRequest != null)
+                {
+                    Datas.Relationship relationship1 = new Datas.Relationship()
+                    {
+                        userId1 = App.user.ID,
+                        userId2 = caller.ID
+                    };
+
+                    Datas.Relationship relationship2 = new Datas.Relationship()
+                    {
+                        userId2 = App.user.ID,
+                        userId1 = caller.ID
+                    };
+
+                    Datas.Relationship relationship1Exists = (from i in Bdd.DbAccess.Relationships
+                                                              where i.userId1 == App.user.ID
+                                                              && i.userId2 == caller.ID
+                                                              select i).FirstOrDefault();
+                    Datas.Relationship relationship2Exists = (from i in Bdd.DbAccess.Relationships
+                                                              where i.userId2 == App.user.ID
+                                                              && i.userId1 == caller.ID
+                                                              select i).FirstOrDefault();
+                    if (relationship1Exists == null)
+                    {
+                        Bdd.DbAccess.AddToRelationships(relationship1);
+                    }
+                    if (relationship2Exists == null)
+                    {
+                        Bdd.DbAccess.AddToRelationships(relationship2);
+                    }
+                    Bdd.DbAccess.DeleteObject(addRequest);
+                    Bdd.DbAccess.SaveChanges();
+                }
             }
         }
 
@@ -66,6 +89,49 @@ namespace Test_WPF.Friendship
         {
             this.acceptFriendshipRequest();
             App.mainWindow.GoToFriendship();
+        }
+
+        private void bRefus_Click(object sender, RoutedEventArgs e)
+        {
+            this.refusFriendshipRequest();
+            App.mainWindow.GoToFriendship();
+        }
+
+        private void refusFriendshipRequest()
+        {
+            int search = (int)this.lUsername.Tag;
+            Datas.User caller = (from u in Bdd.DbAccess.Users
+                                 where u.ID == search
+                                 select u).FirstOrDefault();
+
+            if (caller != null)
+            {
+                Datas.RelationshipRequest addRequest = (from ar in Bdd.DbAccess.RelationshipRequests
+                                                        where ar.idCaller == caller.ID
+                                                        select ar).FirstOrDefault();
+
+                if (addRequest != null)
+                {
+                    Datas.Relationship relationship1Exists = (from i in Bdd.DbAccess.Relationships
+                                                              where i.userId1 == App.user.ID
+                                                              && i.userId2 == caller.ID
+                                                              select i).FirstOrDefault();
+                    Datas.Relationship relationship2Exists = (from i in Bdd.DbAccess.Relationships
+                                                              where i.userId2 == App.user.ID
+                                                              && i.userId1 == caller.ID
+                                                              select i).FirstOrDefault();
+                    if (relationship1Exists != null)
+                    {
+                        Bdd.DbAccess.DeleteObject(relationship1Exists);
+                    }
+                    if (relationship2Exists != null)
+                    {
+                        Bdd.DbAccess.DeleteObject(relationship2Exists);
+                    }
+                    Bdd.DbAccess.DeleteObject(addRequest);
+                    Bdd.DbAccess.SaveChanges();
+                }
+            }
         }
     }
 }
