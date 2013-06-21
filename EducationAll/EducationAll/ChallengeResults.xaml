@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="EducationAll.ChallengeResults"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid Name="mainGrid">
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Image Height="297" HorizontalAlignment="Left" Margin="715,413,0,0" Name="igirl" Stretch="Uniform" VerticalAlignment="Top" Width="235" Source="/EducationAll;component/Images/guillom.png" Visibility="Hidden" />
+        <Label Content="Eric gagne !" FontSize="80" FontWeight="Bold" Foreground="#FF004CFF" Height="Auto" HorizontalAlignment="Left" Margin="220,297,0,0" Name="lResultWin" VerticalAlignment="Top" Visibility="Hidden" />
+        <Label Content="Résultats du défi" FontFamily="Palatino Linotype" FontSize="50" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="lTitle" VerticalAlignment="Top" Width="Auto" />
+        <Image Height="194" HorizontalAlignment="Left" Margin="73,248,0,0" Name="itrophy" Stretch="Uniform" VerticalAlignment="Top" Width="202" Source="/EducationAll;component/Images/1371345098_trophy.png" Visibility="Hidden" />
+        <Label Content="Félicitations !" FontSize="60" FontWeight="Bold" Foreground="#FF4B9A00" Height="Auto" HorizontalAlignment="Left" Margin="266,498,0,0" Name="lResult" VerticalAlignment="Top" Visibility="Hidden" />
+        <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="iwin" Stretch="Uniform" VerticalAlignment="Top" Width="150" Source="/EducationAll;component/Images/1371324714_face-cool.png" Visibility="Hidden" />
+        <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="ifail" Source="/EducationAll;component/Images/1371324707_face-crying.png" Stretch="Uniform" VerticalAlignment="Top" Width="150" Visibility="Hidden" />
+        <Image Height="150" HorizontalAlignment="Left" Margin="94,474,0,0" Name="iequality" Source="/EducationAll;component/Images/1371324710_face-plain.png" Stretch="Uniform" VerticalAlignment="Top" Width="150" Visibility="Hidden" />
+        <Button Content="Continuer" Height="Auto" Padding="30" HorizontalAlignment="Left" Margin="748,589,0,0" Name="bcontinue" VerticalAlignment="Top" Width="Auto" FontSize="25" Visibility="Hidden" Click="Bcontinue_Click" />
+        <Label Content="Jeu" FontFamily="Palatino Linotype" FontSize="45" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="73,203,79,0" Name="lGameName" VerticalAlignment="Top" Width="848" Visibility="Hidden" />
+    </Grid>
+</UserControl>

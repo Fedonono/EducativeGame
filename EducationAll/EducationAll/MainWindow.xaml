@@ -1,0 +1,147 @@
+﻿<Window x:Class="EducationAll.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EducationAll" Height="750" Width="1000" 
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Activated="Window_Activated" 
+        Deactivated="Window_Deactivated" xmlns:my="clr-namespace:EducationAll" Icon="logoEAll.ico">
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="AllowsTransparency" Value="True" />
+            <Setter Property="WindowStyle" Value="None" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Grid>
+                            <Rectangle Fill="{TemplateBinding Background}" 
+                                 Stroke="{TemplateBinding BorderBrush}" 
+                                 StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="10" RadiusY="10"
+                                       Width="990" Height="740" MouseDown="Rectangle_MouseDown">
+                                <Rectangle.Effect>
+                                    <DropShadowEffect BlurRadius="5" ShadowDepth="6" RenderingBias="Quality" />
+                                </Rectangle.Effect>
+                            </Rectangle>
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+    <Window.Background>
+        <!--
+        <LinearGradientBrush SpreadMethod="Reflect">
+            <GradientStop Color="#FFD4E7FF" Offset="0.0" />
+            <GradientStop Color="#FFC7E4FF" Offset="0.1" />
+            <GradientStop Color="#FFEFFFFF" Offset="0.2" />
+            <GradientStop Color="#FFC7E4FF" Offset="0.3" />
+            <GradientStop Color="#FFC7E4FF" Offset="0.7" />
+            <GradientStop Color="#FFEFFFFF" Offset="0.9" />
+        </LinearGradientBrush>-->
+
+        <ImageBrush Stretch="UniformToFill" ImageSource="/EducationAll;component/Images/Backgrounds/Education_problems_by_SheepAlbinoBlack.jpg"></ImageBrush>
+
+    </Window.Background>
+    <Grid Name="mainGrid" Height="750" Width="1000">
+        <Label Content="EducationAll" Height="Auto" HorizontalAlignment="Center" Margin="0,17,0,0" Name="programName" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,270,0" Name="imgAdminIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Admin_MouseLeftButtonDown" Visibility="Hidden">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/admin.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/admin-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,235,0" Name="imgHomeIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Home_MouseLeftButtonDown" Visibility="Hidden">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/home.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/home-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,200,0" Name="imgFriendIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Friend_MouseLeftButtonDown" Visibility="Hidden">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/friendship.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/friendship-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,165,0" Name="imgUserIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="User_MouseLeftButtonDown" Visibility="Hidden">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/user.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/user-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,130,0" Name="imgLogoutIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="Logout_MouseLeftButtonDown" Visibility="Hidden">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/logout.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/logout-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,95,0" Name="imgAboutIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" Cursor="Hand" MouseLeftButtonDown="About_MouseLeftButtonDown">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/about-32.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/about-32-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Stretch="Fill" Height="28" HorizontalAlignment="Right" Margin="0,17,60,0" Name="imgMinimizeIcon" VerticalAlignment="Top" Width="28" MouseLeftButtonDown="Minimize_MouseLeftButtonDown" Cursor="Hand">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/1370892381_minimize.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/1370892381_minimize-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image Height="28" HorizontalAlignment="Right" Margin="0,17,25,0" Name="imgCloseIcon" Stretch="Fill" VerticalAlignment="Top" Width="28" MouseLeftButtonDown="Close_MouseLeftButtonDown" Cursor="Hand">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/1370915781_close.png" />
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="/EducationAll;component/Images/Icons/1370915781_close-hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Grid Name="contentGrid" Height="750" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+    </Grid>
+</Window>
+

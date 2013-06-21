@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="EducationAll.AnimationChallengeResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid>
+        <Grid Name="animationGrid">
+            <Image Name="image1" Stretch="UniformToFill" Source="/EducationAll;component/Images/07-2.png" Margin="50,134,70,56" />
+            <Label Content="Eric" Height="Auto" HorizontalAlignment="Left" Margin="76,176,0,0" Name="lName1" VerticalAlignment="Top" FontSize="80" Foreground="#FF004CFF" FontWeight="Bold" />
+            <Label Content="VS" FontSize="150" Height="Auto" HorizontalAlignment="Center" Margin="0,297,0,0" Name="label2" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF001094" />
+            <Label Content="Arnaud" FontSize="80" Height="Auto" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Margin="0,520,70,0" Name="lName2" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFC700B5" />
+            <Label Content="Score :" Height="Auto" HorizontalAlignment="Left" Margin="76,270,0,0" Name="label4" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" />
+            <Label Content="Score :" FontSize="40" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="705,617,0,0" Name="label5" VerticalAlignment="Top" />
+            <Label Content="0" FontSize="40" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="838,617,0,0" Name="lPoints2" VerticalAlignment="Top" />
+            <Label Content="0" FontSize="40" FontWeight="Bold" Height="Auto" HorizontalAlignment="Left" Margin="208,270,0,0" Name="lPoints1" VerticalAlignment="Top" />
+        </Grid>
+    </Grid>
+</UserControl>

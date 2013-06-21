@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="EducationAll.LoadControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="218,346,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
+        <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="258,414,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" />
+        <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="12,715,0,0" Name="label4" VerticalAlignment="Top" FontSize="10" />
+        <Label Content="" Height="auto" HorizontalAlignment="Right" Margin="0,0,230,30" Name="lawsLabel" VerticalAlignment="Bottom" />
+        
+        <Label Content="Copyright Sharpentier 2013" Height="Auto" HorizontalAlignment="Right" Margin="0,0,10,30" Name="expander1" VerticalAlignment="Bottom" Width="181"/>
+    </Grid>
+</UserControl>

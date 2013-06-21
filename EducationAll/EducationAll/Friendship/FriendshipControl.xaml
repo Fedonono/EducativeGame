@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="EducationAll.FriendshipControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    
+    <Grid>
+        
+        <!-- Title : Chambre de l'amitié -->
+
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Label Content="Chambre de l'amitié" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Image Height="322" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="380" Source="/EducationAll;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="100,368,0,0" />
+        <Image Height="322" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="380" Source="/EducationAll;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="525,368,0,0" />
+
+        <!-- send relationship request -->
+        
+        <Label Content="Pseudo : " Height="Auto" HorizontalAlignment="Left" Margin="170,208,0,0" VerticalAlignment="Top" Width="Auto" FontSize="30" Name="lPseudo" />
+        <TextBox Height="62" HorizontalAlignment="Right" Margin="0,205,349,0" VerticalAlignment="Top" Width="345" Name="tBPseudo" FontSize="30" />
+        <Button Content="Ajouter +" Height="Auto" HorizontalAlignment="Left" Margin="666,200,0,0" VerticalAlignment="Top" Width="Auto" FontSize="26" Name="bSendRequest" Click="bSendRequest_Click" Padding="15" />
+
+        <Label Content="L'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+        <Label Content="Tu es déjà ami avec cette personne" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+        <Label Content="Une invitation a déjà été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+        <Label Content="L'invitation a bien été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lInvitationSent" VerticalAlignment="Top" Width="Auto" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
+        <Label Content="Tu ne peux pas t'ajouter toi même en ami" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lInvitationToMe" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+
+
+        
+        <!-- Relationships -->
+        
+        <Grid Height="390" HorizontalAlignment="Left" Margin="100,300,0,0" Name="grid1" VerticalAlignment="Top" Width="380">
+            <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
+            <Label Content="Liste d'amis :" FontSize="30" Height="Auto" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="Auto" Name="lFriendsList" />
+            <ScrollViewer>
+                <StackPanel Name="sPRelationship" Margin="0,68,0,0"></StackPanel >
+            </ScrollViewer>
+        </Grid>
+
+        
+        
+        <!-- accept relationship requests -->
+        
+        <Grid Height="390" HorizontalAlignment="Left" Margin="525,300,0,0" Name="grid2" VerticalAlignment="Top" Width="380">
+            <Rectangle Fill="#FFF5F2F2" Opacity="0.7" />
+            <Label Content="Demandes d'ajout :" FontSize="30" Height="Auto" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="Auto" Name="lAddRequest" />
+            <ScrollViewer>
+                <StackPanel Margin="0,68,0,0" Name="sPRelationshipRequest"></StackPanel >
+            </ScrollViewer>
+        </Grid>
+        
+        
+    </Grid>
+    
+</UserControl>
