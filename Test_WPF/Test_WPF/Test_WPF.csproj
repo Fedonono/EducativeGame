@@ -385,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\path_new_friend.png" />
     <Resource Include="Images\Icons\home.png" />
     <Resource Include="Images\Icons\friendship.png" />
     <Resource Include="Images\Icons\user.png" />

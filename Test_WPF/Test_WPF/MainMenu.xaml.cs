@@ -176,6 +176,18 @@ namespace Test_WPF
                     this.inewChallenge.Visibility = System.Windows.Visibility.Visible;
                     this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
                 }
+
+                IEnumerable<Datas.RelationshipRequest> relationshipRequests = from ar in Bdd.DbAccess.RelationshipRequests
+                                                                              where ar.idCalled == App.user.ID
+                                                                              select ar;
+                if (relationshipRequests.Count() > 0)
+                {
+                    this.lNewFriend.Content = string.Format("Tu as {0} requête{2} d'ami en attente !", relationshipRequests.Count(), relationshipRequests.Count() > 1 ? "s" : "");
+                    this.bNewFriend.Content = string.Format(relationshipRequests.Count() > 1 ? "Je vais les accepter !" : "Je vais l'accepter !");
+                    this.lNewFriend.Visibility = System.Windows.Visibility.Visible;
+                    this.iNewFriend.Visibility = System.Windows.Visibility.Visible;
+                    this.bNewFriend.Visibility = System.Windows.Visibility.Visible;
+                }
             }
         }
 
@@ -184,6 +196,13 @@ namespace Test_WPF
             this.lNewChallenge.Visibility = System.Windows.Visibility.Hidden;
             this.inewChallenge.Visibility = System.Windows.Visibility.Hidden;
             this.bnewChallenge.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void bNewFriend_Click(object sender, RoutedEventArgs e)
+        {
+            this.lNewFriend.Visibility = System.Windows.Visibility.Hidden;
+            this.iNewFriend.Visibility = System.Windows.Visibility.Hidden;
+            this.bNewFriend.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }
