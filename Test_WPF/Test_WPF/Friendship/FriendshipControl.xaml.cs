@@ -107,7 +107,7 @@ namespace Test_WPF
             
             Datas.Relationship relationship = (from r in Bdd.DbAccess.Relationships
                                 where (r.userId1 == App.user.ID && r.userId2 == user.ID)
-                                && (r.userId1 == user.ID && r.userId2 == App.user.ID)
+                                || (r.userId1 == user.ID && r.userId2 == App.user.ID)
                                 select r).FirstOrDefault();
             if (relationship != null) { 
                 this.lAlreadyExistingRelationship.Visibility = System.Windows.Visibility.Visible;

@@ -21,11 +21,11 @@
         <TextBox Height="62" HorizontalAlignment="Right" Margin="0,205,349,0" VerticalAlignment="Top" Width="345" Name="tBPseudo" FontSize="30" />
         <Button Content="Ajouter +" Height="Auto" HorizontalAlignment="Left" Margin="666,200,0,0" VerticalAlignment="Top" Width="Auto" FontSize="26" Name="bSendRequest" Click="bSendRequest_Click" Padding="15" />
 
-        <Label Content="L'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="Auto" Foreground="Orange" FontSize="24" Visibility="Hidden" />
-        <Label Content="Tu es déjà ami avec cette personne" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="Auto" Foreground="Orange" FontSize="24" Visibility="Hidden" />
-        <Label Content="Une invitation a déjà été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="Auto" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="L'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+        <Label Content="Tu es déjà ami avec cette personne" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationship" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
+        <Label Content="Une invitation a déjà été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lAlreadyExistingRelationshipRequest" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
         <Label Content="L'invitation a bien été envoyée" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lInvitationSent" VerticalAlignment="Top" Width="Auto" Foreground="ForestGreen" FontSize="24" Visibility="Hidden" />
-        <Label Content="Tu ne peux pas t'ajouter toi même en ami" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lInvitationToMe" VerticalAlignment="Top" Width="Auto" Foreground="Orange" FontSize="24" Visibility="Hidden" />
+        <Label Content="Tu ne peux pas t'ajouter toi même en ami" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lInvitationToMe" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />
 
 
         

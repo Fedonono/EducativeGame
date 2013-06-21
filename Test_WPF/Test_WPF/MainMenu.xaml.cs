@@ -182,7 +182,7 @@ namespace Test_WPF
                                                                               select ar;
                 if (relationshipRequests.Count() > 0)
                 {
-                    this.lNewFriend.Content = string.Format("Tu as {0} requête{2} d'ami en attente !", relationshipRequests.Count(), relationshipRequests.Count() > 1 ? "s" : "");
+                    this.lNewFriend.Content = string.Format("Tu as {0} requête{1} d'ami en attente !", relationshipRequests.Count(), relationshipRequests.Count() > 1 ? "s" : "");
                     this.bNewFriend.Content = string.Format(relationshipRequests.Count() > 1 ? "Je vais les accepter !" : "Je vais l'accepter !");
                     this.lNewFriend.Visibility = System.Windows.Visibility.Visible;
                     this.iNewFriend.Visibility = System.Windows.Visibility.Visible;
