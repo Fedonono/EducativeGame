@@ -158,14 +158,13 @@ namespace EducationAll
 
         void Timer_Tick(object sender, EventArgs e)
         {
-            if (this.time < 5)
+            if (this.time < 4)
             {
                 this.time++;
             }
-            if (this.time == 5)
+            if (this.time == 4)
             {
                 this.time++;
-                this.timer.Stop();
                 
                 int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
                 if (newDuals > 0)
@@ -177,6 +176,11 @@ namespace EducationAll
                     this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
                 }
 
+            }
+            
+            if (this.time == 6)
+            {
+                this.time++;
                 IEnumerable<Datas.RelationshipRequest> relationshipRequests = from ar in Bdd.DbAccess.RelationshipRequests
                                                                               where ar.idCalled == App.user.ID
                                                                               select ar;
@@ -188,6 +192,11 @@ namespace EducationAll
                     this.iNewFriend.Visibility = System.Windows.Visibility.Visible;
                     this.bNewFriend.Visibility = System.Windows.Visibility.Visible;
                 }
+                this.timer.Stop();
+            }
+            if (this.time == 5)
+            {
+                this.time++;
             }
         }
 

@@ -29,8 +29,8 @@
         <Image Height="120" Name="inewChallenge" Stretch="Uniform" Source="/EducationAll;component/Images/path_new_challenge.png" Margin="455,385,236,245" Visibility="Hidden" />
         <Label Content="Tu as des nouveaux défis en attente !" Height="Auto" HorizontalAlignment="Left" Margin="464,411,0,0" Name="lNewChallenge" VerticalAlignment="Top" FontSize="15" Visibility="Hidden" />
         <Button Content="Je vais les relever !" Height="Auto" HorizontalAlignment="Left" Margin="515,445,0,0" Name="bnewChallenge" VerticalAlignment="Top" Width="Auto" FontSize="15" Visibility="Hidden" Click="BnewChallenge_Click" />
-        <Image Height="120" Margin="635,47,47,583" Name="iNewFriend" Source="/EducationAll;component/Images/path_new_friend.png" Stretch="Uniform" Visibility="Hidden" />
-        <Label Content="Tu as des requêtes d'amis en attente !" FontSize="15" Height="Auto" HorizontalAlignment="Left" Margin="662,74,0,0" Name="lNewFriend" VerticalAlignment="Top" Visibility="Hidden" />
-        <Button Content="Je vais les accepter !" FontSize="15" Height="Auto" HorizontalAlignment="Left" Margin="708,110,0,0" Name="bNewFriend" VerticalAlignment="Top" Visibility="Hidden" Width="Auto" Click="bNewFriend_Click" />
+        <Image Height="120" Margin="618,35,64,595" Name="iNewFriend" Source="/EducationAll;component/Images/path_new_friend.png" Stretch="Uniform" Visibility="Hidden" />
+        <Label Content="Tu as des requêtes d'amis en attente !" FontSize="15" Height="Auto" HorizontalAlignment="Left" Margin="645,62,0,0" Name="lNewFriend" VerticalAlignment="Top" Visibility="Hidden" />
+        <Button Content="Je vais les accepter !" FontSize="15" Height="Auto" HorizontalAlignment="Left" Margin="691,98,0,0" Name="bNewFriend" VerticalAlignment="Top" Visibility="Hidden" Width="Auto" Click="bNewFriend_Click" />
     </Grid>
 </UserControl>
