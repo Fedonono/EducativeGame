@@ -40,6 +40,11 @@ namespace EducationAll
             this.time = 1;
         }
 
+        /// <summary>
+        /// Timer pour laisser la fenetre affichée quelques secondes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             this.time--;

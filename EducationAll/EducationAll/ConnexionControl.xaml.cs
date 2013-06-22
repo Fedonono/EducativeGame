@@ -24,6 +24,11 @@ namespace EducationAll
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Affiche les grades dans la combo box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             List<Datas.Grade> grades = new List<Datas.Grade>();
@@ -48,11 +53,21 @@ namespace EducationAll
             this.textBoxConn.Focus();
         }
 
+        /// <summary>
+        /// Connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
             this.Login(sender, e);
         }
 
+        /// <summary>
+        /// Inscription
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             if (this.RegisterUser())
@@ -61,6 +76,11 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Login(object sender, RoutedEventArgs e)
         {
             string shaPass = Bdd.SHA1(this.passwordBoxConn.Password);
@@ -76,9 +96,12 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Inscription
+        /// </summary>
+        /// <returns></returns>
         private bool RegisterUser()
         {
-            // todo gerer exception pour savoir si pas de doublon au niveau de l'username
             string uName = this.textBoxInscrPseudo.Text;
             DateTime uDate = this.dateBirth.DisplayDate;
             string uPass = this.passwordBoxInscr.Password;
@@ -88,6 +111,15 @@ namespace EducationAll
             {
                 this.lUsername.Content = "Veuillez saisir\nun nom d'utilisateur";
                 check = false;
+            }
+            else
+            {
+                Datas.User alreadyExistingUser = (from i in Bdd.DbAccess.Users where uName.ToUpper() == i.username.ToUpper() select i).FirstOrDefault();
+                if (alreadyExistingUser != null)
+                {
+                    this.lUsername.Content = "Veuillez saisir un\nautre nom d'utilisateur";
+                    check = false;
+                }
             }
             if (uPass.Equals(String.Empty))
             {
@@ -120,6 +152,11 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Connexion (Entrée)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Conn_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

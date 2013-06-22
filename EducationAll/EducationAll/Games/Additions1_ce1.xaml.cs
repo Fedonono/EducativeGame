@@ -39,6 +39,9 @@ namespace EducationAll.Games
             this.idDefi = idDefi;
         }
 
+        /// <summary>
+        /// Affiche le menu de selection de la table d'addition
+        /// </summary>
         private void StartGame()
         {
             this.tableName.Visibility = System.Windows.Visibility.Hidden;
@@ -101,6 +104,11 @@ namespace EducationAll.Games
             this.StartGame();
         }
 
+        /// <summary>
+        /// Lance le jeu avec la table x
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_Click(object sender, RoutedEventArgs e)
         {
             if (!this.chosen)
@@ -139,6 +147,9 @@ namespace EducationAll.Games
             this.timerLabel2.Content = ++this.time + "s";
         }
 
+        /// <summary>
+        /// Prochaine addition aléatoire
+        /// </summary>
         private void NextCalcul()
         {
             Random r = new Random();

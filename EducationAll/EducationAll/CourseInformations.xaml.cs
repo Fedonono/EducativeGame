@@ -22,6 +22,15 @@ namespace EducationAll
     {
         private Storyboard myStoryboard;
 
+        /// <summary>
+        /// Affiche les informations sur le cours selectionné
+        /// </summary>
+        /// <param name="gameName"></param>
+        /// <param name="gradeName"></param>
+        /// <param name="courseName"></param>
+        /// <param name="gameDesc"></param>
+        /// <param name="score"></param>
+        /// <param name="nbGame"></param>
         public CourseInformations(string gameName, string gradeName, string courseName, string gameDesc, int score, int nbGame)
         {
             InitializeComponent();

@@ -25,6 +25,11 @@ namespace EducationAll
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Affiche les infos sur l'utilisateur en cours
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             if (App.user != null)
@@ -35,7 +40,14 @@ namespace EducationAll
                 int score = 0;
                 try
                 {
-                    score = (int)(from i in Bdd.DbAccess.Scores where i.idUser == App.user.ID select i.value).Sum();
+                    score = (int)(from i in Bdd.DbAccess.Scores
+                                  from game in Bdd.DbAccess.Games
+                                  from course in Bdd.DbAccess.Courses
+                                  where i.idUser == App.user.ID
+                                  && i.idGame == game.ID
+                                  && game.idCourse == course.ID
+                                  && course.idGrade == App.user.idGrade
+                                  select i.value).Sum();
                 }
                 catch (Exception)
                 {
@@ -55,7 +67,10 @@ namespace EducationAll
                 this.ChangeImage();
             }
         }
-
+        
+        /// <summary>
+        /// Change l'image de profil aléatoirement en attendant le stockage de sa propre photo
+        /// </summary>
         private void ChangeImage()
         {
             int img = new Random().Next(1,7);

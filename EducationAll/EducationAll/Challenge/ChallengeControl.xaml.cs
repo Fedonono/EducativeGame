@@ -60,10 +60,14 @@ namespace EducationAll
             IEnumerable<Datas.Dual> listPastDuals;
             try
             {
-                listNewDuals = from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i;
+                listNewDuals = from i in Bdd.DbAccess.Duals 
+                               where i.idChallenged == App.user.ID && i.winner == null 
+                               orderby i.date
+                               select i;
                 listPastDuals = from i in Bdd.DbAccess.Duals
                                 where (i.idChallenged == App.user.ID || i.idChallenger == App.user.ID)
                                 && i.winner != null
+                                orderby i.date
                                 select i;
             }
             catch (Exception)

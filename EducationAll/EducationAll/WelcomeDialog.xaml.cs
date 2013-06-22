@@ -32,6 +32,11 @@ namespace EducationAll
             this.Close();
         }
 
+        /// <summary>
+        /// Affiche un message de bienvenue en fonction de la connexion ou de l'inscription
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.label1.Content = "Bienvenue " + App.user.username + " !";

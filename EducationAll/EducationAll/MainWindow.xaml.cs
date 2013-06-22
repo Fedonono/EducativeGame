@@ -156,16 +156,6 @@ namespace EducationAll
             }
         }
 
-        private void Window_Activated(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Window_Deactivated(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Affiche la fenetre A propos
         /// </summary>
@@ -241,6 +231,10 @@ namespace EducationAll
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 
+        /// <summary>
+        /// Lance un jeu et écoute son évenement d'arret
+        /// </summary>
+        /// <param name="gamePanel"></param>
         public void LaunchGame(IGame gamePanel)
         {
             this.contentGrid.Children.Remove(this.currentUIElement);
@@ -249,6 +243,14 @@ namespace EducationAll
             this.contentGrid.Children.Add(this.currentUIElement);
         }
 
+        /// <summary>
+        /// Evenement d'arret du jeu en cours
+        /// Enregistre le score et lance la fenetre de défi
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <param name="idGame"></param>
+        /// <param name="idDefi"></param>
+        /// <param name="points"></param>
         void GamePanel_EndOfGameEvent(int idUser, int idGame, int idDefi, int points)
         {
             Datas.Score s = new Datas.Score() { idGame = idGame, idUser = idUser, value = points };

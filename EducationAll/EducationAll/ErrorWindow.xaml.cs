@@ -20,6 +20,10 @@ namespace EducationAll
     {
         private bool connexionError;
 
+        /// <summary>
+        /// Affiche une fenetre d'erreur
+        /// </summary>
+        /// <param name="connexionError"></param> si l'erreur est une impossibilité de connexion à la bdd
         public ErrorWindow(bool connexionError)
         {
             InitializeComponent();

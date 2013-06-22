@@ -21,6 +21,11 @@ namespace EducationAll
         public static App CurrentApp { get { return currentApp; }}
         private static App currentApp = null;
 
+        /// <summary>
+        /// Début du programme par le lancement de la fenetre principale
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void App_Startup(object sender, StartupEventArgs e)
         {
             // Create a window

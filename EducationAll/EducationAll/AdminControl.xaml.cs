@@ -24,6 +24,11 @@ namespace EducationAll
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Affiche les rangs dans la combo box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             List<Datas.Rank> ranks = new List<Datas.Rank>();
@@ -47,6 +52,11 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Cherche l'utilisateur entré et modifie le rang
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bModifRank_Click(object sender, RoutedEventArgs e)
         {
             this.lUnexistingUser.Visibility = System.Windows.Visibility.Hidden;

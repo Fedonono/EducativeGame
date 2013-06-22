@@ -82,7 +82,7 @@ namespace EducationAll
         }
 
         /// <summary>
-        /// Retire les info du jeu selectionné
+        /// Retire les infos du jeu selectionné
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -127,10 +127,15 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Lance un jeu à partir de son nom dans la bdd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LaunchGame(object sender, EventArgs e)
         {
             Button bt = (Button)sender;
-            if (bt.Tag != null)
+            if (bt.Tag != null && bt.Tag is Datas.Game)
             {
                 Datas.Game tag = bt.Tag as Datas.Game;
                 try
@@ -156,6 +161,11 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Affiche les popups de nouveaux défis et requetes d'amis après un certain temps pour éviter de tout charger en même temps
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Timer_Tick(object sender, EventArgs e)
         {
             if (this.time < 4)

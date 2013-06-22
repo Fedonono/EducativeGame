@@ -84,14 +84,14 @@
     <Compile Include="AdminControl.xaml.cs">
       <DependentUpon>AdminControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AnimationChallengeResult.xaml.cs">
+    <Compile Include="Challenge\AnimationChallengeResult.xaml.cs">
       <DependentUpon>AnimationChallengeResult.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bdd.cs" />
     <Compile Include="BoxUserInfo.xaml.cs">
       <DependentUpon>BoxUserInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChallengeResults.xaml.cs">
+    <Compile Include="Challenge\ChallengeResults.xaml.cs">
       <DependentUpon>ChallengeResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="Datas\Data.cs" />
@@ -100,10 +100,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EducationAll.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ChallengeButton.xaml.cs">
+    <Compile Include="Challenge\ChallengeButton.xaml.cs">
       <DependentUpon>ChallengeButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChallengeControl.xaml.cs">
+    <Compile Include="Challenge\ChallengeControl.xaml.cs">
       <DependentUpon>ChallengeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ErrorWindow.xaml.cs">
@@ -137,7 +137,7 @@
     <Compile Include="Games\QuestionaryControl.xaml.cs">
       <DependentUpon>QuestionaryControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewChallenge.xaml.cs">
+    <Compile Include="Challenge\NewChallenge.xaml.cs">
       <DependentUpon>NewChallenge.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProfilControl.xaml.cs">
@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AnimationChallengeResult.xaml">
+    <Page Include="Challenge\AnimationChallengeResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,7 +162,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChallengeResults.xaml">
+    <Page Include="Challenge\ChallengeResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,11 +174,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChallengeButton.xaml">
+    <Page Include="Challenge\ChallengeButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ChallengeControl.xaml">
+    <Page Include="Challenge\ChallengeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -258,7 +258,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewChallenge.xaml">
+    <Page Include="Challenge\NewChallenge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
