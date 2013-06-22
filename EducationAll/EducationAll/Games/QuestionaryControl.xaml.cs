@@ -196,22 +196,9 @@ namespace EducationAll
         private void showResults()
         {
             this.questionaryGrid.Children.Clear();
-            StackPanel questionPanel =new StackPanel(){Height = 369 , Margin = new Thickness(18,200,0,0), Name = "Question", Width = 498};
-            StackPanel answerPanel =new StackPanel(){Height = 369 , Margin = new Thickness(540,200,0,0), Name = "Answer", Width = 306};
-            StackPanel answerUserPanel =new StackPanel(){Height = 369 , Margin = new Thickness(871,200,0,0), Name = "AnswerUser", Width = 103};
-            Button continueButton = new Button(){Content="Continuer", Height=50, Margin=new Thickness(540,649,0,0), Name="closeButton", Width=306, FontSize=24, Padding=new Thickness(0)};
+            Button continueButton = new Button() { Content = "Continuer", Margin = new Thickness(716, 93, 59, 573), Name = "closeButton", FontSize = 25, Padding = new Thickness(20) };
             continueButton.Click += new RoutedEventHandler(continueButton_Click);
-            IEnumerator<Datas.Question> questionsEnumerator = this.questionsList.GetEnumerator();
-            IEnumerator<bool> answersEnumerator = this.answers.GetEnumerator();
-            while (questionsEnumerator.MoveNext() && answersEnumerator.MoveNext())
-            {
-                questionPanel.Children.Add(new Label() { Content = questionsEnumerator.Current.question1 });
-                answerPanel.Children.Add(new Label() { Content = questionsEnumerator.Current.answer });
-                answerUserPanel.Children.Add(new Label() { Content = answersEnumerator.Current.ToString() });
-            }
-            this.questionaryGrid.Children.Add(questionPanel);
-            this.questionaryGrid.Children.Add(answerPanel);
-            this.questionaryGrid.Children.Add(answerUserPanel);
+            this.questionaryGrid.Children.Add(new QuestionaryResults(this.questionsList,this.answers));
             this.questionaryGrid.Children.Add(continueButton);
         }
 

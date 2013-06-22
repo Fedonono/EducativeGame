@@ -128,6 +128,9 @@
     <Compile Include="Games\Hangman.xaml.cs">
       <DependentUpon>Hangman.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\QuestionaryResults.xaml.cs">
+      <DependentUpon>QuestionaryResults.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\TestGames.xaml.cs">
       <DependentUpon>TestGames.xaml</DependentUpon>
     </Compile>
@@ -204,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Games\Hangman.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\QuestionaryResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

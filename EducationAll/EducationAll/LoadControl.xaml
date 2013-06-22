@@ -6,8 +6,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Loaded="Grid_Loaded">
-        <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="218,346,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
-        <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="258,414,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" />
+        <Label Content="Logiciel éducatif ludique" Height="Auto" HorizontalAlignment="Left" Margin="218,346,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" FontFamily="Tahoma" />
+        <Label Content="De la maternelle à 77 ans" Height="Auto" HorizontalAlignment="Left" Margin="258,414,0,0" Name="label3" VerticalAlignment="Top" FontSize="22" FontStyle="Italic" />
         <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="12,715,0,0" Name="label4" VerticalAlignment="Top" FontSize="10" />
         <Label Content="" Height="auto" HorizontalAlignment="Right" Margin="0,0,230,30" Name="lawsLabel" VerticalAlignment="Bottom" />
         

@@ -184,7 +184,7 @@ namespace EducationAll
                 IEnumerable<Datas.RelationshipRequest> relationshipRequests = from ar in Bdd.DbAccess.RelationshipRequests
                                                                               where ar.idCalled == App.user.ID
                                                                               select ar;
-                if (relationshipRequests.Count() > 0)
+                if (relationshipRequests != null && relationshipRequests.Count() > 0)
                 {
                     this.lNewFriend.Content = string.Format("Tu as {0} requête{1} d'ami en attente !", relationshipRequests.Count(), relationshipRequests.Count() > 1 ? "s" : "");
                     this.bNewFriend.Content = string.Format(relationshipRequests.Count() > 1 ? "Je vais les accepter !" : "Je vais l'accepter !");

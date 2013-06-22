@@ -17,10 +17,10 @@
         <Image Height="100" HorizontalAlignment="Left" Margin="863,176,0,0" Name="tick" Stretch="Fill" VerticalAlignment="Top" Width="100" Source="/EducationAll;component/Images/1371319301_package-installed-updated.png" Visibility="Hidden" Panel.ZIndex="1" />
         <Image Height="100" HorizontalAlignment="Left" Margin="863,176,0,0" Name="wrong" Stretch="Fill" VerticalAlignment="Top" Width="100" Source="/EducationAll;component/Images/1371319307_emblem-nowrite.png" Visibility="Hidden" Panel.ZIndex="1" />
         <Label Content="+10" Height="Auto" HorizontalAlignment="Left" Margin="860,184,0,0" Name="scoreLabel" VerticalAlignment="Top" FontSize="50" Foreground="#FF0FB600" FontWeight="Bold" Visibility="Hidden" />
-        <Rectangle Height="568" HorizontalAlignment="Left" Margin="12,170,0,0" Name="rWelcomeBack" Stroke="Black" VerticalAlignment="Top" Width="976" RadiusX="5" RadiusY="5" Fill="#FFE5E5E5" />
+        <Rectangle Height="538" HorizontalAlignment="Left" Margin="28,170,0,0" Name="rWelcomeBack" Stroke="Black" VerticalAlignment="Top" Width="948" RadiusX="5" RadiusY="5" Fill="#FFE5E5E5" />
         <Image Height="341" Name="iWelcome" Stretch="Uniform" Width="530" Source="/EducationAll;component/Images/eric.jpg" Margin="52,249,418,160" />
-        <Rectangle Height="256" HorizontalAlignment="Left" Margin="606,334,0,0" Name="rWelcome" Stroke="Black" VerticalAlignment="Top" Width="362" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
-        <TextBlock Height="176" HorizontalAlignment="Left" Margin="624,385,0,0" Name="tWelcome" Text="" VerticalAlignment="Top" Width="313" Padding="10" FontSize="20" />
-        <Button Content="Commencer" Height="Auto" HorizontalAlignment="Center" Margin="0,630,0,0" Name="bWelcome" VerticalAlignment="Top" Width="Auto" FontSize="30" Padding="20" Click="BWelcome_Click" />
+        <Rectangle Height="256" HorizontalAlignment="Left" Margin="588,288,0,0" Name="rWelcome" Stroke="Black" VerticalAlignment="Top" Width="362" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <TextBlock Height="176" HorizontalAlignment="Left" Margin="606,339,0,0" Name="tWelcome" Text="" VerticalAlignment="Top" Width="313" Padding="10" FontSize="20" />
+        <Button Content="Commencer" Height="Auto" HorizontalAlignment="Center" Margin="0,610,0,0" Name="bWelcome" VerticalAlignment="Top" Width="Auto" FontSize="30" Padding="20" Click="BWelcome_Click" />
     </Grid>
 </UserControl>

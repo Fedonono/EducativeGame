@@ -88,8 +88,9 @@ namespace EducationAll
             this.lAlreadyExistingRelationshipRequest.Visibility = System.Windows.Visibility.Hidden;
             this.lAlreadyExistingRelationship.Visibility = System.Windows.Visibility.Hidden;
             this.lInvitationToMe.Visibility = System.Windows.Visibility.Hidden;
-
+            
             string pseudo = this.tBPseudo.Text;
+            this.tBPseudo.Text = "";
 
             Datas.User user = (from u in Bdd.DbAccess.Users
                         where u.username.ToUpper() == pseudo.ToUpper()
@@ -139,6 +140,24 @@ namespace EducationAll
         private void bSendRequest_Click(object sender, EventArgs e)
         {
             this.sendFriendshipRequest();
+        }
+
+        private void tBPseudo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.bSendRequest_Click(null, null);
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.tBPseudo.Focus();
+        }
+
+        private void BMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            App.mainWindow.GotoHome();
         }
     }
 }

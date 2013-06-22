@@ -4,21 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="750" d:DesignWidth="1000">
+             d:DesignHeight="750" d:DesignWidth="1000" Loaded="UserControl_Loaded">
     
     <Grid>
+        <Button Content="Retour au menu principal" Height="Auto" HorizontalAlignment="Left" Padding="20" Margin="680,103,0,0" Name="bMainMenu" VerticalAlignment="Top" Width="270" FontSize="20" Click="BMainMenu_Click" />
         
         <!-- Title : Chambre de l'amitié -->
 
         <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
-        <Label Content="Chambre de l'amitié" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Label Content="Chambre de l'amitié" Height="Auto" HorizontalAlignment="Center" Margin="149,103,377,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
         <Image Height="322" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="380" Source="/EducationAll;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="100,368,0,0" />
         <Image Height="322" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="380" Source="/EducationAll;component/Images/Friendship/friendship.jpg" Opacity="1" Margin="525,368,0,0" />
 
         <!-- send relationship request -->
         
         <Label Content="Pseudo : " Height="Auto" HorizontalAlignment="Left" Margin="170,208,0,0" VerticalAlignment="Top" Width="Auto" FontSize="30" Name="lPseudo" />
-        <TextBox Height="62" HorizontalAlignment="Right" Margin="0,205,349,0" VerticalAlignment="Top" Width="345" Name="tBPseudo" FontSize="30" />
+        <TextBox Height="62" HorizontalAlignment="Right" Margin="0,205,349,0" VerticalAlignment="Top" Width="345" Name="tBPseudo" FontSize="30" KeyDown="tBPseudo_KeyDown" />
         <Button Content="Ajouter +" Height="Auto" HorizontalAlignment="Left" Margin="666,200,0,0" VerticalAlignment="Top" Width="Auto" FontSize="26" Name="bSendRequest" Click="bSendRequest_Click" Padding="15" />
 
         <Label Content="L'utilisateur spécifié n'existe pas" Height="44" HorizontalAlignment="Left" Margin="306,260,0,0" Name="lUnexistingUser" VerticalAlignment="Top" Width="Auto" Foreground="Red" FontSize="24" Visibility="Hidden" />

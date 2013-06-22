@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="EducationAll.Games.QuestionaryResults"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="Questionnaire - Résultats" Height="Auto" HorizontalAlignment="Center" Margin="74,100,336,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="74,248,381,59" CanContentScroll="True">
+            <StackPanel Height="443" HorizontalAlignment="Left" Name="stackPanelQuestions" VerticalAlignment="Top" Width="545">
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="639,248,148,59" CanContentScroll="True">
+            <StackPanel Height="443" HorizontalAlignment="Left" Name="stackPanelAnswers" VerticalAlignment="Top" Width="212" />
+        </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="870,248,68,59" CanContentScroll="True">
+                <StackPanel Height="443" HorizontalAlignment="Left" Name="stackPanelImg" VerticalAlignment="Top" Width="62" />
+        </ScrollViewer>
+        <Label Content="Questions" Height="Auto" HorizontalAlignment="Left" Margin="282,198,0,0" Name="label1" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Label Content="Bonnes réponses" Height="Auto" HorizontalAlignment="Left" Margin="645,198,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Label Content="Résultats" FontFamily="Palatino Linotype" FontSize="18" FontWeight="Bold" Foreground="#FF257900" Height="Auto" HorizontalAlignment="Left" Margin="855,205,0,0" Name="label3" VerticalAlignment="Top" Width="Auto" />
+    </Grid>
+</UserControl>
