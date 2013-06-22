@@ -1,6 +1,6 @@
 ﻿<Window x:Class="EducationAll.ErrorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Icon="logoEAll.ico"
         Title="ErrorWindow" Height="380" Width="450" WindowStartupLocation="CenterScreen" Topmost="False">
     <Window.Style>
         <Style TargetType="{x:Type Window}">

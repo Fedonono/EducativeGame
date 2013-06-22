@@ -28,7 +28,7 @@
                 <RotateTransform Angle="-60"/>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Hva er klokken?" FontSize="38" Foreground="#FF0F9676" Height="Auto" HorizontalAlignment="Left" Margin="656,654,0,0" Name="label5" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" >
+        <Label Content="Hva er klokken ?" FontSize="38" Foreground="#FF0F9676" Height="Auto" HorizontalAlignment="Left" Margin="656,654,0,0" Name="label5" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" >
             <Label.RenderTransform>
                 <RotateTransform Angle="-45"/>
             </Label.RenderTransform>
