@@ -198,7 +198,7 @@ namespace EducationAll
             this.questionaryGrid.Children.Clear();
             Button continueButton = new Button() { Content = "Continuer", Margin = new Thickness(716, 93, 59, 573), Name = "closeButton", FontSize = 25, Padding = new Thickness(20) };
             continueButton.Click += new RoutedEventHandler(continueButton_Click);
-            this.questionaryGrid.Children.Add(new QuestionaryResults(this.questionsList,this.answers));
+            this.questionaryGrid.Children.Add(new QuestionaryResults(this.questionsList,this.answers, this.score));
             this.questionaryGrid.Children.Add(continueButton);
         }
 

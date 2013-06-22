@@ -21,12 +21,14 @@ namespace EducationAll.Games
     {
         private IEnumerable<Datas.Question> questionsList;
         private List<bool> answers = new List<bool>();
+        private int score;
 
-        public QuestionaryResults(IEnumerable<Datas.Question> ql, List<bool> a)
+        public QuestionaryResults(IEnumerable<Datas.Question> ql, List<bool> a, int score)
         {
             InitializeComponent();
             this.questionsList = ql;
             this.answers = a;
+            this.score = score;
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -53,6 +55,8 @@ namespace EducationAll.Games
                 }
                 stackPanelImg.Children.Add(img);
             }
+
+            this.lScore.Content = this.score;
         }
     }
 }
