@@ -124,6 +124,9 @@
     <Compile Include="Games\Colouring.xaml.cs">
       <DependentUpon>Colouring.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\HourReading.xaml.cs">
+      <DependentUpon>HourReading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\IGame.cs" />
     <Compile Include="Games\Hangman.xaml.cs">
       <DependentUpon>Hangman.xaml</DependentUpon>
@@ -209,6 +212,10 @@
     <Page Include="Games\Hangman.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\HourReading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Games\QuestionaryResults.xaml">
       <SubType>Designer</SubType>
@@ -399,6 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datas\EducationAll.edmx.sql" />
+    <Resource Include="Images\clock.png" />
     <Resource Include="Images\path_new_friend.png" />
     <Resource Include="Images\Icons\home.png" />
     <Resource Include="Images\Icons\friendship.png" />
