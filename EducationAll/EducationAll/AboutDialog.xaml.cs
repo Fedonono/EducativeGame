@@ -49,8 +49,9 @@ namespace EducationAll
                     "http://ilona.deviantart.com/art/New-friends-20959212 \n" +
                     "http://ilona.deviantart.com/art/wind-14822827 \n" +
                     "http://ilona.deviantart.com/art/penquins-request-24531974 \n" +
-                    "http://ilona.deviantart.com/art/hm-elephants-13599612 \n" + 
-                    "http://www.iconpharm.com";
+                    "http://ilona.deviantart.com/art/hm-elephants-13599612 \n" +
+                    "http://www.iconpharm.com \n" +
+                    "http://paris.eelv.fr/tag/education/";
         }
 
         private void imgClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
