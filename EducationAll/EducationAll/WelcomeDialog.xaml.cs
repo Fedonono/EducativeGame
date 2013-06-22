@@ -58,7 +58,7 @@ namespace EducationAll
                 this.lMessage.Content = "Voici quelques conseils pour bien utiliser EducationAll :\n" +
                     "Ce programme est déstiné à toute personne désirant\napprendre en s'amusant.\n" +
                     "Des mini-jeux et questionnaires sont disponibles par catégories.\n" +
-                    "Chaque jeu rapporte des points et peut être jouer contre un adversaire\n sous forme de défi.\n" +
+                    "Chaque jeu rapporte des points et peut être joué contre un adversaire\n sous forme de défi.\n" +
                     "Les défis sont disponibles sur le menu principal et à la fin de chaque jeu.\n" +
                     "Bon apprentissage et amuse toi bien !";
 

@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              Height="100" d:DesignWidth="311">
     <Grid>
-        <Rectangle Height="95" HorizontalAlignment="Stretch" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="Auto" RadiusX="5" RadiusY="5" />
+        <Rectangle Height="95" HorizontalAlignment="Stretch" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="Auto" RadiusX="5" RadiusY="5" Fill="#DDEFEFEF" />
         <Label Content="Label" Height="Auto" HorizontalAlignment="Left" Margin="10,20,0,0" Name="lUsername" VerticalAlignment="Top" Width="Auto" Foreground="DarkMagenta" FontSize="24" />
         <Label Content="Label" Height="Auto" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,20,90,0" Name="lGrade" VerticalAlignment="Top" Width="Auto" Foreground="DarkMagenta" FontSize="24" FontWeight="Normal" />
         <Button Content="Accepter" Height="Auto" HorizontalAlignment="Right" Margin="0,5,10,0" Name="bAccept" VerticalAlignment="Top" Width="Auto" FontSize="14" Foreground="ForestGreen" Click="bAccept_Click"/>
