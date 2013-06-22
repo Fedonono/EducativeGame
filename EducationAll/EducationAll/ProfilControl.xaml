@@ -6,8 +6,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid Loaded="Grid_Loaded">
-        <TabControl Background="#B5F5F5F5" HorizontalAlignment="Center" Width="440" Height="600" VerticalContentAlignment="Center">
-            <TabItem Header="Section">
+        <Label Content="Profil" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <TabControl Background="#B5F5F5F5" HorizontalAlignment="Center" Width="440" Margin="0,170,0,32">
+            <TabItem Header="Niveau">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100*" />
@@ -37,6 +38,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Retour au menu principal" Grid.Column="1" Height="Auto" HorizontalAlignment="Center" Margin="0,505,0,0" Name="bMainMenu" VerticalAlignment="Top" Width="Auto" FontSize="15" Click="BMainMenu_Click" />
+        <Button Content="Retour au menu principal" Grid.Column="1" Height="Auto" HorizontalAlignment="Center" Margin="0,650,0,0" Name="bMainMenu" VerticalAlignment="Top" Width="Auto" FontSize="15" Click="BMainMenu_Click" />
     </Grid>
 </UserControl>

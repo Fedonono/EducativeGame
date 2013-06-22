@@ -67,5 +67,10 @@ namespace EducationAll
             Bdd.DbAccess.SaveChanges();
             this.lModRankSuccess.Visibility = System.Windows.Visibility.Visible;
         }
+
+        private void BMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            App.mainWindow.GotoHome();
+        }
     }
 }
