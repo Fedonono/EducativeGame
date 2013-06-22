@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EducationAll.Games;
+using System.Windows.Threading;
 
 namespace EducationAll.Games
 {
@@ -20,6 +21,11 @@ namespace EducationAll.Games
     /// </summary>
     public partial class HourReading : UserControl, IGame
     {
+        private int minutes, hours, left;
+        private int idUser, idGame, idDefi, score;
+        private DispatcherTimer timer;
+        private int time;
+
         public HourReading(int idUser, int idGame, int idDefi)
         {
             InitializeComponent();
@@ -27,25 +33,46 @@ namespace EducationAll.Games
             this.idUser = idUser;
             this.idGame = idGame;
             this.idDefi = idDefi;
+        }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.startGame();
+        }
+
+        private void startGame()
+        {
             this.score = 90;
+            this.left = 6;
+            this.lLeft.Content = "Heures restantes : " + this.left;
+            this.lScore.Content = "Ton score : " + this.score;
+            this.lGameOver.Visibility = System.Windows.Visibility.Hidden;
+            this.tBAnswerH.Visibility = System.Windows.Visibility.Visible;
+            this.tBAnswerM.Visibility = System.Windows.Visibility.Visible;
+            this.label1.Visibility = System.Windows.Visibility.Visible;
+            this.label2.Visibility = System.Windows.Visibility.Visible;
+            this.bValidate.Visibility = System.Windows.Visibility.Visible;
+            this.bRe.Visibility = System.Windows.Visibility.Hidden;
+            this.bContinue.Visibility = System.Windows.Visibility.Hidden;
+            this.lEndMessage.Visibility = System.Windows.Visibility.Hidden;
+            this.nextHour();
+        }
 
+        private void nextHour()
+        {
             Random r = new Random();
             this.minutes = r.Next(60);
             this.hours = r.Next(12);
             this.minutes = this.minutes - this.minutes % 10;
-            
-            this.tBAnswerH.Text = ""+this.hours;
-            this.tBAnswerM.Text = ""+this.minutes;
 
+            this.tBAnswerH.Text = "";
+            this.tBAnswerM.Text = "";
             this.initCanvas(this.hours, this.minutes);
         }
 
-        private int minutes, hours;
-        private int idUser, idGame, idDefi, score;
-
         private void initCanvas(int hours, int minutes)
         {
+            this.cClock.Children.Clear();
             Line hour = new Line();
             Line minute = new Line();
 
@@ -77,40 +104,104 @@ namespace EducationAll.Games
             dot.Fill = Brushes.Black;
             dot.Margin = new Thickness(200 - dot.Width/2, 200 - dot.Width/2, 0, 0);
             this.cClock.Children.Add(dot);
+            this.tBAnswerH.Focus();
         }
 
         public event DelegateEndOfGame EndOfGameEvent;
 
         public void EndOfGame()
         {
-            if (EndOfGameEvent != null)
-                EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
+            this.lGameOver.Visibility = System.Windows.Visibility.Visible;
+            this.tBAnswerH.Visibility = System.Windows.Visibility.Hidden;
+            this.tBAnswerM.Visibility = System.Windows.Visibility.Hidden;
+            this.label1.Visibility = System.Windows.Visibility.Hidden;
+            this.label2.Visibility = System.Windows.Visibility.Hidden;
+            this.bValidate.Visibility = System.Windows.Visibility.Hidden;
+            this.bRe.Visibility = System.Windows.Visibility.Visible;
+            this.bContinue.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void validate(object sender, RoutedEventArgs e)
         {
-            int answHours = int.Parse(this.tBAnswerH.Text);
-            int answMinuts = int.Parse(this.tBAnswerM.Text);
+            int answHours = -1;
+            int answMinuts = -1;
+            try
+            {
+                answHours = int.Parse(this.tBAnswerH.Text);
+                answMinuts = int.Parse(this.tBAnswerM.Text);
+            }
+            catch (Exception)
+            {
+            }
 
             if ((this.minutes == answMinuts && this.hours == answHours) || this.hours + answHours == 12 || this.minutes + answMinuts == 60)
             {
-                this.EndOfGame();
+                this.left--;
+                this.lLeft.Content = "Heures restantes : " + this.left;
+                if(this.left == 0)
+                {
+                    this.lEndMessage.Content = "Bravo !";
+                    this.lEndMessage.Visibility = System.Windows.Visibility.Visible;
+                    this.EndOfGame();
+                    return;
+                }
             }
             else
             {
-                this.decreasePoints();
+                if (this.decreasePoints())
+                {
+                    return;
+                }
             }
+            this.nextHour();
         }
 
-        private void decreasePoints()
+        private bool decreasePoints()
         {
+            this.lFalse.Visibility = System.Windows.Visibility.Visible;
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = new TimeSpan(0, 0, 0, 1);
+            this.timer.Tick += new EventHandler(Timer_Elapsed);
+            this.time = 0;
+            this.timer.Start();
             this.score -= 30;
             if (this.score <= 0)
             {
+                this.score = 0;
+                this.lScore.Content = "Ton score : " + this.score;
+                this.lEndMessage.Content = "Dommage !";
+                this.lEndMessage.Visibility = System.Windows.Visibility.Visible;
                 this.EndOfGame();
+                return true;
+            }
+            this.lScore.Content = "Ton score : " + this.score;
+            return false;
+        }
+
+        void Timer_Elapsed(object sender, EventArgs e)
+        {
+            if (this.time < 1)
+            {
+                this.time++;
+            }
+            if (this.time == 1)
+            {
+                this.time++;
+                this.lFalse.Visibility = System.Windows.Visibility.Hidden;
+                this.timer.Stop();
             }
         }
 
+        private void bContinue_Click(object sender, RoutedEventArgs e)
+        {
+            if (EndOfGameEvent != null)
+                EndOfGameEvent(this.idUser, this.idGame, this.idDefi, this.score);
+        }
+
+        private void bRe_Click(object sender, RoutedEventArgs e)
+        {
+            this.startGame();
+        }
     }
 
 }

@@ -25,7 +25,7 @@ namespace EducationAll.Games
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            this.contentGrid.Children.Add(new Hangman(0, 0, -1));
+            this.contentGrid.Children.Add(new HourReading(0, 0, -1));
         }
 
         private void Image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

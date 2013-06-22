@@ -4,20 +4,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="750" d:DesignWidth="1000">
+             d:DesignHeight="750" d:DesignWidth="1000" Loaded="UserControl_Loaded">
     <Grid>
-        <Canvas Height="400" HorizontalAlignment="Left" Margin="298,121,0,0" Name="cClock" VerticalAlignment="Top" Width="400">
-            <Image Canvas.Left="0" Canvas.Top="0" Name="clockImage" Stretch="Fill" Width="400" Height="400" Source="/EducationAll;component/Images/clock.png" />
+        <Rectangle Height="527" HorizontalAlignment="Center" Margin="0,183,0,0" Name="backRectangle" Stroke="Black" VerticalAlignment="Top" Width="900" RadiusX="5" RadiusY="5" Fill="#D3E5E5E5" />
+        <Label Content="Quelle heure est-il ?" Height="Auto" HorizontalAlignment="Center" Margin="0,100,0,0" Name="gameName" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Width="Auto" Foreground="#FF257900" FontFamily="Palatino Linotype" />
+        <Image Name="clockImage" Margin="0,75,0,0" Stretch="Fill" Width="400" Height="400" Source="/EducationAll;component/Images/clock.png" />
+        <Canvas Height="400" HorizontalAlignment="center" Margin="0,211,0,0" Name="cClock" VerticalAlignment="Top" Width="400">
+            
         </Canvas>
         
-        <Label Content="Que hora es ?" Height="73" HorizontalAlignment="Left" Margin="12,394,0,0" Name="lQuestion" VerticalAlignment="Top" Width="265" FontSize="40" Foreground="#FF349906" FontWeight="Bold" />
-        <TextBox Height="43" HorizontalAlignment="Left" Margin="367,645,0,0" Name="tBAnswerH" VerticalAlignment="Top" Width="45" AcceptsTab="True" MaxLength="2" />
-        <TextBox Height="43" HorizontalAlignment="Left" Margin="461,645,0,0" Name="tBAnswerM" VerticalAlignment="Top" Width="45" AcceptsTab="True" MaxLength="2" />
-        <Label Content="h" Height="28" HorizontalAlignment="Left" Margin="418,660,0,0" Name="label1" VerticalAlignment="Top" />
-        <Label Content="m" Height="28" HorizontalAlignment="Left" Margin="522,660,0,0" Name="label2" VerticalAlignment="Top" />
-        <Button Content="Envoyer !" Height="43" HorizontalAlignment="Left" Margin="548,645,0,0" Name="bValidate" VerticalAlignment="Top" Width="91" Click="validate" />
-        <Label Content="Quelle heure est-il ?" FontSize="38" Height="71" HorizontalAlignment="Left" Margin="20,527,0,0" Name="label3" VerticalAlignment="Top" Width="369" Background="{x:Null}" Foreground="#FFFF5700" ClipToBounds="True" FontWeight="Bold" />
-        <Label Content="Wie viel Uhr ist es?" FontSize="38" Foreground="#FFFF38C2" Height="126" HorizontalAlignment="Left" Margin="645,0,0,97" Name="label4" VerticalAlignment="Bottom" Width="343" FontWeight="Bold" />
-        <Label Content="Hva er klokken?" FontSize="38" Foreground="#FF0F9676" Height="73" HorizontalAlignment="Left" Margin="704,448,0,0" Name="label5" VerticalAlignment="Top" Width="296" FontWeight="Bold" />
+        <Label Content="Que hora es ?" Height="Auto" HorizontalAlignment="Left" Margin="48,643,0,0" Name="lQuestion" VerticalAlignment="Top" Width="Auto" FontSize="40" Foreground="#FF349906" FontWeight="Bold">
+            <Label.RenderTransform>
+                <RotateTransform Angle="-40"/>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox Height="43" HorizontalAlignment="Left" Margin="367,645,0,0" Name="tBAnswerH" VerticalAlignment="Top" Width="45" AcceptsTab="True" MaxLength="2" FontSize="25" TabIndex="2" />
+        <TextBox Height="43" HorizontalAlignment="Left" Margin="461,645,0,0" Name="tBAnswerM" VerticalAlignment="Top" Width="45" AcceptsTab="True" MaxLength="2" FontSize="25" TabIndex="3" />
+        <Label Content="h" Height="Auto" HorizontalAlignment="Left" Margin="418,645,0,0" Name="label1" VerticalAlignment="Top" FontSize="25" />
+        <Label Content="mn" Height="Auto" HorizontalAlignment="Left" Margin="512,645,0,0" Name="label2" VerticalAlignment="Top" FontSize="25" />
+        <Button Content="Envoyer !" Height="43" HorizontalAlignment="Left" Margin="565,645,0,0" Name="bValidate" VerticalAlignment="Top" Width="91" Click="validate" TabIndex="4" />
+        <Label Content="Wie viel Uhr ist es ?" FontSize="38" Foreground="#FFFF38C2" Height="Auto" HorizontalAlignment="Left" Margin="60,0,0,184" Name="label4" VerticalAlignment="Bottom" Width="Auto" FontWeight="Bold" >
+            <Label.RenderTransform>
+                <RotateTransform Angle="-60"/>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Hva er klokken?" FontSize="38" Foreground="#FF0F9676" Height="Auto" HorizontalAlignment="Left" Margin="656,654,0,0" Name="label5" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" >
+            <Label.RenderTransform>
+                <RotateTransform Angle="-45"/>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Heure incorrecte !" Name="lFalse" Foreground="Red" FontWeight="Bold" FontSize="30" Visibility="Hidden" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,70,0,0" />
+        <Label Content="Ton score : 90" Height="Auto" HorizontalAlignment="Left" Margin="735,272,0,0" Name="lScore" VerticalAlignment="Top" FontSize="25" Foreground="#FF110076" FontWeight="Bold" />
+        <Label Content="Heures restantes : 5" Height="Auto" HorizontalAlignment="Left" Margin="735,351,0,0" Name="lLeft" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF0B7708" />
+        <Label Content="Game Over !" Height="Auto" HorizontalAlignment="Center" Margin="0,300,0,0" Name="lGameOver" VerticalAlignment="Top" FontSize="90" FontWeight="Bold" Foreground="#FFD70000" Visibility="Hidden" />
+        <Button Content="Recommencer" Height="Auto" HorizontalAlignment="Left" Margin="300,631,0,0" Name="bRe" VerticalAlignment="Top" Width="Auto" Padding="20" FontSize="20" Visibility="Hidden" Click="bRe_Click" />
+        <Button Content="Continuer" Height="Auto" HorizontalAlignment="Left" Margin="512,633,0,0" Name="bContinue" VerticalAlignment="Top" Width="Auto" Padding="20" FontSize="20" Visibility="Hidden" Click="bContinue_Click" />
+        <Label Content="Bravo !" FontSize="90" FontWeight="Bold" Foreground="#FF2F9D00" Height="Auto" HorizontalAlignment="Center" Margin="233,382,233,0" Name="lEndMessage" VerticalAlignment="Top" Visibility="Hidden" />
     </Grid>
 </UserControl>
