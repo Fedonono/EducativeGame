@@ -234,16 +234,13 @@ GO
 INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'5', N'Pendu anglais CE2', N'4', null, N'Pendu en anglais pour se faire un peu de vocabulaire.', N'Hangman')
 GO
 GO
-INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'6', N'Coloriage CE1', N'1', null, N'Coloriage magique à imprimer.', N'Colouring')
+INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'6', N'Addition CP', N'7', null, N'Teste tes facultés de calcul sur des tables d''additions !', N'Additions1_ce1')
 GO
 GO
-INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'7', N'Addition CP', N'7', null, N'Teste tes facultés de calcul sur des tables d''additions !', N'Additions1_ce1')
+INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'7', N'Coloriage CP', N'8', null, N'Coloriage magique à imprimer.', N'Colouring')
 GO
 GO
-INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'8', N'Coloriage CP', N'8', null, N'Coloriage magique à imprimer.', N'Colouring')
-GO
-GO
-INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'9', N'Heure CE1', N'1', null, N'Apprend à lire l''heure.', N'HourReading')
+INSERT INTO [Game] ([ID], [name], [idCourse], [idQuestionary], [description], [className]) VALUES (N'8', N'Heure CE1', N'1', null, N'Apprend à lire l''heure.', N'HourReading')
 GO
 GO
 SET IDENTITY_INSERT [Game] OFF
