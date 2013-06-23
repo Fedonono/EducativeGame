@@ -137,13 +137,16 @@ namespace EducationAll
                 int grade = App.user.Grade.ID;
 
                 ImageBrush ib = new ImageBrush();
-                Uri uri = new Uri(@"pack://application:,,,/EducationAll;component/Images/Backgrounds/Ubuntu_wp_b_3_1600.jpg");
+                Uri uri = new Uri(@"pack://application:,,,/EducationAll;component/Images/Backgrounds/Education_by_mallardswoodspice.jpg");
                 switch (grade)
                 {
-                    case 5:
+                    case 1:
+                        uri = new Uri(@"pack://application:,,,/EducationAll;component/Images/Backgrounds/wind_by_ilona.jpg");
+                        break;
+                    case 2:
                         uri = new Uri(@"pack://application:,,,/EducationAll;component/Images/Backgrounds/Butterfly_by_ilona.jpg");
                         break;
-                    case 7:
+                    case 3:
                         uri = new Uri(@"pack://application:,,,/EducationAll;component/Images/Backgrounds/catching_butterflies_by_lelpel-d2y1lbz.jpg");
                         break;
                     default:

@@ -292,7 +292,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Datas\EducationAll.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EducationAll.Designer.cs</LastGenOutput>
