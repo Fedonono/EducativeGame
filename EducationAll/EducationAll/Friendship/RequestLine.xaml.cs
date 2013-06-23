@@ -49,7 +49,7 @@ namespace EducationAll.Friendship
                                                         where ar.idCaller == caller.ID
                                                         select ar).FirstOrDefault();
 
-                if (addRequest != null)
+                if (addRequest != null) 
                 {
                     Datas.Relationship relationship1 = new Datas.Relationship()
                     {
@@ -71,6 +71,7 @@ namespace EducationAll.Friendship
                                                               where i.userId2 == App.user.ID
                                                               && i.userId1 == caller.ID
                                                               select i).FirstOrDefault();
+                    //ajoute 2 lignes pour éviter les problèmes de doublons dans les requetes
                     if (relationship1Exists == null)
                     {
                         Bdd.DbAccess.AddToRelationships(relationship1);

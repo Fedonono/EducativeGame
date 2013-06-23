@@ -13,7 +13,6 @@ namespace EducationAll
     public partial class App : Application
     {
         public static MainWindow mainWindow;
-        public static Games.TestGames testGames;
         public static Datas.User user = null;
         public static int RankStudent = getConfigValue("idRankStudent");
         public static int RankTeacher = getConfigValue("idRankTeacher");
@@ -30,8 +29,6 @@ namespace EducationAll
         {
             // Create a window
             mainWindow = new MainWindow();
-            testGames = new Games.TestGames();
-            //this.MainWindow = testGames;
             this.MainWindow = mainWindow;
 
             // Open a window

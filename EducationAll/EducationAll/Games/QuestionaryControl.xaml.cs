@@ -78,6 +78,11 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Question à choix multiple
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickChoice(object sender, RoutedEventArgs e)
         {
             Button bt = (Button) sender;
@@ -134,6 +139,11 @@ namespace EducationAll
             }
         }
 
+        /// <summary>
+        /// Question avec une entrée utilisateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickValider(object sender, RoutedEventArgs e)
         {
             Button bt = (Button)sender;

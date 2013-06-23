@@ -185,6 +185,11 @@ namespace EducationAll.Games
             this.dictionary.Add("banana");
         }
 
+        /// <summary>
+        /// compare la lettre entrée et le mot actuel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -212,6 +217,9 @@ namespace EducationAll.Games
             this.CheckEndGame();
         }
 
+        /// <summary>
+        /// affiche les lettres déjà trouvées
+        /// </summary>
         private void UpdateLetters()
         {
             string s2 = "";

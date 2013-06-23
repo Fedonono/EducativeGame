@@ -24,6 +24,12 @@ namespace EducationAll
         public delegate void DelegateEndOfNewChallenge();
         public event DelegateEndOfNewChallenge EndOfNewChallengeEvent;
 
+        /// <summary>
+        /// Affiche la liste d'amis pour nouveau défi
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <param name="idGame"></param>
+        /// <param name="idScore"></param>
         public NewChallenge(int idUser, int idGame, int idScore)
         {
             InitializeComponent();

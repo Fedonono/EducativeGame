@@ -58,6 +58,9 @@ namespace EducationAll.Games
             this.nextHour();
         }
 
+        /// <summary>
+        /// heure aléatoire
+        /// </summary>
         private void nextHour()
         {
             Random r = new Random();
@@ -70,6 +73,11 @@ namespace EducationAll.Games
             this.initCanvas(this.hours, this.minutes);
         }
 
+        /// <summary>
+        /// affiche les aiguilles
+        /// </summary>
+        /// <param name="hours"></param>
+        /// <param name="minutes"></param>
         private void initCanvas(int hours, int minutes)
         {
             this.cClock.Children.Clear();
@@ -88,7 +96,7 @@ namespace EducationAll.Games
             minute.Y1 = 200;
             
             int radius = 150;
-            double angle = (Math.PI * this.hours / 6)- Math.PI / 2 ; //+ (Math.PI/60) * this.minutes;
+            double angle = (Math.PI * this.hours / 6) - Math.PI / 2;
             hour.Y2 = hour.X1 + (radius - 0.4 * radius) * Math.Sin(angle);
             hour.X2 = hour.Y1 + (radius - 0.4 * radius) * Math.Cos(angle);
             angle = (Math.PI * this.minutes / 30) -  Math.PI / 2;
@@ -121,6 +129,11 @@ namespace EducationAll.Games
             this.bContinue.Visibility = System.Windows.Visibility.Visible;
         }
 
+        /// <summary>
+        /// vérifie l'heure entrée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void validate(object sender, RoutedEventArgs e)
         {
             int answHours = -1;

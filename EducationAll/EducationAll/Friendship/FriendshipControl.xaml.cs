@@ -17,6 +17,7 @@ namespace EducationAll
 {
     /// <summary>
     /// Interaction logic for FriendshipControl.xaml
+    /// Affiche la liste et les requetes d'amis
     /// </summary>
     public partial class FriendshipControl : UserControl
     {

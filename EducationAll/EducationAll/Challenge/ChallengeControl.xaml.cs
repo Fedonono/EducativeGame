@@ -28,7 +28,7 @@ namespace EducationAll
             InitializeComponent();
         }
         
-        void Timer_Tick(object sender, EventArgs e)
+        void Timer_Tick(object sender, EventArgs e)//retarde le chargement des défis pour éviter que tout se charge au même moment
         {
             if (this.time < 3)
             {
@@ -58,7 +58,7 @@ namespace EducationAll
             App.mainWindow.Cursor = new Cursor(new System.IO.MemoryStream(EducationAll.Properties.Resources.WaitCursor));
             IEnumerable<Datas.Dual> listNewDuals;
             IEnumerable<Datas.Dual> listPastDuals;
-            try
+            try//requete liste défis
             {
                 listNewDuals = from i in Bdd.DbAccess.Duals 
                                where i.idChallenged == App.user.ID && i.winner == null 
@@ -78,7 +78,7 @@ namespace EducationAll
             this.lNew.Content = string.Format("À relever ({0})", listNewDuals.Count());
             this.lPast.Content = string.Format("Passés ({0})", listPastDuals.Count());
 
-            foreach (Datas.Dual item in listNewDuals)
+            foreach (Datas.Dual item in listNewDuals)//affiche chaque nouveaux défis
             {
                 string username = (from i in Bdd.DbAccess.Users
                                    where i.ID == item.idChallenger
@@ -93,7 +93,7 @@ namespace EducationAll
                 this.slistNewDuals.Children.Add(cb);
             }
 
-            foreach (Datas.Dual item in listPastDuals)
+            foreach (Datas.Dual item in listPastDuals)//affiche chaque défis passés
             {
                 string username = (from i in Bdd.DbAccess.Users
                                    where (i.ID == item.idChallenged && i.ID != App.user.ID) ||
@@ -111,6 +111,11 @@ namespace EducationAll
             App.mainWindow.Cursor = Cursors.Arrow;
         }
 
+        /// <summary>
+        /// Lance le jeu du défi selectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Cb_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ChallengeButton s = sender as ChallengeButton;

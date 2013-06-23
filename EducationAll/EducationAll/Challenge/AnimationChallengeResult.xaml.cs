@@ -43,7 +43,7 @@ namespace EducationAll
             this.time = 0;
 
             DoubleAnimation myDoubleAnimation = new DoubleAnimation();
-            myDoubleAnimation.From = 0.0;
+            myDoubleAnimation.From = 0.0;//fondu
             myDoubleAnimation.To = 1.0;
             myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(2));
             myDoubleAnimation.AutoReverse = false;
@@ -60,6 +60,11 @@ namespace EducationAll
             this.timer.Start();
         }
 
+        /// <summary>
+        /// Fait défiler les points puis arrete l'animation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (this.currentPoints1 <= this.points1 && !this.endAnim)

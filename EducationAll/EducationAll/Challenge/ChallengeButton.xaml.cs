@@ -27,14 +27,14 @@ namespace EducationAll
             this.lDate.Content = date.ToShortDateString();
             if (over)
             {
-                if (win && score1 != score2)
+                if (win && score1 != score2)//gagné = vert
                 {
                     this.grid1.Background = Brushes.YellowGreen;
                 }
-                else if (!win && score1 != score2)
+                else if (!win && score1 != score2)//perdu = orange
                 {
                     this.grid1.Background = Brushes.OrangeRed;
-                }
+                }//égalité = gris
                 this.lScore.Content = string.Format("Scores : {0}/{1}", score1, score2);
             }
             else

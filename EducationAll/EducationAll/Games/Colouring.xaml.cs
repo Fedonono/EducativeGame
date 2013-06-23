@@ -31,6 +31,11 @@ namespace EducationAll.Games
             this.img = 1;
         }
 
+        /// <summary>
+        /// impression de l'image et ajout de point si imprime
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog dialog = new PrintDialog();
@@ -47,6 +52,11 @@ namespace EducationAll.Games
             this.EndOfGame();
         }
 
+        /// <summary>
+        /// Affiche l'image suivante
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BNext_Click(object sender, RoutedEventArgs e)
         {
             if (this.img == 4)
