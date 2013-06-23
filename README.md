@@ -6,7 +6,7 @@ Ce projet est un logiciel éducatif.
 Pour installer ce logiciel, vous devez : 
 - Posséder une base de donnée SQLServer
 - Installer la BDD EducationAll grâce, au choix, au fichier [EducationAllDB_MIN.sql] ou [EducationAllDB_MAX.sql] (le fichier "MAX" contient déjà des données d'utilisateurs)
-- Configurer le fichier [App.Config] et y renseigner les informations requises pour accéder à votre BDD.
+- Configurer le fichier [App.Config] et y renseigner les informations requises pour accéder à votre BDD. (modifier les variables DB_X_TO_EDIT)
 
 Une fois le tout configuré, vous pouvez vous connecter avec le compte "admin" (mdp : "admin").
 
