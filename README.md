@@ -12,6 +12,12 @@ Une fois le tout configuré, vous pouvez vous connecter avec le compte "admin" (
 
 Si vous avez installer le fichier [MAX], vous avez aussi la possibilité de vous connecter avec le compte "Eleve" (mdp : "eleve").
 
+Liens de sauvetage si dl.babol.me lâche
+-------
+* [Rapport]
+* Sources : Contactez-moi directement à l'adresse arnaud.babol@gmail.com étant donné qu'elles contiennent des données sensibles.
+
+[Rapport]: http://dl.free.fr/u3zvTopqH
 [EducationAllDB_MIN.sql]: https://github.com/Fedonono/EducativeGame/blob/master/EducationAll/SQL/EducationAllDB_MIN.sql
 [EducationAllDB_MAX.sql]: https://github.com/Fedonono/EducativeGame/blob/master/EducationAll/SQL/EducationAllDB_MAX.sql
 [App.Config]: https://github.com/Fedonono/EducativeGame/blob/master/EducationAll/EducationAll/App.Config
