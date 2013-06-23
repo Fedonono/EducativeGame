@@ -175,15 +175,17 @@ namespace EducationAll
             if (this.time == 4)
             {
                 this.time++;
-                
-                int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
-                if (newDuals > 0)
+                if (App.user != null)
                 {
-                    this.lNewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
-                    this.bnewChallenge.Content = string.Format("Je vais le{0} relever !", newDuals > 1 ? "s" : "");
-                    this.lNewChallenge.Visibility = System.Windows.Visibility.Visible;
-                    this.inewChallenge.Visibility = System.Windows.Visibility.Visible;
-                    this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
+                    int newDuals = (from i in Bdd.DbAccess.Duals where i.idChallenged == App.user.ID && i.winner == null select i).Count();
+                    if (newDuals > 0)
+                    {
+                        this.lNewChallenge.Content = string.Format("Tu as {0} nouveau{1} défi{2} en attente !", newDuals, newDuals > 1 ? "x" : "", newDuals > 1 ? "s" : "");
+                        this.bnewChallenge.Content = string.Format("Je vais le{0} relever !", newDuals > 1 ? "s" : "");
+                        this.lNewChallenge.Visibility = System.Windows.Visibility.Visible;
+                        this.inewChallenge.Visibility = System.Windows.Visibility.Visible;
+                        this.bnewChallenge.Visibility = System.Windows.Visibility.Visible;
+                    }
                 }
 
             }
@@ -191,16 +193,19 @@ namespace EducationAll
             if (this.time == 6)
             {
                 this.time++;
-                IEnumerable<Datas.RelationshipRequest> relationshipRequests = from ar in Bdd.DbAccess.RelationshipRequests
-                                                                              where ar.idCalled == App.user.ID
-                                                                              select ar;
-                if (relationshipRequests != null && relationshipRequests.Count() > 0)
+                if (App.user != null)
                 {
-                    this.lNewFriend.Content = string.Format("Tu as {0} requête{1} d'ami en attente !", relationshipRequests.Count(), relationshipRequests.Count() > 1 ? "s" : "");
-                    this.bNewFriend.Content = string.Format(relationshipRequests.Count() > 1 ? "Je vais les accepter !" : "Je vais l'accepter !");
-                    this.lNewFriend.Visibility = System.Windows.Visibility.Visible;
-                    this.iNewFriend.Visibility = System.Windows.Visibility.Visible;
-                    this.bNewFriend.Visibility = System.Windows.Visibility.Visible;
+                    IEnumerable<Datas.RelationshipRequest> relationshipRequests = from ar in Bdd.DbAccess.RelationshipRequests
+                                                                                  where ar.idCalled == App.user.ID
+                                                                                  select ar;
+                    if (relationshipRequests != null && relationshipRequests.Count() > 0)
+                    {
+                        this.lNewFriend.Content = string.Format("Tu as {0} requête{1} d'ami en attente !", relationshipRequests.Count(), relationshipRequests.Count() > 1 ? "s" : "");
+                        this.bNewFriend.Content = string.Format(relationshipRequests.Count() > 1 ? "Je vais les accepter !" : "Je vais l'accepter !");
+                        this.lNewFriend.Visibility = System.Windows.Visibility.Visible;
+                        this.iNewFriend.Visibility = System.Windows.Visibility.Visible;
+                        this.bNewFriend.Visibility = System.Windows.Visibility.Visible;
+                    }
                 }
                 this.timer.Stop();
             }
