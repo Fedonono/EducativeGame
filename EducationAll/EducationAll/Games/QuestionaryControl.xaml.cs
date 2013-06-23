@@ -71,10 +71,22 @@ namespace EducationAll
             else
             {
                 TextBox tb = new TextBox() { Name = "AnswerTextBox", Padding = new Thickness(20), FontSize = 20 };
+                tb.KeyDown += new KeyEventHandler(tb_KeyDown);
                 this.AnswerPanel.Children.Add(tb);
                 Button bt = new Button() { Content = "Valider", FontSize = 20, Padding = new Thickness(20), Tag = tb, Margin = new Thickness(10) };
                 bt.Click += new RoutedEventHandler(ClickValider);
+                tb.Tag = bt;
+                tb.Focus();
                 this.AnswerPanel.Children.Add(bt);
+            }
+        }
+
+        void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && sender is TextBox)
+            {
+                TextBox tb = sender as TextBox;
+                this.ClickValider(tb.Tag, null);
             }
         }
 
