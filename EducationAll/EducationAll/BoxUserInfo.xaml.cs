@@ -52,7 +52,7 @@ namespace EducationAll
                 catch (Exception)
                 {
                 }
-                this.scoreLabel.Content = "Score global : " + score;
+                this.scoreLabel.Content = String.Format("Score {0} : {1}", App.user.Grade.name, score);
 
                 int nbFriends = 0;
                 try
