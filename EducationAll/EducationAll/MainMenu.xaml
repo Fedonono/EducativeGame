@@ -24,7 +24,7 @@
         </Grid>
         <WrapPanel Margin="46,454,289,57" Name="gamesPanel" ></WrapPanel>
         <WrapPanel Margin="46,175,289,336" Name="coursesPanel">
-            
+            <Button Content="Tous les jeux" Height="Auto" Name="bAllGames" Width="Auto" FontSize="20" Padding="25" Margin="10" Click="bAllGames_Click" />
         </WrapPanel>
         <Image Height="120" Name="inewChallenge" Stretch="Uniform" Source="/EducationAll;component/Images/path_new_challenge.png" Margin="455,385,236,245" Visibility="Hidden" />
         <Label Content="Tu as des nouveaux défis en attente !" Height="Auto" HorizontalAlignment="Left" Margin="464,411,0,0" Name="lNewChallenge" VerticalAlignment="Top" FontSize="15" Visibility="Hidden" />

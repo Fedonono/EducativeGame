@@ -228,6 +228,34 @@ namespace EducationAll
             this.iNewFriend.Visibility = System.Windows.Visibility.Hidden;
             this.bNewFriend.Visibility = System.Windows.Visibility.Hidden;
         }
+
+        /// <summary>
+        /// Affiche tous les jeux
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bAllGames_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Datas.Game> gamesList = from i in Bdd.DbAccess.Games 
+                                                from course in Bdd.DbAccess.Courses
+                                                where i.idCourse == course.ID
+                                                && course.idGrade == App.user.idGrade
+                                                select i;
+            this.gamesPanel.Children.Clear();
+            foreach (Datas.Game game in gamesList)
+            {
+                Button bt = new Button() { Content = game.name, Tag = game, FontSize = 20, Padding = new Thickness(25), Margin = new Thickness(10) };
+                int nbPlayed = (from i in Bdd.DbAccess.Scores where i.idGame == game.ID && i.idUser == App.user.ID select i).Count();
+                if (nbPlayed > 0)
+                {
+                    bt.Background = Brushes.LightGreen;
+                }
+                bt.Click += new RoutedEventHandler(LaunchGame);
+                bt.MouseEnter += new MouseEventHandler(Bt_MouseEnter);
+                bt.MouseLeave += new MouseEventHandler(Bt_MouseLeave);
+                this.gamesPanel.Children.Add(bt);
+            }
+        }
     }
 }
 
