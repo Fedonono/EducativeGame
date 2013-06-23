@@ -48,7 +48,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Expander Header="Copyright Sharpentier 2013" Height="Auto" HorizontalAlignment="Right" Margin="0,0,30,30" Name="expander1" VerticalAlignment="Bottom" ExpandDirection="Up" Width="181">
+        <Expander Header="Copyright Sharpentiers 2013" Height="Auto" HorizontalAlignment="Right" Margin="0,0,30,30" Name="expander1" VerticalAlignment="Bottom" ExpandDirection="Up" Width="181">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,0">
                 <Label Content="Guillaume Simmoneau" Height="auto" HorizontalAlignment="Left" Name="label7" VerticalAlignment="Top" />
                 <Label Content="Adrien Ecrepont" Height="auto" HorizontalAlignment="Left" Name="label8" VerticalAlignment="Top" />

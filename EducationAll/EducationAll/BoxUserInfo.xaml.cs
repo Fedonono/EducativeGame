@@ -62,7 +62,7 @@ namespace EducationAll
                 catch (Exception)
                 {
                 }
-                this.friendsLabel.Content = nbFriends + " amis";
+                this.friendsLabel.Content = string.Format("{0} ami{1}", nbFriends, nbFriends > 1 ? "s" : "");
 
                 this.ChangeImage();
             }

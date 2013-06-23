@@ -25,7 +25,7 @@ namespace EducationAll
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.textBox1.Text = "Eric Allard \nArnaud Babol \nAdrien Ecrepont \nMaxence Prevost \nGuillaume Simonneau";
+            this.textBox1.Text = "Eric Allard \nArnaud Babol \nAdrien Ecrepont \nMaxence Prevost \nGuillaume Simonneau \nISEN Lille";
             this.textBox2.Text = "http://lelpel.deviantart.com/art/Dragon-Games-163676871 \n" +
                     "http://lelpel.deviantart.com/art/Lily-in-Oz-167713232 \n" +
                     "http://lelpel.deviantart.com/art/Snow-Day-176723890 \n" +
