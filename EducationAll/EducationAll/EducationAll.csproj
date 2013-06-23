@@ -307,9 +307,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Backgrounds\Ubuntu_wp_b_3_1600.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 et x64%29</ProductName>
@@ -332,9 +329,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Backgrounds\_New_friends__by_ilona.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Backgrounds\adventure_on_the_high_sea_by_lelpel-d2w7f9g.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -344,64 +338,13 @@
     <Resource Include="Images\Backgrounds\catching_butterflies_by_lelpel-d2y1lbz.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Backgrounds\don_quijote_by_firatsolhan-d57fzvo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Dragon_Games_by_Lelpel.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Backgrounds\Education_by_mallardswoodspice.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\education_by_petuie.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\Education_problems_by_SheepAlbinoBlack.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Backgrounds\f2638c4126ad1dbe0c036685fa1199aa-d52ca98.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Fun_Run_by_Lelpel.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\hm__elephants_by_ilona.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Lily_in_Oz_by_Lelpel.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\no_education__by_tepasuka.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\paper_wings_by_nerdus-d5w0tah.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\penquins_request_by_ilona.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Rainy_days_and_Mondays_by_Lelpel.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Snow_Day_by_Lelpel.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Space_Monkey_by_intergalacticvoo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Television_Education_by_intergalacticvoo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\the_forest_of_houjie_by_geminisleviatan-d63q0f4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\who_sunk_the_boat_by_lelpel-d2y53hc.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Backgrounds\wind_by_ilona.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\1371134105_Mario - Profile.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\path2985.png" />
@@ -443,12 +386,6 @@
     <Resource Include="Images\ImageProfil\3.png" />
     <Resource Include="Images\ImageProfil\2.png" />
     <Resource Include="Images\ImageProfil\1.png" />
-    <Resource Include="Images\1371406083_game.png" />
-    <Resource Include="Images\confetti-girl.png" />
-    <Resource Include="Images\chanson-swing-la-lune-la-mer-de-la-tranquilite-parent.jpg" />
-    <Resource Include="Images\chanson-swing-la-lune-la-fusee-sur-la-lune-parent.jpg" />
-    <Resource Include="Images\chanson-dans-mon-ecole-a-moi-l-arbre-dans-l-ecole-parent.jpg" />
-    <Resource Include="Images\chanson-dans-mon-ecole-a-moi-la-fusee-parent.jpg" />
     <Resource Include="Images\1371345098_trophy.png" />
     <Resource Include="Images\1371324714_face-cool.png" />
     <Resource Include="Images\1371324710_face-plain.png" />
@@ -463,8 +400,6 @@
     <Resource Include="Images\Hangman\six-left.png" />
     <Resource Include="Images\Hangman\three-left.png" />
     <Resource Include="Images\Hangman\two-left.png" />
-    <Resource Include="Images\path_category.png" />
-    <Resource Include="Images\path_game.png" />
     <Resource Include="Images\path879.png" />
   </ItemGroup>
   <ItemGroup>
