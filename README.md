@@ -1,7 +1,7 @@
 EducationAll
 =============
 
-Ce projet est un logiciel éducatif.
+Ce projet est un logiciel éducatif développé par Arnaud BABOL, Adrien ECREPONT, Eric ALLARD, Guillaume SIMMONEAU et Maxence PREVOST.
 
 Installation
 -------
